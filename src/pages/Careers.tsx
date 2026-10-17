@@ -25,6 +25,28 @@ export const Careers: React.FC = () => {
         </div>
       </section>
 
+      {/* Banner Image & Intro */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80 md:h-96">
+          <img
+            src="/images/art_barista_hiring.jpg"
+            alt="Dolphy Cafe Barista Team"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
+            <span className="text-[#f09c05] font-oswald text-xs sm:text-sm uppercase tracking-widest font-bold">
+              GIA ĐÌNH DOLPHY CAFÉ • NƠI ƯƠM MẦM ĐAM MÊ CÀ PHÊ
+            </span>
+            <h2 className="font-oswald text-2xl sm:text-4xl font-bold uppercase mt-1">
+              TRỞ THÀNH MỘT PHẦN CỦA ĐỘI NGŨ BARISTA DOLPHY
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-200 max-w-2xl mt-2 line-clamp-2 sm:line-clamp-none">
+              Tại Dolphy, mỗi ngày đi làm là một ngày tràn đầy năng lượng cùng đồng đội thân thiết, khách quen mến mộ và không gian cà phê mở rộn rã tiếng cười.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why Join Us */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-2 mb-10">
