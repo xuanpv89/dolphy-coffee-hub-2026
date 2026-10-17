@@ -506,12 +506,16 @@ export const Home: React.FC = () => {
 
       {/* 7. KHOẢNH KHẮC DOLPHY / FANPAGE LIVE FEED */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-10 space-y-2">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] text-xs font-oswald uppercase tracking-widest font-bold">
-            <Camera size={14} />
-            <span>{t('home.community_badge')}</span>
+        <div className="text-center mb-10 space-y-3">
+          <div>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] text-xs font-oswald uppercase tracking-widest font-bold">
+              <Camera size={14} />
+              <span>{t('home.community_badge')}</span>
+            </span>
           </div>
-          <h2 className="section-title">{t('home.community_title')}</h2>
+          <div>
+            <h2 className="section-title">{t('home.community_title')}</h2>
+          </div>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             {t('home.community_sub')}
           </p>

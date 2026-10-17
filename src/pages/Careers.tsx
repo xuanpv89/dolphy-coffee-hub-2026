@@ -117,11 +117,15 @@ export const Careers: React.FC = () => {
 
       {/* DOLPHIERS CULTURE & SPORTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center space-y-2">
-          <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
-            {language === 'vi' ? 'CON NGƯỜI & VĂN HÓA DOANH NGHIỆP' : 'PEOPLE & CULTURE'}
-          </span>
-          <h2 className="section-title">{t('careers.culture_title')}</h2>
+        <div className="text-center space-y-3">
+          <div>
+            <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+              {language === 'vi' ? 'CON NGƯỜI & VĂN HÓA DOANH NGHIỆP' : 'PEOPLE & CULTURE'}
+            </span>
+          </div>
+          <div>
+            <h2 className="section-title">{t('careers.culture_title')}</h2>
+          </div>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             {t('careers.culture_sub')}
           </p>

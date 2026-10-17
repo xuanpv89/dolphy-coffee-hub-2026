@@ -258,13 +258,17 @@ export const Academy: React.FC = () => {
 
       {/* 4. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center space-y-2">
-          <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
-            {language === 'vi' ? 'HỌC VIỆN & SÂN CHƠI CHUYÊN NGHIỆP' : 'ACADEMY & CHAMPIONSHIP'}
-          </span>
-          <h2 className="section-title">
-            {t('academy.gallery_title')}
-          </h2>
+        <div className="text-center space-y-3">
+          <div>
+            <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+              {language === 'vi' ? 'HỌC VIỆN & SÂN CHƠI CHUYÊN NGHIỆP' : 'ACADEMY & CHAMPIONSHIP'}
+            </span>
+          </div>
+          <div>
+            <h2 className="section-title">
+              {t('academy.gallery_title')}
+            </h2>
+          </div>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             {t('academy.gallery_sub')}
           </p>
