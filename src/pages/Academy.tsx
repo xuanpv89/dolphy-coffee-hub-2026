@@ -274,26 +274,26 @@ export const Academy: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
-                src="/images/fanpage/barista-training-workshop.jpg"
-                alt="Đào tạo kỹ năng cối xay và máy pha Rancilio"
+                src="/images/fanpage/academy-championship-backdrop.jpg"
+                alt="Dolphy Junior Barista Championship 2024"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-4 space-y-1">
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
-                {language === 'vi' ? 'Thực Hành Quầy Bar 1:1' : '1-on-1 Live Bar Coaching'}
+                {language === 'vi' ? 'Sân Chơi Thường Niên' : 'Annual Championship'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
-                {language === 'vi' ? 'Căn chỉnh cối xay & Chiết xuất Espresso' : 'Dial-in & Espresso Calibration'}
+                {language === 'vi' ? 'Junior Barista Championship 2024' : 'Junior Barista Championship 2024'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                 {language === 'vi'
-                  ? 'Học viên được trực tiếp cầm tay chỉ việc trên dòng máy pha công nghiệp Rancilio và máy xay chuyên dụng.'
-                  : 'Direct coaching on commercial Rancilio machines, testing sensory extraction profiles.'}
+                  ? 'Đấu trường chuyên môn thực chiến tổ chức tại Dolphy 28 Trần Lựu, nơi ươm mầm thế hệ tài năng trẻ.'
+                  : 'Practical competition held at Dolphy 28 Tran Luu, nurturing passionate young coffee talents.'}
               </p>
             </div>
           </div>
@@ -301,22 +301,22 @@ export const Academy: React.FC = () => {
           <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
-                src="/images/fanpage/top-12-baristas.jpg"
-                alt="Top 12 Barista tài năng Dolphy Cafe"
+                src="/images/fanpage/academy-latte-art-pouring.jpg"
+                alt="Kỹ thuật rót bọt sữa Latte Art"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-4 space-y-1">
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
-                {language === 'vi' ? 'Sân Chơi Chuyên Nghiệp' : 'Annual Competition'}
+                {language === 'vi' ? 'Kỹ Năng Đỉnh Cao' : 'Masterful Skills'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
-                {language === 'vi' ? 'Bảng Vinh Danh Top 12 Barista' : 'Top 12 Finalists Recognition'}
+                {language === 'vi' ? 'Nghệ Thuật Đánh Sữa & Latte Art' : 'Milk Steaming & Silky Pouring'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                 {language === 'vi'
-                  ? 'Nơi các bạn trẻ thỏa sức sáng tạo công thức Signature Drink và biểu diễn Latte Art đỉnh cao trước hội đồng giám khảo.'
-                  : 'Where talented baristas showcase signature recipes and silky latte art before certified judges.'}
+                  ? 'Thực hành tạo bọt sữa vi mô (Micro-foam) sánh mịn và kỹ thuật đổ hoa Rosetta, Tulip, Thiên nga.'
+                  : 'Hands-on glossy micro-foam steaming and free pour patterns from Rosetta to Winged Tulip.'}
               </p>
             </div>
           </div>
@@ -324,22 +324,91 @@ export const Academy: React.FC = () => {
           <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
-                src="/images/fanpage/barista-championship-ceremony.jpg"
-                alt="Lễ vinh danh giải thưởng Blue Dolphins Barista Championship"
+                src="/images/fanpage/academy-championship-trophy.jpg"
+                alt="Lễ trao giải cúp vô địch Junior Barista Championship"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-4 space-y-1">
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
-                {language === 'vi' ? 'Lễ Trao Giải Season VII' : 'Season VII Awards Ceremony'}
+                {language === 'vi' ? 'Vinh Danh Tài Năng' : 'Trophy Ceremony'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
-                {language === 'vi' ? 'Khoảnh Khắc Tỏa Sáng Nghề Barista' : 'Shining Barista Career Moments'}
+                {language === 'vi' ? 'Trao Cúp Vô Địch & Chứng Chỉ' : 'Championship Trophy & Certs'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                 {language === 'vi'
-                  ? 'Cơ hội thăng tiến lên Shift Leader, Store Manager và mở rộng sự nghiệp ra các chuỗi cà phê quốc tế.'
-                  : 'Fast-track career advancement to Shift Leader, Store Manager, and international hospitality.'}
+                  ? 'Chứng nhận tốt nghiệp nghề Barista và cơ hội thăng tiến lên Shift Leader, Store Manager tại chuỗi.'
+                  : 'Certified graduation credential opening fast-track promotion to Shift Leader and Store Manager.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[4/3] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/academy-bracket-board.jpg"
+                alt="Bảng thi đấu Basic Legacy Barista"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                {language === 'vi' ? 'Quy Trình Chuẩn Hóa' : 'Standardized Bracket'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Bảng Đấu Trực Tiếp & Đánh Giá' : 'Direct Tournament Bracket'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Quy trình thi đấu phân hạng Tứ kết - Bán kết - Chung kết minh bạch, tạo động lực phát triển chuyên môn.'
+                  : 'Transparent bracket stages from quarter-finals to grand finals driving continuous excellence.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[4/3] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/academy-sensory-judging.jpg"
+                alt="Ban giám khảo chấm điểm cảm quan sensory"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                {language === 'vi' ? 'Cảm Quan Hương Vị' : 'Sensory Evaluation'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Hội Đồng Giám Khảo Chấm Điểm' : 'Professional SCA Judging'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Đánh giá chi tiết các chỉ số Flavor, Aftertaste, Acidity, Body và Balance theo tiêu chuẩn quốc tế.'
+                  : 'Comprehensive evaluation of flavor, aftertaste, acidity, body and balance by seasoned judges.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[4/3] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/academy-espresso-machine.jpg"
+                alt="Hiệu chỉnh máy pha công nghiệp quầy bar"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                {language === 'vi' ? 'Thực Hành Trực Tiếp' : 'Live Station Practice'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Hiệu Chỉnh Máy Pha Espresso' : 'Commercial Espresso Station'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Đứng quầy bar thực tế tại 10 cửa hàng, làm chủ máy pha công nghiệp đa group và áp suất 9-bar.'
+                  : 'Train on multi-group commercial espresso machines with 9-bar precision across 10 store locations.'}
               </p>
             </div>
           </div>

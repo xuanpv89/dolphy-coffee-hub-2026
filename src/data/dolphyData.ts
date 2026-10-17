@@ -112,7 +112,7 @@ export const coursesData: Course[] = [
       'Lớp Cuối Tuần: Thứ 7 & Chủ Nhật (Ca Linh hoạt)',
       'Lớp Cấp Tốc: Học liên tục theo thỏa thuận riêng'
     ],
-    image: '/images/image4.jpg',
+    image: '/images/fanpage/academy-championship-backdrop.jpg',
     locations: [
       'Dolphy Training Hub - 28 Thảo Điền, P. Thảo Điền, TP. Thủ Đức',
       'Dolphy Training Hub - 1441 Nguyễn Văn Linh, P. Tân Phong, Quận 7'
@@ -173,7 +173,7 @@ export const coursesData: Course[] = [
     ],
     trainerInfo: 'Hướng dẫn bởi Quán quân / Trọng tài các giải đấu Barista & Trainer chuyên sâu của Dolphy.',
     schedule: ['Thứ 3 - Thứ 5 hàng tuần (14:00 - 17:30)', 'Chủ Nhật (Cả ngày)'],
-    image: '/images/image2.jpg',
+    image: '/images/fanpage/academy-latte-art-pouring.jpg',
     locations: ['Dolphy Training Hub - 28 Thảo Điền, TP. Thủ Đức']
   },
   {
@@ -213,10 +213,96 @@ export const coursesData: Course[] = [
     ],
     trainerInfo: 'Speaker & Barista Host thân thiện từ Dolphy Café Team.',
     schedule: ['Sáng Thứ 7 hàng tuần (09:00 - 12:30)', 'Sáng Chủ Nhật hàng tuần (09:00 - 12:30)'],
-    image: '/images/image1.jpg',
+    image: '/images/fanpage/academy-signature-rose-latte.jpg',
     locations: [
       'Dolphy Thảo Điền (28 Thảo Điền, Q.2)',
       'Dolphy Phú Mỹ Hưng (1441 Nguyễn Văn Linh, Q.7)'
+    ]
+  },
+  {
+    id: 'quan-ly-van-hanh-fnb',
+    title: 'Khóa Đào Tạo Quản Lý Quán & Vận Hành F&B Thực Chiến',
+    slug: 'quan-ly-van-hanh-fnb',
+    badge: 'Chuyên Gia Vận Hành 2026',
+    subtitle: 'Nắm vững kỹ năng quản trị kinh doanh cà phê, kiểm soát cost, định lượng nguyên liệu, quản lý nhân sự và phần mềm bán hàng CukCuk thực tế tại chuỗi Dolphy.',
+    price: 15000000,
+    discountPrice: 12000000,
+    depositAmount: 3000000,
+    duration: '4 tuần (8 buổi)',
+    totalHours: 28,
+    sessions: 8,
+    hoursPerSession: 3.5,
+    targetAudience: [
+      'Chủ quán cà phê tương lai chuẩn bị khởi nghiệp hoặc nhận nhượng quyền.',
+      'Quản lý cửa hàng, Shift Leader muốn nâng cao năng lực điều hành chuỗi.',
+      'Người muốn nắm vững tài chính và tối ưu tỷ suất lợi nhuận trong ngành F&B.'
+    ],
+    usps: [
+      'Học trực tiếp trên số liệu vận hành và hệ thống CukCuk thực tế của 10 chi nhánh Dolphy.',
+      'Tối ưu hóa tỷ lệ hao hụt nguyên vật liệu (Food & Beverage Cost Control dưới 28%).',
+      'Được tư vấn 1:1 bản vẽ thiết kế công năng quầy bar và quy trình kiểm soát ca làm việc.'
+    ],
+    syllabus: [
+      {
+        session: 1,
+        title: 'Buổi 1: Mô Hình Kinh Doanh F&B & Thiết Kế Công Năng Quầy Bar Chuẩn',
+        description: 'Phân tích tam giác vàng trong quầy bar (Tủ mát - Máy pha - Bồn rửa). Tối ưu luồng di chuyển của nhân viên trong giờ cao điểm.',
+        practicalSkills: ['Đọc bản vẽ mặt bằng quầy bar', 'Bố trí trạm làm việc (Station Layout)']
+      },
+      {
+        session: 2,
+        title: 'Buổi 2: Xây Dựng Định Lượng (Recipe Costing) & Kiểm Soát Giá Vốn (COGS)',
+        description: 'Công thức tính giá vốn chuẩn cho từng món đồ uống và bánh ngọt; thiết lập mức giá bán cạnh tranh và biên lợi nhuận kỳ vọng.',
+        practicalSkills: ['Lập bảng Costing Excel', 'Cân đối tỷ lệ cost Arabica/Robusta/Sữa tươi']
+      },
+      {
+        session: 3,
+        title: 'Buổi 3: Vận Hành Phần Mềm POS & Quản Trị Kho Đơn Hàng (CukCuk)',
+        description: 'Thiết lập danh mục menu, quản lý xuất nhập tồn kho, kiểm kê định kỳ và đối soát doanh thu bán mang đi qua app giao hàng.',
+        practicalSkills: ['Thực hành trên phần mềm quản lý CukCuk', 'Xử lý hủy món, hoàn tiền, chiết khấu']
+      },
+      {
+        session: 4,
+        title: 'Buổi 4: Tuyển Dụng, Đào Tạo & Quản Trị Nhân Sự Khối Cửa Hàng',
+        description: 'Quy trình tuyển dụng Barista, xây dựng thang bảng lương, chính sách thưởng tip và KPIs doanh số theo giờ làm việc.',
+        practicalSkills: ['Thiết kế ca làm việc (Roster)', 'Quy trình Onboarding nhân sự mới']
+      },
+      {
+        session: 5,
+        title: 'Buổi 5: Tiêu Chuẩn Dịch Vụ Khách Hàng 5 Sao & Xử Lý Khủng Hoảng F&B',
+        description: 'Văn hóa Happiness in a cup, quy tắc ứng xử với khách hàng quốc tế, quy trình xử lý phàn nàn và bảo vệ uy tín thương hiệu.',
+        practicalSkills: ['Xử lý tình huống đền món', 'Kịch bản giao tiếp giải tỏa bức xúc']
+      },
+      {
+        session: 6,
+        title: 'Buổi 6: Quản Lý Vệ Sinh An Toàn Thực Phẩm & Pháp Lý Cửa Hàng',
+        description: 'Các tiêu chuẩn VSATTP, quy định PCCC, thủ tục đăng ký kinh doanh và bảo quản nguyên vật liệu chuẩn theo mùa.',
+        practicalSkills: ['Checklist kiểm tra ca mở / ca đóng cửa hàng', 'Lưu mẫu thực phẩm']
+      },
+      {
+        session: 7,
+        title: 'Buổi 7: Marketing Cửa Hàng & Kéo Khách Hàng Địa Phương (Local Store Marketing)',
+        description: 'Cách xây dựng tệp khách hàng thân thiết, phát hành thẻ tích điểm, tổ chức sự kiện workshop và chạy ưu đãi ngày lễ.',
+        practicalSkills: ['Thiết kế chương trình Mua 10 tặng 1 / Green Stamp', 'Tối ưu Google Business']
+      },
+      {
+        session: 8,
+        title: 'Buổi 8: Báo Cáo Tài Chính Cửa Hàng & Bảo Vệ Đồ Án Mở Quán Thực Tế',
+        description: 'Đọc và phân tích bảng P&L (Lãi - Lỗ) hàng tháng; đánh giá điểm hòa vốn (Break-even point) và thuyết trình kế hoạch kinh doanh.',
+        practicalSkills: ['Lập báo cáo P&L mẫu', 'Bảo vệ kế hoạch mở quán trước hội đồng chuyên gia']
+      }
+    ],
+    outcomes: [
+      'Tự tin làm chủ hoặc điều hành chuỗi cà phê từ 1 đến nhiều chi nhánh.',
+      'Kiểm soát chặt chẽ dòng tiền và hạn chế tối đa rủi ro thất thoát trong kinh doanh.',
+      'Nhận chứng chỉ Quản lý F&B chuyên nghiệp từ Dolphy Academy.'
+    ],
+    trainerInfo: 'Trực tiếp giảng dạy bởi Giám đốc Vận hành (COO) và Quản lý Chuỗi kỳ cựu của Dolphy Café.',
+    schedule: ['Thứ 7 & Chủ Nhật (14:00 - 17:30)', 'Lớp linh hoạt theo nhu cầu chủ quán'],
+    image: '/images/fanpage/academy-bracket-board.jpg',
+    locations: [
+      'Dolphy Training Hub - 28 Thảo Điền, P. Thảo Điền, TP. Thủ Đức',
+      'Dolphy Training Hub - 1441 Nguyễn Văn Linh, P. Tân Phong, Quận 7'
     ]
   }
 ];
@@ -241,7 +327,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
     images: [
       '/images/prod_arabica_250g.jpg',
       '/images/prod_arabica_500g.jpg',
-      '/images/image12.jpg'
+      '/images/fanpage/retail-beans-bakery-display.jpg'
     ],
     inStock: true,
     isBestSeller: true
@@ -448,7 +534,7 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
     image: '/images/prod_phin_nhom.jpg',
     images: [
       '/images/prod_phin_nhom.jpg',
-      '/images/image4.jpg'
+      '/images/fanpage/knowledge-phin-brewing-guide.jpg'
     ],
     inStock: true
   }
@@ -457,35 +543,49 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
 export const branchesData: Branch[] = [
   // Khu vực Quận 2 (TP. Thủ Đức)
   {
-    id: 'branch-thao-dien-1',
-    name: 'Dolphy Café - 31 Thảo Điền (Flagship)',
+    id: 'branch-08-thao-dien',
+    name: 'Dolphy Café - 08 Thảo Điền',
     area: 'Quận 2 (TP. Thủ Đức)',
     district: 'Thảo Điền, TP. Thủ Đức',
-    address: '31 Thảo Điền, Phường Thảo Điền, Quận 2 (TP. Thủ Đức), TP.HCM',
+    address: '08 Thảo Điền, Phường Thảo Điền, Quận 2 (TP. Thủ Đức), TP.HCM',
     phone: '0938 084 985',
     openingHours: '06:30 - 22:30 (Mở cửa mỗi ngày)',
-    mapUrl: 'https://maps.google.com/?q=31+Thao+Dien+District+2+Ho+Chi+Minh',
+    mapUrl: 'https://maps.google.com/?q=8+Thao+Dien+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/fanpage/store-31-thao-dien-facade.jpg',
-    features: ['Chi nhánh biểu tượng từ 2013', 'Sân vườn rợp bóng cây xanh', 'Thân thiện thú cưng', 'Dolphy Academy Training Hub'],
+    image: '/images/fanpage/branch-08-thao-dien.jpg',
+    features: ['Góc phố Thảo Điền rợp bóng mát', 'Cộng đồng Expat quốc tế', 'Thân thiện thú cưng (Pet-friendly)', 'Take-away & CukCuk Delivery'],
     isFlagship: true
   },
   {
-    id: 'branch-thao-dien-2',
+    id: 'branch-28-thao-dien',
     name: 'Dolphy Café - 28 Thảo Điền',
     area: 'Quận 2 (TP. Thủ Đức)',
     district: 'Thảo Điền, TP. Thủ Đức',
     address: '28 Thảo Điền, Phường Thảo Điền, Quận 2 (TP. Thủ Đức), TP.HCM',
     phone: '0938 084 985',
-    openingHours: '06:30 - 22:00 (Mở cửa mỗi ngày)',
+    openingHours: '06:30 - 22:30 (Mở cửa mỗi ngày)',
     mapUrl: 'https://maps.google.com/?q=28+Thao+Dien+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/image5.jpg',
-    features: ['Góc ngồi ngắm phố sầm uất', 'Wifi tốc độ cao', 'Máy lạnh trong nhà', 'Chỗ đậu xe rộng rãi']
+    image: '/images/fanpage/branch-28-thao-dien.jpg',
+    features: ['Biểu tượng Dolphy Thảo Điền từ 2013', 'Trung tâm Dolphy Barista Academy', 'Không gian xanh thoáng đãng', 'Wifi tốc độ cao làm việc'],
+    isFlagship: true
   },
   {
-    id: 'branch-nguyen-van-huong',
-    name: 'Dolphy Café - 23 Nguyễn Văn Hưởng',
+    id: 'branch-03-nguyen-van-huong',
+    name: 'Dolphy Café - 03 Nguyễn Văn Hưởng',
+    area: 'Quận 2 (TP. Thủ Đức)',
+    district: 'Thảo Điền, TP. Thủ Đức',
+    address: '03 Nguyễn Văn Hưởng, Phường Thảo Điền, Quận 2 (TP. Thủ Đức), TP.HCM',
+    phone: '0938 084 985',
+    openingHours: '06:30 - 22:30',
+    mapUrl: 'https://maps.google.com/?q=3+Nguyen+Van+Huong+District+2+Ho+Chi+Minh',
+    mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
+    image: '/images/fanpage/branch-03-nguyen-van-huong.jpg',
+    features: ['Không gian mộc mạc vỉa hè Sài Gòn', 'Cây cổ thụ tỏa bóng xanh mát', 'Điểm hẹn cà phê sáng lý tưởng', 'Chỗ để xe rộng rãi']
+  },
+  {
+    id: 'branch-23-nguyen-van-huong',
+    name: 'Dolphy Café - 23 Nguyễn Văn Hưởng (Flagship)',
     area: 'Quận 2 (TP. Thủ Đức)',
     district: 'Thảo Điền, TP. Thủ Đức',
     address: '23 Nguyễn Văn Hưởng, Phường Thảo Điền, Quận 2 (TP. Thủ Đức), TP.HCM',
@@ -498,20 +598,7 @@ export const branchesData: Branch[] = [
     isFlagship: true
   },
   {
-    id: 'branch-duong-van-an',
-    name: 'Dolphy Café - 113 Dương Văn An',
-    area: 'Quận 2 (TP. Thủ Đức)',
-    district: 'An Phú, TP. Thủ Đức',
-    address: '113 Dương Văn An, Phường An Phú, Quận 2 (TP. Thủ Đức), TP.HCM',
-    phone: '0938 084 985',
-    openingHours: '06:30 - 22:00',
-    mapUrl: 'https://maps.google.com/?q=113+Duong+Van+An+District+2+Ho+Chi+Minh',
-    mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/fanpage/23-nguyen-van-huong-interior.jpg',
-    features: ['Khu dân cư văn minh', 'Bàn làm việc nhóm lớn', 'Menu Cloud Collection mới', 'Ổ cắm điện từng bàn']
-  },
-  {
-    id: 'branch-tran-luu',
+    id: 'branch-28-tran-luu',
     name: 'Dolphy Café - 28 Trần Lựu',
     area: 'Quận 2 (TP. Thủ Đức)',
     district: 'An Phú, TP. Thủ Đức',
@@ -520,13 +607,26 @@ export const branchesData: Branch[] = [
     openingHours: '06:30 - 22:00',
     mapUrl: 'https://maps.google.com/?q=28+Tran+Luu+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/image4.jpg',
-    features: ['Khu biệt thự yên tĩnh', 'Không gian xanh mát', 'Thích hợp gặp gỡ đối tác']
+    image: '/images/fanpage/branch-28-tran-luu.jpg',
+    features: ['Sân vườn biệt thự An Phú', 'Nơi tổ chức Junior Barista Championship', 'Gặp gỡ đối tác trang nhã', 'Khuôn viên yên bình']
+  },
+  {
+    id: 'branch-113-duong-van-an',
+    name: 'Dolphy Café - 113 Dương Văn An',
+    area: 'Quận 2 (TP. Thủ Đức)',
+    district: 'An Phú, TP. Thủ Đức',
+    address: '113 Dương Văn An, Phường An Phú, Quận 2 (TP. Thủ Đức), TP.HCM',
+    phone: '0938 084 985',
+    openingHours: '06:30 - 22:00',
+    mapUrl: 'https://maps.google.com/?q=113+Duong+Van+An+District+2+Ho+Chi+Minh',
+    mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
+    image: '/images/fanpage/branch-113-duong-van-an.jpg',
+    features: ['Khu dân cư hiện đại An Phú', 'Bàn làm việc nhóm lớn', 'Menu Cloud Collection mới', 'Ổ cắm điện từng bàn']
   },
 
-  // Khu vực Quận 7
+  // Khu vực Quận 7 (Phú Mỹ Hưng)
   {
-    id: 'branch-nguyen-van-linh',
+    id: 'branch-1441-nguyen-van-linh',
     name: 'Dolphy Café - 1441 Nguyễn Văn Linh',
     area: 'Quận 7 (Phú Mỹ Hưng)',
     district: 'Tân Phong, Quận 7',
@@ -535,54 +635,54 @@ export const branchesData: Branch[] = [
     openingHours: '06:30 - 22:00',
     mapUrl: 'https://maps.google.com/?q=1441+Nguyen+Van+Linh+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/fanpage/modern-interior-panorama.jpg',
-    features: ['Trục đường lớn Phú Mỹ Hưng', 'View kính panorama ngập tràn ánh sáng', 'Dolphy Academy Training Hub Q7'],
+    image: '/images/fanpage/branch-1441-nguyen-van-linh.jpg',
+    features: ['Đại lộ Nguyễn Văn Linh sầm uất', 'Kính panorama ngập tràn ánh sáng', 'Dolphy Academy Training Hub Q7', 'Hồ cá Koi thanh tịnh'],
     isFlagship: true
   },
   {
     id: 'branch-nam-vien',
-    name: 'Dolphy Café - Nam Viên',
+    name: 'Dolphy Café - Nam Viên (Phú Mỹ Hưng)',
     area: 'Quận 7 (Phú Mỹ Hưng)',
     district: 'Tân Phú, Quận 7',
-    address: '35 Đường Số 16, Khu dân cư Nam Viên, Phường Tân Phú, Quận 7, TP.HCM',
+    address: 'Khu dân cư Nam Viên, Phường Tân Phú, Quận 7, TP.HCM',
     phone: '0938 084 985',
     openingHours: '06:30 - 22:00',
-    mapUrl: 'https://maps.google.com/?q=35+Duong+so+16+Nam+Vien+District+7+Ho+Chi+Minh',
+    mapUrl: 'https://maps.google.com/?q=Nam+Vien+Phu+My+Hung+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/image6.jpg',
-    features: ['Công viên Nam Viên xanh mát', 'Không khí trong lành', 'Khu vực ngoài trời thoáng đãng']
+    image: '/images/fanpage/branch-nam-vien-pmh.jpg',
+    features: ['Công viên Nam Viên rợp bóng cây', 'Không khí trong lành yên tĩnh', 'Chỗ ngồi ngoài trời thoáng đãng', 'Thân thiện thú cưng']
   },
   {
     id: 'branch-ly-long-tuong',
-    name: 'Dolphy Café - Lý Long Tường',
+    name: 'Dolphy Café - Lý Long Tường (Nam Quang)',
     area: 'Quận 7 (Phú Mỹ Hưng)',
     district: 'Tân Phong, Quận 7',
-    address: 'R3-21 Lý Long Tường, Phường Tân Phong, Quận 7, TP.HCM',
+    address: 'R3-21 Lý Long Tường, KDC Nam Quang, Phú Mỹ Hưng, Quận 7, TP.HCM',
     phone: '0938 084 985',
     openingHours: '06:30 - 22:00',
     mapUrl: 'https://maps.google.com/?q=R3-21+Ly+Long+Tuong+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/image7.jpg',
-    features: ['Trung tâm phố đi bộ Phú Mỹ Hưng', 'Gần các nhà hàng ẩm thực', 'Chỗ ngồi bệt & bàn cao']
+    image: '/images/fanpage/branch-ly-long-tuong-nam-quang.jpg',
+    features: ['Trung tâm phố đi bộ Phú Mỹ Hưng', 'Thiết kế biển hiệu xanh nổi bật', 'Chỗ ngồi bệt & bàn cao', 'Phục vụ cư dân Hàn Quốc & Expat']
   },
   {
     id: 'branch-hoang-van-thai',
-    name: 'Dolphy Café - Prudential Tower',
+    name: 'Dolphy Café - Prudential Tower (Hoàng Văn Thái)',
     area: 'Quận 7 (Phú Mỹ Hưng)',
     district: 'Tân Phong, Quận 7',
-    address: '8 Hoàng Văn Thái, Khu Phố 1, Quận 7 (Tòa nhà Prudential), TP.HCM',
+    address: '08 Hoàng Văn Thái, Khu Phố 1, Quận 7 (Tòa nhà Prudential), TP.HCM',
     phone: '0938 084 985',
     openingHours: '06:30 - 20:30 (Thứ 2 - Thứ 7)',
     mapUrl: 'https://maps.google.com/?q=8+Hoang+Van+Thai+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/image8.jpg',
-    features: ['Phục vụ dân văn phòng & doanh nghiệp', 'Take-away siêu nhanh', 'Đặt món online giao tận bàn']
+    image: '/images/fanpage/branch-08-hoang-van-thai-prudential.jpg',
+    features: ['Tòa nhà Prudential trung tâm tài chính Q7', 'Phục vụ văn phòng & tiệc Teabreak', 'Take-away siêu nhanh', 'Đặt món online giao tận bàn']
   },
 
   // Khu vực Bình Thạnh
   {
     id: 'branch-pham-viet-chanh',
-    name: 'Dolphy Café - Phạm Viết Chánh',
+    name: 'Dolphy Café - 79 Phạm Viết Chánh',
     area: 'Quận Bình Thạnh',
     district: 'Phường 19, Bình Thạnh',
     address: '79 Phạm Viết Chánh, Phường 19, Quận Bình Thạnh, TP.HCM',
@@ -590,11 +690,11 @@ export const branchesData: Branch[] = [
     openingHours: '06:30 - 22:30',
     mapUrl: 'https://maps.google.com/?q=79+Pham+Viet+Chanh+Binh+Thanh+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/fanpage/coffee-counter-overhead.jpg',
-    features: ['Khu phố Tây/Nhật Phạm Viết Chánh sôi động', 'Nhạc acoustic nhẹ nhàng', 'Bạc sỉu & cà phê pha phin truyền thống']
+    image: '/images/fanpage/branch-79-pham-viet-chanh.jpg',
+    features: ['Khu phố Tây/Nhật Phạm Viết Chánh sôi động', 'Nhạc acoustic nhẹ nhàng', 'Bạc sỉu & cà phê pha phin truyền thống', 'Góc vỉa hè ngắm phố']
   },
 
-  // Khu vực Quận 3 (Mới Khai Trương 2026)
+  // Khu vực Quận 3 (Trung Tâm)
   {
     id: 'branch-ba-huyen-thanh-quan',
     name: 'Dolphy Café - 08 Bà Huyện Thanh Quan (Mới)',
@@ -612,6 +712,104 @@ export const branchesData: Branch[] = [
 ];
 
 export const articlesData: Article[] = [
+  {
+    id: 'junior-barista-championship-2024',
+    title: 'Dolphy Junior Barista Championship 2024: Nơi Bừng Sáng Ngọn Lửa Đam Mê Của Thế Hệ Trẻ Tại 28 Trần Lựu',
+    slug: 'junior-barista-championship-2024-tran-luu',
+    category: 'Học Viện & Cuộc Thi',
+    date: '2026-10-17',
+    author: 'Dolphy Academy',
+    readTime: '6 phút đọc',
+    excerpt: 'Sân chơi chuyên môn nội bộ thường niên giữa 10 chi nhánh Dolphy quy tụ các tài năng trẻ thi thố kỹ năng Latte Art và cảm quan hương vị cà phê.',
+    image: '/images/fanpage/academy-championship-backdrop.jpg',
+    tags: ['Junior Barista', 'Championship 2024', 'Dolphy Academy', '28 Trần Lựu'],
+    content: `Ngày 20/03/2024 tại chi nhánh Dolphy Café 28 Trần Lựu (An Phú, TP. Thủ Đức), vòng chung kết cuộc thi DOLPHY JUNIOR BARISTA CHAMPIONSHIP 2024 đã diễn ra vô cùng sôi nổi và kịch tính.
+
+ĐÂU CHỈ LÀ MỘT CUỘC THI, ĐÂY LÀ HÀNH TRÌNH TRƯỞNG THÀNH
+Quy tụ hơn 30 thí sinh trẻ xuất sắc đại diện từ 10 cơ sở trên khắp TP.HCM, các bạn đã vượt qua các vòng đấu bảng căng thẳng (Tứ kết, Bán kết và Chung kết) với các thử thách:
+• Thử thách 1: Căn chỉnh cối xay (Dial-in Espresso) trong thời gian giới hạn 10 phút.
+• Thử thách 2: Biểu diễn Latte Art kỹ thuật cao với 3 mẫu bắt buộc: Trái tim nhiều tầng (Layered Heart), Cánh hoa Tulip đối xứng và Lá Rosetta thanh mảnh.
+• Thử thách 3: Pha chế thức uống sáng tạo Signature Drink dựa trên nền hạt Arabica Cầu Đất nguyên bản.
+
+HỘI ĐỒNG GIÁM KHẢO CHUYÊN MÔN CHẤM ĐIỂM KHẮC KHE
+Ban giám khảo gồm các Head Barista và chuyên gia đào tạo đã đánh giá từng tách cà phê dựa trên thang điểm chuẩn quốc tế SCA: từ độ sáng mịn của bọt sữa (Glossy micro-foam), độ cân bằng hương vị giữa chua thanh và ngọt bùi, cho đến phong thái phục vụ chân thành "Happiness in a cup".
+
+Chiếc cúp vô địch cùng chứng nhận tốt nghiệp danh dự đã tìm được chủ nhân xứng đáng, mở ra nấc thang thăng tiến trở thành Trưởng ca và Huấn luyện viên tương lai tại Dolphy Academy.`
+  },
+  {
+    id: 'huong-dan-pha-phin-dolphy',
+    title: 'Bí Quyết Pha Cà Phê Phin Chuẩn Vị Sài Gòn: 4 Bước Tỉ Lệ Vàng 1:4 Từ Head Barista Dolphy',
+    slug: 'bi-quyet-pha-ca-phe-phin-chuan-vi-sai-gon',
+    category: 'Cẩm Nang Barista',
+    date: '2026-10-12',
+    author: 'Head Barista Dolphy',
+    readTime: '5 phút đọc',
+    excerpt: 'Chi tiết định lượng 20-25g cà phê mộc, kỹ thuật ủ phin 30ml nước sôi trong 2-3 phút để chiết xuất trọn vẹn tầng hương caramel và socola.',
+    image: '/images/fanpage/knowledge-phin-brewing-guide.jpg',
+    tags: ['Cà phê phin', 'Hướng dẫn pha chế', 'Tỉ lệ vàng', 'Bạc sỉu'],
+    content: `Cà phê phin không đơn thuần là một món uống quen thuộc, mà là biểu tượng của phong cách sống chậm rãi, lắng đọng giữa nhịp sống hối hả của Sài Gòn.
+
+Hôm nay, Head Barista của DOLPHY CAFÉ xin chia sẻ đến bạn công thức "chuẩn chỉ" để có thể tự pha một tách cà phê phin đậm đà thơm ngát ngay tại nhà:
+
+NGUYÊN LIỆU & DỤNG CỤ:
+• 20 - 25 gram cà phê hạt mộc rang vừa-đậm (Dòng Robusta Bảo Lộc hoặc Espresso Blend 80:20 của Dolphy).
+• Nước sôi tinh khiết ở nhiệt độ lý tưởng 92°C - 96°C.
+• 01 Phin cà phê nhôm cao cấp Dolphy (Phin nhôm giúp truyền nhiệt đều và giữ nóng tốt hơn phin inox).
+
+4 BƯỚC PHA CHẾ TỶ LỆ VÀNG:
+• Bước 1: Tráng nóng phin và ly bằng nước sôi để ổn định nhiệt độ trước khi pha.
+• Bước 2: Cho 20 - 25g bột cà phê vào phin, lắc nhẹ cho bề mặt bột phẳng đều, sau đó đặt gài phin và ấn nhẹ vừa tay.
+• Bước 3 (Ủ cà phê - Bước quyết định): Rót 30ml nước sôi vào nắp phin và đáy phin, đồng thời rót 20ml lên mặt trên để cà phê nở đều từ hai phía. Đậy nắp và chờ trong 2 - 3 phút để hạt cà phê giải phóng hết khí CO2 và ngấm đẫm nhiệt.
+• Bước 4: Sau khi ủ, rót thêm 40 - 50ml nước sôi vào phin. Đậy nắp và để cà phê nhỏ giọt tí tách tự nhiên (tốc độ chuẩn là khoảng 1 giọt/giây).
+
+Thành phẩm thu được khoảng 40 - 45ml cốt cà phê sánh đậm, thơm ngát mùi socola đen và hạt dẻ rang. Thêm sữa đặc để làm ly Cà phê sữa đá hoặc Bạc sỉu 3 tầng béo ngậy!`
+  },
+  {
+    id: 'dolphy-art-workshop-cho-be',
+    title: 'Dolphy Art & Coffee: Sân Chơi Sáng Tạo Nghệ Thuật Cho Bé Bên Tách Cà Phê Sáng Của Bố Mẹ',
+    slug: 'dolphy-art-coffee-workshop-cho-be-cuoi-tuan',
+    category: 'Cộng Đồng Thảo Điền',
+    date: '2026-10-08',
+    author: 'Dolphy Community',
+    readTime: '4 phút đọc',
+    excerpt: 'Không gian mở tại Dolphy trở thành điểm hẹn thân thương cho các gia đình cuối tuần: Bố mẹ thảnh thơi thưởng thức cà phê, các bé tự do sáng tạo sắc màu.',
+    image: '/images/fanpage/community-kids-art-workshop.jpg',
+    tags: ['Workshop thiếu nhi', 'Gia đình', 'Thảo Điền', 'Art & Coffee'],
+    content: `Cuối tuần luôn là khoảng thời gian quý giá để cả gia đình gắn kết và tái tạo năng lượng sau một tuần học tập, làm việc bận rộn.
+
+Thấu hiểu mong muốn của các bậc phụ huynh tại khu đô thị Thảo Điền và An Phú, DOLPHY CAFÉ thường xuyên phối hợp tổ chức các buổi "XƯỞNG VẼ SẮC MÀU & SÁNG TẠO NGHỆ THUẬT" dành riêng cho các bé thiếu nhi ngay trong không gian sân vườn của quán.
+
+KHÔNG GIAN NGHỆ THUẬT NGẬP TRÀN CẢM HỨNG
+Các bé được trang bị giá vẽ chuyên nghiệp, tạp dề họa sĩ nhí, bảng pha màu acrylic và được các thầy cô hướng dẫn tận tình từng nét cọ, cách phối sắc độ tương phản và tự tay hoàn thiện bức tranh chủ đề thiên nhiên.
+
+KHOẢNH KHẮC BÌNH YÊN CỦA BỐ MẸ
+Trong khi các con say mê sáng tạo trong thế giới hội họa, bố mẹ có thể thảnh thơi ngồi bên tách Cappuccino hay Flat White thơm phức, đọc một cuốn sách hay hoặc trò chuyện cùng những người hàng xóm thân thiện.
+
+Đó chính là bức tranh cộng đồng sống động và ấm áp mà Dolphy luôn nỗ lực vun đắp mỗi ngày!`
+  },
+  {
+    id: 'dich-vu-teabreak-catering',
+    title: 'Dolphy Teabreak Catering & B2B: Giải Pháp Đồ Uống & Tiệc Bánh Ngọt Trọn Gói Cho Sự Kiện Doanh Nghiệp',
+    slug: 'dich-vu-teabreak-catering-b2b-dolphy',
+    category: 'Dịch Vụ B2B',
+    date: '2026-10-01',
+    author: 'Dolphy Corporate Services',
+    readTime: '5 phút đọc',
+    excerpt: 'Dịch vụ setup quầy cà phê di động, bánh nướng Dolphy Bakery và trái cây tươi chuyên nghiệp phục vụ các tòa nhà văn phòng và hội nghị lớn.',
+    image: '/images/fanpage/retail-teabreak-catering.jpg',
+    tags: ['Teabreak Catering', 'B2B', 'Sự kiện doanh nghiệp', 'Dolphy Bakery'],
+    content: `Bên cạnh chuỗi cửa hàng cà phê phục vụ cư dân địa phương, DOLPHY CAFÉ tự hào là đối tác cung cấp dịch vụ Teabreak & Cà phê sự kiện tin cậy của hàng loạt doanh nghiệp hàng đầu tại TP.HCM (Prudential Tower, các trường quốc tế SSIS, BIS, và các giải thể thao lớn).
+
+CÁC GÓI DỊCH VỤ TEABREAK LINH HOẠT:
+• Gói Standard Teabreak: Bánh ngọt tươi (Croissant bơ Pháp, Muffin, Danishes) kết hợp cà phê phin truyền thống, cà phê ủ lạnh Cold Brew đóng chai và các loại trà hoa quả thanh mát.
+• Gói Premium Barista Station: Setup trực tiếp quầy pha chế di động với máy pha Espresso chuyên nghiệp, Barista phục vụ tại chỗ các món Latte Art, Cappuccino, Americano theo yêu cầu của khách tham dự.
+• Trái cây tươi theo mùa cắt tỉa trang nhã và bình nước detox thảo mộc giải nhiệt.
+
+TIÊU CHUẨN PHỤC VỤ CHUYÊN NGHIỆP:
+• Khăn trải bàn, đĩa khay kim loại cao cấp mang tông màu xanh hải quân nhận diện sang trọng của Dolphy.
+• Đội ngũ nhân viên phục vụ lịch thiệp, chu đáo và giao tiếp tiếng Anh lưu loát.
+• Hỗ trợ xuất hóa đơn VAT đầy đủ, linh hoạt hợp đồng cho các doanh nghiệp và tổ chức sự kiện.`
+  },
   {
     id: 'blue-dolphins-barista-championship',
     title: 'Hành Trình Blue Dolphins Barista Championship Season VII: Nơi Ươm Mầm Tài Năng Pha Chế Sài Gòn',
@@ -875,91 +1073,179 @@ export interface CommunityPhoto {
 export const communityGalleryData: CommunityPhoto[] = [
   {
     id: 'photo-1',
-    image: '/images/fanpage/pet-friendly-thao-dien.jpg',
-    title: 'Cà phê sớm cùng những người bạn bốn chân',
-    titleEn: 'Morning coffee with furry companions',
+    image: '/images/fanpage/community-expat-family-pet.jpg',
+    title: 'Gia đình Expat và chú cún cưng bên tách cà phê sáng',
+    titleEn: 'Morning coffee with expat family & beloved dog',
     category: 'Pet-Friendly',
     categoryEn: 'Pet-Friendly',
     location: 'Dolphy Thảo Điền',
     locationEn: 'Dolphy Thao Dien',
-    likes: 384
+    likes: 489
   },
   {
     id: 'photo-2',
-    image: '/images/fanpage/23-nguyen-van-huong-night.jpg',
-    title: 'Kiến trúc vòm bê tông thô mộc lung linh về đêm',
-    titleEn: 'Brutalist concrete architecture by night',
-    category: 'Kiến Trúc',
-    categoryEn: 'Architecture',
-    location: '23 Nguyễn Văn Hưởng',
-    locationEn: '23 Nguyen Van Huong',
-    likes: 542
+    image: '/images/fanpage/community-expat-group-cheers.jpg',
+    title: 'Happiness in a cup: Nụ cười kết nối bạn bè quốc tế',
+    titleEn: 'Happiness in a cup: Expat friends gathering',
+    category: 'Cộng Đồng',
+    categoryEn: 'Community',
+    location: 'Dolphy 28 Thảo Điền',
+    locationEn: 'Dolphy 28 Thao Dien',
+    likes: 562
   },
   {
     id: 'photo-3',
-    image: '/images/fanpage/barista-championship-ceremony.jpg',
-    title: 'Vinh danh Blue Dolphins Barista Championship',
-    titleEn: 'Blue Dolphins Barista Championship Ceremony',
-    category: 'Academy & Văn Hóa',
-    categoryEn: 'Academy & Culture',
-    location: 'Dolphy Training Center',
-    locationEn: 'Dolphy Training Center',
-    likes: 671
+    image: '/images/fanpage/community-kids-art-workshop.jpg',
+    title: 'Xưởng vẽ tranh thiếu nhi: Sáng tạo sắc màu cuối tuần',
+    titleEn: 'Kids art workshop: Weekend creative colors',
+    category: 'Workshop',
+    categoryEn: 'Workshop',
+    location: 'Dolphy 113 Dương Văn An',
+    locationEn: 'Dolphy 113 Duong Van An',
+    likes: 438
   },
   {
     id: 'photo-4',
-    image: '/images/fanpage/barista-expat-patio.jpg',
-    title: 'Happiness in a cup: Kết nối cùng khách quốc tế',
-    titleEn: 'Happiness in a cup: Expat community connection',
-    category: 'Cộng Đồng',
-    categoryEn: 'Community',
-    location: 'Dolphy Thảo Điền Patio',
-    locationEn: 'Dolphy Thao Dien Patio',
-    likes: 495
+    image: '/images/fanpage/community-kids-painting-class.jpg',
+    title: 'Hướng dẫn viên kèm cặp các họa sĩ nhí từng nét cọ',
+    titleEn: 'Mentor guiding young painters stroke by stroke',
+    category: 'Workshop',
+    categoryEn: 'Workshop',
+    location: 'Dolphy Thảo Điền',
+    locationEn: 'Dolphy Thao Dien',
+    likes: 375
   },
   {
     id: 'photo-5',
-    image: '/images/fanpage/tet-holiday-ao-dai.jpg',
-    title: 'Duyên dáng Áo Dài đón Tết bên cầu thang gỗ mộc',
-    titleEn: 'Traditional Ao Dai Tet moments',
-    category: 'Khoảnh Khắc',
-    categoryEn: 'Moments',
-    location: '23 Nguyễn Văn Hưởng',
-    locationEn: '23 Nguyen Van Huong',
-    likes: 412
+    image: '/images/fanpage/academy-championship-trophy.jpg',
+    title: 'Vinh danh cúp vô địch Junior Barista Championship 2024',
+    titleEn: 'Junior Barista Championship 2024 Trophy & Awards',
+    category: 'Academy',
+    categoryEn: 'Academy',
+    location: 'Dolphy 28 Trần Lựu',
+    locationEn: 'Dolphy 28 Tran Luu',
+    likes: 712
   },
   {
     id: 'photo-6',
-    image: '/images/fanpage/co-working-window-greenery.jpg',
-    title: 'Góc đọc sách thư thái bên ô cửa kính ngập tràn cây xanh',
-    titleEn: 'Peaceful reading corner overlooking lush greenery',
-    category: 'Không Gian',
-    categoryEn: 'Workspace',
-    location: 'Dolphy Thảo Điền',
-    locationEn: 'Dolphy Thao Dien',
-    likes: 328
+    image: '/images/fanpage/academy-latte-art-pouring.jpg',
+    title: 'Kỹ thuật rót bọt sữa điêu luyện của Barista Dolphy',
+    titleEn: 'Masterful latte art milk pouring technique',
+    category: 'Barista',
+    categoryEn: 'Barista',
+    location: 'Dolphy Barista Academy',
+    locationEn: 'Dolphy Barista Academy',
+    likes: 624
   },
   {
     id: 'photo-7',
-    image: '/images/fanpage/coffee-counter-overhead.jpg',
-    title: 'Nhịp sống quầy bar thơm ngát hương cà phê mỗi sớm mai',
-    titleEn: 'Morning aroma behind the busy espresso bar',
-    category: 'Quầy Bar',
-    categoryEn: 'Bar Counter',
-    location: 'Dolphy Bình Thạnh',
-    locationEn: 'Dolphy Binh Thanh',
-    likes: 356
+    image: '/images/fanpage/community-koi-fish-pond.jpg',
+    title: 'Gia đình các thế hệ ngắm hồ cá Koi rực rỡ sắc màu',
+    titleEn: 'Multi-generation family enjoying vibrant Koi pond',
+    category: 'Không Gian',
+    categoryEn: 'Space',
+    location: 'Dolphy 1441 Nguyễn Văn Linh',
+    locationEn: 'Dolphy 1441 Nguyen Van Linh',
+    likes: 512
   },
   {
     id: 'photo-8',
-    image: '/images/fanpage/mobile-coffee-school-event.jpg',
-    title: 'Trạm cà phê Dolphy tại Ngày hội Trường Quốc tế',
-    titleEn: 'Dolphy mobile station at International School Fair',
+    image: '/images/fanpage/community-green-stamp-card.jpg',
+    title: 'Lối sống xanh cùng thẻ tích điểm Green Stamp',
+    titleEn: 'Eco-friendly lifestyle with Green Stamp rewards',
+    category: 'Sống Xanh',
+    categoryEn: 'Eco-Living',
+    location: 'Toàn hệ thống Dolphy',
+    locationEn: 'All Dolphy Stores',
+    likes: 395
+  },
+  {
+    id: 'photo-9',
+    image: '/images/fanpage/career-dolphiers-striped-uniform.jpg',
+    title: 'Nụ cười rạng rỡ của gia đình Dolphiers đồng phục sọc',
+    titleEn: 'Radiant smiles of Dolphiers in signature striped uniforms',
+    category: 'Đội Ngũ',
+    categoryEn: 'Team',
+    location: 'Dolphy Training Center',
+    locationEn: 'Dolphy Training Center',
+    likes: 685
+  },
+  {
+    id: 'photo-10',
+    image: '/images/fanpage/career-handmade-craft-team.jpg',
+    title: 'Team Dolphiers cùng làm đồ handmade trang trí quán',
+    titleEn: 'Dolphiers crafting handmade store decorations together',
+    category: 'Văn Hóa',
+    categoryEn: 'Culture',
+    location: 'Dolphy Thảo Điền Patio',
+    locationEn: 'Dolphy Thao Dien Patio',
+    likes: 467
+  },
+  {
+    id: 'photo-11',
+    image: '/images/fanpage/retail-beans-bakery-display.jpg',
+    title: 'Kệ cà phê hạt mộc nguyên chất & tủ bánh Dolphy Bakery',
+    titleEn: 'Pure specialty bean shelf & fresh Dolphy Bakery display',
+    category: 'Sản Phẩm',
+    categoryEn: 'Retail',
+    location: 'Dolphy Thảo Điền Flagship',
+    locationEn: 'Dolphy Thao Dien Flagship',
+    likes: 531
+  },
+  {
+    id: 'photo-12',
+    image: '/images/fanpage/retail-teabreak-catering.jpg',
+    title: 'Dịch vụ setup tiệc Teabreak & Cà phê sự kiện trọn gói',
+    titleEn: 'Full-service corporate Teabreak & event coffee catering',
+    category: 'Dịch Vụ',
+    categoryEn: 'Catering',
+    location: 'Khối Dịch vụ Sự kiện Dolphy',
+    locationEn: 'Dolphy Event Catering Division',
+    likes: 422
+  },
+  {
+    id: 'photo-13',
+    image: '/images/fanpage/community-spartan-event-partner.jpg',
+    title: 'Dolphy đồng hành tiếp sức giải chạy thể thao',
+    titleEn: 'Dolphy official hydration & coffee partner at sports races',
     category: 'Sự Kiện',
     categoryEn: 'Events',
-    location: 'SSIS International School',
-    locationEn: 'SSIS International School',
-    likes: 440
+    location: 'Sự kiện Marathon & Spartan',
+    locationEn: 'Marathon & Spartan Races',
+    likes: 456
+  },
+  {
+    id: 'photo-14',
+    image: '/images/fanpage/community-b2b-corporate-booth.jpg',
+    title: 'Quầy cà phê tiếp sức năng lượng cho Team Prudential Q7',
+    titleEn: 'Dolphy corporate coffee booth energizing Prudential Team',
+    category: 'Sự Kiện',
+    categoryEn: 'Events',
+    location: 'Prudential Tower Phú Mỹ Hưng',
+    locationEn: 'Prudential Tower PMH',
+    likes: 479
+  },
+  {
+    id: 'photo-15',
+    image: '/images/fanpage/career-red-envelopes-tet.jpg',
+    title: 'Bộ bao lì xì độc quyền thương hiệu Dolphy đón Tết may mắn',
+    titleEn: 'Exclusive Dolphy branded lucky red envelopes for Tet',
+    category: 'Khoảnh Khắc',
+    categoryEn: 'Moments',
+    location: 'Toàn hệ thống Dolphy',
+    locationEn: 'All Dolphy Stores',
+    likes: 520
+  },
+  {
+    id: 'photo-16',
+    image: '/images/fanpage/community-cozy-bar-holiday.jpg',
+    title: 'Không gian quầy bar lung linh ấm cúng mùa lễ hội',
+    titleEn: 'Cozy and festive coffee bar ambience for holidays',
+    category: 'Quầy Bar',
+    categoryEn: 'Bar Counter',
+    location: 'Dolphy 28 Thảo Điền',
+    locationEn: 'Dolphy 28 Thao Dien',
+    likes: 498
   }
 ];
 

@@ -23,7 +23,10 @@ export const KnowledgeHub: React.FC = () => {
   const filtered = articlesData.filter(art => {
     const matchCat = selectedCategory === 'all' || 
                      art.category.toLowerCase().includes(selectedCategory.toLowerCase()) ||
-                     (selectedCategory === 'Kiến Trúc' && art.category.includes('Chi Nhánh'));
+                     (selectedCategory === 'Văn Hóa' && (art.category.includes('Văn Hóa') || art.category.includes('Cộng Đồng'))) ||
+                     (selectedCategory === 'Học Viện' && (art.category.includes('Học Viện') || art.category.includes('Barista') || art.category.includes('Cuộc Thi'))) ||
+                     (selectedCategory === 'Chương Trình' && (art.category.includes('Chương Trình') || art.category.includes('Dịch Vụ') || art.category.includes('B2B'))) ||
+                     (selectedCategory === 'Kiến Trúc' && (art.category.includes('Kiến Trúc') || art.category.includes('Chi Nhánh')));
     const matchSearch = art.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         art.content.toLowerCase().includes(searchQuery.toLowerCase());
     return matchCat && matchSearch;

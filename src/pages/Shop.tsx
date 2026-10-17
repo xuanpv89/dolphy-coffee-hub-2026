@@ -227,6 +227,101 @@ export const Shop: React.FC = () => {
           </div>
         )}
 
+        {/* Retail Experience & B2B Catering Showcase */}
+        <div className="mt-16 pt-12 border-t border-gray-200 dark:border-slate-800 space-y-10">
+          <div className="text-center space-y-2">
+            <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+              {language === 'vi' ? 'TRẢI NGHIỆM ĐỘC QUYỀN TẠI QUẦN DOLPHY' : 'EXCLUSIVE IN-STORE & CATERING'}
+            </span>
+            <h2 className="section-title">
+              {language === 'vi' ? 'CÀ PHÊ HẠT MỘC & DỊCH VỤ DOANH NGHIỆP B2B' : 'SPECIALTY COFFEE & CORPORATE CATERING'}
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+              {language === 'vi'
+                ? 'Không chỉ thưởng thức tại chỗ, bạn có thể mua cà phê hạt mộc nguyên chất và đặt tiệc Teabreak trọn gói cho công ty.'
+                : 'Experience fresh pure beans in-store or elevate your office events with full-service coffee and pastry catering.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1: Retail Shelf & Bakery */}
+            <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all flex flex-col group">
+              <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+                <img
+                  src="/images/fanpage/retail-beans-bakery-display.jpg"
+                  alt="Kệ cà phê hạt mộc và tủ bánh Dolphy Bakery"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                    {language === 'vi' ? 'Quầy Trưng Bày Thực Tế' : 'In-Store Retail Display'}
+                  </span>
+                  <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">
+                    {language === 'vi' ? 'Kệ Cà Phê Hạt Mộc & Dolphy Bakery' : 'Pure Specialty Beans & Fresh Pastries'}
+                  </h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {language === 'vi'
+                      ? '100% hạt Arabica Cầu Đất và Robusta Bảo Lộc mộc nguyên chất, đóng gói túi van 1 chiều đạt chuẩn. Đi kèm tủ bánh ngọt nướng tươi nóng giòn mỗi sáng tại các chi nhánh.'
+                      : '100% pure Cau Dat Arabica and Bao Loc Robusta in degas-valve bags, paired with warm artisan French pastries baked daily.'}
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                  <span className="text-gray-500 dark:text-gray-400 font-oswald">
+                    {language === 'vi' ? 'Có sẵn tại 10 chi nhánh' : 'Available across 10 stores'}
+                  </span>
+                  <a
+                    href="https://dolphycoffee.cukcuk.vn/order-online/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-oswald uppercase text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline"
+                  >
+                    {language === 'vi' ? 'Đặt giao tận nơi CukCuk →' : 'Order Delivery →'}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Teabreak & Event Catering */}
+            <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all flex flex-col group">
+              <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+                <img
+                  src="/images/fanpage/retail-teabreak-catering.jpg"
+                  alt="Dịch vụ tiệc Teabreak sự kiện Dolphy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                    {language === 'vi' ? 'Dịch Vụ Doanh Nghiệp' : 'B2B Corporate Service'}
+                  </span>
+                  <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">
+                    {language === 'vi' ? 'Setup Tiệc Teabreak & Cà Phê Sự Kiện' : 'Corporate Teabreak & Event Station'}
+                  </h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {language === 'vi'
+                      ? 'Giải pháp đồ uống trọn gói cho hội nghị, sự kiện ra mắt, tiếp sức làm việc cho đối tác doanh nghiệp lớn (Prudential Tower, giải thể thao Spartan, các trường quốc tế).'
+                      : 'End-to-end beverage setup for conferences, company town halls, and sports events with live barista stations.'}
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                  <span className="text-gray-500 dark:text-gray-400 font-oswald">
+                    Hotline B2B: <strong>0938 084 985</strong>
+                  </span>
+                  <a
+                    href="mailto:contact@dolphycafe.com"
+                    className="font-oswald uppercase text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline"
+                  >
+                    {language === 'vi' ? 'Nhận báo giá sự kiện →' : 'Request Event Quote →'}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

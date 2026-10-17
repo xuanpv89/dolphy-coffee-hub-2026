@@ -45,13 +45,13 @@ export const About: React.FC = () => {
 
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
             <img
-              src="/images/image5.jpg"
+              src="/images/fanpage/branch-28-thao-dien.jpg"
               alt="Dolphy Thảo Điền Corner"
-              className="rounded-lg shadow border border-gray-200 dark:border-slate-800 h-60 w-full object-cover"
+              className="rounded-lg shadow border border-gray-200 dark:border-slate-800 h-60 w-full object-cover object-top"
             />
             <img
-              src="/images/image4.jpg"
-              alt="Dolphy Barista Pouring Coffee"
+              src="/images/fanpage/academy-signature-rose-latte.jpg"
+              alt="Dolphy Barista Signature Latte Art"
               className="rounded-lg shadow border border-gray-200 dark:border-slate-800 h-60 w-full object-cover mt-6"
             />
           </div>

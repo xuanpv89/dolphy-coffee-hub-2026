@@ -135,45 +135,22 @@ export const Careers: React.FC = () => {
           <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
             <div className="aspect-[16/10] overflow-hidden bg-slate-900">
               <img
-                src="/images/fanpage/badminton-club-2025.jpg"
-                alt="Dolphy Badminton Club 2025"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
-                {language === 'vi' ? 'Hoạt Động Thể Thao' : 'Sports Club'}
-              </span>
-              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
-                Dolphy Badminton Club 2025
-              </h4>
-              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                {language === 'vi'
-                  ? 'Giao lưu cầu lông hàng tuần giúp các bạn nhân sự rèn luyện thể lực và thắt chặt tình bạn sau những giờ ca làm việc.'
-                  : 'Weekly badminton matches keeping the bar team active, fit, and socially bonded after shifts.'}
-              </p>
-            </div>
-          </div>
-
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
-            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
-              <img
-                src="/images/fanpage/barista-expat-patio.jpg"
-                alt="Giao lưu khách quốc tế tại Thảo Điền"
+                src="/images/fanpage/career-dolphiers-striped-uniform.jpg"
+                alt="Đội ngũ nhân viên Dolphy trong đồng phục sọc"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-4 space-y-1">
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
-                {language === 'vi' ? 'Môi Trường Quốc Tế' : 'Expat Community'}
+                {language === 'vi' ? 'Đại Gia Đình Dolphiers' : 'Dolphiers Family'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
-                {language === 'vi' ? 'Kết Nối Khách Hàng Toàn Cầu' : 'International Connections'}
+                {language === 'vi' ? 'Nụ Cười & Tinh Thần Đồng Đội' : 'Smiles & Team Camaraderie'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                 {language === 'vi'
-                  ? 'Giao tiếp tiếng Anh hàng ngày với các chuyên gia, giáo viên trường quốc tế và cư dân tại Thảo Điền & Phú Mỹ Hưng.'
-                  : 'Practice fluent English speaking daily with foreign residents, expats, and travelers in Saigon.'}
+                  ? 'Môi trường làm việc trẻ trung, tích cực và đoàn kết như những chú cá heo luôn yêu thương giúp đỡ nhau.'
+                  : 'A youthful, supportive and vibrant workspace where teammates support each other like a dolphin pod.'}
               </p>
             </div>
           </div>
@@ -181,22 +158,114 @@ export const Careers: React.FC = () => {
           <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
             <div className="aspect-[16/10] overflow-hidden bg-slate-900">
               <img
-                src="/images/fanpage/tet-holiday-ao-dai.jpg"
-                alt="Không khí lễ hội Tết truyền thống"
+                src="/images/fanpage/career-handmade-craft-team.jpg"
+                alt="Team Dolphy làm đồ handmade"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-4 space-y-1">
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
-                {language === 'vi' ? 'Văn Hóa Lễ Hội' : 'Festival Traditions'}
+                {language === 'vi' ? 'Sáng Tạo & Gắn Kết' : 'Craft & Bonding'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
-                {language === 'vi' ? 'Duyên Dáng Lễ Hội & Thưởng Tết' : 'Festive Celebrations & Bonuses'}
+                {language === 'vi' ? 'Tự Tay Làm Đồ Handmade Trang Trí' : 'Handmade Decor Crafting Sessions'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                 {language === 'vi'
-                  ? 'Chế độ thưởng lễ Tết, lì xì may mắn và các sự kiện nội bộ đầm ấm như một đại gia đình Cá Heo Xanh.'
-                  : 'Generous holiday bonuses, lucky red envelopes, and heartwarming team family events.'}
+                  ? 'Các buổi workshop nội bộ tự tay làm phụ kiện trang trí chi nhánh cho mùa Giáng Sinh và lễ Tết sum vầy.'
+                  : 'Creative internal crafting workshops making festive handcrafted decorations for our coffee shops.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/career-barista-champion-winner.jpg"
+                alt="Cuộc thi Barista Championship nội bộ"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                {language === 'vi' ? 'Phát Triển Chuyên Môn' : 'Skill Development'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Đấu Trường Nâng Cao Tay Nghề' : 'Internal Championship Arena'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Cơ hội cọ xát tay nghề qua các giải đấu thường niên, nhận thưởng thành tích và thăng chức quản lý ca.'
+                  : 'Elevate barista skills through annual championships with attractive cash prizes and career promotions.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/career-customer-warm-greeting.jpg"
+                alt="Dolphier trao gửi nụ cười đón Tết cùng khách hàng"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                {language === 'vi' ? 'Văn Hóa Chân Thành' : 'Warm Hospitality'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Happiness In A Cup: Lan Tỏa Niềm Vui' : 'Happiness In A Cup Service'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Giao tiếp chân thành, ấm áp với khách hàng bản địa lẫn cộng đồng Expat quốc tế tại Thảo Điền & Phú Mỹ Hưng.'
+                  : 'Delivering warm, sincere interactions to both local neighbors and the international expat community.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/career-tet-celebration-aodai.jpg"
+                alt="Dolphiers diện áo dài đón Tết"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                {language === 'vi' ? 'Văn Hóa Lễ Hội' : 'Festive Celebrations'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Duyên Dáng Áo Dài Đón Xuân' : 'Traditional Ao Dai Tet Celebrations'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Tôn vinh nét đẹp văn hóa truyền thống Việt Nam trong không gian kiến trúc hiện đại, rộn rã tiếng cười.'
+                  : 'Embracing Vietnamese traditional beauty within contemporary coffee architectural spaces.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/career-red-envelopes-tet.jpg"
+                alt="Bộ bao lì xì độc quyền Dolphy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                {language === 'vi' ? 'Phúc Lợi & Đãi Ngộ' : 'Benefits & Perks'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Thưởng Lễ Tết & Quà Tặng Độc Quyền' : 'Holiday Rewards & Exclusive Gifts'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Chế độ thưởng doanh số, tiền tip chia đều, thưởng tháng 13 và những món quà thương hiệu Dolphy ý nghĩa.'
+                  : 'Performance bonuses, evenly shared tips, 13th-month salary and branded gifts for every staff member.'}
               </p>
             </div>
           </div>

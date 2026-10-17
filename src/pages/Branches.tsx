@@ -95,11 +95,11 @@ export const Branches: React.FC = () => {
               className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group"
             >
               <div>
-                <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-slate-900">
+                <div className="relative h-56 overflow-hidden bg-gray-100 dark:bg-slate-900">
                   <img
                     src={branch.image}
                     alt={branch.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white shadow">
                     {branch.area}
