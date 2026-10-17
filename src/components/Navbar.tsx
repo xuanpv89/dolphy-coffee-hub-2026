@@ -101,7 +101,7 @@ export const Navbar: React.FC = () => {
             {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 bg-[#2076bd] hover:bg-[#f09c05] text-white px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0"
+              className="flex items-center gap-2 bg-[#2076bd] hover:bg-[#c88232] text-white px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0"
             >
               <ShoppingBag size={14} />
               <span className="hidden xs:inline">{t('nav.cart')}</span>
@@ -156,7 +156,7 @@ export const Navbar: React.FC = () => {
                   >
                     <span>{link.name}</span>
                     {link.badge && (
-                      <span className="bg-[#f09c05] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
+                      <span className="bg-[#c88232] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
                         {link.badge}
                       </span>
                     )}
@@ -227,7 +227,7 @@ export const Navbar: React.FC = () => {
                 >
                   <span>{link.name}</span>
                   {link.badge && (
-                    <span className="bg-[#f09c05] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full">
+                    <span className="bg-[#c88232] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full">
                       {link.badge}
                     </span>
                   )}

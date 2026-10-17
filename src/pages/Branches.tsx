@@ -25,7 +25,7 @@ export const Branches: React.FC = () => {
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-3">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold">
             {language === 'vi' ? 'HỆ THỐNG CHUỖI CỬA HÀNG DOLPHY CAFE' : 'DOLPHY CAFÉ STORE NETWORK'}
           </span>
           <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
@@ -43,7 +43,7 @@ export const Branches: React.FC = () => {
         <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md bg-white dark:bg-[#1e293b]">
           <div className="p-4 bg-[#2076bd] text-white flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-[#f09c05]" />
+              <MapPin size={18} className="text-[#c88232]" />
               <span className="font-oswald text-sm font-bold uppercase tracking-wide">
                 {t('branches.map_box_title')}
               </span>
@@ -89,7 +89,21 @@ export const Branches: React.FC = () => {
 
         {/* Branches Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredBranches.map((branch) => (
+          {filteredBranches.map((branch) => {
+            const areaLabel = language === 'en' ? (
+              branch.area.includes('Quận 2') ? 'District 2 (Thu Duc City)' :
+              branch.area.includes('Quận 7') ? 'District 7 (Phu My Hung)' :
+              branch.area.includes('Bình Thạnh') ? 'Binh Thanh District' :
+              branch.area.includes('Quận 3') ? 'District 3 (City Center)' : branch.area
+            ) : branch.area;
+
+            const hoursLabel = branch.openingHours 
+              ? (language === 'en' ? branch.openingHours.replace('Mở cửa mỗi ngày', 'Open Daily').replace('hàng ngày', 'daily') : branch.openingHours)
+              : (language === 'en' ? '07:00 - 22:30 Daily' : '07:00 - 22:30 hàng ngày');
+
+            const feats = language === 'en' ? (branch.featuresEn || branch.features) : branch.features;
+
+            return (
             <div
               key={branch.id}
               className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group"
@@ -102,7 +116,7 @@ export const Branches: React.FC = () => {
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white shadow">
-                    {branch.area}
+                    {areaLabel}
                   </span>
                 </div>
 
@@ -118,7 +132,7 @@ export const Branches: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
-                      <span>{branch.openingHours || '07:00 - 22:30 hàng ngày'}</span>
+                      <span>{hoursLabel}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
@@ -128,7 +142,7 @@ export const Branches: React.FC = () => {
 
                   {/* Amenities / Features */}
                   <div className="pt-2 flex flex-wrap gap-1.5">
-                    {(branch.features || []).map((feature, ai) => (
+                    {(feats || []).map((feature, ai) => (
                       <span
                         key={ai}
                         className="text-[10px] px-2 py-0.5 rounded bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 font-medium"
@@ -152,7 +166,7 @@ export const Branches: React.FC = () => {
                 </a>
               </div>
             </div>
-          ))}
+          )})}
         </div>
 
       </div>

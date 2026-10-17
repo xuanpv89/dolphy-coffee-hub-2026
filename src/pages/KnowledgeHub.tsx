@@ -38,7 +38,7 @@ export const KnowledgeHub: React.FC = () => {
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-3">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold">
             {t('knowledge.hero_tag')}
           </span>
           <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
@@ -84,103 +84,117 @@ export const KnowledgeHub: React.FC = () => {
 
         {/* Articles List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((art) => (
-            <div
-              key={art.id}
-              id={art.id}
-              className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group cursor-pointer"
-              onClick={() => setSelectedArticle(art)}
-            >
-              <div>
-                <div className="h-52 overflow-hidden bg-gray-100 dark:bg-slate-900 relative">
-                  <img
-                    src={art.image}
-                    alt={art.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white shadow">
-                    {art.category}
-                  </span>
-                </div>
+          {filtered.map((art) => {
+            const articleTitle = language === 'en' ? (art.titleEn || art.title) : art.title;
+            const articleCategory = language === 'en' ? (art.categoryEn || art.category) : art.category;
+            const articleExcerpt = language === 'en' ? (art.excerptEn || art.excerpt) : art.excerpt;
+            const articleReadTime = language === 'en' ? (art.readTimeEn || art.readTime) : art.readTime;
 
-                <div className="p-5 space-y-3">
-                  <div className="flex items-center gap-3 text-[11px] text-gray-400 dark:text-gray-500">
-                    <span className="flex items-center gap-1 font-oswald"><Calendar size={12} /> {art.date || '2026-10-15'}</span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1"><Clock size={12} /> {art.readTime}</span>
+            return (
+              <div
+                key={art.id}
+                id={art.id}
+                className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group cursor-pointer"
+                onClick={() => setSelectedArticle(art)}
+              >
+                <div>
+                  <div className="h-52 overflow-hidden bg-gray-100 dark:bg-slate-900 relative">
+                    <img
+                      src={art.image}
+                      alt={articleTitle}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white shadow">
+                      {articleCategory}
+                    </span>
                   </div>
 
-                  <h3 className="font-oswald text-lg font-bold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors leading-snug line-clamp-2 uppercase">
-                    {art.title}
-                  </h3>
+                  <div className="p-5 space-y-3">
+                    <div className="flex items-center gap-3 text-[11px] text-gray-400 dark:text-gray-500">
+                      <span className="flex items-center gap-1 font-oswald"><Calendar size={12} /> {art.date || '2026-10-15'}</span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1"><Clock size={12} /> {articleReadTime}</span>
+                    </div>
 
-                  <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-3 leading-relaxed">
-                    {art.excerpt}
-                  </p>
+                    <h3 className="font-oswald text-lg font-bold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors leading-snug line-clamp-2 uppercase">
+                      {articleTitle}
+                    </h3>
+
+                    <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-3 leading-relaxed">
+                      {articleExcerpt}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-5 pt-0 border-t border-gray-100 dark:border-slate-800 mt-2 flex items-center justify-between text-xs text-gray-400 dark:text-gray-500">
+                  <span>{art.author}</span>
+                  <span className="font-oswald text-[#2076bd] dark:text-[#3ba0e6] font-semibold group-hover:underline flex items-center gap-1">
+                    <span>{language === 'vi' ? 'ĐỌC TIẾP' : 'READ MORE'}</span>
+                    <ArrowRight size={13} />
+                  </span>
                 </div>
               </div>
-
-              <div className="p-5 pt-0 border-t border-gray-100 dark:border-slate-800 mt-2 flex items-center justify-between text-xs text-gray-400 dark:text-gray-500">
-                <span>{art.author}</span>
-                <span className="font-oswald text-[#2076bd] dark:text-[#3ba0e6] font-semibold group-hover:underline flex items-center gap-1">
-                  <span>{language === 'vi' ? 'ĐỌC TIẾP' : 'READ MORE'}</span>
-                  <ArrowRight size={13} />
-                </span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
 
       {/* Article Detail Modal */}
-      {selectedArticle && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white dark:bg-[#1e293b] rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 relative text-[#222222] dark:text-white">
-            <button
-              onClick={() => setSelectedArticle(null)}
-              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#222222] dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
-            >
-              <X size={20} />
-            </button>
+      {selectedArticle && (() => {
+        const modalTitle = language === 'en' ? (selectedArticle.titleEn || selectedArticle.title) : selectedArticle.title;
+        const modalCategory = language === 'en' ? (selectedArticle.categoryEn || selectedArticle.category) : selectedArticle.category;
+        const modalContent = language === 'en' ? (selectedArticle.contentEn || selectedArticle.content) : selectedArticle.content;
+        const modalReadTime = language === 'en' ? (selectedArticle.readTimeEn || selectedArticle.readTime) : selectedArticle.readTime;
 
-            <div className="space-y-3">
-              <span className="bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
-                {selectedArticle.category}
-              </span>
-              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
-                {selectedArticle.title}
-              </h2>
-              <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-slate-800 pb-3">
-                <span>{selectedArticle.date || '2026-10-15'}</span>
-                <span>•</span>
-                <span>{selectedArticle.author}</span>
-                <span>•</span>
-                <span>{selectedArticle.readTime}</span>
-              </div>
-            </div>
-
-            <img
-              src={selectedArticle.image}
-              alt={selectedArticle.title}
-              className="w-full h-64 object-cover rounded-lg"
-            />
-
-            <div className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 leading-relaxed whitespace-pre-line space-y-4">
-              {selectedArticle.content}
-            </div>
-
-            <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-end">
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+            <div className="bg-white dark:bg-[#1e293b] rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 relative text-[#222222] dark:text-white">
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="dolphy-btn dolphy-btn-primary px-6 py-2 rounded text-xs font-semibold"
+                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#222222] dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
               >
-                {language === 'vi' ? 'ĐÓNG BÀI VIẾT' : 'CLOSE ARTICLE'}
+                <X size={20} />
               </button>
+
+              <div className="space-y-3">
+                <span className="bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
+                  {modalCategory}
+                </span>
+                <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+                  {modalTitle}
+                </h2>
+                <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-slate-800 pb-3">
+                  <span>{selectedArticle.date || '2026-10-15'}</span>
+                  <span>•</span>
+                  <span>{selectedArticle.author}</span>
+                  <span>•</span>
+                  <span>{modalReadTime}</span>
+                </div>
+              </div>
+
+              <img
+                src={selectedArticle.image}
+                alt={modalTitle}
+                className="w-full h-64 object-cover rounded-lg"
+              />
+
+              <div className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 leading-relaxed whitespace-pre-line space-y-4">
+                {modalContent}
+              </div>
+
+              <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-end">
+                <button
+                  onClick={() => setSelectedArticle(null)}
+                  className="dolphy-btn dolphy-btn-primary px-6 py-2 rounded text-xs font-semibold"
+                >
+                  {language === 'vi' ? 'ĐÓNG BÀI VIẾT' : 'CLOSE ARTICLE'}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
     </div>
   );

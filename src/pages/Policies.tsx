@@ -12,7 +12,7 @@ export const Policies: React.FC = () => {
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#f09c05]">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#c88232]">
             {t('policies.tag')}
           </span>
           <h1 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white">

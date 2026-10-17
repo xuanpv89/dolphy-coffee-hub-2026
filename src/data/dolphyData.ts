@@ -312,17 +312,21 @@ export const productsData: Product[] = [
   {
     id: 'arabica-250g',
     name: 'Arabica Cầu Đất 250g (100% Arabica) (Gói)',
+    nameEn: "Arabica Cau Dat 250g (100% Arabica)",
     alias: 'arabica-250g-100-arabica-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 255000,
     weight: '250g',
     origin: 'Cầu Đất, Lâm Đồng (Độ cao 1.500m - 1.650m)',
+    originEn: "Cau Dat, Lam Dong (Altitude 1,500m - 1,650m)",
     roastLevel: 'Medium Roast (Rang vừa)',
     tasteNotes: ['Hương hoa nhài', 'Chua thanh dịu nhẹ', 'Hậu vị ngọt ngào', 'Hương trái cây mọng'],
     description: `100% hạt Arabica thượng hạng được tuyển chọn kỹ lưỡng từ vùng đất Cầu Đất - Đà Lạt, nơi có khí hậu quanh năm se lạnh và thổ nhưỡng lý tưởng bậc nhất cho cây cà phê Arabica.
 
 Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hương thơm phong phú của hoa cỏ, độ chua thanh tao nhã và hậu vị ngọt sâu lưu luyến. Phù hợp hoàn hảo cho cách pha Pour Over (V60), Cold Brew và pha máy Espresso hiện đại.`,
+    descriptionEn: "100% specialty Arabica beans meticulously selected from Cau Dat - Da Lat, where cool highlands and fertile soil yield exceptional coffee beans.\n\nRoasted to Medium to preserve vibrant floral aromas, delicate bright acidity, and a lingering honeyed sweetness. Perfect for Pour Over (V60), Cold Brew, and home or cafe espresso machines.",
     brewingRecommendation: 'Pha Pour-over / V60, Cold Brew, Máy pha Espresso gia đình hoặc quán.',
     image: '/images/prod_arabica_250g.jpg',
     images: [
@@ -336,16 +340,20 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   {
     id: 'arabica-500g',
     name: 'Arabica Cầu Đất 500g (100% Arabica) (Gói Tiết Kiệm)',
+    nameEn: "Arabica Cau Dat 500g (100% Arabica) Value Pack",
     alias: 'arabica-500g-100-arabica-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 485000,
     compareAtPrice: 510000,
     weight: '500g',
     origin: 'Cầu Đất, Lâm Đồng',
+    originEn: "Cau Dat, Lam Dong",
     roastLevel: 'Medium Roast',
     tasteNotes: ['Hương hoa cỏ', 'Vị thanh ngọt', 'Acidity sáng', 'Hậu vị thanh lịch'],
     description: `Gói tiết kiệm 500g dành cho người yêu thích hương vị Arabica tinh tế sử dụng hàng ngày tại nhà hoặc văn phòng. 100% hạt Arabica được đóng gói van 1 chiều giúp bảo toàn hương vị và khí CO2 tự nhiên của hạt cà phê tươi mới.`,
+    descriptionEn: "Economical 500g pack designed for daily lovers of refined Arabica coffee at home or the office. 100% pure Arabica sealed with a one-way degassing valve to preserve fresh roast aromatics and natural sweetness.",
     brewingRecommendation: 'Pha V60, Cold Brew, French Press, Máy Espresso.',
     image: '/images/prod_arabica_500g.jpg',
     images: [
@@ -357,17 +365,21 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   {
     id: 'robusta-250g',
     name: 'Fine Robusta Lâm Đồng 250g (100% Robusta) (Gói)',
+    nameEn: "Fine Robusta Lam Dong 250g (100% Robusta)",
     alias: 'robusta-250g-100-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 185000,
     weight: '250g',
     origin: 'Bảo Lộc, Lâm Đồng (Cao nguyên bazan màu mỡ)',
+    originEn: "Bao Loc, Lam Dong (Highland Basalt Soil)",
     roastLevel: 'Medium-Dark Roast (Rang nâu đậm)',
     tasteNotes: ['Vị đắng đầm', 'Hương socola đen', 'Hạt dẻ rang', 'Hàm lượng caffeine cao'],
     description: `100% hạt Robusta Việt Nam chất lượng cao được hái chín cây và sơ chế kỹ lưỡng, loại bỏ hoàn toàn hạt xanh lép. 
 
 Đặc trưng bởi hương vị cà phê Việt Nam truyền thống mạnh mẽ, body dày đậm, hậu vị béo ngậy và hàm lượng caffeine tự nhiên giúp bạn bừng tỉnh năng lượng tức thì. Lựa chọn số 1 cho người mê cà phê sữa đá, cà phê đen đá và pha phin truyền thống.`,
+    descriptionEn: "Specialty Fine Robusta hand-harvested at 100% optimal ripeness from the volcanic basalt soil of Bao Loc highlands. Processed with natural honey fermentation.\n\nDelivers bold crema, dark chocolate richness, toasted walnut depth, and a caramel sweetness without harsh bitterness. Perfect for traditional Vietnamese Phin and intense Espresso.",
     brewingRecommendation: 'Pha phin nhôm truyền thống, pha máy Espresso gu đậm, pha cà phê sữa đá.',
     image: '/images/prod_robusta_250g.jpg',
     images: [
@@ -380,16 +392,20 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   {
     id: 'robusta-500g',
     name: 'Fine Robusta Lâm Đồng 500g (100% Robusta) (Gói)',
+    nameEn: "Fine Robusta Lam Dong 500g (100% Robusta) Value Pack",
     alias: 'robusta-500g-100-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 350000,
     compareAtPrice: 370000,
     weight: '500g',
     origin: 'Bảo Lộc, Lâm Đồng',
+    originEn: "Bao Loc, Lam Dong",
     roastLevel: 'Medium-Dark Roast',
     tasteNotes: ['Đậm đà', 'Thơm nồng', 'Socola nguyên chất', 'Hậu vị bền bỉ'],
     description: `Gói 500g kinh tế cho người sành gu cà phê đậm đà hoặc các văn phòng làm việc. Hạt Robusta hạt to đồng đều, được rang theo công thức gia truyền của Dolphy giúp hạt dậy mùi thơm ngào ngạt mà không hề bị khét cháy.`,
+    descriptionEn: "500g value pack for dedicated coffee fans who crave authentic bold Vietnamese flavor. Medium Dark roast enhances chocolate, nutty warmth, and thick, velvety body.",
     brewingRecommendation: 'Pha phin truyền thống, cà phê đen, bạc sỉu.',
     image: '/images/prod_robusta_500g.jpg',
     images: [
@@ -401,17 +417,21 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   {
     id: 'espresso-250g',
     name: 'Espresso Blend Signature 250g (80% Arabica + 20% Robusta)',
+    nameEn: "Espresso Blend Signature 250g (80% Arabica + 20% Robusta)",
     alias: 'espresso-250g-80-arabica-20-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 235000,
     weight: '250g',
     origin: 'Phối trộn Cầu Đất & Bảo Lộc',
+    originEn: "Artisanal Cau Dat & Bao Loc Blend",
     roastLevel: 'Medium Roast',
     tasteNotes: ['Hài hòa chua & đắng', 'Crema vàng dày mịn', 'Hương caramel ngọt bùi', 'Hương hoa thoang thoảng'],
     description: `Dòng sản phẩm Signature được yêu thích nhất tại Dolphy Café! Sự kết hợp hoàn hảo theo tỷ lệ vàng: 80% Arabica Cầu Đất thanh thoát và 20% Robusta Lâm Đồng đậm đà.
 
 Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt kem crema dày óng ánh, vị chua thanh hòa quyện êm ái cùng độ đắng dịu ngọt của caramel. Rất dễ uống và thích hợp cho cả món cà phê đen lẫn món có sữa như Latte, Cappuccino.`,
+    descriptionEn: "Dolphy’s signature espresso recipe crafted and refined over 12+ years across our Thao Dien coffee houses. Harmonious union of 80% floral Cau Dat Arabica and 20% bold Bao Loc Fine Robusta.\n\nYields rich golden crema, bright citrus undertones, smooth chocolate body, and balanced finish for Americano, Latte, and Cappuccino.",
     brewingRecommendation: 'Máy pha Espresso, Moka Pot, Phin nhôm tân thời, Cold Brew kết hợp cam sả.',
     image: '/images/prod_espresso_250g.jpg',
     images: [
@@ -424,16 +444,20 @@ Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt k
   {
     id: 'espresso-500g',
     name: 'Espresso Blend Signature 500g (80% Arabica + 20% Robusta)',
+    nameEn: "Espresso Blend Signature 500g (80% Arabica + 20% Robusta)",
     alias: 'espresso-500g-80-arabica-20-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 445000,
     compareAtPrice: 470000,
     weight: '500g',
     origin: 'Phối trộn Cầu Đất & Bảo Lộc',
+    originEn: "Artisanal Cau Dat & Bao Loc Blend",
     roastLevel: 'Medium Roast',
     tasteNotes: ['Cân bằng tuyệt đối', 'Vị ngọt caramel', 'Crema óng ả', 'Đậm đà êm mượt'],
     description: `Gói lớn 500g dòng Espresso Blend kinh điển của Dolphy. Đảm bảo nguồn năng lượng mỗi sớm mai với hương thơm lan tỏa ngập tràn không gian.`,
+    descriptionEn: "Signature espresso blend in 500g standard barista packaging. Tailored for commercial cafes and demanding espresso enthusiasts at home.",
     brewingRecommendation: 'Máy pha Espresso, Phin truyền thống, French Press.',
     image: '/images/prod_espresso_500g.jpg',
     images: [
@@ -445,17 +469,21 @@ Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt k
   {
     id: 'single-origin-typica-250g',
     name: 'Specialty Single Origin Typica Cầu Đất 250g (Micro-lot)',
+    nameEn: "Specialty Single Origin Typica Cau Dat 250g (Micro-lot)",
     alias: 'specialty-single-origin-typica-cau-dat-250g',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 320000,
     weight: '250g',
     origin: 'Trạm Hành, Cầu Đất (Độ cao 1.650m - Sơ chế ướt lên men yếm khí)',
+    originEn: "Tram Hanh, Cau Dat (1,650m - Anaerobic Washed)",
     roastLevel: 'Light-Medium Roast (Rang sáng)',
     tasteNotes: ['Hương trà đen Bergamot', 'Vị cam vàng tươi mát', 'Mật ong hoa rừng', 'Body mượt như lụa'],
     description: `Dòng cà phê Single Origin Typica cổ thụ tuyển chọn từ những gốc cà phê hơn 40 năm tuổi tại Cầu Đất. Trái chín được tuyển lựa bằng tay với độ đường Brix > 22%, lên men yếm khí 48 giờ và phơi giàn trong nhà kính.
 
 Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu như mật ong hoa rừng. Sản phẩm dành riêng cho những tín đồ thưởng thức Pour-over thủ công.`,
+    descriptionEn: "Rare heirloom Arabica Typica micro-lot harvested from heritage trees planted in 1930s Tram Hanh highlands. 72-hour anaerobic fermentation unleashes jasmine perfume, bergamot tea notes, and silky honey mouthfeel.",
     brewingRecommendation: 'Pha V60, Chemex, Origami, Aeropress hoặc Cold Drip.',
     image: '/images/prod_arabica_250g.jpg',
     images: [
@@ -468,15 +496,19 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'traditional-phin-blend-500g',
     name: 'Cà Phê Mộc Phin Sài Gòn Đậm Vị 500g (Gu Truyền Thống)',
+    nameEn: "Saigon Heritage Phin Coffee Blend 500g (Bold Taste)",
     alias: 'ca-phe-moc-phin-sai-gon-dam-vi-500g',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
+    categoryNameEn: "Coffee Bag",
     price: 310000,
     weight: '500g',
     origin: 'Cao nguyên Đắk Nông & Lâm Đồng',
+    originEn: "Dak Nong & Lam Dong Highlands",
     roastLevel: 'Dark Roast (Rang đậm)',
     tasteNotes: ['Hương khói gỗ thông', 'Vị đắng bùi socola 85%', 'Độ sánh cao', 'Hậu vị ngọt sâu'],
     description: `Công thức rang mộc gia truyền tái hiện trọn vẹn phong vị cà phê vỉa hè Sài Gòn xưa: đậm, đắng, sánh bốc khói nghi ngút khi nhỏ từng giọt qua chiếc phin nhôm. Tuyệt đối không hương liệu nhân tạo, không bột bắp đậu nành.`,
+    descriptionEn: "Tribute to authentic Saigon street coffee culture. Pure rustic beans roasted to Dark profile, delivering intense aroma, thick body, and lingering bittersweet cocoa that pairs heavenly with sweet condensed milk.",
     brewingRecommendation: 'Pha phin nhôm truyền thống, pha cà phê sữa đá Sài Gòn, cà phê đen đường phèn.',
     image: '/images/prod_robusta_500g.jpg',
     images: [
@@ -490,14 +522,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bottle-coldbrew-classic',
     name: 'Chai Cold Brew Truyền Thống Dolphy 330ml (Ủ Chậm 18 Giờ)',
+    nameEn: "Dolphy Classic Cold Brew Bottle 330ml (18-Hour Slow Steep)",
     alias: 'chai-cold-brew-truyen-thong-dolphy-330ml',
     category: 'bottled-drinks',
     categoryName: 'Đồ uống đóng chai Fresh',
+    categoryNameEn: "Bottled Drink",
     price: 65000,
     weight: '330ml',
     origin: 'Chiết xuất từ hạt 100% Arabica Cầu Đất',
+    originEn: "100% Cau Dat Highland Arabica extract",
     tasteNotes: ['Thanh mát dịu nhẹ', 'Hương socola sữa', 'Ít chua', 'Hậu vị ngọt thanh'],
     description: `Được ủ lạnh chậm suốt 18 tiếng ở nhiệt độ 4°C bằng nước lọc tinh khiết RO, chiết xuất từng giọt tinh túy không gắt dầu, hàm lượng axit thấp, êm dịu cho dạ dày. Đóng chai thủy tinh cao cấp, bảo quản tủ mát 5 ngày.`,
+    descriptionEn: "Slow-steeped over 18 hours with filtered cold water. Clean, refreshing profile highlighting ripe fruit sweetness, low bitterness, zero astringency, and wine-like floral complexity. Ready to drink chilled.",
     brewingRecommendation: 'Uống trực tiếp với đá lạnh hoặc thêm 1 lát cam tươi.',
     image: '/images/fanpage/drink-layered-coffee-tumbler.jpg',
     images: [
@@ -510,14 +546,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bottle-coldbrew-orange',
     name: 'Chai Cold Brew Cam Vàng Mọng Nước 330ml (Signature Drink)',
+    nameEn: "Cold Brew Juicy Orange Bottle 330ml (Signature Drink)",
     alias: 'chai-cold-brew-cam-vang-mong-nuoc-330ml',
     category: 'bottled-drinks',
     categoryName: 'Đồ uống đóng chai Fresh',
+    categoryNameEn: "Bottled Drink",
     price: 75000,
     weight: '330ml',
     origin: 'Cold Brew Arabica + Nước ép cam vàng Navel tươi',
+    originEn: "Arabica Cold Brew + Fresh Navel Orange Juice",
     tasteNotes: ['Chua ngọt sảng khoái', 'Hương tinh dầu vỏ cam', 'Hậu vị cà phê thơm nồng'],
     description: `Món giải khát 'best-seller' những trưa hè oi ả tại Thảo Điền! Sự kết hợp bùng nổ giữa cà phê ủ lạnh mượt mà và nước ép cam vàng Navel ngọt mọng, điểm xuyết thêm chút hương hoa hồi thoang thoảng.`,
+    descriptionEn: "Refreshing best-seller fusing slow-steeped Cau Dat Arabica cold brew with fresh California Navel orange juice and rosemary infusion. Vibrant, thirst-quenching, and revitalizing.",
     brewingRecommendation: 'Lắc đều, rót ra ly kèm đá viên và thưởng thức.',
     image: '/images/fanpage/drink-strawberry-smoothie-tumbler.jpg',
     images: [
@@ -530,14 +570,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bottle-salted-cream-coffee',
     name: 'Chai Cà Phê Muối Kem Béo Dolphy Signature 330ml',
+    nameEn: "Dolphy Salted Cream Coffee Bottle 330ml (Signature)",
     alias: 'chai-ca-phe-muoi-kem-beo-dolphy-signature-330ml',
     category: 'bottled-drinks',
     categoryName: 'Đồ uống đóng chai Fresh',
+    categoryNameEn: "Bottled Drink",
     price: 68000,
     weight: '330ml',
     origin: 'Cà phê phin Robusta + Lớp màng kem muối biển hồng Himalaya',
+    originEn: "Robusta Phin Extract + Pink Himalayan Salt Foam",
     tasteNotes: ['Vị mặn mòi tinh tế', 'Kem béo ngậy mịn màng', 'Cà phê đậm đà', 'Hài hòa quyến rũ'],
     description: `Lớp kem béo làm từ sữa tươi thanh trùng kết hợp muối hồng Himalaya nguyên khoáng, phủ lên trên cốt cà phê phin đậm đặc được chiết xuất chậm từ hạt Robusta rang nâu.`,
+    descriptionEn: "Addictive blend of bold Robusta coffee topped with velvety sweet cream infused with pink Himalayan salt. Rich, comforting, and perfectly balanced.",
     brewingRecommendation: 'Ngon nhất khi uống từng ngụm nghiêng 45 độ để kem muối và cà phê cùng hòa quyện.',
     image: '/images/fanpage/drink-salted-cream-tulip.jpg',
     images: [
@@ -550,14 +594,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bottle-bac-siu-saigon',
     name: 'Chai Bạc Sỉu Sài Gòn Ba Tầng 330ml (Gu Thảo Điền)',
+    nameEn: "Saigon Three-Layer Bac Siu Bottle 330ml (Thao Dien Taste)",
     alias: 'chai-bac-siu-saigon-ba-tang-330ml',
     category: 'bottled-drinks',
     categoryName: 'Đồ uống đóng chai Fresh',
+    categoryNameEn: "Bottled Drink",
     price: 62000,
     weight: '330ml',
     origin: 'Sữa đặc Ngôi Sao + Sữa tươi thanh trùng Đà Lạt + Cốt cà phê Dolphy',
+    originEn: "Sweet Condensed Milk + Fresh Milk + Dolphy Coffee Shot",
     tasteNotes: ['Ngọt bùi béo ngậy', 'Thơm nồng hương cà phê', 'Vị thanh không ngấy'],
     description: `Thức uống quốc dân được khách hàng nước ngoài và bản xứ tại Thảo Điền khen ngợi suốt 13 năm qua: sữa nhiều hơn cà phê, béo thơm ngất ngây mà không hề ngọt gắt.`,
+    descriptionEn: "The beloved Thao Dien morning ritual in a portable bottle. Creamy condensed milk, pasture-fresh Dalat milk, and a delicate floating shot of aromatic espresso.",
     brewingRecommendation: 'Lắc nhẹ trước khi uống, dùng kèm đá bi.',
     image: '/images/fanpage/retail-ice-coffee-poster.jpg',
     images: [
@@ -569,14 +617,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bottle-oolong-milk-tea',
     name: 'Chai Trà Sữa Ô Long Nướng Dolphy 500ml (Kèm Thạch Củ Năng)',
+    nameEn: "Roasted Oolong Milk Tea Bottle 500ml (With Water Chestnut Jelly)",
     alias: 'chai-tra-sua-o-long-nuong-dolphy-500ml',
     category: 'bottled-drinks',
     categoryName: 'Đồ uống đóng chai Fresh',
+    categoryNameEn: "Bottled Drink",
     price: 79000,
     weight: '500ml',
     origin: 'Lá trà Ô Long Cao Sơn Bảo Lộc sao lửa than củi',
+    originEn: "Charcoal-roasted Bao Loc Highland Oolong Leaves",
     tasteNotes: ['Mùi khói trà nướng thơm lừng', 'Vị chát dịu hậu ngọt', 'Sữa béo thanh thoát'],
     description: `Ủ từ cốt trà Ô Long nướng nguyên lá cao cấp Bảo Lộc, kết hợp cùng sữa tươi nguyên kem. Mùi trà thơm đượm nồng nàn lưu luyến mãi nơi cuống họng.`,
+    descriptionEn: "Premium whole oolong tea leaves charcoal-roasted to perfection, brewed with creamy dairy and served with crunchy handmade water chestnut jelly.",
     brewingRecommendation: 'Uống lạnh trực tiếp từ chai hoặc thêm đá.',
     image: '/images/fanpage/drink-okinawa-milk-tea.jpg',
     images: [
@@ -589,14 +641,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bakery-butter-croissant',
     name: 'Bánh Croissant Bơ Pháp Truyền Thống (Nướng Tươi Mỗi Sáng)',
+    nameEn: "Traditional French Butter Croissant (Baked Fresh Daily)",
     alias: 'banh-croissant-bo-phap-truyen-thong',
     category: 'bakery',
     categoryName: 'Bánh Dolphy Bakery',
+    categoryNameEn: "Artisanal Bakery",
     price: 45000,
     weight: '75g',
     origin: 'Bơ nguyên chất Elle & Vire nhập khẩu từ Pháp',
+    originEn: "100% Elle & Vire Pure Butter imported from France",
     tasteNotes: ['Vỏ ngoài giòn rụm', 'Ruột tổ ong xốp mềm', 'Thơm lừng mùi bơ thơm'],
     description: `Chiếc bánh sừng bò kinh điển được nhào nặn và ủ bột kỳ công 24 giờ với hàng chục lớp bơ Pháp thơm nức. Thưởng thức cùng tách Cappuccino hoặc Americano nóng là bữa sáng lý tưởng chuẩn phong cách châu Âu tại Thảo Điền.`,
+    descriptionEn: "Baked fresh every dawn across Dolphy bakeries. Honeycomb flaky layers, golden crisp exterior, and melt-in-your-mouth French butter aroma. The quintessential coffee pairing.",
     brewingRecommendation: 'Dùng kèm cà phê sáng hoặc hâm nóng lại trong lò nướng 2 phút ở 160°C.',
     image: '/images/fanpage/retail-beans-bakery-display.jpg',
     images: [
@@ -609,14 +665,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bakery-pain-au-chocolat',
     name: 'Bánh Pain au Chocolat Socola Bỉ Đậm Đà',
+    nameEn: "Rich Belgian Chocolate Pain au Chocolat",
     alias: 'banh-pain-au-chocolat-socola-bi',
     category: 'bakery',
     categoryName: 'Bánh Dolphy Bakery',
+    categoryNameEn: "Artisanal Bakery",
     price: 52000,
     weight: '85g',
     origin: 'Nhân socola thanh Callebaut Bỉ 54%',
+    originEn: "Callebaut Belgian 54% Dark Chocolate Batons",
     tasteNotes: ['Giòn xốp nhiều tầng', 'Socola tan chảy béo đắng', 'Mùi bơ ngào ngạt'],
     description: `Hai thanh socola đen Bỉ thượng hạng ẩn mình bên trong lớp vỏ ngàn lớp giòn tan. Khi cắn vào, socola hơi ấm quyện cùng bột bánh béo ngậy tạo nên trải nghiệm vị giác khó quên.`,
+    descriptionEn: "Flaky laminated French pastry dough wrapped around twin bars of rich 54% Belgian dark chocolate. Warm in the oven for a decadent molten cocoa sensation.",
     brewingRecommendation: 'Thích hợp với Latte nóng hoặc Trà Ô Long.',
     image: '/images/fanpage/retail-teabreak-catering.jpg',
     images: [
@@ -628,14 +688,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bakery-blueberry-danish',
     name: 'Bánh Danish Việt Quất Phô Mai Tươi (Blueberry Cheese Danish)',
+    nameEn: "Blueberry Fresh Cream Cheese Danish",
     alias: 'banh-danish-viet-quat-pho-mai-tuoi',
     category: 'bakery',
     categoryName: 'Bánh Dolphy Bakery',
+    categoryNameEn: "Artisanal Bakery",
     price: 58000,
     weight: '90g',
     origin: 'Mứt quả việt quất Canada & Phô mai kem Anchor',
+    originEn: "Canadian Wild Blueberry Compote & Anchor Cream Cheese",
     tasteNotes: ['Chua thanh ngọt mọng', 'Kem phô mai béo ngậy', 'Đế bánh giòn rụm'],
     description: `Sự kết hợp hoàn hảo giữa vị chua ngọt tự nhiên của quả việt quất tươi và lớp kem phô mai béo mềm trên nền đế bánh Danish nướng vàng ươm.`,
+    descriptionEn: "Crisp laminated pastry nest cradling smooth, tangy cream cheese and vibrant wild blueberry compote. Bright, fruity, and delightful.",
     brewingRecommendation: 'Rất hợp khi nhâm nhi cùng Cold Brew cam hoặc Trà nóng.',
     image: '/images/fanpage/retail-beans-bakery-display.jpg',
     images: [
@@ -646,14 +710,18 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'bakery-cookies-chocochip',
     name: 'Hộp Bánh Cookies Chocolate Chip Hạt Điều Dolphy (Hộp 6 Chiếc)',
+    nameEn: "Chocolate Chip & Roasted Cashew Cookies (Box of 6)",
     alias: 'hop-banh-cookies-chocolate-chip-hat-dieu-dolphy',
     category: 'bakery',
     categoryName: 'Bánh Dolphy Bakery',
+    categoryNameEn: "Artisanal Bakery",
     price: 85000,
     weight: '180g (6 chiếc đóng túi riêng)',
     origin: 'Hạt điều Bình Phước tuyển chọn + Hạt socola chip',
+    originEn: "Binh Duong Golden Cashews + Dark Chocolate Chips",
     tasteNotes: ['Giòn tan rôm rốp', 'Bùi béo hạt điều', 'Ngọt dịu không ngấy'],
     description: `Món bánh ăn vặt nướng thủ công được đóng hộp xinh xắn, là bạn đồng hành tuyệt vời trong các buổi học nhóm, làm việc văn phòng hoặc quà tặng nhỏ xinh.`,
+    descriptionEn: "Freshly baked artisanal cookies combining crunchy roasted Binh Duong cashews and dark chocolate morsels. Perfectly crumbly with a hint of sea salt.",
     brewingRecommendation: 'Chấm nhẹ vào ly cà phê sữa hoặc trà chiều.',
     image: '/images/fanpage/retail-teabreak-catering.jpg',
     images: [
@@ -666,9 +734,12 @@ Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu
   {
     id: 'phin-ca-phe-nhom',
     name: 'Phin Cà Phê Nhôm Mạ Anode Dolphy (4 Màu Sắc Cao Cấp)',
+    nameEn: "Dolphy Anodized Aluminum Coffee Phin (4 Premium Colors)",
     alias: 'phin-ca-phe-nhom-truyen-thong',
     category: 'equipment',
     categoryName: 'Dụng cụ & Merchandise',
+    categoryNameEn: "Brewing Gear",
+    originEn: "High-grade food-safe anodized aluminum",
     price: 100000,
     weight: '150g',
     description: `Phin nhôm truyền thống được chế tác từ chất liệu nhôm dày dặn, cứng cáp với công nghệ mạ anode cao cấp, giúp duy trì nhiệt độ ủ ổn định và bảo toàn trọn vẹn hương vị cà phê nguyên bản.
@@ -678,6 +749,7 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
 2. Vàng đồng quý phái (Bronze Gold)
 3. Xám đậm hiện đại (Dark Grey)
 4. Xanh dương đại dương (Royal Blue)`,
+    descriptionEn: "Precision-engineered aluminum phin with laser-cut micro-perforations for even water saturation and optimal extraction. Available in Dolphy Navy, Rose Gold, Matte Silver, and Amber Bronze.",
     image: '/images/prod_phin_nhom.jpg',
     images: [
       '/images/prod_phin_nhom.jpg',
@@ -689,14 +761,18 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
   {
     id: 'dolphy-tumbler-500ml',
     name: 'Bình Giữ Nhiệt Dolphy Stainless Steel Tumbler 500ml (Xanh Đại Dương)',
+    nameEn: "Dolphy Stainless Steel Thermal Tumbler 500ml (Ocean Navy)",
     alias: 'binh-giu-nhiet-dolphy-tumbler-500ml',
     category: 'equipment',
     categoryName: 'Dụng cụ & Merchandise',
+    categoryNameEn: "Merchandise",
+    originEn: "Double-wall Vacuum Insulated SUS 304 Steel",
     price: 280000,
     weight: '300g (Ruột Inox 304 2 lớp chân không)',
     description: `Bình giữ nhiệt Dolphy phiên bản giới hạn với họa tiết chú cá heo xanh khắc laser tinh xảo. Khả năng giữ nóng 8 giờ và giữ lạnh đá viên lên đến 18 giờ.
 
 Đặc quyền sống xanh: Mang bình đến bất kỳ chi nhánh Dolphy nào được giảm trực tiếp 10% trên hóa đơn và tích thêm 1 Green Stamp!`,
+    descriptionEn: "Signature Dolphy thermal tumbler keeping beverages icy cold for 24 hours or steaming hot for 12 hours. BPA-free leakproof lid. Enjoy 10% discount on beverage refills at all Dolphy stores.",
     image: '/images/fanpage/community-green-stamp-card.jpg',
     images: [
       '/images/fanpage/community-green-stamp-card.jpg',
@@ -708,12 +784,16 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
   {
     id: 'barista-milk-pitcher',
     name: 'Ca Đánh Sữa Barista Pitcher 450ml Thép Không Gỉ (Vạch Chia Đo SCA)',
+    nameEn: "Barista Milk Steaming Pitcher 450ml Stainless Steel (SCA Scale)",
     alias: 'ca-danh-sua-barista-pitcher-450ml',
     category: 'equipment',
     categoryName: 'Dụng cụ & Merchandise',
+    categoryNameEn: "Brewing Gear",
+    originEn: "SCA Standard Heavy Duty Food-Grade SUS 304",
     price: 220000,
     weight: '210g',
     description: `Ca đánh sữa chuyên nghiệp chuẩn học viện Dolphy Barista Academy. Miệng rót mỏ vịt nhọn giúp kiểm soát dòng sữa cực mảnh, dễ dàng tạo hình các họa tiết phức tạp như Thiên nga, Rosetta nhiều cánh hay Tulip đa tầng.`,
+    descriptionEn: "Professional barista pitcher with precision pointed spout for intricate Latte Art. Internal measurement markings facilitate exact milk portioning and zero waste.",
     image: '/images/fanpage/academy-latte-art-pouring.jpg',
     images: [
       '/images/fanpage/academy-latte-art-pouring.jpg',
@@ -724,12 +804,16 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
   {
     id: 'dolphiers-striped-tshirt',
     name: 'Áo Thun Dolphier Official Sọc Xanh Trắng (100% Cotton 2 Chiều)',
+    nameEn: "Official Dolphier Striped T-Shirt (100% 2-Way Cotton)",
     alias: 'ao-thun-dolphier-official-soc-xanh-trang',
     category: 'equipment',
     categoryName: 'Dụng cụ & Merchandise',
+    categoryNameEn: "Merchandise",
+    originEn: "Premium Combed Cotton 250gsm, Vietnam Made",
     price: 195000,
     weight: '250g (Đủ size S, M, L, XL)',
     description: `Chiếc áo thun đồng phục mang tính biểu tượng của gia đình Dolphy! Chất vải thun cotton 100% dày dặn, thấm hút mồ hôi tốt với họa tiết sọc ngang xanh - trắng năng động, ngực thêu logo cá heo sắc sảo.`,
+    descriptionEn: "Dolphy’s iconic blue-and-white maritime striped uniform t-shirt. Breathable, durable, and comfortable for all-day urban wear. Loved by baristas and community friends alike.",
     image: '/images/fanpage/career-dolphiers-striped-uniform.jpg',
     images: [
       '/images/fanpage/career-dolphiers-striped-uniform.jpg',
@@ -742,9 +826,12 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
   {
     id: 'combo-phin-traditional-light',
     name: 'COMBO PHIN VIETNAM - TRADITIONAL LIGHT (Gu Tinh Tế)',
+    nameEn: "Vietnam Phin Combo - Traditional Light (Floral & Delicate)",
     alias: 'combo-phin-vietnam-traditional-light',
     category: 'combo',
     categoryName: 'Combo & Doanh nghiệp',
+    categoryNameEn: "Gift Box & Combo",
+    originEn: "Cau Dat Arabica + Anodized Aluminum Phin",
     price: 779000,
     compareAtPrice: 840000,
     weight: '750g cà phê + 1 phin nhôm',
@@ -758,6 +845,7 @@ Thành phần hộp quà gồm:
 • 01 gói cà phê Arabica thượng hạng (250gr)
 • 01 Phin cà phê nhôm cao cấp dập logo Dolphy tinh xảo
 • Hộp quà sang trọng thiết kế đậm phong vị Tết truyền thống`,
+    descriptionEn: "The perfect starter kit for gentle, aromatic coffee lovers. Includes 250g Arabica Cau Dat, 1 Dolphy anodized phin, and step-by-step brewing guide card.",
     image: '/images/prod_combo_phin_light.jpg',
     images: [
       '/images/prod_combo_phin_light.jpg',
@@ -769,9 +857,12 @@ Thành phần hộp quà gồm:
   {
     id: 'combo-phin-traditional-medium',
     name: 'COMBO PHIN VIET NAM - TRADITIONAL MEDIUM (Gu Hài Hòa)',
+    nameEn: "Vietnam Phin Combo - Traditional Medium (Balanced Harmony)",
     alias: 'cappuccino',
     category: 'combo',
     categoryName: 'Combo & Doanh nghiệp',
+    categoryNameEn: "Gift Box & Combo",
+    originEn: "Espresso Blend Signature + Ocean Navy Phin",
     price: 679000,
     compareAtPrice: 730000,
     weight: '750g cà phê + 1 phin nhôm',
@@ -783,6 +874,7 @@ Thành phần combo gồm:
 • 01 gói cà phê Mix Arabica & Robusta (250gr)
 • 01 Phin cà phê nhôm cao cấp Dolphy
 • Hộp quà Tết trang nhã kèm thiệp chúc mừng`,
+    descriptionEn: "Dolphy’s signature balance. Includes 250g Espresso Blend (80/20), 1 Ocean Navy anodized aluminum phin, and brewing ratio recipe.",
     image: '/images/prod_combo_phin_medium.jpg',
     images: [
       '/images/prod_combo_phin_medium.jpg',
@@ -793,9 +885,12 @@ Thành phần combo gồm:
   {
     id: 'combo-phin-traditional-strong',
     name: 'COMBO PHIN VIETNAM - TRADITIONAL STRONG (Gu Mạnh Mẽ)',
+    nameEn: "Vietnam Phin Combo - Traditional Strong (Bold Energy)",
     alias: 'latte',
     category: 'combo',
     categoryName: 'Combo & Doanh nghiệp',
+    categoryNameEn: "Gift Box & Combo",
+    originEn: "Fine Robusta Lam Dong + Matte Black Phin",
     price: 579000,
     compareAtPrice: 635000,
     weight: '750g cà phê + 1 phin nhôm',
@@ -807,6 +902,7 @@ Thành phần combo gồm:
 • 01 gói cà phê Robusta tuyển chọn (250gr)
 • 01 Phin cà phê nhôm truyền thống Dolphy
 • Hộp quà cao cấp`,
+    descriptionEn: "Designed for seekers of intense energy and authentic street coffee spirit. Includes 250g Fine Robusta, 1 premium phin, and condensed milk measuring cup.",
     image: '/images/prod_combo_phin_strong.jpg',
     images: [
       '/images/prod_combo_phin_strong.jpg',
@@ -820,6 +916,8 @@ Thành phần combo gồm:
     alias: 'hop-qua-tet-dolphy-giap-thin-2026-xuan-khoi-sac',
     category: 'combo',
     categoryName: 'Combo & Doanh nghiệp',
+    categoryNameEn: "Gift Box & Combo",
+    originEn: "Deluxe Special Edition Box",
     price: 950000,
     compareAtPrice: 1100000,
     weight: '1.2kg (Trọn bộ quà tặng cao cấp)',
@@ -829,6 +927,7 @@ Thành phần combo gồm:
 • 01 Phin nhôm mạ vàng Gold Edition
 • 01 Bộ bao lì xì Dolphy may mắn độc quyền
 • Hộp cứng vân gỗ bọc nhung ép kim sang trọng.`,
+    descriptionEn: "Festive luxury gift box featuring Cau Dat Specialty beans, 1 gold anodized phin, 1 box of chocolate chip cashew cookies, and handwritten greeting card from Dolphy founder.",
     image: '/images/fanpage/career-red-envelopes-tet.jpg',
     images: [
       '/images/fanpage/career-red-envelopes-tet.jpg',
@@ -840,9 +939,12 @@ Thành phần combo gồm:
   {
     id: 'b2b-teabreak-mini-package',
     name: 'Gói Tiệc Teabreak Doanh Nghiệp Mini (20 - 30 Khách)',
+    nameEn: "Corporate Mini Teabreak Package (20 - 30 Guests)",
     alias: 'goi-tiec-teabreak-doanh-nghiep-mini',
     category: 'combo',
     categoryName: 'Combo & Doanh nghiệp',
+    categoryNameEn: "B2B Catering",
+    originEn: "On-site Office Catering Service",
     price: 2500000,
     weight: 'Trọn gói setup tận nơi',
     description: `Giải pháp tiệc teabreak trọn gói cho hội thảo, workshop, họp văn phòng:
@@ -850,6 +952,7 @@ Thành phần combo gồm:
 • 60 Chiếc bánh ngọt & mặn nướng tươi (Croissant bơ Pháp, Pain au chocolat, Danish việt quất)
 • Trái cây tươi cắt sẵn theo mùa (Dưa hấu, Nho Mỹ, Dâu tây)
 • Đầy đủ khay kệ trang trí hoa tươi, ly dĩa giấy thân thiện môi trường và nhân viên setup chu đáo.`,
+    descriptionEn: "All-inclusive catering package for office seminars, board meetings, and team celebrations. Includes 30 assorted fresh pastries, 30 bottled specialty drinks, and branded eco-friendly tableware.",
     image: '/images/fanpage/retail-teabreak-catering.jpg',
     images: [
       '/images/fanpage/retail-teabreak-catering.jpg',
@@ -860,9 +963,12 @@ Thành phần combo gồm:
   {
     id: 'b2b-teabreak-vip-package',
     name: 'Gói Tiệc Teabreak & Quầy Barista Lưu Động VIP (50 - 100 Khách)',
+    nameEn: "VIP Corporate Teabreak & Mobile Barista Bar (50 - 100 Guests)",
     alias: 'goi-tiec-teabreak-quay-barista-luu-dong-vip',
     category: 'combo',
     categoryName: 'Combo & Doanh nghiệp',
+    categoryNameEn: "B2B Catering",
+    originEn: "Full Mobile Barista Pop-up Station",
     price: 6800000,
     weight: 'Trọn gói quầy Barista pha trực tiếp',
     description: `Đẳng cấp khác biệt cho sự kiện khai trương, hội nghị khách hàng, giải thi đấu:
@@ -870,6 +976,7 @@ Thành phần combo gồm:
 • 02 Barista chuyên nghiệp phục vụ pha chế trực tiếp không giới hạn (Latte Art, Cappuccino, Cold Brew...)
 • Bàn tiệc bánh ngọt Âu cao cấp 5 sao và trà hoa thảo mộc
 • Đã được tin dùng bởi Prudential Tower, SSIS, Spartan Race Vietnam.`,
+    descriptionEn: "Turnkey mobile specialty cafe experience at your venue. Includes 2 certified baristas, commercial espresso machine, unlimited menu drinks, and gourmet European pastry buffet.",
     image: '/images/fanpage/community-b2b-corporate-booth.jpg',
     images: [
       '/images/fanpage/community-b2b-corporate-booth.jpg',
@@ -893,8 +1000,9 @@ export const branchesData: Branch[] = [
     openingHours: '06:30 - 22:30 (Mở cửa mỗi ngày)',
     mapUrl: 'https://maps.google.com/?q=8+Thao+Dien+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/fanpage/branch-08-thao-dien.jpg',
+    image: '/images/fanpage/branch-08-thao-dien-clean.jpg',
     features: ['Góc phố Thảo Điền rợp bóng mát', 'Cộng đồng Expat quốc tế', 'Thân thiện thú cưng (Pet-friendly)', 'Take-away & Giao hàng tận nơi'],
+    featuresEn: ["Shaded Thao Dien corner","International expat community","Pet-friendly space","Take-away & Doorstep delivery"],
     isFlagship: true
   },
   {
@@ -907,8 +1015,9 @@ export const branchesData: Branch[] = [
     openingHours: '06:30 - 22:30 (Mở cửa mỗi ngày)',
     mapUrl: 'https://maps.google.com/?q=28+Thao+Dien+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/fanpage/branch-28-thao-dien.jpg',
+    image: '/images/fanpage/branch-28-thao-dien-facade-clean.jpg',
     features: ['Biểu tượng Dolphy Thảo Điền từ 2013', 'Trung tâm Dolphy Barista Academy', 'Không gian xanh thoáng đãng', 'Wifi tốc độ cao làm việc'],
+    featuresEn: ["Thao Dien icon since 2013","Dolphy Barista Academy Hub","Lush open garden ambiance","High-speed coworking Wi-Fi"],
     isFlagship: true
   },
   {
@@ -922,7 +1031,8 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=3+Nguyen+Van+Huong+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-03-nguyen-van-huong.jpg',
-    features: ['Không gian mộc mạc vỉa hè Sài Gòn', 'Cây cổ thụ tỏa bóng xanh mát', 'Điểm hẹn cà phê sáng lý tưởng', 'Chỗ để xe rộng rãi']
+    features: ['Không gian mộc mạc vỉa hè Sài Gòn', 'Cây cổ thụ tỏa bóng xanh mát', 'Điểm hẹn cà phê sáng lý tưởng', 'Chỗ để xe rộng rãi'],
+    featuresEn: ["Rustic Saigon street cafe vibe","Shaded by ancient trees","Ideal morning coffee rendezvous","Spacious free parking"]
   },
   {
     id: 'branch-23-nguyen-van-huong',
@@ -936,6 +1046,7 @@ export const branchesData: Branch[] = [
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/23-nguyen-van-huong-night.jpg',
     features: ['Kiến trúc 3 tầng vòm bê tông thô mộc', 'Rooftop gió sông thoáng đãng', 'Bàn dài làm việc nhóm lớn', 'Không gian check-in độc bản'],
+    featuresEn: ["3-storey raw architectural arches","Breezy river-view rooftop","Large group meeting tables","Unique photo check-in spot"],
     isFlagship: true
   },
   {
@@ -949,7 +1060,8 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=28+Tran+Luu+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-28-tran-luu.jpg',
-    features: ['Sân vườn biệt thự An Phú', 'Nơi tổ chức Junior Barista Championship', 'Gặp gỡ đối tác trang nhã', 'Khuôn viên yên bình']
+    features: ['Sân vườn biệt thự An Phú', 'Nơi tổ chức Junior Barista Championship', 'Gặp gỡ đối tác trang nhã', 'Khuôn viên yên bình'],
+    featuresEn: ["An Phu villa garden setting","Junior Barista Championship venue","Elegant corporate meeting spot","Peaceful tranquil retreat"]
   },
   {
     id: 'branch-113-duong-van-an',
@@ -962,7 +1074,8 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=113+Duong+Van+An+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-113-duong-van-an.jpg',
-    features: ['Khu dân cư hiện đại An Phú', 'Bàn làm việc nhóm lớn', 'Menu Cloud Collection mới', 'Ổ cắm điện từng bàn']
+    features: ['Khu dân cư hiện đại An Phú', 'Bàn làm việc nhóm lớn', 'Menu Cloud Collection mới', 'Ổ cắm điện từng bàn'],
+    featuresEn: ["Modern An Phu residential zone","Large team collaborative tables","Fresh Cloud Collection drinks","Power outlets at every table"]
   },
 
   // Khu vực Quận 7 (Phú Mỹ Hưng)
@@ -978,6 +1091,7 @@ export const branchesData: Branch[] = [
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-1441-nguyen-van-linh.jpg',
     features: ['Đại lộ Nguyễn Văn Linh sầm uất', 'Kính panorama ngập tràn ánh sáng', 'Dolphy Academy Training Hub Q7', 'Hồ cá Koi thanh tịnh'],
+    featuresEn: ["Bustling Nguyen Van Linh boulevard","Sunlit panoramic glass windows","Dolphy Academy D7 training hub","Peaceful Koi pond garden"],
     isFlagship: true
   },
   {
@@ -991,7 +1105,8 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=Nam+Vien+Phu+My+Hung+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-nam-vien-pmh.jpg',
-    features: ['Công viên Nam Viên rợp bóng cây', 'Không khí trong lành yên tĩnh', 'Chỗ ngồi ngoài trời thoáng đãng', 'Thân thiện thú cưng']
+    features: ['Công viên Nam Viên rợp bóng cây', 'Không khí trong lành yên tĩnh', 'Chỗ ngồi ngoài trời thoáng đãng', 'Thân thiện thú cưng'],
+    featuresEn: ["Surrounded by Nam Vien lush park","Serene fresh green atmosphere","Spacious alfresco terrace","Pet-friendly friendly patio"]
   },
   {
     id: 'branch-ly-long-tuong',
@@ -1004,7 +1119,8 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=R3-21+Ly+Long+Tuong+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-ly-long-tuong-nam-quang.jpg',
-    features: ['Trung tâm phố đi bộ Phú Mỹ Hưng', 'Thiết kế biển hiệu xanh nổi bật', 'Chỗ ngồi bệt & bàn cao', 'Phục vụ cư dân Hàn Quốc & Expat']
+    features: ['Trung tâm phố đi bộ Phú Mỹ Hưng', 'Thiết kế biển hiệu xanh nổi bật', 'Chỗ ngồi bệt & bàn cao', 'Phục vụ cư dân Hàn Quốc & Expat'],
+    featuresEn: ["Phu My Hung pedestrian hub","Vibrant signature ocean-blue facade","Floor cushions & high tables","Welcoming Korean & expat residents"]
   },
   {
     id: 'branch-hoang-van-thai',
@@ -1017,7 +1133,8 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=8+Hoang+Van+Thai+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-08-hoang-van-thai-prudential.jpg',
-    features: ['Tòa nhà Prudential trung tâm tài chính Q7', 'Phục vụ văn phòng & tiệc Teabreak', 'Take-away siêu nhanh', 'Đặt món online giao tận bàn']
+    features: ['Tòa nhà Prudential trung tâm tài chính Q7', 'Phục vụ văn phòng & tiệc Teabreak', 'Take-away siêu nhanh', 'Đặt món online giao tận bàn'],
+    featuresEn: ["Prudential Tower financial center","Corporate office & teabreak service","Lightning-fast express take-away","Order online with table delivery"]
   },
 
   // Khu vực Bình Thạnh
@@ -1032,7 +1149,8 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=79+Pham+Viet+Chanh+Binh+Thanh+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-79-pham-viet-chanh.jpg',
-    features: ['Khu phố Tây/Nhật Phạm Viết Chánh sôi động', 'Nhạc acoustic nhẹ nhàng', 'Bạc sỉu & cà phê pha phin truyền thống', 'Góc vỉa hè ngắm phố']
+    features: ['Khu phố Tây/Nhật Phạm Viết Chánh sôi động', 'Nhạc acoustic nhẹ nhàng', 'Bạc sỉu & cà phê pha phin truyền thống', 'Góc vỉa hè ngắm phố'],
+    featuresEn: ["Vibrant Japanese/Western quarter","Gentle acoustic soundtrack","Heritage Bac Siu & Phin coffee","Charming sidewalk street-view"]
   },
 
   // Khu vực Quận 3 (Trung Tâm)
@@ -1048,6 +1166,7 @@ export const branchesData: Branch[] = [
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/soft-opening-ba-huyen-thanh-quan.jpg',
     features: ['Chi nhánh trung tâm mới nhất', 'Ưu đãi Soft Opening 30%', 'Không gian cổ điển lãng mạn', 'Menu bánh nướng Pháp cao cấp'],
+    featuresEn: ["Newest city center flagship","Soft opening special 30% off","Romantic neoclassical interior","Gourmet French bakery menu"],
     isFlagship: true
   }
 ];
@@ -1055,6 +1174,22 @@ export const branchesData: Branch[] = [
 export const articlesData: Article[] = [
   {
     id: 'junior-barista-championship-2024',
+    titleEn: 'Dolphy Junior Barista Championship 2024: Igniting the Flame of Youth Passion at 28 Tran Luu',
+    categoryEn: 'Academy & Contests',
+    readTimeEn: '6 min read',
+    excerptEn: 'Annual internal skills showcase bringing together young talents across 10 Dolphy branches to compete in Latte Art mastery and coffee sensory calibration.',
+    contentEn: `On March 20, 2024, at Dolphy Café 28 Tran Luu (An Phu, Thu Duc City), the grand finals of the DOLPHY JUNIOR BARISTA CHAMPIONSHIP 2024 took place with incredible energy and thrilling sportsmanship.
+
+MORE THAN A COMPETITION, A GROWTH JOURNEY
+Gathering over 30 promising young baristas representing 10 branches across HCMC, contestants navigated intense knockout rounds (Quarterfinals, Semifinals, and Grand Finals) across key challenges:
+• Challenge 1: Espresso grinder calibration (Dial-in) under a strict 10-minute countdown.
+• Challenge 2: Advanced Latte Art precision pouring with 3 mandatory patterns: Multi-layered Heart, Symmetrical Tulip, and Delicate Rosetta.
+• Challenge 3: Creative Signature Beverage crafted on the foundation of authentic single-origin Cau Dat Arabica.
+
+RIGOROUS EVALUATION BY SCA-CERTIFIED JUDGES
+The judging panel, composed of Head Baristas and Master Trainers, evaluated each cup against SCA international standards: from the glossy sheen of micro-foam to the balance of bright acidity and rich sweetness, and the heartfelt service ethos of "Happiness in a cup".
+
+The championship trophy and honorary graduation certificates celebrated worthy champions, opening career pathways to Shift Leader and future Trainer positions at Dolphy Academy.`,
     title: 'Dolphy Junior Barista Championship 2024: Nơi Bừng Sáng Ngọn Lửa Đam Mê Của Thế Hệ Trẻ Tại 28 Trần Lựu',
     slug: 'junior-barista-championship-2024-tran-luu',
     category: 'Học Viện & Cuộc Thi',
@@ -1079,6 +1214,26 @@ Chiếc cúp vô địch cùng chứng nhận tốt nghiệp danh dự đã tìm
   },
   {
     id: 'huong-dan-pha-phin-dolphy',
+    titleEn: 'Secrets of Traditional Saigon Phin Coffee: 4-Step Golden Ratio 1:4 by Head Barista',
+    categoryEn: 'Brewing Guide',
+    readTimeEn: '5 min read',
+    excerptEn: 'Precise dosing of 20-25g pure coffee and a 3-minute bloom technique to extract rich caramel and dark chocolate aromatic notes.',
+    contentEn: `Traditional Vietnamese phin coffee is more than a daily beverage; it is a cultural symbol of slow living and mindful pauses amidst the bustling rhythm of Saigon.
+
+Here is the exact formula shared by Dolphy’s Head Barista for brewing a velvety, fragrant cup of phin coffee at home:
+
+INGREDIENTS & EQUIPMENT:
+• 20 - 25 grams of medium-dark roasted pure coffee beans (Dolphy Robusta Bao Loc or Espresso Blend 80:20).
+• Fresh purified water heated to optimal brewing temperature 92°C - 96°C.
+• 01 Dolphy premium aluminum phin (aluminum provides superior thermal conduction and heat retention compared to stainless steel).
+
+4-STEP GOLDEN RATIO BREWING PROCESS:
+• Step 1: Pre-warm the phin and glass with boiling water to stabilize brewing temperature.
+• Step 2: Add 20 - 25g of ground coffee into the phin chamber. Gently shake to level the coffee bed, insert the gravity press, and apply gentle, even pressure.
+• Step 3 (The Bloom - The Critical Step): Pour 30ml of hot water into the lid and base, and gently drizzle 20ml over the coffee bed. Cover and let bloom for 2 - 3 minutes to release CO2 and fully saturate the grounds.
+• Step 4: After blooming, slowly pour 40 - 50ml of hot water into the chamber. Cover with lid and allow coffee to drip naturally at approximately 1 drop per second.
+
+The result is 40 - 45ml of concentrated, aromatic coffee with bold dark chocolate and roasted hazelnut notes. Add sweetened condensed milk for authentic Saigon Iced Milk Coffee or 3-layered Bac Xiu!`,
     title: 'Bí Quyết Pha Cà Phê Phin Chuẩn Vị Sài Gòn: 4 Bước Tỉ Lệ Vàng 1:4 Từ Head Barista Dolphy',
     slug: 'bi-quyet-pha-ca-phe-phin-chuan-vi-sai-gon',
     category: 'Cẩm Nang Barista',
@@ -1107,6 +1262,21 @@ Thành phẩm thu được khoảng 40 - 45ml cốt cà phê sánh đậm, thơm
   },
   {
     id: 'dolphy-art-workshop-cho-be',
+    titleEn: 'Dolphy Art & Coffee: Weekend Creative Workshop for Kids while Parents Relax',
+    categoryEn: 'Community & Culture',
+    readTimeEn: '4 min read',
+    excerptEn: 'Dolphy’s lush garden spaces become warm weekend community hubs: parents savor artisan coffee while children explore creative art.',
+    contentEn: `Weekends are precious moments for families to connect, unwind, and recharge after a busy week of school and work.
+
+Understanding the lifestyle desires of families in Thao Dien and An Phu, DOLPHY CAFÉ regularly hosts weekend "COLORFUL CANVAS & ART CREATION" workshops designed specifically for children in our airy garden courtyards.
+
+AN ARTISTIC ENVIRONMENT FULL OF INSPIRATION
+Young painters are provided with professional wooden easels, mini artist aprons, acrylic palettes, and hands-on guidance from experienced art teachers on color harmonies and brushwork.
+
+PEACEFUL MOMENTS FOR PARENTS
+While children immerse themselves in artistic exploration, parents can leisurely enjoy a fresh Cappuccino or Flat White, read a favorite book, or chat with friendly neighborhood friends.
+
+This warm, interconnected neighborhood spirit is the heart of what Dolphy cultivates every single day.`,
     title: 'Dolphy Art & Coffee: Sân Chơi Sáng Tạo Nghệ Thuật Cho Bé Bên Tách Cà Phê Sáng Của Bố Mẹ',
     slug: 'dolphy-art-coffee-workshop-cho-be-cuoi-tuan',
     category: 'Cộng Đồng Thảo Điền',
@@ -1130,6 +1300,21 @@ Trong khi các con say mê sáng tạo trong thế giới hội họa, bố mẹ
   },
   {
     id: 'dich-vu-teabreak-catering',
+    titleEn: 'Dolphy Teabreak Catering & B2B: Full-Service Beverage & Artisan Pastry Solutions for Corporate Events',
+    categoryEn: 'B2B Services',
+    readTimeEn: '5 min read',
+    excerptEn: 'Mobile specialty coffee bar setups, fresh Dolphy Bakery French pastries, and premium catering for executive offices and international conferences.',
+    contentEn: `Beyond our neighborhood cafes, DOLPHY CAFÉ is a trusted corporate beverage and catering partner for premier enterprises across HCMC (Prudential Tower, international schools SSIS, BIS, and major athletic tournaments).
+
+FLEXIBLE CATERING PACKAGES:
+• Standard Teabreak Package: Fresh artisan French pastries (butter croissants, muffins, danishes) paired with traditional drip coffee, bottled cold brew, and refreshing organic fruit teas.
+• Premium Mobile Barista Station: On-site commercial espresso machine setup with skilled baristas crafting customized Latte Art, Cappuccino, and Americano on demand.
+• Sliced seasonal fresh fruits and chilled herbal detox infusions.
+
+EXECUTIVE SERVICE STANDARDS:
+• Elegant table linens and metallic serveware matching Dolphy’s refined navy brand aesthetic.
+• Professional, attentive baristas fluent in English.
+• Official VAT e-invoicing and flexible corporate billing contracts.`,
     title: 'Dolphy Teabreak Catering & B2B: Giải Pháp Đồ Uống & Tiệc Bánh Ngọt Trọn Gói Cho Sự Kiện Doanh Nghiệp',
     slug: 'dich-vu-teabreak-catering-b2b-dolphy',
     category: 'Dịch Vụ B2B',
@@ -1153,6 +1338,20 @@ TIÊU CHUẨN PHỤC VỤ CHUYÊN NGHIỆP:
   },
   {
     id: 'blue-dolphins-barista-championship',
+    titleEn: 'Blue Dolphins Barista Championship Season VII: Nurturing Saigon Barista Excellence',
+    categoryEn: 'Academy & Contests',
+    readTimeEn: '6 min read',
+    excerptEn: 'A heartwarming wrap-up to Season VII with our founding motto: Create with Heart, Compete with Soul, Grow as a Whole.',
+    contentEn: `At DOLPHY CAFÉ, our guiding belief has always been: "Only happy baristas can craft happy cups of coffee." The annual BLUE DOLPHINS BARISTA CHAMPIONSHIP Season VII is our pinnacle professional arena celebrating dedication, craft, and passion behind the espresso counter.
+
+ON-STORE RIGOR ACROSS 10 BRANCHES
+Over 50 baristas system-wide completed grueling tests: from espresso grinder calibration (Dial-in) and silky micro-foam texture to ticket speed during 7:30 - 9:30 AM peak morning rush hours.
+
+TOP 12 FINALISTS COMPETE ON STAGE
+Finalists from branches (Nguyen Van Huong, 28 Thao Dien, Bui Bang Doan, Mai Chi Tho, Song Hanh) delivered world-class Latte Art showcases and innovative signature drinks.
+
+"CREATE WITH HEART, COMPETE WITH SOUL, GROW AS A WHOLE"
+The championship trophy celebrated not just the most balanced extraction, but the barista who radiated heartfelt hospitality and warmth to the judges. Dolphy Academy takes immense pride in elevating the next generation of Vietnamese baristas onto global stages.`,
     title: 'Hành Trình Blue Dolphins Barista Championship Season VII: Nơi Ươm Mầm Tài Năng Pha Chế Sài Gòn',
     slug: 'blue-dolphins-barista-championship-season-vii',
     category: 'Học Viện & Cuộc Thi',
@@ -1175,6 +1374,21 @@ Chức vô địch không chỉ trao cho ly cà phê cân bằng nhất, mà thu
   },
   {
     id: 'kien-truc-23-nguyen-van-huong',
+    titleEn: 'Dolphy 23 Nguyen Van Huong: Brutalist Concrete Architecture in Harmony with Thao Dien Greenery',
+    categoryEn: 'Spaces & Architecture',
+    readTimeEn: '5 min read',
+    excerptEn: 'Explore 3 architectural levels featuring raw concrete arches, a tropical thatched rooftop, and an open layout flooded with natural daylight.',
+    contentEn: `Nestled on 23 Nguyen Van Huong – one of the greenest tree-lined avenues on the Thao Dien peninsula – DOLPHY CAFÉ’s flagship branch captivates guests with its striking fusion of Brutalist concrete aesthetics and lush tropical elements.
+
+ICONIC CONCRETE ARCH FAÇADE
+The exterior showcases sweeping circular forms and open concrete arches that allow gentle sunlight to filter into every corner. At night, warm ambient lighting turns the building into a luminous architectural lantern.
+
+TROPICAL ROOFTOP & MULTI-TIER WORKSPACES
+• Ground Floor: An open layout centered around an expansive bar counter where guests can connect with baristas and watch coffee extractions up close.
+• Floors 1 & 2: Solid hardwood communal tables with ample power outlets, ideal for collaborative team work, content creation, or quiet reading.
+• Rooftop: Thatched resort-inspired retreat catching gentle breezes off the Saigon River.
+
+Whether seeking deep focus or relaxed weekend gatherings, Dolphy 23 Nguyen Van Huong is designed to feel like your second home.`,
     title: 'Dolphy 23 Nguyễn Văn Hưởng: Bản Hòa Ca Kiến Trúc Bê Tông Thô Mộc & Thiên Nhiên Thảo Điền',
     slug: 'kien-truc-doc-ban-dolphy-23-nguyen-van-huong',
     category: 'Không Gian & Kiến Trúc',
@@ -1198,6 +1412,17 @@ Dù bạn tìm kiếm một góc yên tĩnh để tập trung làm việc hay kh
   },
   {
     id: 'van-hoa-pet-friendly-dolphy',
+    titleEn: 'Pet-Friendly Culture: Why Dolphy Is a Second Home for Four-Legged Friends',
+    categoryEn: 'Community & Culture',
+    readTimeEn: '4 min read',
+    excerptEn: 'At Dolphy, furry companions are not merely welcomed; they are greeted with chilled water bowls and genuine affection from our staff.',
+    contentEn: `In Thao Dien, pets are true family members. Since our founding in 2013, DOLPHY CAFÉ has remained steadfast in our commitment to open, welcoming "Pet-Friendly" environments.
+
+FRESH CHILLED WATER BOWLS ALWAYS READY
+Whenever you take your pup or cat for a neighborhood stroll and stop by Dolphy, our baristas will proactively prepare clean bowls of fresh chilled water for our little guests. Shaded outdoor garden patios provide the perfect resting spot while you savor an iced Bac Xiu or rich Espresso.
+
+CONNECTING THE PET LOVER COMMUNITY
+Countless friendships between local residents and international expats have sparked from gentle tail wags at Dolphy counters. This genuine neighborhood connection is the true meaning of "Happiness in a cup."`,
     title: 'Văn Hóa Pet-Friendly: Tại Sao Dolphy Là Ngôi Nhà Thứ Hai Của Những Người Bạn Bốn Chân?',
     slug: 'van-hoa-pet-friendly-dolphy-cafe-thao-dien',
     category: 'Cộng Đồng Thảo Điền',
@@ -1217,6 +1442,22 @@ Rất nhiều tình bạn đẹp giữa những người hàng xóm Thảo Đi�
   },
   {
     id: 'cloud-collection-mat-lanh',
+    titleEn: 'Introducing "Cloud Collection" 2026: A Refreshing Breakthrough of Coconut Foam',
+    categoryEn: 'New Menu',
+    readTimeEn: '4 min read',
+    excerptEn: 'A delicate fusion of fresh coconut water, cloud-soft coconut cream foam, and premium specialty coffee for only 75k.',
+    contentEn: `Saigon’s sunny afternoons call for refreshing, crisp flavor notes! DOLPHY CAFÉ is delighted to introduce our "CLOUD COLLECTION 2026", now available across 23 Nguyen Van Huong, 113 Duong Van An, and 1441 Nguyen Van Linh:
+
+1. CLOUD ESPRESSO:
+The harmonic balance between the bold, clean acidity of fresh espresso and the velvety richness of airy coconut cream foam.
+
+2. CLOUD MATCHA:
+Premium Uji Japanese ceremonial matcha whipped to perfection over naturally sweet fresh coconut water, delivering instant refreshment and a lingering sweet finish.
+
+3. LEMON GINGER MATCHA:
+A bright, invigorating spark of yellow lemon, subtle ginger warmth, and sparkling fizz to awaken your senses during busy workdays.
+
+Special introductory price: 75,000 VND. Visit Dolphy and treat yourself to a peaceful cloud in a cup today!`,
     title: 'Ra Mắt "Cloud Collection" 2026: Trải Nghiệm Bọt Kem Dừa Thanh Mát Đột Phá',
     slug: 'ra-mat-cloud-collection-dolphy-2026',
     category: 'Thực Đơn Mới',
@@ -1241,6 +1482,18 @@ Mức giá trải nghiệm đồng giá chỉ 75.000đ. Hãy ghé ngay Dolphy đ
   },
   {
     id: 'khai-truong-ba-huyen-thanh-quan',
+    titleEn: 'Welcome New Branch: Dolphy Cafe Arrives at 08 Ba Huyen Thanh Quan (District 3)',
+    categoryEn: 'Store News',
+    readTimeEn: '3 min read',
+    excerptEn: 'Dolphy Cafe officially opens in the heart of District 3 with a Soft Opening 30% discount on all handcrafted drinks and fresh bakery.',
+    contentEn: `Following a 13-year journey serving as an iconic coffee destination in Thao Dien (District 2) and Phu My Hung (District 7), DOLPHY CAFÉ brings happiness in a cup closer to the central heart of Ho Chi Minh City:
+
+ADDRESS: 08 Ba Huyen Thanh Quan, Vo Thi Sau Ward, District 3, HCMC.
+OPENING HOURS: 06:00 AM – 10:00 PM daily.
+
+SOFT OPENING SPECIALS:
+• 30% OFF all Handcrafted Drinks and Fresh Daily Pastries.
+• Experience authentic phin drip coffee, specialty espresso, and warm French butter croissants under the shade of ancient Saigon trees.`,
     title: 'Chào Đón Chi Nhánh Mới: Dolphy Cafe Đổ Bộ 08 Bà Huyện Thanh Quan (Quận 3)',
     slug: 'khai-truong-dolphy-ba-huyen-thanh-quan-quan-3',
     category: 'Tin Tức Chi Nhánh',
@@ -1263,6 +1516,19 @@ Hãy ghé thăm chúng mình để khởi đầu ngày mới với ly cà phê c
   },
   {
     id: 'dolphy-badminton-club',
+    titleEn: 'Dolphiers Life: Dolphy Badminton Club 2025 - Team Energy Beyond the Counter',
+    categoryEn: 'People & Culture',
+    readTimeEn: '4 min read',
+    excerptEn: 'Explore weekly athletic community activities connecting baristas and headquarters staff across the Dolphy coffee family.',
+    contentEn: `Working at DOLPHY is more than mastering espresso extraction; it is about belonging to a youthful, caring family that prioritizes physical wellness and mutual support.
+
+DOLPHY BADMINTON CLUB - SHEDDING STRESS, BUILDING BONDS
+Every week, friendly badminton matches bring together part-time baristas, shift leaders, and directors on the court, sharing laughter and energetic rallies.
+
+"SWING HIGH, TEAM FLY"
+Sports build agility, swift reflexes, and stamina – essential traits for peak-hour counter service. Most importantly, court teamwork translates into seamless coordination during busy cafe mornings.
+
+Ready to join our energetic dolphin family? Apply to become a Dolphy Barista today!`,
     title: 'Đời Sống Dolphiers: Dolphy Badminton Club 2025 - Gắn Kết Năng Lượng Sau Giờ Quầy Bar',
     slug: 'doi-song-dolphiers-badminton-club-2025',
     category: 'Đời Sống Nhân Sự',
@@ -1284,6 +1550,21 @@ Bạn muốn trở thành một chú cá heo giàu năng lượng tích cực? H
   },
   {
     id: 'series-cold-brew',
+    titleEn: 'Daily Brewing Series: #1 Cold Brew - The Elegance of Simplicity',
+    categoryEn: 'Brewing Guide',
+    readTimeEn: '5 min read',
+    excerptEn: 'Cold Brew: a unique brewing method requiring zero hot water, tracing back to 17th-century Dutch sailors, delivering smooth low-acid coffee.',
+    contentEn: `COLD BREW is completely distinct from conventional extraction: IT USES ZERO HOT WATER.
+
+Historical records show this method originated in 17th-century Netherlands when European merchant sailors needed coffee aboard wooden ships where fires were strictly prohibited. Sailors steeped ground coffee in water containers stored deep in ship holds. By 1600, this technique reached Japan, evolving into Kyoto-style drip.
+
+Cold brew boasts exceptionally smooth, chocolatey flavors with negligible bitterness and reduced acidity. It stays fresh in your refrigerator for 2 - 4 weeks.
+
+GOLDEN FORMULA (1:10 RATIO):
+• Dosing: 50g coarse-ground Arabica to 500ml room-temperature filtered water.
+• Steep in sealed glass jar in the fridge for 12 - 24 hours.
+• Filter through fine mesh without pressing grounds to preserve clarity.
+• Serve over ice with an orange slice or fresh cold milk!`,
     title: 'Series Mỗi Ngày Một Cách Pha: #1 Cold Brew - Tinh Tế Của Sự Đơn Giản',
     slug: 'series-moi-ngay-mot-cach-pha-cold-brew',
     category: 'Cẩm Nang Pha Chế',
@@ -1312,6 +1593,15 @@ Thưởng thức: Rót ra ly cùng vài viên đá mát lạnh, có thể kết 
   },
   {
     id: 'ca-phe-phin-net-van-hoa-doc-dao',
+    titleEn: 'Phin Coffee - The Timeless Cultural Soul of Vietnam',
+    categoryEn: 'Coffee Culture',
+    readTimeEn: '6 min read',
+    excerptEn: 'More than a beverage, phin coffee is an art of patience and mindful pauses to appreciate the moving rhythm of the city.',
+    contentEn: `More than a drink, coffee is an essential facet of Vietnamese urban life.
+
+The aluminum phin filter, with slow rhythmic drops falling one by one, has become an enduring cultural emblem. It invites us to practice patience and savor quiet reflection before plunging into busy days.
+
+At Dolphy, we honor this heritage by using thick-gauge stamped aluminum phins for optimal heat distribution, paired with carefully roasted Robusta & Arabica ground to precise micron tolerances.`,
     title: 'Cà Phê Phin - Nét Văn Hóa Độc Đáo Của Người Việt',
     slug: 'ca-phe-phin-net-van-hoa-doc-dao-cua-viet-nam',
     category: 'Văn Hóa Cà Phê',
@@ -1329,6 +1619,14 @@ Tại Dolphy, chúng tôi nâng tầm trải nghiệm phin truyền thống bằ
   },
   {
     id: 'latte-la-gi',
+    titleEn: 'What Is a Caffè Latte? The Craft Behind the World’s Most Beloved Coffee',
+    categoryEn: 'Barista Guide',
+    readTimeEn: '7 min read',
+    excerptEn: 'Explore the Italian origins of Caffè Latte and the thermodynamics of silky glossy micro-foam with Dolphy Academy.',
+    contentEn: `Caffè Latte traces its roots to Italy, where "latte" translates to milk. A classic latte combines rich espresso with steamed milk and a velvety 0.5-1 cm layer of glossy micro-foam.
+
+THE ART OF TEXTURING:
+Heating pasteurized fresh milk to 60°C - 65°C breaks down lactose into natural sweetness without needing added sugar. Skilled baristas angle steam wands to create a rolling vortex, transforming large bubbles into silky micro-foam capable of pouring intricate Latte Art hearts, tulips, and rosettas.`,
     title: 'Latte Là Gì? Nghệ Thuật Tạo Nên Một Tách Café Được Cả Thế Giới Say Mê',
     slug: 'latte-la-gi',
     category: 'Cẩm Nang Barista',
@@ -1347,6 +1645,14 @@ Khác với Cappuccino vốn có lớp bọt sữa dày bồng bềnh, Latte thi
   },
   {
     id: 'dolphy-coffee-bag-find-your-match',
+    titleEn: 'Dolphy Coffee Bags - Find Your Perfect Specialty Roast',
+    categoryEn: 'Specialty Beans',
+    readTimeEn: '4 min read',
+    excerptEn: 'Explore our 100% Cau Dat Arabica, Bao Loc Robusta, and Signature Espresso Blends packaged in 1-way degassing valve bags.',
+    contentEn: `Every coffee lover has a distinct palate. Dolphy crafts tailored roast profiles to help you find your soulmate brew:
+• Cau Dat Arabica (1,600m altitude): Bright floral fragrance, gentle citrus acidity, and sweet honey finish.
+• Bao Loc Robusta: Bold body, dark chocolate intensity, zero harshness.
+• Espresso Blend 80:20 & 70:30: Thick golden crema and balanced sweetness for cafe-quality espresso at home.`,
     title: 'DOLPHY CAFÉ COFFEE BAG - Đi Tìm Gu Cà Phê Chân Ái Cho Bạn',
     slug: 'dolphy-cafe-coffee-bag-find-your-match',
     category: 'Hướng Dẫn Chọn Cà Phê',
@@ -1364,6 +1670,14 @@ Khác với Cappuccino vốn có lớp bọt sữa dày bồng bềnh, Latte thi
   },
   {
     id: 'chuong-trinh-10-tang-1',
+    titleEn: 'Dolphy Loyalty Rewards: Buy 10 Get 1 Free System-Wide',
+    categoryEn: 'Promotions & Rewards',
+    readTimeEn: '3 min read',
+    excerptEn: 'Collect digital and physical reward stamps across all 10 branches to redeem complimentary specialty handcrafted drinks.',
+    contentEn: `To express our gratitude to our loyal community, Dolphy offers a seamless loyalty stamp program across all 10 branches:
+• Collect 1 stamp for every handcrafted beverage purchased.
+• Accumulate 10 stamps to receive 01 free beverage of your choice!
+• Redeemable at any Dolphy branch or via phone hotline ordering.`,
     title: 'Thẻ Quà Tặng Tích Điểm: Mua 10 Tặng 1 Tại Toàn Hệ Thống Dolphy Café',
     slug: 'the-qua-tang-mua-10-tang-1',
     category: 'Chương Trình Khách Hàng',
@@ -1382,6 +1696,14 @@ Quy định áp dụng:
   },
   {
     id: 'green-stamp-bao-ve-moi-truong',
+    titleEn: 'Green Stamp - Partnering with Dolphy for an Eco-Friendly Future',
+    categoryEn: 'Green Living',
+    readTimeEn: '4 min read',
+    excerptEn: 'Bring your personal tumbler or repurpose spent coffee grounds for organic garden fertilizer with Dolphy.',
+    contentEn: `Dolphy is committed to environmental stewardship through mindful everyday practices:
+• Bring your own tumbler: Enjoy 5,000 VND discount on every beverage.
+• Free spent coffee grounds: Available daily at our counters for guests to take home as natural deodorizers and nutrient-rich plant compost.
+• Biodegradable straws and recycled paper carry bags across all stores.`,
     title: 'Green Stamp - Cùng Dolphy Chung Tay Vì Môi Trường Xanh',
     slug: 'green-stamp-bao-ve-moi-truong',
     category: 'Môi Trường & Cộng Đồng',
@@ -1593,6 +1915,13 @@ export const communityGalleryData: CommunityPhoto[] = [
 export const jobsData: Job[] = [
   {
     id: 'job-barista',
+    titleEn: 'Barista – Coffee Specialist (Full-time & Part-time)',
+    departmentEn: 'Store Operations',
+    typeEn: 'Full-time / Part-time',
+    salaryEn: '25,000 - 35,000 VND/hour (Sales bonus + shared tips)',
+    descriptionEn: 'Do you love coffee? Enjoy serving and bringing smiles to guests every day? Eager to learn in a vibrant, supportive team? Dolphy is looking for teammates across our HCMC stores.',
+    requirementsEn: ["No previous experience required (comprehensive on-store training provided via Dolphy Academy).","Age: 18 - 25 years old.","Energetic, honest, tidy, and radiating sincere hospitality.","Basic English communication is a strong plus (vibrant expat clientele in Thao Dien & Phu My Hung).","Minimum commitment of 4 - 6 months."],
+    benefitsEn: ["Flexible shift scheduling, ideal for university students.","Free 100% Barista certification training from Dolphy Academy.","Performance incentives, monthly revenue bonuses, and 100% shared daily tips.","Free daily specialty handcrafted beverages on shift and employee discounts."],
     title: 'Barista – Nhân Viên Pha Chế (Full-time & Part-time)',
     department: 'Khối Cửa Hàng (Store Operations)',
     type: 'Toàn thời gian / Bán thời gian',
@@ -1617,6 +1946,13 @@ export const jobsData: Job[] = [
   },
   {
     id: 'job-supervisor',
+    titleEn: 'Shift Leader / Store Supervisor (Full-time)',
+    departmentEn: 'Store Operations',
+    typeEn: 'Full-time',
+    salaryEn: '9,000,000 - 14,000,000 VND/month + KPI Bonus',
+    descriptionEn: 'Lead daily store operations, uphold "Happiness in a cup" service standards, manage inventory, and coach junior baristas across peak shifts.',
+    requirementsEn: ["At least 1 year of experience as a Barista or Shift Leader in coffee chains.","Good English conversational ability for expat guest relations.","Strong team leadership and problem-solving skills during rush hours.","Passionate about coffee quality calibration and customer care."],
+    benefitsEn: ["Attractive salary + monthly KPI revenue bonuses.","Full social insurance, 13th-month salary, and annual paid leave.","Clear promotion roadmap to Store Manager and Area Manager."],
     title: 'Giám Sát Ca / Quản Lý Cửa Hàng (Store Supervisor / Manager)',
     department: 'Khối Vận Hành',
     type: 'Full-time',
@@ -1637,6 +1973,13 @@ export const jobsData: Job[] = [
   },
   {
     id: 'job-b2b-catering',
+    titleEn: 'B2B & Teabreak Catering Specialist',
+    departmentEn: 'B2B & Corporate Services',
+    typeEn: 'Full-time',
+    salaryEn: '10,000,000 - 18,000,000 VND/month + Commission',
+    descriptionEn: 'Develop corporate client partnerships, consult custom Teabreak & Mobile Barista catering packages for executive offices and international conferences in HCMC.',
+    requirementsEn: ["Experience in B2B sales, F&B catering, or corporate event management.","Dynamic communication, negotiation, and contract execution skills.","Fluent in English communication and professional presentation."],
+    benefitsEn: ["Base salary + high project commission structure.","Company transport allowance and project bonuses.","Opportunity to build network with senior corporate executives."],
     title: 'Chuyên Viên Phát Triển Dịch Vụ Doanh Nghiệp (B2B & Teabreak Specialist)',
     department: 'Khối Doanh Nghiệp & Catering',
     type: 'Full-time',
@@ -1656,6 +1999,13 @@ export const jobsData: Job[] = [
   },
   {
     id: 'job-academy-trainer',
+    titleEn: 'Master Barista & Sensory Trainer (Dolphy Academy)',
+    departmentEn: 'Dolphy Academy',
+    typeEn: 'Full-time',
+    salaryEn: '12,000,000 - 20,000,000 VND/month',
+    descriptionEn: 'Lead professional training courses for students and internal baristas, coach commercial espresso calibration, Latte Art, and sensory tasting.',
+    requirementsEn: ["At least 2-3 years as Head Barista or Coffee Trainer with SCA certifications.","Mastery of Latte Art, cupping protocols, and commercial machinery.","Inspiring pedagogical presentation and patient coaching style."],
+    benefitsEn: ["Competitive salary + training class completion bonuses.","Access to premium single-origin beans and commercial gear.","Judge at annual Blue Dolphins Barista Championships."],
     title: 'Huấn Luyện Viên Barista & Sensory (Dolphy Academy Trainer)',
     department: 'Khối Học Viện & Đào Tạo',
     type: 'Full-time',
@@ -1675,6 +2025,13 @@ export const jobsData: Job[] = [
   },
   {
     id: 'job-marketing-creator',
+    titleEn: 'Content Creator & Social Media Specialist',
+    departmentEn: 'Marketing & Media',
+    typeEn: 'Full-time / Flexible',
+    salaryEn: '9,000,000 - 15,000,000 VND/month',
+    descriptionEn: 'Plan and produce engaging photo and video content for Facebook, TikTok, and Instagram, capturing the authentic lifestyle and community moments at Dolphy.',
+    requirementsEn: ["Proficiency in smartphone videography, CapCut/Premiere, and storytelling.","Creative visual sense, passion for coffee aesthetics and Gen Z / Expat trends.","Active and confident on camera when needed."],
+    benefitsEn: ["Creative autonomy and flexible working locations across 10 green cafes.","Free unlimited specialty drinks and snacks while working on location.","Performance bonuses based on viral reach and engagement."],
     title: 'Content Creator & Quản Trị Fanpage (Social Media Specialist)',
     department: 'Khối Marketing & Sáng Tạo',
     type: 'Full-time',
@@ -1694,6 +2051,13 @@ export const jobsData: Job[] = [
   },
   {
     id: 'job-bakery-chef',
+    titleEn: 'Pastry & Bakery Chef (Dolphy Bakery)',
+    departmentEn: 'Bakery Chef',
+    typeEn: 'Full-time',
+    salaryEn: '8,000,000 - 12,000,000 VND/month',
+    descriptionEn: 'Bake daily artisan French croissants, pastries, muffins, and savory snacks for distribution across Dolphy branches every morning.',
+    requirementsEn: ["Knowledge of French viennoiserie, bread fermentation, and oven baking.","Meticulous hygiene, punctuality, and pride in artisanal quality.","Culinary or pastry training certificate is an advantage."],
+    benefitsEn: ["Stable day shifts (early morning baking schedule).","Modern, air-conditioned central bakery kitchen equipment.","Full insurance, holiday bonuses, and career growth."],
     title: 'Nhân Viên Bếp Bánh Nướng Tươi (Dolphy Bakery Pastry Staff)',
     department: 'Khối Bếp Bánh & Sản Xuất',
     type: 'Toàn thời gian / Bán thời gian',

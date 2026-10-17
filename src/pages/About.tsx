@@ -129,7 +129,7 @@ export const About: React.FC = () => {
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/hero_slide_store.webp')" }} />
         <div className="relative max-w-4xl mx-auto space-y-4">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/30 backdrop-blur-sm">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/30 backdrop-blur-sm">
             <Sparkles size={14} />
             <span>{t('about.tag')}</span>
           </span>
@@ -163,7 +163,7 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-5 text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
             <div className="space-y-2">
-              <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+              <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold">
                 {language === 'vi' ? 'CHƯƠNG I: CÂU CHUYỆN KHỞI NGUỒN' : 'CHAPTER I: OUR ORIGIN'}
               </span>
               <h2 className="font-oswald text-2xl sm:text-3xl lg:text-[34px] font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] leading-snug">
@@ -206,9 +206,9 @@ export const About: React.FC = () => {
             <div className="space-y-3">
               <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64 bg-slate-900 relative group">
                 <img
-                  src="/images/fanpage/branch-28-thao-dien.jpg"
+                  src="/images/fanpage/branch-28-thao-dien-facade-clean.jpg"
                   alt="Dolphy Thảo Điền Facade"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm text-white font-oswald text-[10px] uppercase font-bold tracking-wider">
                   28 Thảo Điền
@@ -227,12 +227,12 @@ export const About: React.FC = () => {
                   alt="Dolphy Barista Signature Latte"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#f09c05]/90 text-white font-oswald text-[10px] uppercase font-bold tracking-wider">
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#c88232]/90 text-white font-oswald text-[10px] uppercase font-bold tracking-wider">
                   Espresso & Latte
                 </span>
               </div>
               <div className="p-4 rounded-xl bg-orange-50/80 dark:bg-orange-950/30 text-xs text-gray-700 dark:text-gray-300 min-h-[80px] flex flex-col justify-center">
-                <p className="font-oswald font-bold text-[#f09c05] uppercase text-sm mb-0.5">HẠT MỘC NGUYÊN BẢN</p>
+                <p className="font-oswald font-bold text-[#c88232] uppercase text-sm mb-0.5">HẠT MỘC NGUYÊN BẢN</p>
                 <p className="leading-relaxed">{language === 'vi' ? 'Rang mộc mỗi tuần, đóng túi van 1 chiều đạt chuẩn.' : 'Freshly roasted weekly with zero butter or flavoring.'}</p>
               </div>
             </div>
@@ -241,11 +241,11 @@ export const About: React.FC = () => {
 
         {/* The Guide Award Highlight Banner */}
         <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-blue-200 dark:border-slate-700 flex flex-col md:flex-row items-center gap-6 shadow-sm">
-          <div className="w-16 h-16 rounded-2xl bg-[#f09c05] text-white flex items-center justify-center shrink-0 shadow-lg">
+          <div className="w-16 h-16 rounded-2xl bg-[#c88232] text-white flex items-center justify-center shrink-0 shadow-lg">
             <Award size={36} />
           </div>
           <div className="space-y-1 text-center md:text-left flex-1">
-            <span className="text-[10px] font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+            <span className="text-[10px] font-oswald uppercase tracking-widest text-[#c88232] font-bold">
               PRESTIGIOUS RECOGNITION
             </span>
             <h3 className="font-oswald text-xl sm:text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -259,14 +259,14 @@ export const About: React.FC = () => {
 
         {/* 4. Chương 2: 4 Giá Trị Cốt Lõi (Happiness in a cup) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="block text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold mb-1">
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+            <p className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold">
               {language === 'vi' ? 'CHƯƠNG II: TRIẾT LÝ PHỤC VỤ' : 'CHAPTER II: OUR PHILOSOPHY'}
-            </span>
-            <h2 className="section-title">
+            </p>
+            <h2 className="section-title block mx-auto">
               {language === 'vi' ? 'HẠNH PHÚC TỪ NHỮNG ĐIỀU CHÂN THÀNH' : 'HAPPINESS IN A CUP'}
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
               {language === 'vi'
                 ? 'Tại Dolphy, mỗi tách cà phê được trao đi không chỉ chứa đựng caffeine giúp bạn tỉnh táo, mà còn là tâm huyết, nụ cười và năng lượng tích cực bắt đầu ngày mới.'
                 : 'Every cup served at Dolphy carries warmth, precision, and heartfelt positivity to brighten your day.'}
@@ -297,14 +297,14 @@ export const About: React.FC = () => {
 
         {/* 5. Chương 3: Dấu Ấn Thời Gian (Milestone Timeline) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="block text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold mb-1">
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+            <p className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold">
               {language === 'vi' ? 'CHƯƠNG III: DẤU ẤN THỜI GIAN' : 'CHAPTER III: OUR TIMELINE'}
-            </span>
-            <h2 className="section-title">
+            </p>
+            <h2 className="section-title block mx-auto">
               {language === 'vi' ? 'HÀNH TRÌNH 2013 - 2026' : 'JOURNEY 2013 - 2026'}
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
               {language === 'vi' ? 'Chặng đường hơn một thập kỷ từng bước kiến tạo thương hiệu cà phê đáng tin cậy của người Sài Gòn.' : 'Over a decade of continuous passion, community growth, and coffee excellence.'}
             </p>
           </div>
@@ -313,11 +313,11 @@ export const About: React.FC = () => {
             {milestones.map((m, mIdx) => (
               <div key={mIdx} className="relative group">
                 {/* Circle Marker centered on border line */}
-                <div className="absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full bg-white dark:bg-[#0f172a] border-4 border-[#2076bd] group-hover:border-[#f09c05] transition-colors shadow-xs" />
+                <div className="absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full bg-white dark:bg-[#0f172a] border-4 border-[#2076bd] group-hover:border-[#c88232] transition-colors shadow-xs" />
 
                 <div className="bg-white dark:bg-[#1e293b] p-5 sm:p-6 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-2.5 group-hover:shadow-md transition-shadow">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="px-3 py-1 rounded-full bg-[#f09c05]/15 text-[#d98200] dark:text-[#f09c05] font-oswald text-xs sm:text-sm font-bold tracking-wider inline-flex items-center gap-1.5 shrink-0">
+                    <span className="px-3 py-1 rounded-full bg-[#c88232]/15 text-[#d98200] dark:text-[#c88232] font-oswald text-xs sm:text-sm font-bold tracking-wider inline-flex items-center gap-1.5 shrink-0">
                       <Calendar size={13} />
                       <span>{m.year}</span>
                     </span>
@@ -337,7 +337,7 @@ export const About: React.FC = () => {
         {/* 6. Chương 4: Thư Viện Hình Ảnh Cảm Xúc (Authentic Photo Stories) */}
         <div className="space-y-8 pt-8">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="block text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold mb-1">
+            <span className="block text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold mb-1">
               {language === 'vi' ? 'CHƯƠNG IV: NHỮNG KHOẢNH KHẮC ĐỜI THƯỜNG' : 'CHAPTER IV: REAL-LIFE MOMENTS'}
             </span>
             <h2 className="section-title">
@@ -403,13 +403,13 @@ export const About: React.FC = () => {
 
           <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-slate-800 text-[#f09c05] flex items-center justify-center text-2xl font-bold">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-slate-800 text-[#c88232] flex items-center justify-center text-2xl font-bold">
                 ☀
               </div>
               <h3 className="font-oswald text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
                 {t('about.vision_title')}
               </h3>
-              <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed font-semibold text-[#f09c05]">
+              <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed font-semibold text-[#c88232]">
                 {t('about.vision_desc')}
               </p>
             </div>

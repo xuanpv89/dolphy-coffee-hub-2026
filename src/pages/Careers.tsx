@@ -31,7 +31,7 @@ export const Careers: React.FC = () => {
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-widest font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#c88232] text-white text-xs font-oswald uppercase tracking-widest font-bold">
             <Sparkles size={14} />
             <span>{t('careers.hero_tag')}</span>
           </div>
@@ -48,12 +48,12 @@ export const Careers: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80 md:h-96">
           <img
-            src="/images/art_barista_hiring.jpg"
-            alt="Dolphy Cafe Barista Team"
-            className="w-full h-full object-cover"
+            src="/images/fanpage/barista-championship-ceremony.jpg"
+            alt="Đội ngũ Barista Dolphy Café"
+            className="w-full h-full object-cover object-[center_35%]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
-            <span className="text-[#f09c05] font-oswald text-xs sm:text-sm uppercase tracking-widest font-bold">
+            <span className="text-[#c88232] font-oswald text-xs sm:text-sm uppercase tracking-widest font-bold">
               {t('careers.banner_tag')}
             </span>
             <h2 className="font-oswald text-2xl sm:text-4xl font-bold uppercase mt-1">
@@ -91,7 +91,7 @@ export const Careers: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3">
-            <div className="w-12 h-12 rounded-lg bg-orange-50 dark:bg-slate-800 text-[#f09c05] flex items-center justify-center mx-auto text-2xl font-bold">
+            <div className="w-12 h-12 rounded-lg bg-orange-50 dark:bg-slate-800 text-[#c88232] flex items-center justify-center mx-auto text-2xl font-bold">
               ⏰
             </div>
             <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -119,7 +119,7 @@ export const Careers: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3">
-            <div className="w-12 h-12 rounded-lg bg-orange-50 dark:bg-slate-800 text-[#f09c05] flex items-center justify-center mx-auto text-2xl font-bold">
+            <div className="w-12 h-12 rounded-lg bg-orange-50 dark:bg-slate-800 text-[#c88232] flex items-center justify-center mx-auto text-2xl font-bold">
               🚀
             </div>
             <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -183,7 +183,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
                 {language === 'vi' ? 'Sáng Tạo & Gắn Kết' : 'Craft & Bonding'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -229,7 +229,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
                 {language === 'vi' ? 'Văn Hóa Chân Thành' : 'Warm Hospitality'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -275,7 +275,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
                 {language === 'vi' ? 'Phúc Lợi & Đãi Ngộ' : 'Benefits & Perks'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -344,78 +344,89 @@ export const Careers: React.FC = () => {
               {language === 'vi' ? 'Không tìm thấy vị trí tuyển dụng phù hợp.' : 'No matching positions found.'}
             </div>
           ) : (
-            filteredJobs.map((job) => (
-            <div
-              key={job.id}
-              className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all space-y-6"
-            >
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-100 dark:border-slate-800">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-[#2076bd] dark:text-[#3ba0e6]">
-                      {job.type}
-                    </span>
-                    <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-orange-50 dark:bg-orange-950/40 text-[#f09c05]">
-                      {job.department}
+            filteredJobs.map((job) => {
+              const jTitle = language === 'en' ? (job.titleEn || job.title) : job.title;
+              const jDept = language === 'en' ? (job.departmentEn || job.department) : job.department;
+              const jType = language === 'en' ? (job.typeEn || job.type) : job.type;
+              const jSalary = language === 'en' ? (job.salaryEn || job.salary) : job.salary;
+              const jDesc = language === 'en' ? (job.descriptionEn || job.description) : job.description;
+              const jBenefits = language === 'en' ? (job.benefitsEn || job.benefits) : job.benefits;
+              const jReqs = language === 'en' ? (job.requirementsEn || job.requirements) : job.requirements;
+
+              return (
+              <div
+                key={job.id}
+                className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all space-y-6"
+              >
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-100 dark:border-slate-800">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-[#2076bd] dark:text-[#3ba0e6]">
+                        {jType}
+                      </span>
+                      <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-orange-50 dark:bg-orange-950/40 text-[#c88232]">
+                        {jDept}
+                      </span>
+                    </div>
+                    <h3 className="font-oswald text-xl sm:text-2xl font-bold text-[#222222] dark:text-white uppercase">
+                      {jTitle}
+                    </h3>
+                  </div>
+
+                  <div className="text-right">
+                    <span className="text-xs text-gray-400 dark:text-gray-500 block font-oswald">{t('careers.income')}</span>
+                    <span className="font-oswald text-lg font-bold text-[#2076bd] dark:text-[#3ba0e6]">
+                      {jSalary}
                     </span>
                   </div>
-                  <h3 className="font-oswald text-xl sm:text-2xl font-bold text-[#222222] dark:text-white uppercase">
-                    {job.title}
-                  </h3>
                 </div>
 
-                <div className="text-right">
-                  <span className="text-xs text-gray-400 dark:text-gray-500 block font-oswald">{t('careers.income')}</span>
-                  <span className="font-oswald text-lg font-bold text-[#2076bd] dark:text-[#3ba0e6]">
-                    {job.salary}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-600 dark:text-gray-300">
+                  <div className="space-y-2">
+                    <h4 className="font-oswald text-xs font-bold uppercase text-[#222222] dark:text-white">{t('careers.job_desc')}</h4>
+                    <p className="leading-relaxed text-gray-700 dark:text-gray-200">{jDesc}</p>
+                    
+                    {jBenefits && jBenefits.length > 0 && (
+                      <div className="pt-2">
+                        <h5 className="font-oswald text-xs font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] mb-1">{t('careers.job_benefits')}</h5>
+                        <ul className="list-disc list-inside space-y-1 pl-1">
+                          {jBenefits.map((b, i) => (
+                            <li key={i}>{b}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="font-oswald text-xs font-bold uppercase text-[#222222] dark:text-white">{t('careers.job_req')}</h4>
+                    <ul className="list-disc list-inside space-y-1 pl-1">
+                      {(jReqs || []).map((req, i) => (
+                        <li key={i}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <span className="text-xs text-gray-400 dark:text-gray-500">
+                    {language === 'vi' ? 'Địa điểm:' : 'Workplaces:'} <strong>10 chi nhánh Dolphy Café (Q.2, Q.7, Bình Thạnh)</strong>
                   </span>
+
+                  <button
+                    onClick={() => setApplyingJob(job)}
+                    className="w-full sm:w-auto px-6 py-2.5 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-xs font-semibold uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-2"
+                  >
+                    <Send size={14} />
+                    <span>{t('careers.apply_now')}</span>
+                  </button>
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-600 dark:text-gray-300">
-                <div className="space-y-2">
-                  <h4 className="font-oswald text-xs font-bold uppercase text-[#222222] dark:text-white">{t('careers.job_desc')}</h4>
-                  <p className="leading-relaxed text-gray-700 dark:text-gray-200">{job.description}</p>
-                  
-                  {job.benefits && job.benefits.length > 0 && (
-                    <div className="pt-2">
-                      <h5 className="font-oswald text-xs font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] mb-1">{t('careers.job_benefits')}</h5>
-                      <ul className="list-disc list-inside space-y-1 pl-1">
-                        {job.benefits.map((b, i) => (
-                          <li key={i}>{b}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <h4 className="font-oswald text-xs font-bold uppercase text-[#222222] dark:text-white">{t('careers.job_req')}</h4>
-                  <ul className="list-disc list-inside space-y-1 pl-1">
-                    {(job.requirements || []).map((req, i) => (
-                      <li key={i}>{req}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span className="text-xs text-gray-400 dark:text-gray-500">
-                  {language === 'vi' ? 'Địa điểm:' : 'Workplaces:'} <strong>10 chi nhánh Dolphy Café (Q.2, Q.7, Bình Thạnh)</strong>
-                </span>
-
-                <button
-                  onClick={() => setApplyingJob(job)}
-                  className="w-full sm:w-auto px-6 py-2.5 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-xs font-semibold uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-2"
-                >
-                  <Send size={14} />
-                  <span>{t('careers.apply_now')}</span>
-                </button>
-              </div>
-            </div>
-          )))}
-        </div>
-      </section>
+            );
+          })
+        )}
+      </div>
+    </section>
 
     </div>
   );

@@ -90,7 +90,7 @@ export const Shop: React.FC = () => {
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }} />
         <div className="relative max-w-7xl mx-auto space-y-3">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/20 backdrop-blur-sm">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/20 backdrop-blur-sm">
             <Sparkles size={14} />
             <span>{t('shop.hero_tag')}</span>
           </span>
@@ -186,18 +186,18 @@ export const Shop: React.FC = () => {
         </div>
 
         {/* Promo Gift Banner */}
-        <div className="p-4 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-orange-950 dark:text-orange-200 shadow-sm">
+        <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-white dark:from-slate-800/90 dark:via-slate-800/60 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-800 dark:text-slate-200 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#f09c05] text-white flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-full bg-[#2076bd] text-white flex items-center justify-center shrink-0 shadow-xs">
               <Gift size={18} />
             </div>
             <span>
-              <strong>{language === 'vi' ? 'Ưu đãi độc quyền Dolphy:' : 'Dolphy Exclusive Privilege:'}</strong> {t('shop.promo_text')}
+              <strong className="text-[#2076bd] dark:text-[#3ba0e6] font-semibold">{language === 'vi' ? 'Ưu đãi độc quyền Dolphy:' : 'Dolphy Exclusive Privilege:'}</strong> {t('shop.promo_text')}
             </span>
           </div>
           <button 
             onClick={() => setSelectedCategory('combo')}
-            className="font-oswald uppercase text-xs font-bold text-[#2076bd] dark:text-[#3ba0e6] hover:underline shrink-0"
+            className="dolphy-btn dolphy-btn-primary px-3.5 py-1.5 rounded text-xs font-oswald uppercase tracking-wider shrink-0"
           >
             {t('shop.promo_link')}
           </button>
@@ -240,6 +240,10 @@ export const Shop: React.FC = () => {
             {paginatedProducts.map((product) => {
               const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
               const selectedGrind = grindOptions[product.id] || defaultGrind;
+              const pName = language === 'en' ? (product.nameEn || product.name) : product.name;
+              const pDesc = language === 'en' ? (product.descriptionEn || product.description) : product.description;
+              const pCatName = language === 'en' ? (product.categoryNameEn || product.categoryName) : product.categoryName;
+              const pOrigin = language === 'en' ? (product.originEn || product.origin) : product.origin;
 
               return (
                 <div
@@ -251,21 +255,21 @@ export const Shop: React.FC = () => {
                     <div className="relative aspect-square overflow-hidden bg-gray-50 dark:bg-slate-900 cursor-pointer" onClick={() => openQuickView(product)}>
                       <img
                         src={product.image || product.images?.[0]}
-                        alt={product.name}
+                        alt={pName}
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
                       
                       {/* Best Seller Badge */}
                       {product.isBestSeller && (
-                        <span className="absolute top-2.5 right-2.5 bg-[#f09c05] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
+                        <span className="absolute top-2.5 right-2.5 bg-[#c88232] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
                           {t('shop.badge_bestseller')}
                         </span>
                       )}
 
                       {/* Category Badge top-left */}
                       <span className="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[9px] font-oswald uppercase tracking-wider font-semibold px-2 py-0.5 rounded">
-                        {product.categoryName}
+                        {pCatName}
                       </span>
 
                       {/* Quick View Overlay Button */}
@@ -280,21 +284,21 @@ export const Shop: React.FC = () => {
                     {/* Body */}
                     <div className="p-4 space-y-2.5">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-[#f09c05] font-bold">
+                        <span className="text-[#c88232] font-bold">
                           {'★'.repeat(5)}
                         </span>
-                        <span className="text-gray-400 dark:text-gray-500 text-[11px] font-oswald">{product.origin || 'Dolphy Specialty'}</span>
+                        <span className="text-gray-400 dark:text-gray-500 text-[11px] font-oswald">{pOrigin || 'Dolphy Specialty'}</span>
                       </div>
 
                       <h3 
                         onClick={() => openQuickView(product)}
                         className="font-oswald text-base font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors leading-snug line-clamp-2 cursor-pointer"
                       >
-                        {product.name}
+                        {pName}
                       </h3>
 
                       <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed">
-                        {product.description}
+                        {pDesc}
                       </p>
 
                       {/* Taste notes badges if any */}
@@ -351,7 +355,7 @@ export const Shop: React.FC = () => {
                         addToCart(product, 1, selectedGrind);
                         showToast(language === 'vi' ? `Đã thêm "${product.name}" vào giỏ!` : `Added "${product.name}" to cart!`);
                       }}
-                      className="px-3.5 py-2 rounded-lg bg-[#2076bd] hover:bg-[#f09c05] text-white text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm"
+                      className="px-3.5 py-2 rounded-lg bg-[#2076bd] hover:bg-[#c88232] text-white text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm"
                     >
                       <ShoppingBag size={13} />
                       <span>{t('shop.select_btn')}</span>
@@ -400,11 +404,11 @@ export const Shop: React.FC = () => {
 
         {/* 4. Retail Experience & B2B Catering Showcase */}
         <div className="mt-16 pt-12 border-t border-gray-200 dark:border-slate-800 space-y-10">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+            <p className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
               {language === 'vi' ? 'TRẢI NGHIỆM ĐỘC QUYỀN TẠI QUẦY DOLPHY' : 'EXCLUSIVE IN-STORE & CATERING'}
-            </span>
-            <h2 className="section-title">
+            </p>
+            <h2 className="section-title block mx-auto">
               {language === 'vi' ? 'CÀ PHÊ HẠT MỘC & DỊCH VỤ DOANH NGHIỆP B2B' : 'SPECIALTY COFFEE & CORPORATE CATERING'}
             </h2>
             <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
@@ -426,7 +430,7 @@ export const Shop: React.FC = () => {
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
                     {language === 'vi' ? 'Quầy Trưng Bày Thực Tế' : 'In-Store Retail Display'}
                   </span>
                   <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">
@@ -546,7 +550,7 @@ export const Shop: React.FC = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6]">
-                      {modalProduct.categoryName}
+                      {language === 'en' ? (modalProduct.categoryNameEn || modalProduct.categoryName) : modalProduct.categoryName}
                     </span>
                     <span className="text-[10px] font-oswald uppercase tracking-wider font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                       <Check size={12} />
@@ -555,7 +559,7 @@ export const Shop: React.FC = () => {
                   </div>
 
                   <h2 className="font-oswald text-2xl font-bold uppercase text-[#222222] dark:text-white leading-tight">
-                    {modalProduct.name}
+                    {language === 'en' ? (modalProduct.nameEn || modalProduct.name) : modalProduct.name}
                   </h2>
 
                   <div className="flex items-baseline gap-3">
@@ -570,12 +574,12 @@ export const Shop: React.FC = () => {
                   </div>
 
                   <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                    {modalProduct.description}
+                    {language === 'en' ? (modalProduct.descriptionEn || modalProduct.description) : modalProduct.description}
                   </p>
 
-                  {modalProduct.origin && (
+                  {(modalProduct.origin || modalProduct.originEn) && (
                     <div className="p-3 rounded-lg bg-gray-50 dark:bg-slate-900/60 border border-gray-100 dark:border-slate-800 text-xs space-y-1">
-                      <p><strong>{language === 'vi' ? 'Nguồn gốc:' : 'Origin:'}</strong> {modalProduct.origin}</p>
+                      <p><strong>{language === 'vi' ? 'Nguồn gốc:' : 'Origin:'}</strong> {language === 'en' ? (modalProduct.originEn || modalProduct.origin) : modalProduct.origin}</p>
                       {modalProduct.roastLevel && <p><strong>{language === 'vi' ? 'Cấp độ rang:' : 'Roast:'}</strong> {modalProduct.roastLevel}</p>}
                       {modalProduct.weight && <p><strong>{language === 'vi' ? 'Đóng gói:' : 'Net weight:'}</strong> {modalProduct.weight}</p>}
                       {modalProduct.brewingRecommendation && <p><strong>{language === 'vi' ? 'Gợi ý pha chế:' : 'Brewing:'}</strong> {modalProduct.brewingRecommendation}</p>}
@@ -606,7 +610,7 @@ export const Shop: React.FC = () => {
                       showToast(language === 'vi' ? `Đã thêm "${modalProduct.name}" vào giỏ hàng!` : `Added "${modalProduct.name}" to cart!`);
                       setModalProduct(null);
                     }}
-                    className="flex-1 py-3 rounded-xl bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+                    className="flex-1 py-3 rounded-xl bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
                   >
                     <ShoppingBag size={15} />
                     <span>{t('shop.add_to_cart')}</span>
@@ -615,7 +619,7 @@ export const Shop: React.FC = () => {
                     href="https://dolphycoffee.cukcuk.vn/order-online/"
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-3 rounded-xl bg-[#f09c05] hover:bg-[#d98900] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-md"
+                    className="px-4 py-3 rounded-xl bg-[#c88232] hover:bg-[#d98900] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-md"
                     title={language === 'vi' ? 'Đặt giao hàng tận nơi' : 'Online Delivery'}
                   >
                     <span>{language === 'vi' ? 'Giao Hàng Tận Nơi' : 'Delivery'}</span>

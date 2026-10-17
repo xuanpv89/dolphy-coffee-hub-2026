@@ -30,7 +30,7 @@ export const AdminDashboard: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
-              <span className="text-xs uppercase font-oswald font-bold tracking-widest text-[#f09c05]">
+              <span className="text-xs uppercase font-oswald font-bold tracking-widest text-[#c88232]">
                 {t('admin.tag')}
               </span>
             </div>
@@ -204,7 +204,7 @@ export const AdminDashboard: React.FC = () => {
                         <div>{reg.branchPreference}</div>
                         <div className="text-gray-400 dark:text-gray-500">{reg.schedulePreference}</div>
                       </td>
-                      <td className="p-3.5 font-bold font-oswald text-[#f09c05]">
+                      <td className="p-3.5 font-bold font-oswald text-[#c88232]">
                         {reg.amount.toLocaleString('vi-VN')} ₫
                       </td>
                       <td className="p-3.5">
@@ -271,7 +271,7 @@ export const AdminDashboard: React.FC = () => {
                           </div>
                         ))}
                       </td>
-                      <td className="p-3.5 font-bold font-oswald text-[#f09c05]">
+                      <td className="p-3.5 font-bold font-oswald text-[#c88232]">
                         {ord.totalAmount.toLocaleString('vi-VN')} ₫
                       </td>
                       <td className="p-3.5 uppercase font-mono text-[11px]">
@@ -421,7 +421,7 @@ export const AdminDashboard: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-2xl bg-gradient-to-br from-[#165b94] to-[#2076bd] text-white text-center space-y-1 shadow-md">
-                <div className="text-[10px] font-bold text-[#f09c05] uppercase">Target</div>
+                <div className="text-[10px] font-bold text-[#c88232] uppercase">Target</div>
                 <div className="text-xs font-bold text-white">{language === 'vi' ? 'HV Đóng Học Phí' : 'Paid Students'}</div>
                 <div className="text-xl font-extrabold text-white">5 Students</div>
                 <div className="text-[10px] text-green-300 font-bold">35.000.000 ₫</div>

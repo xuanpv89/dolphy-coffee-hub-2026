@@ -21,7 +21,7 @@ export const CartDrawer: React.FC = () => {
           {/* Header */}
           <div className="p-5 border-b border-gray-100 dark:border-slate-800 bg-[#2076bd] text-white flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <ShoppingBag size={20} className="text-[#f09c05]" />
+              <ShoppingBag size={20} className="text-[#c88232]" />
               <h2 className="font-oswald text-lg font-bold uppercase tracking-wider">{t('cart.title')}</h2>
               <span className="text-xs px-2 py-0.5 rounded-full bg-white/20 font-oswald font-bold">
                 {cart.length} {t('cart.items_count')}
@@ -49,7 +49,7 @@ export const CartDrawer: React.FC = () => {
                 </p>
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#2076bd] text-white text-xs font-oswald font-semibold uppercase tracking-wider hover:bg-[#f09c05] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#2076bd] text-white text-xs font-oswald font-semibold uppercase tracking-wider hover:bg-[#c88232] transition-colors"
                 >
                   <span>{t('cart.view_shop_btn')}</span>
                   <ArrowRight size={14} />
@@ -143,7 +143,7 @@ export const CartDrawer: React.FC = () => {
                   setIsCartOpen(false);
                   setIsCheckoutOpen(true);
                 }}
-                className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-sm uppercase tracking-wider font-semibold transition-colors shadow flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-sm uppercase tracking-wider font-semibold transition-colors shadow flex items-center justify-center gap-2"
               >
                 <span>{t('cart.checkout_btn')}</span>
                 <ArrowRight size={16} />

@@ -50,7 +50,7 @@ export const Academy: React.FC = () => {
       <section className="relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
         <div className="max-w-5xl mx-auto space-y-5 relative z-10">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-widest font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#c88232] text-white text-xs font-oswald uppercase tracking-widest font-bold">
             <Sparkles size={14} />
             <span>{t('academy.hero_tag')}</span>
           </div>
@@ -66,16 +66,16 @@ export const Academy: React.FC = () => {
           {/* Quick Perks */}
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-blue-100 font-medium">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#f09c05]" /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}
+              <CheckCircle2 size={16} className="text-[#c88232]" /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#f09c05]" /> {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}
+              <CheckCircle2 size={16} className="text-[#c88232]" /> {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#f09c05]" /> {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}
+              <CheckCircle2 size={16} className="text-[#c88232]" /> {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#f09c05]" /> {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}
+              <CheckCircle2 size={16} className="text-[#c88232]" /> {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}
             </span>
           </div>
 
@@ -121,7 +121,7 @@ export const Academy: React.FC = () => {
           <div className="lg:col-span-8 space-y-8">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#f09c05] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
+                <span className="bg-[#c88232] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
                   {currentCourse.badge}
                 </span>
                 <span className="text-xs text-gray-500 dark:text-gray-400 font-oswald">{t('academy.duration')}: {currentCourse.duration}</span>
@@ -207,7 +207,7 @@ export const Academy: React.FC = () => {
                 <div className="font-oswald text-3xl font-bold text-[#2076bd] dark:text-[#3ba0e6] my-1">
                   {(currentCourse.discountPrice || currentCourse.price).toLocaleString('vi-VN')}₫
                 </div>
-                <div className="text-xs text-[#f09c05] font-semibold font-oswald uppercase">
+                <div className="text-xs text-[#c88232] font-semibold font-oswald uppercase">
                   {t('academy.deposit_amount')}: {(currentCourse.depositAmount || 2000000).toLocaleString('vi-VN')}₫
                 </div>
               </div>
@@ -233,7 +233,7 @@ export const Academy: React.FC = () => {
 
               <div className="p-3 rounded bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-xs text-blue-900 dark:text-blue-200 space-y-1">
                 <p className="font-bold flex items-center gap-1">
-                  <Sparkles size={14} className="text-[#f09c05]" />
+                  <Sparkles size={14} className="text-[#c88232]" />
                   {language === 'vi' ? 'Ưu đãi đăng ký sớm:' : 'Early Bird Privilege:'}
                 </p>
                 <p>{language === 'vi' ? 'Tặng kèm 1 áo Barista Dolphy + 1kg hạt Specialty tự luyện tập.' : 'Includes 1 Barista apron + 1kg specialty coffee for home training.'}</p>
@@ -241,7 +241,7 @@ export const Academy: React.FC = () => {
 
               <button
                 onClick={() => setEnrollingCourse(currentCourse)}
-                className="w-full py-3.5 rounded bg-[#f09c05] hover:bg-[#2076bd] text-white font-oswald text-sm uppercase tracking-wider font-semibold transition-colors shadow flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded bg-[#c88232] hover:bg-[#2076bd] text-white font-oswald text-sm uppercase tracking-wider font-semibold transition-colors shadow flex items-center justify-center gap-2"
               >
                 <QrCode size={16} />
                 <span>{language === 'vi' ? 'ĐĂNG KÝ & TẠO MÃ VIETQR CỌC' : 'RESERVE & GENERATE VIETQR'}</span>
@@ -284,7 +284,7 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
                 {language === 'vi' ? 'Sân Chơi Thường Niên' : 'Annual Championship'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -330,7 +330,7 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
                 {language === 'vi' ? 'Vinh Danh Tài Năng' : 'Trophy Ceremony'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -376,7 +376,7 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
                 {language === 'vi' ? 'Cảm Quan Hương Vị' : 'Sensory Evaluation'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">

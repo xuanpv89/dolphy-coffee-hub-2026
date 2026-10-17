@@ -1,16 +1,20 @@
 export interface Product {
   id: string | number;
   name: string;
+  nameEn?: string;
   alias: string;
   category: 'coffee-bag' | 'combo' | 'equipment' | 'bottled-drinks' | 'bakery';
   categoryName: string;
+  categoryNameEn?: string;
   price: number;
   compareAtPrice?: number;
   weight: string;
   origin?: string;
+  originEn?: string;
   roastLevel?: string;
   tasteNotes?: string[];
   description: string;
+  descriptionEn?: string;
   brewingRecommendation?: string;
   image?: string;
   images: string[];
@@ -60,19 +64,25 @@ export interface Branch {
   mapUrl: string;
   image: string;
   features: string[];
+  featuresEn?: string[];
   isFlagship?: boolean;
 }
 
 export interface Article {
   id: string;
   title: string;
+  titleEn?: string;
   slug: string;
   category: string;
+  categoryEn?: string;
   date: string;
   author: string;
   readTime: string;
+  readTimeEn?: string;
   excerpt: string;
+  excerptEn?: string;
   content: string;
+  contentEn?: string;
   image: string;
   tags: string[];
 }
@@ -80,14 +90,21 @@ export interface Article {
 export interface Job {
   id: string;
   title: string;
+  titleEn?: string;
   department: string;
-  type: 'Full-time' | 'Part-time' | 'Toàn thời gian / Bán thời gian';
+  departmentEn?: string;
+  type: string;
+  typeEn?: string;
   salary: string;
+  salaryEn?: string;
   locations: string[];
   ageRange: string;
   description: string;
+  descriptionEn?: string;
   requirements: string[];
+  requirementsEn?: string[];
   benefits: string[];
+  benefitsEn?: string[];
 }
 
 export interface Testimonial {

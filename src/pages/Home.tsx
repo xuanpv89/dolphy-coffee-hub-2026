@@ -126,7 +126,7 @@ export const Home: React.FC = () => {
             {/* Slide Content Overlay */}
             <div className="absolute inset-0 flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl space-y-4 sm:space-y-6">
-                <span className="inline-block bg-[#f09c05] text-white text-xs sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded">
+                <span className="inline-block bg-[#c88232] text-white text-xs sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded">
                   {slide.badge}
                 </span>
 
@@ -141,7 +141,7 @@ export const Home: React.FC = () => {
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <Link
                     to={slide.ctaLink}
-                    className="w-full sm:w-auto px-6 py-3 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-sm uppercase tracking-wider font-medium transition-colors shadow-lg"
+                    className="w-full sm:w-auto px-6 py-3 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-sm uppercase tracking-wider font-medium transition-colors shadow-lg"
                   >
                     {slide.ctaText}
                   </Link>
@@ -192,7 +192,7 @@ export const Home: React.FC = () => {
               key={i}
               onClick={() => setCurrentSlide(i)}
               className={`h-3 rounded-full transition-all ${
-                i === currentSlide ? 'bg-[#f09c05] w-8' : 'bg-white/60 hover:bg-white w-3'
+                i === currentSlide ? 'bg-[#c88232] w-8' : 'bg-white/60 hover:bg-white w-3'
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
@@ -203,12 +203,12 @@ export const Home: React.FC = () => {
       {/* 2. BRAND MISSION & INTRO BANNER */}
       <section className="bg-[#f0f8ff] dark:bg-slate-800/50 border-b border-gray-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
         <div className="max-w-4xl mx-auto space-y-4">
-          <div className="flex items-center justify-center gap-2 text-[#f09c05]">
-            <Star size={16} fill="#f09c05" />
+          <div className="flex items-center justify-center gap-2 text-[#c88232]">
+            <Star size={16} fill="#c88232" />
             <span className="font-oswald text-xs uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
               DOLPHY CAFE • EST. 2013
             </span>
-            <Star size={16} fill="#f09c05" />
+            <Star size={16} fill="#c88232" />
           </div>
 
           <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed font-normal italic max-w-3xl mx-auto">
@@ -229,7 +229,7 @@ export const Home: React.FC = () => {
               <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_pure')}</span>
             </div>
             <div className="p-2">
-              <span className="block font-oswald text-2xl font-bold text-[#f09c05]">TOP 10</span>
+              <span className="block font-oswald text-2xl font-bold text-[#c88232]">TOP 10</span>
               <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_top10')}</span>
             </div>
           </div>
@@ -259,7 +259,7 @@ export const Home: React.FC = () => {
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 />
                 {product.isBestSeller && (
-                  <span className="absolute top-2 left-2 bg-[#f09c05] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
+                  <span className="absolute top-2 left-2 bg-[#c88232] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
                     {t('shop.badge_bestseller')}
                   </span>
                 )}
@@ -273,7 +273,7 @@ export const Home: React.FC = () => {
               {/* Product Info */}
               <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-[#f09c05] text-xs mb-1">
+                  <div className="flex items-center gap-1 text-[#c88232] text-xs mb-1">
                     {'★'.repeat(5)}
                     <span className="text-gray-400 text-[11px] ml-1">({product.rating || 5.0})</span>
                   </div>
@@ -298,7 +298,7 @@ export const Home: React.FC = () => {
                       addToCart(product, 1, 'Nguyên hạt (Espresso)');
                       showToast(language === 'vi' ? `Đã thêm "${product.name}" vào giỏ hàng!` : `Added "${product.name}" to cart!`);
                     }}
-                    className="p-2 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white transition-colors"
+                    className="p-2 rounded bg-[#2076bd] hover:bg-[#c88232] text-white transition-colors"
                     title={t('shop.add_to_cart')}
                   >
                     <ShoppingBag size={16} />
@@ -328,7 +328,7 @@ export const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d3b66]/95 via-[#165b94]/90 to-black/85" />
         <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-white">
           <div className="space-y-4 max-w-xl text-center md:text-left">
-            <span className="bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block">
+            <span className="bg-[#c88232] text-white text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block">
               {t('home.delivery_tag')}
             </span>
             <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wider">
@@ -365,7 +365,7 @@ export const Home: React.FC = () => {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
             <div className="space-y-5">
-              <span className="bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block">
+              <span className="bg-[#c88232] text-white text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block">
                 {t('home.academy_badge')}
               </span>
 
@@ -379,15 +379,15 @@ export const Home: React.FC = () => {
 
               <div className="space-y-2.5 text-xs sm:text-sm">
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 size={18} className="text-[#f09c05] shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#c88232] shrink-0" />
                   <span>{t('home.academy_feature1')}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 size={18} className="text-[#f09c05] shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#c88232] shrink-0" />
                   <span>{t('home.academy_feature2')}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 size={18} className="text-[#f09c05] shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#c88232] shrink-0" />
                   <span>{t('home.academy_feature3')}</span>
                 </div>
               </div>
@@ -430,7 +430,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
                   <span>{t('home.academy_deposit')}</span>
-                  <strong className="text-base text-[#f09c05] font-oswald">2.000.000₫</strong>
+                  <strong className="text-base text-[#c88232] font-oswald">2.000.000₫</strong>
                 </div>
                 <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
                   <span>{t('home.academy_location_lbl')}</span>
@@ -443,13 +443,13 @@ export const Home: React.FC = () => {
               </div>
 
               <div className="p-3 rounded bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-200 flex items-center gap-2">
-                <Sparkles size={16} className="text-[#f09c05] shrink-0" />
+                <Sparkles size={16} className="text-[#c88232] shrink-0" />
                 <span>{t('home.academy_gift')}</span>
               </div>
 
               <button
                 onClick={() => setEnrollingCourse(coursesData[0])}
-                className="w-full py-3 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-sm font-semibold uppercase tracking-wider transition-colors shadow"
+                className="w-full py-3 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-sm font-semibold uppercase tracking-wider transition-colors shadow"
               >
                 {t('home.academy_btn')}
               </button>
@@ -476,7 +476,7 @@ export const Home: React.FC = () => {
                 className="bg-white dark:bg-[#1e293b] p-6 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between"
               >
                 <div className="space-y-3">
-                  <div className="flex items-center gap-1 text-[#f09c05]">
+                  <div className="flex items-center gap-1 text-[#c88232]">
                     {'★'.repeat(item.stars)}
                   </div>
                   <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 leading-relaxed italic">
@@ -545,7 +545,7 @@ export const Home: React.FC = () => {
 
               {/* Hover Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4 text-white">
-                <span className="text-[11px] text-[#f09c05] font-oswald flex items-center gap-1 mb-1">
+                <span className="text-[11px] text-[#c88232] font-oswald flex items-center gap-1 mb-1">
                   <MapPin size={12} />
                   <span>{language === 'vi' ? item.location : item.locationEn}</span>
                 </span>
@@ -578,7 +578,7 @@ export const Home: React.FC = () => {
             </div>
             <div>
               <p className="font-oswald text-base font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase">
-                KẾT NỐI VỚI DOLPHY TRÊN MẠNG XÃ HỘI
+                {language === 'vi' ? 'KẾT NỐI VỚI DOLPHY TRÊN MẠNG XÃ HỘI' : 'CONNECT WITH DOLPHY ON SOCIAL MEDIA'}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 #DolphyCafe #HappinessInACup #DolphyThaoDien #BlueDolphins #DolphyTikTok
@@ -636,49 +636,55 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {articlesData.slice(0, 4).map((article) => (
-            <article
-              key={article.id}
-              className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-lg dark:hover:shadow-slate-900/50 transition-shadow duration-300 flex flex-col group"
-            >
-              <div className="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-slate-900">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+          {articlesData.slice(0, 4).map((article) => {
+            const artTitle = language === 'en' ? (article.titleEn || article.title) : article.title;
+            const artCat = language === 'en' ? (article.categoryEn || article.category) : article.category;
+            const artExcerpt = language === 'en' ? (article.excerptEn || article.excerpt) : article.excerpt;
 
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={12} />
-                      {article.date || '2026-10-15'}
-                    </span>
-                    <span className="text-[#2076bd] dark:text-[#3ba0e6] font-medium font-oswald">
-                      {article.category}
-                    </span>
+            return (
+              <article
+                key={article.id}
+                className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-lg dark:hover:shadow-slate-900/50 transition-shadow duration-300 flex flex-col group"
+              >
+                <div className="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-slate-900">
+                  <img
+                    src={article.image}
+                    alt={artTitle}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={12} />
+                        {article.date || '2026-10-15'}
+                      </span>
+                      <span className="text-[#2076bd] dark:text-[#3ba0e6] font-medium font-oswald">
+                        {artCat}
+                      </span>
+                    </div>
+
+                    <h3 className="font-oswald text-sm font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors line-clamp-2 leading-snug">
+                      <Link to="/knowledge">{artTitle}</Link>
+                    </h3>
+
+                    <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+                      {artExcerpt}
+                    </p>
                   </div>
 
-                  <h3 className="font-oswald text-sm font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors line-clamp-2 leading-snug">
-                    <Link to="/knowledge">{article.title}</Link>
-                  </h3>
-
-                  <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
-                    {article.excerpt}
-                  </p>
+                  <div className="pt-3 border-t border-gray-100 dark:border-slate-800 mt-3 text-[11px] text-gray-400 dark:text-gray-500 flex items-center justify-between">
+                    <span>{language === 'vi' ? 'Đăng bởi Cá Heo Xanh' : 'By Blue Dolphin'}</span>
+                    <Link to="/knowledge" className="text-[#2076bd] dark:text-[#3ba0e6] hover:underline font-semibold font-oswald">
+                      {t('knowledge.read_more')}
+                    </Link>
+                  </div>
                 </div>
-
-                <div className="pt-3 border-t border-gray-100 dark:border-slate-800 mt-3 text-[11px] text-gray-400 dark:text-gray-500 flex items-center justify-between">
-                  <span>{language === 'vi' ? 'Đăng bởi Cá Heo Xanh' : 'By Blue Dolphin'}</span>
-                  <Link to="/knowledge" className="text-[#2076bd] dark:text-[#3ba0e6] hover:underline font-semibold font-oswald">
-                    {t('knowledge.read_more')}
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
         <div className="text-center mt-10">
@@ -768,7 +774,7 @@ export const Home: React.FC = () => {
               </h3>
 
               <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-                <MapPin size={13} className="text-[#f09c05]" />
+                <MapPin size={13} className="text-[#c88232]" />
                 <span>{language === 'vi' ? selectedPhoto.location : selectedPhoto.locationEn}</span>
               </div>
             </div>
