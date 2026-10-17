@@ -429,7 +429,13 @@ export const About: React.FC = () => {
               <p><strong>{language === 'vi' ? 'Trụ sở điều hành Dolphy Hub:' : 'Headquarters & Training Hub:'}</strong> {brandInfo.mainAddress}</p>
               <p><strong>{language === 'vi' ? 'Học viện Barista:' : 'Dolphy Barista Academy:'}</strong> 28 Thảo Điền & 1441 Nguyễn Văn Linh</p>
               <p><strong>{language === 'vi' ? 'Giờ mở cửa toàn chuỗi:' : 'Operating Hours:'}</strong> 06:30 - 22:30 hàng ngày</p>
-              <p><strong>Official Fanpage:</strong> <a href={brandInfo.facebook} target="_blank" rel="noreferrer" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">fb.com/dolphycafe</a></p>
+              <p><strong>{language === 'vi' ? 'Kênh mạng xã hội:' : 'Social Channels:'}</strong> 
+                <span className="inline-flex items-center gap-2 ml-2">
+                  <a href={brandInfo.facebook} target="_blank" rel="noreferrer" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">Facebook</a> •
+                  <a href={brandInfo.instagram} target="_blank" rel="noreferrer" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">Instagram</a> •
+                  <a href={brandInfo.tiktok} target="_blank" rel="noreferrer" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">TikTok</a>
+                </span>
+              </p>
             </div>
           </div>
         </div>
