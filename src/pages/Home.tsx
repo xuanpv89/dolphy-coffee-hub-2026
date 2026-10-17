@@ -72,6 +72,32 @@ export const Home: React.FC = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
+  // Touch swipe support for mobile
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   // Best seller products from dolphycafe.com
   const bestSellers = productsData.filter(p => p.isBestSeller || p.category === 'beans').slice(0, 4);
 
@@ -106,7 +132,12 @@ export const Home: React.FC = () => {
     <div className="bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. TOP SLIDER CAROUSEL */}
-      <section className="relative w-full h-[450px] sm:h-[550px] lg:h-[650px] overflow-hidden bg-black">
+      <section
+        className="relative w-full h-[460px] sm:h-[550px] lg:h-[650px] overflow-hidden bg-black select-none"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -124,24 +155,24 @@ export const Home: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25" />
 
             {/* Slide Content Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-              <div className="max-w-4xl space-y-4 sm:space-y-6">
-                <span className="inline-block bg-[#c88232] text-white text-xs sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded">
+            <div className="absolute inset-0 flex items-center justify-center text-center px-5 sm:px-12 lg:px-16">
+              <div className="max-w-3xl space-y-3 sm:space-y-6">
+                <span className="inline-block bg-[#c88232] text-white text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded">
                   {slide.badge}
                 </span>
 
-                <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white tracking-wider leading-tight drop-shadow-md">
+                <h1 className="font-oswald text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white tracking-wider leading-tight drop-shadow-md">
                   {slide.title}
                 </h1>
 
-                <p className="text-white/90 text-sm sm:text-lg max-w-2xl mx-auto drop-shadow">
+                <p className="text-white/90 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto drop-shadow px-2">
                   {slide.subtitle}
                 </p>
 
-                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
                   <Link
                     to={slide.ctaLink}
-                    className="w-full sm:w-auto px-6 py-3 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-sm uppercase tracking-wider font-medium transition-colors shadow-lg"
+                    className="w-full sm:w-auto px-6 py-2.5 sm:py-3 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium transition-colors shadow-lg"
                   >
                     {slide.ctaText}
                   </Link>
@@ -150,7 +181,7 @@ export const Home: React.FC = () => {
                       href={slide.secondaryLink}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full sm:w-auto px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-sm uppercase tracking-wider font-medium backdrop-blur transition-all flex items-center justify-center gap-1.5"
+                      className="w-full sm:w-auto px-6 py-2.5 sm:py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all flex items-center justify-center gap-1.5"
                     >
                       <span>{slide.secondaryText}</span>
                       <ExternalLink size={14} />
@@ -158,7 +189,7 @@ export const Home: React.FC = () => {
                   ) : (
                     <Link
                       to={slide.secondaryLink}
-                      className="w-full sm:w-auto px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-sm uppercase tracking-wider font-medium backdrop-blur transition-all"
+                      className="w-full sm:w-auto px-6 py-2.5 sm:py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all"
                     >
                       {slide.secondaryText}
                     </Link>
@@ -169,30 +200,30 @@ export const Home: React.FC = () => {
           </div>
         ))}
 
-        {/* Carousel Prev/Next Buttons */}
+        {/* Carousel Prev/Next Buttons (Hidden on mobile to never overlap centered hero text) */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white flex items-center justify-center transition-colors"
+          className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white items-center justify-center transition-colors shadow-lg"
           aria-label="Previous slide"
         >
           <ChevronLeft size={24} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white flex items-center justify-center transition-colors"
+          className="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white items-center justify-center transition-colors shadow-lg"
           aria-label="Next slide"
         >
           <ChevronRight size={24} />
         </button>
 
         {/* Carousel Indicators */}
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        <div className="absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrentSlide(i)}
-              className={`h-3 rounded-full transition-all ${
-                i === currentSlide ? 'bg-[#c88232] w-8' : 'bg-white/60 hover:bg-white w-3'
+              className={`h-2.5 sm:h-3 rounded-full transition-all ${
+                i === currentSlide ? 'bg-[#c88232] w-7 sm:w-8' : 'bg-white/60 hover:bg-white w-2.5 sm:w-3'
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />

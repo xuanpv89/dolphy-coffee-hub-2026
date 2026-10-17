@@ -245,11 +245,11 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3 text-center sm:text-left">
           <p>
             © 2013 - 2026 <strong>Dolphy Cafe</strong>. {t('footer.rights')}
           </p>
-          <div className="flex items-center gap-4 text-slate-400 text-[11px]">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-slate-400 text-[11px]">
             <Link to="/policies" className="hover:text-white transition-colors">{t('footer.privacy_policy')}</Link>
             <span>•</span>
             <Link to="/policies" className="hover:text-white transition-colors">{t('footer.academy_policy')}</Link>

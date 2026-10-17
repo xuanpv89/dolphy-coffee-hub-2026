@@ -94,13 +94,13 @@ export const Academy: React.FC = () => {
 
       {/* 2. COURSE SELECTOR TABS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center border-b border-gray-200 dark:border-slate-800">
-          <div className="flex gap-2 p-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg">
+        <div className="border-b border-gray-200 dark:border-slate-800 overflow-x-auto scrollbar-none pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="flex sm:justify-center gap-2 p-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg w-max min-w-full sm:w-auto">
             {coursesData.map(c => (
               <button
                 key={c.id}
                 onClick={() => setActiveCourseId(c.id)}
-                className={`px-4 sm:px-6 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all ${
+                className={`whitespace-nowrap shrink-0 px-4 sm:px-6 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all ${
                   activeCourseId === c.id
                     ? 'bg-[#2076bd] text-white shadow'
                     : 'text-gray-600 dark:text-gray-300 hover:text-[#222222] dark:hover:text-white'

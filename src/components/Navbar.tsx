@@ -32,20 +32,20 @@ export const Navbar: React.FC = () => {
   return (
     <header className="w-full bg-white dark:bg-[#1e293b] text-[#222222] dark:text-[#f1f5f9] transition-colors border-b border-gray-100 dark:border-slate-800 shadow-xs">
       {/* 1. TOP INTRO HEADER */}
-      <div className="border-b border-gray-100 dark:border-slate-800/80 py-2.5 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
+      <div className="border-b border-gray-100 dark:border-slate-800/80 py-2 sm:py-2.5 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-1.5 sm:gap-4">
           
           {/* Logo Dolphy Cafe */}
-          <Link to="/" className="flex items-center gap-3 shrink-0">
+          <Link to="/" className="flex items-center shrink-0">
             <img 
               src="/images/dolphy-logo.png" 
               alt="Dolphy Cafe" 
-              className="h-11 sm:h-12 md:h-14 w-auto object-contain dark:brightness-110"
+              className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain dark:brightness-110"
             />
           </Link>
 
           {/* Right Header Area: Hotline, Search, Controls (Lang, Theme), Admin, Cart */}
-          <div className="flex items-center gap-2.5 sm:gap-4 md:gap-5">
+          <div className="flex items-center gap-1.5 sm:gap-3 md:gap-4 shrink-0">
             
             {/* Search Input Box */}
             <div className="hidden md:flex items-center relative">
@@ -70,10 +70,10 @@ export const Navbar: React.FC = () => {
             {/* Language Switcher Button (VI / EN) */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 hover:border-[#2076bd] text-gray-700 dark:text-gray-200 transition-colors text-xs font-bold font-oswald tracking-wider"
+              className="flex items-center gap-1 px-2 py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 hover:border-[#2076bd] text-gray-700 dark:text-gray-200 transition-colors text-[11px] sm:text-xs font-bold font-oswald tracking-wider"
               title={language === 'vi' ? 'Chuyển sang Tiếng Anh (Switch to English)' : 'Switch to Vietnamese (Chuyển sang Tiếng Việt)'}
             >
-              <Globe size={13} className="text-[#2076bd] dark:text-[#3ba0e6]" />
+              <Globe size={12} className="text-[#2076bd] dark:text-[#3ba0e6]" />
               <span className={language === 'vi' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>VI</span>
               <span className="text-gray-300 dark:text-gray-600">/</span>
               <span className={language === 'en' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>EN</span>
@@ -85,7 +85,7 @@ export const Navbar: React.FC = () => {
               className="p-1.5 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-amber-400 hover:border-[#2076bd] hover:text-[#2076bd] transition-colors"
               title={theme === 'light' ? t('nav.theme_dark') : t('nav.theme_light')}
             >
-              {theme === 'light' ? <Moon size={15} /> : <Sun size={15} />}
+              {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
             </button>
 
             {/* Admin Hub shortcut */}
@@ -101,11 +101,11 @@ export const Navbar: React.FC = () => {
             {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 bg-[#2076bd] hover:bg-[#c88232] text-white px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0"
+              className="flex items-center gap-1.5 bg-[#2076bd] hover:bg-[#c88232] text-white px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0"
             >
               <ShoppingBag size={14} />
               <span className="hidden xs:inline">{t('nav.cart')}</span>
-              <span className="bg-white text-[#2076bd] font-bold px-1.5 py-0.2 rounded-full text-[11px] min-w-[18px] text-center">
+              <span className="bg-white text-[#2076bd] font-bold px-1.5 py-0.2 rounded-full text-[10px] sm:text-[11px] min-w-[16px] text-center">
                 {cartCount}
               </span>
             </button>
@@ -113,7 +113,8 @@ export const Navbar: React.FC = () => {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 text-gray-700 dark:text-gray-200 hover:text-[#2076bd]"
+              className="lg:hidden p-1 text-gray-700 dark:text-gray-200 hover:text-[#2076bd] rounded-md focus:outline-none"
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>

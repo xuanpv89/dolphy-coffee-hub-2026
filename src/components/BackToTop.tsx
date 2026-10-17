@@ -45,7 +45,7 @@ export const BackToTop: React.FC = () => {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-40 transition-all duration-300 transform ${
+      className={`fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 transition-all duration-300 transform ${
         isVisible
           ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto'
           : 'opacity-0 translate-y-4 scale-75 pointer-events-none'
