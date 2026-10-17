@@ -259,8 +259,8 @@ export const About: React.FC = () => {
 
         {/* 4. Chương 2: 4 Giá Trị Cốt Lõi (Happiness in a cup) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="block text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold mb-1">
               {language === 'vi' ? 'CHƯƠNG II: TRIẾT LÝ PHỤC VỤ' : 'CHAPTER II: OUR PHILOSOPHY'}
             </span>
             <h2 className="section-title">
@@ -297,8 +297,8 @@ export const About: React.FC = () => {
 
         {/* 5. Chương 3: Dấu Ấn Thời Gian (Milestone Timeline) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="block text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold mb-1">
               {language === 'vi' ? 'CHƯƠNG III: DẤU ẤN THỜI GIAN' : 'CHAPTER III: OUR TIMELINE'}
             </span>
             <h2 className="section-title">
@@ -336,8 +336,8 @@ export const About: React.FC = () => {
 
         {/* 6. Chương 4: Thư Viện Hình Ảnh Cảm Xúc (Authentic Photo Stories) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="block text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold mb-1">
               {language === 'vi' ? 'CHƯƠNG IV: NHỮNG KHOẢNH KHẮC ĐỜI THƯỜNG' : 'CHAPTER IV: REAL-LIFE MOMENTS'}
             </span>
             <h2 className="section-title">

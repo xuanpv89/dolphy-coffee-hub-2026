@@ -90,7 +90,10 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   text-transform: uppercase;
   color: #2076bd;
   position: relative;
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 24px;
 }
 
@@ -104,6 +107,11 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   height: 3px;
   background-color: #f09c05;
   border-radius: 2px;
+}
+
+.section-title.text-left {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .section-title.text-left::after {
