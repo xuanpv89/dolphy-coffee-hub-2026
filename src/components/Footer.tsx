@@ -196,15 +196,15 @@ export const Footer: React.FC = () => {
                 </svg>
               </a>
 
-              {/* CukCuk Button */}
+              {/* Delivery Button */}
               <a
                 href="https://dolphycoffee.cukcuk.vn/order-online/"
                 target="_blank"
                 rel="noreferrer"
                 className="px-3 py-2 rounded-lg bg-[#f09c05] hover:bg-[#d98900] text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-colors shadow flex items-center gap-1.5"
-                title="Đặt món trực tuyến"
+                title={language === 'vi' ? 'Đặt giao hàng tận nơi' : 'Order online delivery'}
               >
-                <span>CukCuk Order</span>
+                <span>{language === 'vi' ? 'Giao Hàng Tận Nơi' : 'Online Delivery'}</span>
                 <ExternalLink size={12} />
               </a>
             </div>

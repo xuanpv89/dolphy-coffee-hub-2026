@@ -14,15 +14,18 @@
   --dolphy-ice-blue: #f0f8ff;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
   font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
   color: #222222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   font-family: 'Oswald', sans-serif;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 /* Custom scrollbar */

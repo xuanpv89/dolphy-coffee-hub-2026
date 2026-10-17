@@ -50,8 +50,8 @@ export const translations = {
 
     'home.delivery_tag': 'DOLPHY ONLINE DELIVERY',
     'home.delivery_title': 'GIAO CÀ PHÊ TẬN NƠI - ĐẶT HÀNG NHANH CHÓNG',
-    'home.delivery_desc': 'Thưởng thức hương vị cà phê Dolphy quen thuộc ngay tại nhà hoặc văn phòng làm việc qua ứng dụng CukCuk và giao hàng nhanh nội thành TP.HCM.',
-    'home.order_cukcuk': 'ĐẶT MÓN CUKCUK NGAY',
+    'home.delivery_desc': 'Thưởng thức hương vị cà phê Dolphy quen thuộc ngay tại nhà hoặc văn phòng làm việc với dịch vụ giao hàng tận nơi nhanh chóng nội thành TP.HCM.',
+    'home.order_cukcuk': 'GIAO HÀNG TẬN NƠI',
     'home.find_nearby': 'TÌM QUÁN GẦN BẠN',
 
     'home.academy_badge': 'CHIẾN LƯỢC MỞ RỘNG 2026',
@@ -344,8 +344,8 @@ export const translations = {
 
     'home.delivery_tag': 'DOLPHY ONLINE DELIVERY',
     'home.delivery_title': 'FAST COFFEE DELIVERY - CONVENIENT ORDERING',
-    'home.delivery_desc': 'Enjoy your favorite Dolphy coffee at home or the office via CukCuk with rapid on-demand delivery across Ho Chi Minh City.',
-    'home.order_cukcuk': 'ORDER CUKCUK NOW',
+    'home.delivery_desc': 'Enjoy your favorite Dolphy coffee at home or office with rapid on-demand delivery across Ho Chi Minh City.',
+    'home.order_cukcuk': 'ORDER DELIVERY NOW',
     'home.find_nearby': 'FIND NEARBY CAFE',
 
     'home.academy_badge': '2026 EXPANSION STRATEGY',

@@ -9,9 +9,9 @@ export const About: React.FC = () => {
 
   const stats = [
     { value: '2013', label: language === 'vi' ? 'Khởi nghiệp tại Thảo Điền' : 'Founded in Thao Dien' },
-    { value: '10', label: language === 'vi' ? 'Không gian xanh tại TP.HCM' : 'Green Spaces in HCMC' },
-    { value: '1M+', label: language === 'vi' ? 'Tách cà phê hạnh phúc' : 'Happy Cups Served' },
-    { value: '100%', label: language === 'vi' ? 'Hạt cà phê rang mộc nguyên chất' : 'Pure Specialty Beans' }
+    { value: '10', label: language === 'vi' ? 'Chi nhánh xanh tại TP.HCM' : 'Green Spaces in HCMC' },
+    { value: '1 Triệu+', label: language === 'vi' ? 'Tách cà phê hạnh phúc' : 'Happy Cups Served' },
+    { value: '100%', label: language === 'vi' ? 'Cà phê rang mộc chuẩn vị' : 'Pure Specialty Beans' }
   ];
 
   const milestones = [
@@ -146,11 +146,11 @@ export const About: React.FC = () => {
       <section className="max-w-6xl mx-auto px-4 -mt-10 sm:-mt-12 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-white dark:bg-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-100 dark:border-slate-800">
           {stats.map((item, idx) => (
-            <div key={idx} className="text-center space-y-1 p-2">
-              <span className="font-oswald text-3xl sm:text-4xl font-bold text-[#2076bd] dark:text-[#3ba0e6] block">
+            <div key={idx} className="text-center p-2 flex flex-col items-center justify-center">
+              <span className="font-oswald text-3xl sm:text-4xl font-bold text-[#2076bd] dark:text-[#3ba0e6] block tracking-wide">
                 {item.value}
               </span>
-              <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">
+              <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300 min-h-[38px] flex items-center justify-center text-center leading-snug">
                 {item.label}
               </span>
             </div>
@@ -166,8 +166,12 @@ export const About: React.FC = () => {
               <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
                 {language === 'vi' ? 'CHƯƠNG I: CÂU CHUYỆN KHỞI NGUỒN' : 'CHAPTER I: OUR ORIGIN'}
               </span>
-              <h2 className="font-oswald text-2xl sm:text-4xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
-                {t('about.origin_title')}
+              <h2 className="font-oswald text-2xl sm:text-3xl lg:text-[34px] font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] leading-snug">
+                {language === 'vi' ? (
+                  <>Khởi Đầu Từ Niềm Đam Mê<br className="hidden sm:inline" /> Cà Phê Thuần Túy</>
+                ) : (
+                  t('about.origin_title')
+                )}
               </h2>
             </div>
             
@@ -198,32 +202,38 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-            <div className="space-y-4">
-              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64">
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-3">
+              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64 bg-slate-900 relative group">
                 <img
                   src="/images/fanpage/branch-28-thao-dien.jpg"
                   alt="Dolphy Thảo Điền Facade"
-                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm text-white font-oswald text-[10px] uppercase font-bold tracking-wider">
+                  28 Thảo Điền
+                </span>
               </div>
-              <div className="p-4 rounded-xl bg-blue-50 dark:bg-slate-800/80 text-xs text-gray-600 dark:text-gray-300">
-                <p className="font-oswald font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase">28 THẢO ĐIỀN</p>
-                <p>{language === 'vi' ? 'Biểu tượng gắn liền với nhịp sống cư dân từ những ngày đầu.' : 'Iconic spot cherished by expats since 2013.'}</p>
+              <div className="p-4 rounded-xl bg-blue-50/80 dark:bg-slate-800/80 text-xs text-gray-700 dark:text-gray-300 min-h-[80px] flex flex-col justify-center">
+                <p className="font-oswald font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase text-sm mb-0.5">28 THẢO ĐIỀN</p>
+                <p className="leading-relaxed">{language === 'vi' ? 'Biểu tượng gắn liền với nhịp sống cư dân từ những ngày đầu.' : 'Iconic spot cherished by expats since 2013.'}</p>
               </div>
             </div>
 
-            <div className="space-y-4 pt-6">
-              <div className="p-4 rounded-xl bg-orange-50 dark:bg-orange-950/30 text-xs text-gray-600 dark:text-gray-300">
-                <p className="font-oswald font-bold text-[#f09c05] uppercase">HẠT MỘC NGUYÊN BẢN</p>
-                <p>{language === 'vi' ? 'Rang mộc mỗi tuần, đóng túi van 1 chiều đạt chuẩn.' : 'Freshly roasted weekly with zero butter or flavoring.'}</p>
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64">
+            <div className="space-y-3">
+              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64 bg-slate-900 relative group">
                 <img
                   src="/images/fanpage/academy-signature-rose-latte.jpg"
                   alt="Dolphy Barista Signature Latte"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#f09c05]/90 text-white font-oswald text-[10px] uppercase font-bold tracking-wider">
+                  Espresso & Latte
+                </span>
+              </div>
+              <div className="p-4 rounded-xl bg-orange-50/80 dark:bg-orange-950/30 text-xs text-gray-700 dark:text-gray-300 min-h-[80px] flex flex-col justify-center">
+                <p className="font-oswald font-bold text-[#f09c05] uppercase text-sm mb-0.5">HẠT MỘC NGUYÊN BẢN</p>
+                <p className="leading-relaxed">{language === 'vi' ? 'Rang mộc mỗi tuần, đóng túi van 1 chiều đạt chuẩn.' : 'Freshly roasted weekly with zero butter or flavoring.'}</p>
               </div>
             </div>
           </div>
@@ -267,17 +277,19 @@ export const About: React.FC = () => {
             {pillars.map((item, pIdx) => (
               <div 
                 key={pIdx}
-                className="p-6 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 space-y-3 group"
+                className="p-6 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-3 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center group-hover:bg-[#2076bd] group-hover:text-white transition-colors shadow-sm">
-                  {item.icon}
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center group-hover:bg-[#2076bd] group-hover:text-white transition-colors shadow-sm">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-oswald text-base sm:text-lg font-bold uppercase text-[#222222] dark:text-white min-h-[48px] flex items-center">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed text-left">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="font-oswald text-lg font-bold uppercase text-[#222222] dark:text-white">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {item.desc}
-                </p>
               </div>
             ))}
           </div>
@@ -297,21 +309,22 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="relative border-l-2 border-blue-200 dark:border-slate-700 ml-4 sm:ml-32 space-y-8 pl-6 sm:pl-10">
+          <div className="relative border-l-2 border-blue-200 dark:border-slate-700 ml-4 sm:ml-10 md:ml-12 space-y-8 pl-6 sm:pl-8">
             {milestones.map((m, mIdx) => (
               <div key={mIdx} className="relative group">
-                {/* Circle Marker */}
-                <div className="absolute -left-[33px] sm:-left-[49px] top-1 w-6 h-6 rounded-full bg-white dark:bg-[#0f172a] border-4 border-[#2076bd] group-hover:border-[#f09c05] transition-colors" />
-                
-                {/* Year Label */}
-                <span className="sm:absolute sm:-left-32 sm:top-1 font-oswald text-sm font-bold text-[#f09c05] tracking-wider block sm:w-24 sm:text-right">
-                  {m.year}
-                </span>
+                {/* Circle Marker centered on border line */}
+                <div className="absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full bg-white dark:bg-[#0f172a] border-4 border-[#2076bd] group-hover:border-[#f09c05] transition-colors shadow-xs" />
 
-                <div className="bg-white dark:bg-[#1e293b] p-5 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-2 group-hover:shadow-md transition-shadow">
-                  <h3 className="font-oswald text-base sm:text-lg font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
-                    {m.title}
-                  </h3>
+                <div className="bg-white dark:bg-[#1e293b] p-5 sm:p-6 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-2.5 group-hover:shadow-md transition-shadow">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="px-3 py-1 rounded-full bg-[#f09c05]/15 text-[#d98200] dark:text-[#f09c05] font-oswald text-xs sm:text-sm font-bold tracking-wider inline-flex items-center gap-1.5 shrink-0">
+                      <Calendar size={13} />
+                      <span>{m.year}</span>
+                    </span>
+                    <h3 className="font-oswald text-base sm:text-lg font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+                      {m.title}
+                    </h3>
+                  </div>
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                     {m.desc}
                   </p>
@@ -356,10 +369,10 @@ export const About: React.FC = () => {
                 </div>
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-2">
                   <div className="space-y-1.5">
-                    <h3 className="font-oswald text-base font-bold uppercase text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors">
+                    <h3 className="font-oswald text-base font-bold uppercase text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors min-h-[44px] flex items-center">
                       {story.title}
                     </h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed text-left">
                       {story.desc}
                     </p>
                   </div>
@@ -371,32 +384,36 @@ export const About: React.FC = () => {
 
         {/* 7. Sứ mệnh & Tầm nhìn Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center text-2xl font-bold">
-              ★
+          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center text-2xl font-bold">
+                ★
+              </div>
+              <h3 className="font-oswald text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+                {t('about.mission_title')}
+              </h3>
+              <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed font-semibold">
+                {t('about.mission_desc')}
+              </p>
             </div>
-            <h3 className="font-oswald text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
-              {t('about.mission_title')}
-            </h3>
-            <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed font-semibold">
-              {t('about.mission_desc')}
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pt-3 border-t border-gray-100 dark:border-slate-800">
               {t('about.mission_sub')}
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-slate-800 text-[#f09c05] flex items-center justify-center text-2xl font-bold">
-              ☀
+          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-slate-800 text-[#f09c05] flex items-center justify-center text-2xl font-bold">
+                ☀
+              </div>
+              <h3 className="font-oswald text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+                {t('about.vision_title')}
+              </h3>
+              <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed font-semibold text-[#f09c05]">
+                {t('about.vision_desc')}
+              </p>
             </div>
-            <h3 className="font-oswald text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
-              {t('about.vision_title')}
-            </h3>
-            <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed font-semibold text-[#f09c05]">
-              {t('about.vision_desc')}
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pt-3 border-t border-gray-100 dark:border-slate-800">
               {t('about.vision_sub')}
             </p>
           </div>

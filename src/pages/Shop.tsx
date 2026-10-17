@@ -448,7 +448,7 @@ export const Shop: React.FC = () => {
                     rel="noreferrer"
                     className="font-oswald uppercase text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline flex items-center gap-1"
                   >
-                    <span>{language === 'vi' ? 'Đặt giao tận nơi CukCuk' : 'Order Delivery'}</span>
+                    <span>{language === 'vi' ? 'Giao hàng tận nơi' : 'Online Delivery'}</span>
                     <ExternalLink size={13} />
                   </a>
                 </div>
@@ -616,8 +616,9 @@ export const Shop: React.FC = () => {
                     target="_blank"
                     rel="noreferrer"
                     className="px-4 py-3 rounded-xl bg-[#f09c05] hover:bg-[#d98900] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-md"
+                    title={language === 'vi' ? 'Đặt giao hàng tận nơi' : 'Online Delivery'}
                   >
-                    <span>CukCuk</span>
+                    <span>{language === 'vi' ? 'Giao Hàng Tận Nơi' : 'Delivery'}</span>
                     <ExternalLink size={14} />
                   </a>
                 </div>

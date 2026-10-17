@@ -70,11 +70,13 @@ export const Navbar: React.FC = () => {
             {/* Language Switcher Button (VI / EN) */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 hover:border-[#2076bd] text-gray-700 dark:text-gray-200 transition-colors text-xs font-semibold"
-              title={language === 'vi' ? 'Switch to English' : 'Chuyển sang Tiếng Việt'}
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 hover:border-[#2076bd] text-gray-700 dark:text-gray-200 transition-colors text-xs font-bold font-oswald tracking-wider"
+              title={language === 'vi' ? 'Chuyển sang Tiếng Anh (Switch to English)' : 'Switch to Vietnamese (Chuyển sang Tiếng Việt)'}
             >
               <Globe size={13} className="text-[#2076bd] dark:text-[#3ba0e6]" />
-              <span className="text-xs">{language === 'vi' ? '🇻🇳 VI' : '🇬🇧 EN'}</span>
+              <span className={language === 'vi' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>VI</span>
+              <span className="text-gray-300 dark:text-gray-600">/</span>
+              <span className={language === 'en' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>EN</span>
             </button>
 
             {/* Theme Toggle Button (Light / Dark) */}

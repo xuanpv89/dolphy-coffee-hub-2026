@@ -894,7 +894,7 @@ export const branchesData: Branch[] = [
     mapUrl: 'https://maps.google.com/?q=8+Thao+Dien+District+2+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
     image: '/images/fanpage/branch-08-thao-dien.jpg',
-    features: ['Góc phố Thảo Điền rợp bóng mát', 'Cộng đồng Expat quốc tế', 'Thân thiện thú cưng (Pet-friendly)', 'Take-away & CukCuk Delivery'],
+    features: ['Góc phố Thảo Điền rợp bóng mát', 'Cộng đồng Expat quốc tế', 'Thân thiện thú cưng (Pet-friendly)', 'Take-away & Giao hàng tận nơi'],
     isFlagship: true
   },
   {
