@@ -25,31 +25,44 @@ export interface Product {
 export interface SyllabusItem {
   session: number;
   title: string;
+  titleEn?: string;
   description: string;
+  descriptionEn?: string;
   practicalSkills: string[];
+  practicalSkillsEn?: string[];
 }
 
 export interface Course {
   id: string;
   title: string;
+  titleEn?: string;
   slug: string;
   badge?: string;
+  badgeEn?: string;
   subtitle: string;
+  subtitleEn?: string;
   price: number;
   discountPrice: number;
   depositAmount: number;
   duration: string;
+  durationEn?: string;
   totalHours: number;
   sessions: number;
   hoursPerSession: number;
   targetAudience: string[];
+  targetAudienceEn?: string[];
   usps: string[];
+  uspsEn?: string[];
   syllabus: SyllabusItem[];
   outcomes: string[];
+  outcomesEn?: string[];
   trainerInfo: string;
+  trainerInfoEn?: string;
   schedule: string[];
+  scheduleEn?: string[];
   image: string;
   locations: string[];
+  locationsEn?: string[];
 }
 
 export interface Branch {

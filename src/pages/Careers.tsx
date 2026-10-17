@@ -29,7 +29,7 @@ export const Careers: React.FC = () => {
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* Header */}
-      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#c88232] text-white text-xs font-oswald uppercase tracking-widest font-bold">
             <Sparkles size={14} />
@@ -410,7 +410,7 @@ export const Careers: React.FC = () => {
 
                 <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <span className="text-xs text-gray-400 dark:text-gray-500">
-                    {language === 'vi' ? 'Địa điểm:' : 'Workplaces:'} <strong>10 chi nhánh Dolphy Café (Q.2, Q.7, Bình Thạnh)</strong>
+                    {language === 'vi' ? 'Địa điểm:' : 'Workplaces:'} <strong>{language === 'vi' ? '10 chi nhánh Dolphy Café (Q.2, Q.7, Bình Thạnh)' : '10 Dolphy branches (D.2, D.7, Binh Thanh)'}</strong>
                   </span>
 
                   <button

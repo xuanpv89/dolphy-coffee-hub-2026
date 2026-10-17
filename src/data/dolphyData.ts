@@ -39,13 +39,17 @@ export const coursesData: Course[] = [
   {
     id: 'barista-thuc-chien',
     title: 'Khóa Học Barista Thực Chiến Dolphy',
+    titleEn: 'Hands-on Barista Masterclass',
     slug: 'barista-thuc-chien',
     badge: 'Khóa Học Trọng Tâm 2026',
+    badgeEn: 'Flagship Program 2026',
     subtitle: 'Đào tạo kỹ năng pha chế toàn diện, thực hành 100% tại quầy bar chuỗi cửa hàng Dolphy và cam kết ưu tiên tuyển dụng ngay sau khi tốt nghiệp.',
+    subtitleEn: 'Comprehensive on-bar barista training, 100% practiced behind commercial counters with priority hiring at 10 Dolphy locations.',
     price: 8000000,
     discountPrice: 7000000,
     depositAmount: 2000000,
     duration: '2 - 3 tuần',
+    durationEn: '2 - 3 weeks',
     totalHours: 21,
     sessions: 6,
     hoursPerSession: 3.5,
@@ -55,6 +59,12 @@ export const coursesData: Course[] = [
       'Chủ quán cà phê tương lai muốn nắm vững kỹ thuật, quy trình vận hành và kiểm soát chất lượng.',
       'Người yêu thích cà phê muốn nâng tầm trải nghiệm cá nhân.'
     ],
+    targetAudienceEn: [
+      'Aspiring professionals seeking commercial cafe employment.',
+      'Students and youths preparing for overseas studies or working holidays.',
+      'Future cafe entrepreneurs mastering coffee craftsmanship and bar flow.',
+      'Coffee enthusiasts elevating home brewing to professional standards.'
+    ],
     usps: [
       'Thực hành trực tiếp 100% tại quầy bar cửa hàng chuỗi Dolphy (máy pha Espresso cao cấp, máy xay chuyên dụng).',
       'Cam kết đầu ra việc làm: Ưu tiên tuyển dụng trực tiếp vào 10 chi nhánh Dolphy Café (25k - 35k/h) hoặc kết nối làm việc tại các chuỗi đối tác.',
@@ -62,42 +72,67 @@ export const coursesData: Course[] = [
       'Học phí cạnh tranh hàng đầu thị trường (chỉ 7.000.000đ so với mặt bằng 8 - 10 triệu tại TP.HCM).',
       'Đội ngũ Master Trainer thực chiến, kèm 1:1 hoặc lớp nhỏ tối đa 4 - 6 học viên.'
     ],
+    uspsEn: [
+      '100% hands-on training directly on commercial espresso machines behind real Dolphy counters.',
+      'Guaranteed employment priority: Direct placement at 10 Dolphy branches (25k - 35k/hr) or partner chains.',
+      'Zero exclusivity bond: Complete freedom to build your career anywhere post-graduation.',
+      'Competitive tuition (Only 7M VND vs. 8-10M VND standard market rate in HCMC).',
+      'Small interactive cohorts capped at 4 - 6 students with 1:1 Master Trainer mentoring.'
+    ],
     syllabus: [
       {
         session: 1,
         title: 'Buổi 1: Thế Giới Cà Phê Hạt & Phân Biệt Arabica vs Robusta',
+        titleEn: 'Session 1: Coffee Origin Terroir & Arabica vs. Robusta',
         description: 'Khám phá bản đồ cà phê, vùng trồng Cầu Đất, Buôn Ma Thuột; các phương pháp sơ chế (Wash, Honey, Natural); quy trình rang xay và nhận biết hạt tiêu chuẩn.',
-        practicalSkills: ['Cupping cảm quan', 'Nhận diện lỗi hạt cà phê', 'Cách bảo quản cà phê đúng chuẩn']
+        descriptionEn: 'Explore highland origins (Cau Dat, Buon Ma Thuot), processing methods (Wash, Honey, Natural), and roast profiling fundamentals.',
+        practicalSkills: ['Cupping cảm quan', 'Nhận diện lỗi hạt cà phê', 'Cách bảo quản cà phê đúng chuẩn'],
+        practicalSkillsEn: ['Sensory cupping', 'Defect identification', 'Standard storage protocols']
       },
       {
         session: 2,
         title: 'Buổi 2: Vận Hành Máy Pha & Kỹ Thuật Chiết Xuất Espresso Hoàn Hảo (Dial-in)',
+        titleEn: 'Session 2: Espresso Machine Mechanics & Dial-in Calibration',
         description: 'Cấu tạo máy pha công nghiệp, máy xay hạt. Hiểu sâu về tỉ lệ Brew Ratio, thời gian, áp suất 9-bar, nhiệt độ và cách cân chỉnh độ mịn (Dial-in grind size) theo thời tiết.',
-        practicalSkills: ['Cân chỉnh cối xay (Dial-in)', 'Kỹ thuật nén Tamp chuẩn xác', 'Đánh giá ly Espresso chuẩn vị (Crema, Body, Acidity)']
+        descriptionEn: 'Commercial machine anatomy, 9-bar pressure, brew ratios, temperature stability, and daily weather-responsive grind dial-in.',
+        practicalSkills: ['Cân chỉnh cối xay (Dial-in)', 'Kỹ thuật nén Tamp chuẩn xác', 'Đánh giá ly Espresso chuẩn vị (Crema, Body, Acidity)'],
+        practicalSkillsEn: ['Grinder dial-in precision', 'Ergonomic tamping', 'Sensory evaluation of crema, body, and acidity']
       },
       {
         session: 3,
         title: 'Buổi 3: Kỹ Thuật Đánh Sữa (Milk Steaming) & Bọt Sữa Vi Mô (Micro-foam)',
+        titleEn: 'Session 3: Milk Steaming Science & Glossy Micro-foam',
         description: 'Vật lý và hóa học của sữa tươi thanh trùng khi gia nhiệt. Kỹ thuật góc nghiêng vòi hơi, tạo vòng xoáy vortex, kiểm soát nhiệt độ 60 - 65°C để sữa ngọt tự nhiên.',
-        practicalSkills: ['Tạo foam sữa mịn như lụa (Glossy micro-foam)', 'Xử lý bọt thừa', 'Đồng nhất sữa và Espresso']
+        descriptionEn: 'Pasteurized milk thermodynamics, steam wand angling, vortex whirlpool formation, and sweet-spot 60-65°C thermal control.',
+        practicalSkills: ['Tạo foam sữa mịn như lụa (Glossy micro-foam)', 'Xử lý bọt thừa', 'Đồng nhất sữa và Espresso'],
+        practicalSkillsEn: ['Silky micro-foam creation', 'Foam bubble purging', 'Milk and espresso integration']
       },
       {
         session: 4,
         title: 'Buổi 4: Nghệ Thuật Tạo Hình Latte Art & Menu Cà Phê Ý Chuẩn Quốc Tế',
+        titleEn: 'Session 4: Free-Pour Latte Art & International Espresso Menu',
         description: 'Thực hành kỹ thuật rót dòng chảy (flow rate), độ cao (distance), lắc tay (wiggle). Thực hành các hình vẽ cơ bản: Heart (Trái tim), Tulip, Rosetta.',
-        practicalSkills: ['Pha chế Cappuccino, Café Latte, Flat White, Macchiato', 'Latte Art Trái Tim & Tulip nhiều tầng', 'Vệ sinh và bảo dưỡng máy sau ca làm']
+        descriptionEn: 'Master flow rate, pour height, and wrist cadence to craft Heart, multi-tiered Tulip, and classic Rosetta patterns.',
+        practicalSkills: ['Pha chế Cappuccino, Café Latte, Flat White, Macchiato', 'Latte Art Trái Tim & Tulip nhiều tầng', 'Vệ sinh và bảo dưỡng máy sau ca làm'],
+        practicalSkillsEn: ['Crafting Cappuccino, Flat White, Macchiato', 'Multi-tier Latte Art', 'End-of-shift machine backflushing']
       },
       {
         session: 5,
         title: 'Buổi 5: Cà Phê Phin Nâng Cao, Cold Brew & Dòng Thức Uống Signature Dolphy',
+        titleEn: 'Session 5: Heritage Phin Brewing, Cold Brew & Dolphy Signatures',
         description: 'Bí quyết ủ phin nhôm truyền thống chuẩn Việt Nam; phương pháp chiết xuất lạnh Cold Brew 12 - 24 tiếng; công thức Bạc sỉu 3 tầng trứ danh của Dolphy được khách quốc tế yêu thích.',
-        practicalSkills: ['Ủ phin nhôm chuẩn nhiệt độ 92-96°C', 'Công thức Bạc sỉu, Cà phê sữa đá Sài Gòn', 'Kỹ thuật pha Cold Brew 1:10 bảo quản 2-4 tuần']
+        descriptionEn: 'Traditional Vietnamese aluminum phin blooming, 18-hour cold brew extraction, and Dolphy’s legendary 3-layer Bac Xiu recipe.',
+        practicalSkills: ['Ủ phin nhôm chuẩn nhiệt độ 92-96°C', 'Công thức Bạc sỉu, Cà phê sữa đá Sài Gòn', 'Kỹ thuật pha Cold Brew 1:10 bảo quản 2-4 tuần'],
+        practicalSkillsEn: ['Phin temperature control', 'Authentic Saigon iced milk coffee', '1:10 cold brew concentrate production']
       },
       {
         session: 6,
         title: 'Buổi 6: Quy Trình Vận Hành Quầy Bar 5 Sao, Thi Tốt Nghiệp & Phỏng Vấn Việc Làm',
+        titleEn: 'Session 6: 5-Star Bar Flow, Practical Exam & Job Placement',
         description: 'Setup quy trình trạm làm việc (station flow), kiểm soát tốc độ đơn hàng (speed of service), kỹ năng giao tiếp - dịch vụ khách hàng "Happiness in a cup", xử lý tình huống phát sinh.',
-        practicalSkills: ['Thi thực hành pha chế tổng hợp theo đơn gọi món', 'Đánh giá chấm điểm tốt nghiệp', 'Phỏng vấn nhận việc ngay tại Dolphy']
+        descriptionEn: 'Station ergonomics, rush hour speed-of-service, Happiness in a cup hospitality, comprehensive practical exam, and instant hiring interviews.',
+        practicalSkills: ['Thi thực hành pha chế tổng hợp theo đơn gọi món', 'Đánh giá chấm điểm tốt nghiệp', 'Phỏng vấn nhận việc ngay tại Dolphy'],
+        practicalSkillsEn: ['Simulated rush order exam', 'Graduation assessment', 'Immediate Dolphy store hiring interview']
       }
     ],
     outcomes: [
@@ -105,6 +140,12 @@ export const coursesData: Course[] = [
       'Tự tin vận hành máy pha công nghiệp độc lập ở bất kỳ quầy bar chuyên nghiệp nào.',
       'Nhận chứng chỉ tốt nghiệp Dolphy Academy.',
       'Được ưu tiên tuyển dụng làm Barista tại hệ thống 10 chi nhánh Dolphy Café.'
+    ],
+    outcomesEn: [
+      'Master Italian espresso classics and contemporary Vietnamese drinks.',
+      'Operate commercial dual-boiler machines with speed and confidence.',
+      'Receive the official Dolphy Academy Certificate.',
+      'Fast-track hiring priority across 10 Dolphy coffee locations.'
     ],
     trainerInfo: 'Trực tiếp giảng dạy bởi Trưởng bộ phận Đào tạo (Lead Trainer) Dolphy cùng các Barista kỳ cựu đã gắn bó nhiều năm với thương hiệu.',
     schedule: [
@@ -121,13 +162,17 @@ export const coursesData: Course[] = [
   {
     id: 'latte-art-sensory',
     title: 'Khóa Chuyên Sâu Latte Art & Sensory Cảm Quan',
+    titleEn: 'Advanced Latte Art & Sensory Masterclass',
     slug: 'latte-art-sensory',
     badge: 'Kỹ Năng Nâng Cao',
+    badgeEn: 'Advanced Skills',
     subtitle: 'Nâng cấp kỹ thuật tạo hình bọt sữa điêu luyện (Rosetta, Swan, Winged Tulip) và kỹ năng nếm nếm đánh giá hương vị cà phê Specialty.',
+    subtitleEn: 'Master advanced milk frothing artistry (Rosetta, Swan, Winged Tulip) and cupping sensory evaluation for Specialty Coffee.',
     price: 4500000,
     discountPrice: 3800000,
     depositAmount: 1000000,
     duration: '1 - 2 tuần',
+    durationEn: '1 - 2 weeks',
     totalHours: 14,
     sessions: 4,
     hoursPerSession: 3.5,
@@ -136,40 +181,66 @@ export const coursesData: Course[] = [
       'Những ai chuẩn bị tham gia các cuộc thi Latte Art hoặc Barista Championship.',
       'Người làm việc tại các quầy Specialty Coffee cao cấp.'
     ],
+    targetAudienceEn: [
+      'Baristas with basic foundation seeking elite latte art skills.',
+      'Competitors entering national Latte Art & Barista championships.',
+      'Specialty coffee shop staff.'
+    ],
     usps: [
       'Rèn luyện kỹ thuật tay rót chuyên sâu với hàng trăm shot thực hành không giới hạn nguyên liệu.',
       'Phát triển khả năng cảm nhận hương hoa, quả mọng, socola, hạt phỉ trong hạt cà phê.',
       'Hướng dẫn chụp ảnh/quay video khoe tác phẩm Latte Art ấn tượng trên mạng xã hội.'
     ],
+    uspsEn: [
+      'Intensive free-pour drills with unlimited raw milk and espresso.',
+      'Develop sensory acuity for floral, fruity, chocolate, and hazelnut notes.',
+      'Professional guidance on capturing viral Latte Art videos for social media.'
+    ],
     syllabus: [
       {
         session: 1,
         title: 'Buổi 1: Kiểm Soát Bọt Sữa Tuyệt Đối & Free Pour Cơ Bản',
+        titleEn: 'Session 1: Absolute Foam Control & Foundational Free Pour',
         description: 'Tối ưu độ sánh dẻo của sữa cho từng kiểu tách (Cup size), phân tích góc nghiêng và áp lực dòng sữa khi tiếp xúc bề mặt Espresso.',
-        practicalSkills: ['Solid Heart', 'Layered Heart', 'Double Tulip']
+        descriptionEn: 'Optimize milk viscosity per cup size; calibrate pour angle and hydraulic flow onto the crema surface.',
+        practicalSkills: ['Solid Heart', 'Layered Heart', 'Double Tulip'],
+        practicalSkillsEn: ['Solid Heart', 'Layered Heart', 'Double Tulip']
       },
       {
         session: 2,
         title: 'Buổi 2: Kỹ Thuật Đẩy Pattern & Winged Rosetta',
+        titleEn: 'Session 2: Pattern Pushing Mechanics & Winged Rosetta',
         description: 'Kiểm soát nhịp lắc cổ tay, độ rộng của cánh hoa lá Rosetta, kỹ năng kéo ngọn chỉ không đứt nét.',
-        practicalSkills: ['Classic Rosetta', 'Winged Tulip', 'Inverted patterns']
+        descriptionEn: 'Cadence control, lateral wing spread, and immaculate finishing strikethrough lines.',
+        practicalSkills: ['Classic Rosetta', 'Winged Tulip', 'Inverted patterns'],
+        practicalSkillsEn: ['Classic Rosetta', 'Winged Tulip', 'Inverted patterns']
       },
       {
         session: 3,
         title: 'Buổi 3: Tạo Hình Phức Hợp (Swan & Dragon)',
+        titleEn: 'Session 3: Complex Multi-Pattern Pouring (Swan & Dragon)',
         description: 'Kết hợp nhiều kỹ thuật trong một tách duy nhất: tạo thân, cánh, cổ và đầu thiên nga uyển chuyển.',
-        practicalSkills: ['Swan (Thiên nga đơn/kép)', 'Seahorse', 'Tự do sáng tạo mẫu mới']
+        descriptionEn: 'Harmonize body, multi-feather wings, neck curvature, and sculpted swan head within a single pour.',
+        practicalSkills: ['Swan (Thiên nga đơn/kép)', 'Seahorse', 'Tự do sáng tạo mẫu mới'],
+        practicalSkillsEn: ['Single/Double Swan', 'Seahorse', 'Creative signature patterns']
       },
       {
         session: 4,
         title: 'Buổi 4: Sensory Cupping & Hiệu Chỉnh Vị Cà Phê Chuyên Sâu',
+        titleEn: 'Session 4: Sensory Cupping & Dial-in Flavor Profiling',
         description: 'Vòng tròn hương vị SCA Flavor Wheel; phân tích độ chua Acidity, độ ngọt Sweetness, vị đắng Bitterness và Hậu vị Aftertaste.',
-        practicalSkills: ['Thử nếm Cupping mù 5 loại cà phê cao cấp', 'Đánh giá điểm cân bằng sensory']
+        descriptionEn: 'SCA Flavor Wheel immersion; dissect Acidity, Sweetness, Bitterness, and lingering Aftertaste.',
+        practicalSkills: ['Thử nếm Cupping mù 5 loại cà phê cao cấp', 'Đánh giá điểm cân bằng sensory'],
+        practicalSkillsEn: ['Blind cupping 5 specialty origins', 'Sensory balance scoring']
       }
     ],
     outcomes: [
       'Thành thạo ít nhất 5 mẫu Latte Art phức tạp.',
       'Tự tin tạo nên trải nghiệm thị giác và vị giác đỉnh cao cho thực khách.'
+    ],
+    outcomesEn: [
+      'Master at least 5 complex Latte Art patterns.',
+      'Confidently deliver world-class visual and sensory cafe experiences.'
     ],
     trainerInfo: 'Hướng dẫn bởi Quán quân / Trọng tài các giải đấu Barista & Trainer chuyên sâu của Dolphy.',
     schedule: ['Thứ 3 - Thứ 5 hàng tuần (14:00 - 17:30)', 'Chủ Nhật (Cả ngày)'],
@@ -179,13 +250,17 @@ export const coursesData: Course[] = [
   {
     id: 'workshop-trai-nghiem-barista',
     title: 'Workshop Hướng Nghiệp & Trải Nghiệm Nghề Barista',
+    titleEn: 'Barista Career Experience Workshop',
     slug: 'workshop-trai-nghiem-barista',
     badge: 'Trải Nghiệm Cuối Tuần',
+    badgeEn: 'Weekend Experience',
     subtitle: 'Buổi giao lưu trải nghiệm thực tế 1 buổi: Tự tay pha ly cà phê chuẩn vị, khám phá văn hóa cà phê và trắc nghiệm mức độ phù hợp với nghề Barista.',
+    subtitleEn: 'An engaging 3.5-hour workshop: brew your own signature coffee, explore coffee culture, and test your barista aptitude.',
     price: 350000,
     discountPrice: 250000,
     depositAmount: 250000,
     duration: '1 buổi (3.5 giờ)',
+    durationEn: '1 session (3.5 hours)',
     totalHours: 3.5,
     sessions: 1,
     hoursPerSession: 3.5,
@@ -194,22 +269,39 @@ export const coursesData: Course[] = [
       'Người yêu thích cà phê muốn có trải nghiệm cuối tuần thú vị.',
       'Các nhóm bạn, cặp đôi tìm kiếm hoạt động kết nối ý nghĩa.'
     ],
+    targetAudienceEn: [
+      'Young individuals exploring the barista profession & F&B industry.',
+      'Coffee lovers seeking a delightful weekend experience.',
+      'Friend groups and couples wanting an enriching activity.'
+    ],
     usps: [
       'Chi phí siêu ưu đãi (Chỉ 250k/người, bao gồm toàn bộ nguyên liệu và đồ uống mang về).',
       'Được tự tay vận hành máy pha công nghiệp và thử vẽ hình Latte Art đầu tiên.',
       'Miễn phí 100% học phí workshop nếu đăng ký khóa học Barista Thực Chiến sau đó.'
     ],
+    uspsEn: [
+      'Incredible value (Only 250k/person including all beans & takeout drinks).',
+      'Operate commercial dual-boiler espresso machines and pour your first latte art.',
+      '100% refund of workshop fee upon enrolling in our Hands-on Barista Masterclass.'
+    ],
     syllabus: [
       {
         session: 1,
         title: 'Trải Nghiệm 3.5 Giờ Trở Thành Barista Thực Thụ',
+        titleEn: '3.5-Hour Authentic Barista Immersion',
         description: 'Khám phá câu chuyện cà phê Sài Gòn, bí quyết chiếc phin nhôm truyền thống, cách nhận biết cà phê sạch và tự tay pha 2 món cà phê yêu thích.',
-        practicalSkills: ['Tự pha 01 ly Espresso & Latte Art', 'Tự ủ 01 mẻ Cold Brew mang về', 'Nhận quà tặng cà phê túi Dolphy']
+        descriptionEn: 'Discover Saigon coffee stories, Vietnamese phin secrets, specialty beans tasting, and brew 2 favorite drinks.',
+        practicalSkills: ['Tự pha 01 ly Espresso & Latte Art', 'Tự ủ 01 mẻ Cold Brew mang về', 'Nhận quà tặng cà phê túi Dolphy'],
+        practicalSkillsEn: ['Brew Espresso & pour Latte Art', 'Extract takeout Cold Brew batch', 'Receive Dolphy coffee gift pouch']
       }
     ],
     outcomes: [
       'Hiểu rõ lộ trình phát triển và tiềm năng thu nhập của nghề Barista tại Việt Nam & quốc tế.',
       'Sở hữu thành phẩm cà phê do chính tay mình tạo nên.'
+    ],
+    outcomesEn: [
+      'Gain clear insight into barista career path and earning potential.',
+      'Take home customized coffee creations brewed with your own hands.'
     ],
     trainerInfo: 'Speaker & Barista Host thân thiện từ Dolphy Café Team.',
     schedule: ['Sáng Thứ 7 hàng tuần (09:00 - 12:30)', 'Sáng Chủ Nhật hàng tuần (09:00 - 12:30)'],
@@ -222,13 +314,17 @@ export const coursesData: Course[] = [
   {
     id: 'quan-ly-van-hanh-fnb',
     title: 'Khóa Đào Tạo Quản Lý Quán & Vận Hành F&B Thực Chiến',
+    titleEn: 'F&B Cafe Operations & Management Course',
     slug: 'quan-ly-van-hanh-fnb',
     badge: 'Chuyên Gia Vận Hành 2026',
+    badgeEn: 'Operations Specialist 2026',
     subtitle: 'Nắm vững kỹ năng quản trị kinh doanh cà phê, kiểm soát cost, định lượng nguyên liệu, quản lý nhân sự và phần mềm bán hàng CukCuk thực tế tại chuỗi Dolphy.',
+    subtitleEn: 'Master coffee business management, costing, recipe formulation, staff rostering, and live CukCuk POS systems across Dolphy chain.',
     price: 15000000,
     discountPrice: 12000000,
     depositAmount: 3000000,
     duration: '4 tuần (8 buổi)',
+    durationEn: '4 weeks (8 sessions)',
     totalHours: 28,
     sessions: 8,
     hoursPerSession: 3.5,
@@ -237,65 +333,104 @@ export const coursesData: Course[] = [
       'Quản lý cửa hàng, Shift Leader muốn nâng cao năng lực điều hành chuỗi.',
       'Người muốn nắm vững tài chính và tối ưu tỷ suất lợi nhuận trong ngành F&B.'
     ],
+    targetAudienceEn: [
+      'Future coffee shop owners preparing for startup or franchise.',
+      'Store managers & shift leaders elevating chain management skills.',
+      'F&B entrepreneurs optimizing profit margins and financial control.'
+    ],
     usps: [
       'Học trực tiếp trên số liệu vận hành và hệ thống CukCuk thực tế của 10 chi nhánh Dolphy.',
       'Tối ưu hóa tỷ lệ hao hụt nguyên vật liệu (Food & Beverage Cost Control dưới 28%).',
       'Được tư vấn 1:1 bản vẽ thiết kế công năng quầy bar và quy trình kiểm soát ca làm việc.'
     ],
+    uspsEn: [
+      'Trained directly on operational data and live CukCuk POS across 10 Dolphy branches.',
+      'Optimize ingredient waste (Food & Beverage Cost Control under 28%).',
+      '1-on-1 consultation on bar layout blueprints and shift supervision systems.'
+    ],
     syllabus: [
       {
         session: 1,
         title: 'Buổi 1: Mô Hình Kinh Doanh F&B & Thiết Kế Công Năng Quầy Bar Chuẩn',
+        titleEn: 'Session 1: F&B Business Models & Ergonomic Bar Layout',
         description: 'Phân tích tam giác vàng trong quầy bar (Tủ mát - Máy pha - Bồn rửa). Tối ưu luồng di chuyển của nhân viên trong giờ cao điểm.',
-        practicalSkills: ['Đọc bản vẽ mặt bằng quầy bar', 'Bố trí trạm làm việc (Station Layout)']
+        descriptionEn: 'The golden triangle layout (chiller - espresso machine - sink); optimizing rush hour ergonomics.',
+        practicalSkills: ['Đọc bản vẽ mặt bằng quầy bar', 'Bố trí trạm làm việc (Station Layout)'],
+        practicalSkillsEn: ['Bar floorplan blueprint reading', 'Station ergonomics setup']
       },
       {
         session: 2,
         title: 'Buổi 2: Xây Dựng Định Lượng (Recipe Costing) & Kiểm Soát Giá Vốn (COGS)',
+        titleEn: 'Session 2: Recipe Costing & COGS Margin Optimization',
         description: 'Công thức tính giá vốn chuẩn cho từng món đồ uống và bánh ngọt; thiết lập mức giá bán cạnh tranh và biên lợi nhuận kỳ vọng.',
-        practicalSkills: ['Lập bảng Costing Excel', 'Cân đối tỷ lệ cost Arabica/Robusta/Sữa tươi']
+        descriptionEn: 'Precise costing formulas for coffee, tea, and bakery items; price point strategy & target margins.',
+        practicalSkills: ['Lập bảng Costing Excel', 'Cân đối tỷ lệ cost Arabica/Robusta/Sữa tươi'],
+        practicalSkillsEn: ['Excel costing sheet formulation', 'Balancing Arabica/Robusta/milk costs']
       },
       {
         session: 3,
         title: 'Buổi 3: Vận Hành Phần Mềm POS & Quản Trị Kho Đơn Hàng (CukCuk)',
+        titleEn: 'Session 3: CukCuk POS Operations & Inventory Control',
         description: 'Thiết lập danh mục menu, quản lý xuất nhập tồn kho, kiểm kê định kỳ và đối soát doanh thu bán mang đi qua app giao hàng.',
-        practicalSkills: ['Thực hành trên phần mềm quản lý CukCuk', 'Xử lý hủy món, hoàn tiền, chiết khấu']
+        descriptionEn: 'Menu hierarchy configuration, inventory stock ledger, periodic audits, and delivery platform reconciliation.',
+        practicalSkills: ['Thực hành trên phần mềm quản lý CukCuk', 'Xử lý hủy món, hoàn tiền, chiết khấu'],
+        practicalSkillsEn: ['Hands-on CukCuk POS practice', 'Voiding orders, refunds, and discounts']
       },
       {
         session: 4,
         title: 'Buổi 4: Tuyển Dụng, Đào Tạo & Quản Trị Nhân Sự Khối Cửa Hàng',
+        titleEn: 'Session 4: Recruitment, Training & Store Staff Management',
         description: 'Quy trình tuyển dụng Barista, xây dựng thang bảng lương, chính sách thưởng tip và KPIs doanh số theo giờ làm việc.',
-        practicalSkills: ['Thiết kế ca làm việc (Roster)', 'Quy trình Onboarding nhân sự mới']
+        descriptionEn: 'Barista hiring pipeline, compensation structures, tip distribution, and hour-by-hour sales KPIs.',
+        practicalSkills: ['Thiết kế ca làm việc (Roster)', 'Quy trình Onboarding nhân sự mới'],
+        practicalSkillsEn: ['Roster shift scheduling', 'New hire onboarding workflow']
       },
       {
         session: 5,
         title: 'Buổi 5: Tiêu Chuẩn Dịch Vụ Khách Hàng 5 Sao & Xử Lý Khủng Hoảng F&B',
+        titleEn: 'Session 5: 5-Star Customer Service & F&B Crisis Handling',
         description: 'Văn hóa Happiness in a cup, quy tắc ứng xử với khách hàng quốc tế, quy trình xử lý phàn nàn và bảo vệ uy tín thương hiệu.',
-        practicalSkills: ['Xử lý tình huống đền món', 'Kịch bản giao tiếp giải tỏa bức xúc']
+        descriptionEn: 'Happiness in a cup service culture, expat communication etiquette, complaint resolution, and brand preservation.',
+        practicalSkills: ['Xử lý tình huống đền món', 'Kịch bản giao tiếp giải tỏa bức xúc'],
+        practicalSkillsEn: ['Remaking drinks de-escalation', 'Empathetic communication scripts']
       },
       {
         session: 6,
         title: 'Buổi 6: Quản Lý Vệ Sinh An Toàn Thực Phẩm & Pháp Lý Cửa Hàng',
+        titleEn: 'Session 6: Food Hygiene Safety & Store Legal Compliance',
         description: 'Các tiêu chuẩn VSATTP, quy định PCCC, thủ tục đăng ký kinh doanh và bảo quản nguyên vật liệu chuẩn theo mùa.',
-        practicalSkills: ['Checklist kiểm tra ca mở / ca đóng cửa hàng', 'Lưu mẫu thực phẩm']
+        descriptionEn: 'Food safety protocols, fire safety regulations, business licenses, and seasonal raw ingredient storage.',
+        practicalSkills: ['Checklist kiểm tra ca mở / ca đóng cửa hàng', 'Lưu mẫu thực phẩm'],
+        practicalSkillsEn: ['Opening & closing shift checklists', 'Food sample retention logs']
       },
       {
         session: 7,
         title: 'Buổi 7: Marketing Cửa Hàng & Kéo Khách Hàng Địa Phương (Local Store Marketing)',
+        titleEn: 'Session 7: Local Store Marketing & Customer Retention',
         description: 'Cách xây dựng tệp khách hàng thân thiết, phát hành thẻ tích điểm, tổ chức sự kiện workshop và chạy ưu đãi ngày lễ.',
-        practicalSkills: ['Thiết kế chương trình Mua 10 tặng 1 / Green Stamp', 'Tối ưu Google Business']
+        descriptionEn: 'Loyalty programs, digital stamp cards, community workshop hosting, and holiday promotions.',
+        practicalSkills: ['Thiết kế chương trình Mua 10 tặng 1 / Green Stamp', 'Tối ưu Google Business'],
+        practicalSkillsEn: ['Buy-10-get-1 & Green Stamp design', 'Google Maps profile SEO']
       },
       {
         session: 8,
         title: 'Buổi 8: Báo Cáo Tài Chính Cửa Hàng & Bảo Vệ Đồ Án Mở Quán Thực Tế',
+        titleEn: 'Session 8: Monthly P&L Reporting & Business Plan Defense',
         description: 'Đọc và phân tích bảng P&L (Lãi - Lỗ) hàng tháng; đánh giá điểm hòa vốn (Break-even point) và thuyết trình kế hoạch kinh doanh.',
-        practicalSkills: ['Lập báo cáo P&L mẫu', 'Bảo vệ kế hoạch mở quán trước hội đồng chuyên gia']
+        descriptionEn: 'Analyze monthly P&L statements, calculate break-even velocity, and pitch startup business plans to executive panel.',
+        practicalSkills: ['Lập báo cáo P&L mẫu', 'Bảo vệ kế hoạch mở quán trước hội đồng chuyên gia'],
+        practicalSkillsEn: ['Model P&L spreadsheet creation', 'Business plan presentation']
       }
     ],
     outcomes: [
       'Tự tin làm chủ hoặc điều hành chuỗi cà phê từ 1 đến nhiều chi nhánh.',
       'Kiểm soát chặt chẽ dòng tiền và hạn chế tối đa rủi ro thất thoát trong kinh doanh.',
       'Nhận chứng chỉ Quản lý F&B chuyên nghiệp từ Dolphy Academy.'
+    ],
+    outcomesEn: [
+      'Confidently own or manage multiple cafe store branches.',
+      'Exercise rigorous cash flow control and minimize operational leakages.',
+      'Receive the Professional F&B Management Certificate from Dolphy Academy.'
     ],
     trainerInfo: 'Trực tiếp giảng dạy bởi Giám đốc Vận hành (COO) và Quản lý Chuỗi kỳ cựu của Dolphy Café.',
     schedule: ['Thứ 7 & Chủ Nhật (14:00 - 17:30)', 'Lớp linh hoạt theo nhu cầu chủ quán'],

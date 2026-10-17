@@ -40,7 +40,12 @@ export const Navbar: React.FC = () => {
             <img 
               src="/images/dolphy-logo.png" 
               alt="Dolphy Cafe" 
-              className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain dark:brightness-110"
+              className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain dark:hidden"
+            />
+            <img 
+              src="/images/dolphy-logo-dark.png" 
+              alt="Dolphy Cafe" 
+              className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain hidden dark:block"
             />
           </Link>
 
@@ -113,10 +118,11 @@ export const Navbar: React.FC = () => {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1 text-gray-700 dark:text-gray-200 hover:text-[#2076bd] rounded-md focus:outline-none"
+              className="lg:hidden w-9 h-9 xs:w-10 xs:h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-gray-800 dark:text-gray-100 hover:text-[#2076bd] dark:hover:text-[#3ba0e6] border border-gray-200 dark:border-slate-700 transition-all shadow-xs active:scale-95 shrink-0"
               aria-label="Toggle menu"
+              title="Menu"
             >
-              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileMenuOpen ? <X size={20} className="stroke-[2.5]" /> : <Menu size={20} className="stroke-[2.5]" />}
             </button>
           </div>
         </div>

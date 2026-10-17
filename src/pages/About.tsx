@@ -10,7 +10,7 @@ export const About: React.FC = () => {
   const stats = [
     { value: '2013', label: language === 'vi' ? 'Khởi nghiệp tại Thảo Điền' : 'Founded in Thao Dien' },
     { value: '10', label: language === 'vi' ? 'Chi nhánh xanh tại TP.HCM' : 'Green Spaces in HCMC' },
-    { value: '1 Triệu+', label: language === 'vi' ? 'Tách cà phê hạnh phúc' : 'Happy Cups Served' },
+    { value: language === 'vi' ? '1 Triệu+' : '1 Million+', label: language === 'vi' ? 'Tách cà phê hạnh phúc' : 'Happy Cups Served' },
     { value: '100%', label: language === 'vi' ? 'Cà phê rang mộc chuẩn vị' : 'Pure Specialty Beans' }
   ];
 
@@ -126,7 +126,7 @@ export const About: React.FC = () => {
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. Page Hero Banner */}
-      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/hero_slide_store.webp')" }} />
         <div className="relative max-w-4xl mx-auto space-y-4">
           <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/30 backdrop-blur-sm">
@@ -232,7 +232,9 @@ export const About: React.FC = () => {
                 </span>
               </div>
               <div className="p-4 rounded-xl bg-orange-50/80 dark:bg-orange-950/30 text-xs text-gray-700 dark:text-gray-300 min-h-[80px] flex flex-col justify-center">
-                <p className="font-oswald font-bold text-[#c88232] uppercase text-sm mb-0.5">HẠT MỘC NGUYÊN BẢN</p>
+                <p className="font-oswald font-bold text-[#c88232] uppercase text-sm mb-0.5">
+                  {language === 'vi' ? 'HẠT MỘC NGUYÊN BẢN' : 'PURE SPECIALTY BEANS'}
+                </p>
                 <p className="leading-relaxed">{language === 'vi' ? 'Rang mộc mỗi tuần, đóng túi van 1 chiều đạt chuẩn.' : 'Freshly roasted weekly with zero butter or flavoring.'}</p>
               </div>
             </div>
@@ -246,7 +248,7 @@ export const About: React.FC = () => {
           </div>
           <div className="space-y-1 text-center md:text-left flex-1">
             <span className="text-[10px] font-oswald uppercase tracking-widest text-[#c88232] font-bold">
-              PRESTIGIOUS RECOGNITION
+              {language === 'vi' ? 'VINH DANH DANH GIÁ' : 'PRESTIGIOUS RECOGNITION'}
             </span>
             <h3 className="font-oswald text-xl sm:text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
               {t('about.awards_title')}
@@ -439,8 +441,8 @@ export const About: React.FC = () => {
             <div className="space-y-2.5">
               <p><strong>{language === 'vi' ? 'Đơn vị chủ quản:' : 'Operating Company:'}</strong> {t('footer.company_name')}</p>
               <p><strong>{language === 'vi' ? 'Mã số doanh nghiệp (MST):' : 'Tax / Business Registration:'}</strong> 0313865203</p>
-              <p><strong>Hotline Chăm Sóc Khách Hàng:</strong> <a href="tel:0938084985" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">{brandInfo.hotline}</a></p>
-              <p><strong>Email chính thức:</strong> <a href={`mailto:${brandInfo.email}`} className="text-[#2076bd] dark:text-[#3ba0e6] hover:underline">{brandInfo.email}</a></p>
+              <p><strong>{language === 'vi' ? 'Hotline Chăm Sóc Khách Hàng:' : 'Customer Care Hotline:'}</strong> <a href="tel:0938084985" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">{brandInfo.hotline}</a></p>
+              <p><strong>{language === 'vi' ? 'Email chính thức:' : 'Official Email:'}</strong> <a href={`mailto:${brandInfo.email}`} className="text-[#2076bd] dark:text-[#3ba0e6] hover:underline">{brandInfo.email}</a></p>
             </div>
             <div className="space-y-2.5">
               <p><strong>{language === 'vi' ? 'Trụ sở điều hành Dolphy Hub:' : 'Headquarters & Training Hub:'}</strong> {brandInfo.mainAddress}</p>

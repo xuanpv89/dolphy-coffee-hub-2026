@@ -309,10 +309,10 @@ export const Home: React.FC = () => {
                     <span className="text-gray-400 text-[11px] ml-1">({product.rating || 5.0})</span>
                   </div>
                   <h3 className="font-oswald text-base font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors leading-snug line-clamp-2">
-                    {product.name}
+                    {language === 'en' && product.nameEn ? product.nameEn : product.name}
                   </h3>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
-                    {product.description}
+                    {language === 'en' && product.descriptionEn ? product.descriptionEn : product.description}
                   </p>
                 </div>
 
@@ -326,8 +326,9 @@ export const Home: React.FC = () => {
 
                   <button
                     onClick={() => {
-                      addToCart(product, 1, 'Nguyên hạt (Espresso)');
-                      showToast(language === 'vi' ? `Đã thêm "${product.name}" vào giỏ hàng!` : `Added "${product.name}" to cart!`);
+                      addToCart(product, 1, language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)');
+                      const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
+                      showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
                     }}
                     className="p-2 rounded bg-[#2076bd] hover:bg-[#c88232] text-white transition-colors"
                     title={t('shop.add_to_cart')}

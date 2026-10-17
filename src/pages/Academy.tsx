@@ -47,7 +47,7 @@ export const Academy: React.FC = () => {
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. HERO BANNER */}
-      <section className="relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
+      <section className="relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
         <div className="max-w-5xl mx-auto space-y-5 relative z-10">
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#c88232] text-white text-xs font-oswald uppercase tracking-widest font-bold">
@@ -59,12 +59,12 @@ export const Academy: React.FC = () => {
             {t('academy.hero_title')}
           </h1>
 
-          <p className="text-sm sm:text-base text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-blue-100 dark:text-blue-200 max-w-3xl mx-auto leading-relaxed">
             {t('academy.hero_desc')}
           </p>
 
           {/* Quick Perks */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-blue-100 font-medium">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-blue-100 dark:text-blue-200 font-medium">
             <span className="flex items-center gap-1.5">
               <CheckCircle2 size={16} className="text-[#c88232]" /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}
             </span>
@@ -106,7 +106,7 @@ export const Academy: React.FC = () => {
                     : 'text-gray-600 dark:text-gray-300 hover:text-[#222222] dark:hover:text-white'
                 }`}
               >
-                {c.title}
+                {language === 'en' && c.titleEn ? c.titleEn : c.title}
               </button>
             ))}
           </div>
@@ -122,15 +122,17 @@ export const Academy: React.FC = () => {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="bg-[#c88232] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
-                  {currentCourse.badge}
+                  {language === 'en' && currentCourse.badgeEn ? currentCourse.badgeEn : currentCourse.badge}
                 </span>
-                <span className="text-xs text-gray-500 dark:text-gray-400 font-oswald">{t('academy.duration')}: {currentCourse.duration}</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-oswald">
+                  {t('academy.duration')}: {language === 'en' && currentCourse.durationEn ? currentCourse.durationEn : currentCourse.duration}
+                </span>
               </div>
               <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
-                {currentCourse.title}
+                {language === 'en' && currentCourse.titleEn ? currentCourse.titleEn : currentCourse.title}
               </h2>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
-                {currentCourse.subtitle}
+                {language === 'en' && currentCourse.subtitleEn ? currentCourse.subtitleEn : currentCourse.subtitle}
               </p>
             </div>
 
@@ -140,7 +142,7 @@ export const Academy: React.FC = () => {
                 {t('academy.benefits_title')}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-700 dark:text-gray-200">
-                {(currentCourse.usps || currentCourse.outcomes || []).map((h, i) => (
+                {((language === 'en' && currentCourse.uspsEn) ? currentCourse.uspsEn : (currentCourse.usps || currentCourse.outcomes || [])).map((h, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <CheckCircle2 size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
                     <span>{h}</span>
@@ -156,8 +158,13 @@ export const Academy: React.FC = () => {
               </h3>
               
               <div className="space-y-3">
-                {currentCourse.syllabus.map((session) => {
+                {currentCourse.syllabus.map((session, sIndex) => {
                   const isOpen = openSyllabusSession === session.session;
+                  const sessionEn = (currentCourse.syllabusEn && currentCourse.syllabusEn[sIndex]) ? currentCourse.syllabusEn[sIndex] : null;
+                  const title = (language === 'en' && sessionEn) ? sessionEn.title : (language === 'en' && session.titleEn ? session.titleEn : session.title);
+                  const description = (language === 'en' && sessionEn) ? sessionEn.description : (language === 'en' && session.descriptionEn ? session.descriptionEn : session.description);
+                  const skills = (language === 'en' && sessionEn && sessionEn.practicalSkills) ? sessionEn.practicalSkills : ((language === 'en' && session.practicalSkillsEn) ? session.practicalSkillsEn : (session.practicalSkills || []));
+
                   return (
                     <div
                       key={session.session}
@@ -173,9 +180,9 @@ export const Academy: React.FC = () => {
                           </span>
                           <div>
                             <h4 className="font-oswald text-sm font-bold text-[#222222] dark:text-white uppercase">
-                              {session.title}
+                              {title}
                             </h4>
-                            <span className="text-[11px] text-gray-400 dark:text-gray-500 font-oswald">{currentCourse.hoursPerSession}h / session</span>
+                            <span className="text-[11px] text-gray-400 dark:text-gray-500 font-oswald">{currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'}</span>
                           </div>
                         </div>
                         {isOpen ? <ChevronUp size={18} className="text-gray-400" /> : <ChevronDown size={18} className="text-gray-400" />}
@@ -183,9 +190,9 @@ export const Academy: React.FC = () => {
 
                       {isOpen && (
                         <div className="p-4 pt-1 border-t border-gray-100 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-900/40 space-y-2 text-xs text-gray-600 dark:text-gray-300">
-                          <p className="font-medium text-gray-700 dark:text-gray-200">{session.description}</p>
+                          <p className="font-medium text-gray-700 dark:text-gray-200">{description}</p>
                           <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300 pl-2">
-                            {(session.practicalSkills || []).map((skill, si) => (
+                            {skills.map((skill, si) => (
                               <li key={si}>{skill}</li>
                             ))}
                           </ul>
@@ -215,7 +222,7 @@ export const Academy: React.FC = () => {
               <div className="space-y-3 text-xs text-gray-600 dark:text-gray-300">
                 <div className="flex items-center gap-2">
                   <Clock size={15} className="text-[#2076bd] dark:text-[#3ba0e6]" />
-                  <span>{t('academy.duration')}: <strong>{currentCourse.duration}</strong></span>
+                  <span>{t('academy.duration')}: <strong>{language === 'en' && currentCourse.durationEn ? currentCourse.durationEn : currentCourse.duration}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Users size={15} className="text-[#2076bd] dark:text-[#3ba0e6]" />
@@ -419,7 +426,9 @@ export const Academy: React.FC = () => {
       <section className="bg-[#f8f9fa] dark:bg-slate-900/60 py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-slate-800 transition-colors">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center">
-            <h2 className="section-title">CÂU HỎI THƯỜNG GẶP (FAQ)</h2>
+            <h2 className="section-title">
+              {language === 'vi' ? 'CÂU HỎI THƯỜNG GẶP (FAQ)' : 'FREQUENTLY ASKED QUESTIONS (FAQ)'}
+            </h2>
             <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               {language === 'vi' ? 'Giải đáp thắc mắc về khóa học Barista Thực Chiến tại Dolphy Academy.' : 'Common questions regarding the hands-on Barista course at Dolphy Academy.'}
             </p>
