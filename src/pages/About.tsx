@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Heart, Sparkles, MapPin, Coffee, Users, Leaf, Smile, CheckCircle, ExternalLink, Calendar } from 'lucide-react';
+import { Award, Heart, Sparkles, MapPin, Coffee, Users, Leaf, Smile, CheckCircle, ExternalLink, Calendar, Film } from 'lucide-react';
 import { brandInfo } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 import { Link } from 'react-router-dom';
@@ -129,11 +129,13 @@ export const About: React.FC = () => {
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/hero_slide_store.webp')" }} />
         <div className="relative max-w-4xl mx-auto space-y-4">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#FAEA28] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/40 backdrop-blur-sm">
-            <Sparkles size={14} />
-            <span>{t('about.tag')}</span>
-          </span>
-          <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white">
+          <div>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
+              <Sparkles size={13} />
+              <span>{t('about.tag')}</span>
+            </span>
+          </div>
+          <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight">
             {t('about.title')}
           </h1>
           <p className="text-base sm:text-xl text-blue-100 max-w-2xl mx-auto italic font-serif leading-relaxed">
@@ -158,15 +160,55 @@ export const About: React.FC = () => {
         </div>
       </section>
 
+      {/* 2.5 THƯỚC PHIM TÀI LIỆU: CÂU CHUYỆN DOLPHY CAFÉ */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-blue-900/40">
+          <div className="p-6 sm:p-8 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow-sm">
+                <Film size={13} />
+                <span>{language === 'vi' ? 'Thước Phim Thương Hiệu' : 'Official Documentary'}</span>
+              </div>
+              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white mt-2 leading-tight">
+                {language === 'vi' ? "Câu Chuyện Dolphy (Dolphy's Story)" : "Dolphy's Story - Official Film"}
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100 max-w-xl mt-1 leading-relaxed">
+                {language === 'vi'
+                  ? 'Hành trình hơn 13 năm từ quầy bar nhỏ góc đường Thảo Điền đến hệ sinh thái cà phê tử tế kết nối hàng triệu trái tim.'
+                  : 'A 13-year journey from a small Thao Dien corner bar to a beloved community coffee ecosystem.'}
+              </p>
+            </div>
+            <div className="shrink-0 flex items-center gap-2">
+              <span className="px-3 py-1.5 rounded-full bg-white/10 text-white text-xs font-mono font-semibold backdrop-blur-sm border border-white/20">
+                1080p Full HD
+              </span>
+            </div>
+          </div>
+          
+          <div className="relative aspect-video bg-black overflow-hidden group">
+            <video
+              src="/videos/dolphys-story.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              poster="/images/fanpage/barista-espresso-extraction.jpg"
+              className="w-full h-full object-contain"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* 3. Chương 1: Hành Trình Khởi Nghiệp & Câu Chuyện Hạt Mộc */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-5 text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
-            <div className="space-y-2">
-              <span className="text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
+            <div className="space-y-1">
+              <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
                 {language === 'vi' ? 'CHƯƠNG I: CÂU CHUYỆN KHỞI NGUỒN' : 'CHAPTER I: OUR ORIGIN'}
               </span>
-              <h2 className="font-oswald text-2xl sm:text-3xl lg:text-[34px] font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] leading-snug">
+              <h2 className="font-oswald text-2xl sm:text-3xl lg:text-[34px] font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
                 {language === 'vi' ? (
                   <>Khởi Đầu Từ Niềm Đam Mê<br className="hidden sm:inline" /> Cà Phê Thuần Túy</>
                 ) : (
@@ -261,10 +303,10 @@ export const About: React.FC = () => {
 
         {/* 4. Chương 2: 4 Giá Trị Cốt Lõi (Happiness in a cup) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-            <p className="text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
               {language === 'vi' ? 'CHƯƠNG II: TRIẾT LÝ PHỤC VỤ' : 'CHAPTER II: OUR PHILOSOPHY'}
-            </p>
+            </span>
             <h2 className="section-title block mx-auto">
               {language === 'vi' ? 'HẠNH PHÚC TỪ NHỮNG ĐIỀU CHÂN THÀNH' : 'HAPPINESS IN A CUP'}
             </h2>
@@ -299,10 +341,10 @@ export const About: React.FC = () => {
 
         {/* 5. Chương 3: Dấu Ấn Thời Gian (Milestone Timeline) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-            <p className="text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
               {language === 'vi' ? 'CHƯƠNG III: DẤU ẤN THỜI GIAN' : 'CHAPTER III: OUR TIMELINE'}
-            </p>
+            </span>
             <h2 className="section-title block mx-auto">
               {language === 'vi' ? 'HÀNH TRÌNH 2013 - 2026' : 'JOURNEY 2013 - 2026'}
             </h2>

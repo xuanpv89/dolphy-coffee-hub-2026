@@ -110,6 +110,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 .section-title {
   font-family: 'Oswald', sans-serif;
   font-size: 28px;
+  line-height: 1.35;
   font-weight: 600;
   text-transform: uppercase;
   color: #2076bd;
@@ -119,7 +120,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6px;
+  margin-top: 14px;
   margin-bottom: 24px;
 }
 

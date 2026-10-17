@@ -536,6 +536,49 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* 6.5 THƯỚC PHIM CÂU CHUYỆN DOLPHY CAFÉ */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-blue-900/40">
+          <div className="p-6 sm:p-8 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow-sm">
+                <Sparkles size={13} />
+                <span>{language === 'vi' ? 'Thước Phim Tài Liệu' : 'Brand Documentary'}</span>
+              </div>
+              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white mt-2 leading-tight">
+                {language === 'vi' ? "Câu Chuyện Dolphy (Dolphy's Story)" : "Dolphy's Story - Official Film"}
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100 max-w-xl mt-1 leading-relaxed">
+                {language === 'vi'
+                  ? 'Gần 13 năm bền bỉ phục vụ cà phê mộc và lan tỏa năng lượng "Happiness in a cup" tại Sài Gòn.'
+                  : 'Over a decade serving pure specialty coffee and sharing Happiness in a cup in Saigon.'}
+              </p>
+            </div>
+            <div className="shrink-0 flex items-center gap-3">
+              <Link
+                to="/about"
+                className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white text-white hover:text-slate-950 font-oswald text-xs uppercase tracking-wider font-semibold transition-all backdrop-blur-sm border border-white/20"
+              >
+                {language === 'vi' ? 'Đọc Đầy Đủ Câu Chuyện →' : 'Read Full Story →'}
+              </Link>
+            </div>
+          </div>
+          
+          <div className="relative aspect-video bg-black overflow-hidden group">
+            <video
+              src="/videos/dolphys-story.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              poster="/images/fanpage/barista-espresso-extraction.jpg"
+              className="w-full h-full object-contain"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* 7. KHOẢNH KHẮC DOLPHY / FANPAGE LIVE FEED */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-10 space-y-3">

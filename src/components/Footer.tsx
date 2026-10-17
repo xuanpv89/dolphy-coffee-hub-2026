@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, Send, ExternalLink, ShieldCheck, MapPin, Clock, Award, Coffee } from 'lucide-react';
+import { Phone, Mail, Send, ExternalLink, ShieldCheck, MapPin, Clock, Award } from 'lucide-react';
 import { brandInfo } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 
@@ -27,9 +27,9 @@ export const Footer: React.FC = () => {
           
           {/* CỘT 1: NHẬN DIỆN THƯƠNG HIỆU & MẠNG XÃ HỘI (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#2076bd] text-white flex items-center justify-center font-oswald font-bold text-lg shadow-md shadow-blue-900/40">
-                <Coffee size={22} className="text-white" />
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-full bg-white p-1 flex items-center justify-center border-2 border-[#FAEA28] shadow-lg shrink-0">
+                <img src="/favicon.png" alt="Dolphy Café" className="w-full h-full object-contain rounded-full" />
               </div>
               <div>
                 <span className="font-oswald text-xl font-bold tracking-wider text-white uppercase block leading-none">

@@ -89,15 +89,15 @@ export const Shop: React.FC = () => {
       {/* 1. Header Banner */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }} />
-        <div className="relative max-w-7xl mx-auto space-y-3">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#FAEA28] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/20 backdrop-blur-sm">
-            <Sparkles size={14} />
+        <div className="relative max-w-7xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
+            <Sparkles size={13} />
             <span>{t('shop.hero_tag')}</span>
-          </span>
-          <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
+          </div>
+          <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white leading-tight">
             {t('shop.hero_title')}
           </h1>
-          <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto leading-relaxed">
             {t('shop.hero_desc')}
           </p>
         </div>
