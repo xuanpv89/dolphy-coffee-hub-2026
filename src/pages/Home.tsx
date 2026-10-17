@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
 
   const slides = [
     {
-      image: '/images/slideshow_1.jpg',
+      image: '/images/hero_slide_store.webp',
       badge: t('home.hero2_tag'),
       title: t('home.hero2_title'),
       subtitle: t('home.hero2_subtitle'),
@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
       secondaryLink: 'https://dolphycoffee.cukcuk.vn/order-online/'
     },
     {
-      image: '/images/slideshow_2.jpg',
+      image: '/images/hero_slide_academy.webp',
       badge: t('home.hero3_tag'),
       title: t('home.hero3_title'),
       subtitle: t('home.hero3_subtitle'),
@@ -45,7 +45,7 @@ export const Home: React.FC = () => {
       secondaryLink: '/academy'
     },
     {
-      image: '/images/slideshow_3.jpg',
+      image: '/images/hero_slide_beans.webp',
       badge: t('home.hero1_tag'),
       title: t('home.hero1_title'),
       subtitle: t('home.hero1_subtitle'),
