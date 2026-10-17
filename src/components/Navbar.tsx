@@ -70,7 +70,7 @@ export const Navbar: React.FC = () => {
             {/* Social Icons matching dolphycafe.com */}
             <div className="hidden sm:flex items-center gap-2">
               <a
-                href={brandInfo.socials.facebook}
+                href={brandInfo.facebook || 'https://www.facebook.com/dolphycafe'}
                 target="_blank"
                 rel="noreferrer"
                 title="Dolphy Facebook"
@@ -79,7 +79,7 @@ export const Navbar: React.FC = () => {
                 f
               </a>
               <a
-                href={brandInfo.socials.instagram}
+                href={brandInfo.instagram || 'https://www.instagram.com/dolphycafe/'}
                 target="_blank"
                 rel="noreferrer"
                 title="Dolphy Instagram"

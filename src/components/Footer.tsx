@@ -142,7 +142,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-2">
               <a
-                href={brandInfo.socials.facebook}
+                href={brandInfo.facebook || 'https://www.facebook.com/dolphycafe'}
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded bg-[#3b5998] hover:opacity-90 text-white flex items-center justify-center text-xs font-bold transition-opacity"
@@ -151,7 +151,7 @@ export const Footer: React.FC = () => {
                 f
               </a>
               <a
-                href={brandInfo.socials.instagram}
+                href={brandInfo.instagram || 'https://www.instagram.com/dolphycafe/'}
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded bg-[#c13584] hover:opacity-90 text-white flex items-center justify-center text-xs font-bold transition-opacity"

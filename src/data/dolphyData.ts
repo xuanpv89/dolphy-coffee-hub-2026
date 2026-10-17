@@ -13,6 +13,11 @@ export const brandInfo = {
   facebook: 'https://www.facebook.com/dolphycafe',
   instagram: 'https://www.instagram.com/dolphycafe/',
   tiktok: 'https://www.tiktok.com/@_.dolphycafe._',
+  socials: {
+    facebook: 'https://www.facebook.com/dolphycafe',
+    instagram: 'https://www.instagram.com/dolphycafe/',
+    tiktok: 'https://www.tiktok.com/@_.dolphycafe._'
+  },
   mapEmbedUrl: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
   story: `Được thành lập từ 20/10/2013, DOLPHY không chỉ là một chuỗi cửa hàng cafe luôn hướng tới chất lượng cà phê nguyên bản thơm ngon, mà DOLPHY còn được tạo ra với mong muốn đem lại trải nghiệm thoải mái, những khoảnh khắc "happiness in a cup" cho mọi người khi bắt đầu ngày mới.
 
