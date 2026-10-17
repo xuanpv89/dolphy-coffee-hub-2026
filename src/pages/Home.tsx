@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ShoppingBag, 
@@ -13,7 +13,9 @@ import {
   Sparkles,
   Heart,
   Camera,
-  X
+  X,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 import { coursesData, productsData, articlesData, communityGalleryData, CommunityPhoto } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
@@ -22,6 +24,41 @@ export const Home: React.FC = () => {
   const { setEnrollingCourse, addToCart, showToast, t, language } = useDolphy();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedPhoto, setSelectedPhoto] = useState<CommunityPhoto | null>(null);
+
+  const homeVideoRef = useRef<HTMLVideoElement>(null);
+  const [isHomeVideoMuted, setIsHomeVideoMuted] = useState(true);
+
+  useEffect(() => {
+    const video = homeVideoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.play().catch(() => {});
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleHomeVideoMute = () => {
+    if (homeVideoRef.current) {
+      const nextMuted = !homeVideoRef.current.muted;
+      homeVideoRef.current.muted = nextMuted;
+      setIsHomeVideoMuted(nextMuted);
+    }
+  };
 
   const slides = [
     {
@@ -555,6 +592,24 @@ export const Home: React.FC = () => {
               </p>
             </div>
             <div className="shrink-0 flex items-center gap-3">
+              <button
+                type="button"
+                onClick={toggleHomeVideoMute}
+                className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-sm border border-white/20 flex items-center gap-1.5 transition-all cursor-pointer"
+                title={isHomeVideoMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
+              >
+                {isHomeVideoMuted ? (
+                  <>
+                    <VolumeX className="w-3.5 h-3.5 text-[#FAEA28]" />
+                    <span>{language === 'vi' ? 'Bật tiếng' : 'Unmute'}</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="w-3.5 h-3.5 text-[#FAEA28]" />
+                    <span>{language === 'vi' ? 'Tắt tiếng' : 'Mute'}</span>
+                  </>
+                )}
+              </button>
               <Link
                 to="/about"
                 className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white text-white hover:text-slate-950 font-oswald text-xs uppercase tracking-wider font-semibold transition-all backdrop-blur-sm border border-white/20"
@@ -566,15 +621,37 @@ export const Home: React.FC = () => {
           
           <div className="relative aspect-video bg-black overflow-hidden group">
             <video
+              ref={homeVideoRef}
               src="/videos/dolphys-story.mp4"
-              controls
+              autoPlay
+              muted
+              loop
               playsInline
-              preload="metadata"
+              controls
+              preload="auto"
               poster="/images/fanpage/barista-espresso-extraction.jpg"
               className="w-full h-full object-contain"
+              onVolumeChange={(e) => {
+                const target = e.currentTarget;
+                setIsHomeVideoMuted(target.muted || target.volume === 0);
+              }}
             >
               Your browser does not support the video tag.
             </video>
+
+            {/* Quick Unmute Floating Indicator */}
+            {isHomeVideoMuted && (
+              <button
+                type="button"
+                onClick={toggleHomeVideoMute}
+                className="absolute top-4 right-4 z-10 px-3.5 py-2 rounded-full bg-black/75 hover:bg-black/90 text-white text-xs font-medium backdrop-blur-md border border-white/25 flex items-center gap-2 transition-all shadow-xl cursor-pointer hover:scale-105"
+              >
+                <VolumeX className="w-4 h-4 text-[#FAEA28]" />
+                <span className="text-[11px] font-semibold tracking-wider uppercase text-yellow-300">
+                  {language === 'vi' ? 'Chạm để bật tiếng' : 'Tap for Sound'}
+                </span>
+              </button>
+            )}
           </div>
         </div>
       </section>
