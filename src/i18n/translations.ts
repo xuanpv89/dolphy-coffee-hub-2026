@@ -24,10 +24,10 @@ export const translations = {
     'nav.lang_en': 'English',
 
     // Home Page
-    'home.hero1_tag': 'HỘP QUÀ TẾT DOLPHY 2026',
-    'home.hero1_title': 'HỘP QUÀ TẾT DOLPHY 2026',
-    'home.hero1_subtitle': 'Gói trọn vị Xuân, Gửi trao tâm ý',
-    'home.hero1_cta': 'KHÁM PHÁ HỘP QUÀ',
+    'home.hero1_tag': 'CÀ PHÊ ĐẶC SẢN • 100% MỘC CHUẨN',
+    'home.hero1_title': 'HƯƠNG VỊ CÀ PHÊ MỘC NGUYÊN BẢN',
+    'home.hero1_subtitle': 'Tuyển chọn 100% trái chín đỏ từ nông trại cao nguyên Việt Nam • Rang mộc giữ trọn hương vị tinh hoa',
+    'home.hero1_cta': 'MUA CÀ PHÊ GÓI',
     'home.hero2_tag': 'DOLPHY CAFÉ • ĐI SĂN CÀ PHÊ TỪ NĂM 2013',
     'home.hero2_title': 'HƯƠNG VỊ CÀ PHÊ SÀI GÒN',
     'home.hero2_subtitle': 'Tự hào hơn 13 năm đồng hành cùng người yêu cà phê Thảo Điền & TP.HCM.',
@@ -315,10 +315,10 @@ export const translations = {
     'nav.lang_en': 'English',
 
     // Home Page
-    'home.hero1_tag': 'DOLPHY TET GIFT SET 2026',
-    'home.hero1_title': 'DOLPHY TET GIFT SET 2026',
-    'home.hero1_subtitle': 'Embracing Spring flavor, gifting heartfelt wishes',
-    'home.hero1_cta': 'EXPLORE GIFT SET',
+    'home.hero1_tag': 'SPECIALTY COFFEE • 100% PURE BEANS',
+    'home.hero1_title': 'AUTHENTIC SPECIALTY COFFEE FLAVOR',
+    'home.hero1_subtitle': 'Selected 100% ripe red cherries from highland estates • Artisan roasted to preserve authentic taste',
+    'home.hero1_cta': 'SHOP COFFEE BAGS',
     'home.hero2_tag': 'DOLPHY CAFÉ • ROASTING & BREWING SINCE 2013',
     'home.hero2_title': 'SAIGON SPECIALTY COFFEE FLAVOR',
     'home.hero2_subtitle': 'Proudly accompanying Thao Dien and Saigon coffee connoisseurs for over 13 years.',
