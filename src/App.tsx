@@ -8,6 +8,7 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { CourseRegisterModal } from './components/CourseRegisterModal';
 import { ApplicationModal } from './components/ApplicationModal';
 import { Toast } from './components/Toast';
+import { BackToTop } from './components/BackToTop';
 
 // Pages
 import { Home } from './pages/Home';
@@ -62,6 +63,7 @@ export default function App() {
           <CourseRegisterModal />
           <ApplicationModal />
           <Toast />
+          <BackToTop />
         </div>
       </Router>
     </DolphyProvider>
