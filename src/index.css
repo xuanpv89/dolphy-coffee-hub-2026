@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --dolphy-blue: #2076bd;
   --dolphy-blue-dark: #165b94;

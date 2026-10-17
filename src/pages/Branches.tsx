@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Clock, ExternalLink, Navigation, Wifi, Coffee, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Clock, ExternalLink, Navigation } from 'lucide-react';
 import { branchesData, brandInfo } from '../data/dolphyData';
+import { useDolphy } from '../context/DolphyContext';
 
 export const Branches: React.FC = () => {
+  const { t, language } = useDolphy();
   const [selectedArea, setSelectedArea] = useState<string>('all');
 
   const areas = [
-    { id: 'all', name: 'TẤT CẢ (10 CỬA HÀNG)' },
-    { id: 'Quận 2 (TP. Thủ Đức)', name: 'QUẬN 2 (5 CỬA HÀNG)' },
-    { id: 'Quận 7 (Phú Mỹ Hưng)', name: 'QUẬN 7 (4 CỬA HÀNG)' },
-    { id: 'Quận Bình Thạnh', name: 'BÌNH THẠNH (1 CỬA HÀNG)' }
+    { id: 'all', name: t('branches.tab_all') },
+    { id: 'Quận 2 (TP. Thủ Đức)', name: t('branches.tab_d2') },
+    { id: 'Quận 7 (Phú Mỹ Hưng)', name: t('branches.tab_d7') },
+    { id: 'Quận Bình Thạnh', name: t('branches.tab_bt') }
   ];
 
   const filteredBranches = branchesData.filter(b => 
@@ -17,19 +19,19 @@ export const Branches: React.FC = () => {
   );
 
   return (
-    <div className="space-y-12 pb-20 bg-white text-[#222222]">
+    <div className="space-y-12 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-3">
           <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
-            HỆ THỐNG CHUỖI CỬA HÀNG DOLPHY CAFE
+            {language === 'vi' ? 'HỆ THỐNG CHUỖI CỬA HÀNG DOLPHY CAFE' : 'DOLPHY CAFÉ STORE NETWORK'}
           </span>
           <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
-            10 CHI NHÁNH DOLPHY CAFÉ TẠI TP.HCM
+            {t('branches.hero_title')}
           </h1>
           <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto">
-            Khám phá những góc quán cà phê thân thiện của Dolphy tại Thảo Điền, Phú Mỹ Hưng và Bình Thạnh. Luôn sẵn sàng phục vụ bạn những tách cà phê thơm lành.
+            {t('branches.hero_desc')}
           </p>
         </div>
       </section>
@@ -37,12 +39,12 @@ export const Branches: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Interactive Google Map Embed */}
-        <div className="rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white">
+        <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md bg-white dark:bg-[#1e293b]">
           <div className="p-4 bg-[#2076bd] text-white flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MapPin size={18} className="text-[#f09c05]" />
               <span className="font-oswald text-sm font-bold uppercase tracking-wide">
-                BẢN ĐỒ SỐ 10 CHI NHÁNH DOLPHY CAFÉ
+                {t('branches.map_box_title')}
               </span>
             </div>
             <a
@@ -51,7 +53,7 @@ export const Branches: React.FC = () => {
               rel="noreferrer"
               className="text-xs text-white hover:underline flex items-center gap-1 font-oswald"
             >
-              <span>Xem toàn màn hình</span>
+              <span>{t('branches.view_fullscreen_map')}</span>
               <ExternalLink size={12} />
             </a>
           </div>
@@ -67,7 +69,7 @@ export const Branches: React.FC = () => {
 
         {/* Filter Area Tabs */}
         <div className="flex justify-center">
-          <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100 rounded-lg">
+          <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg">
             {areas.map((area) => (
               <button
                 key={area.id}
@@ -75,7 +77,7 @@ export const Branches: React.FC = () => {
                 className={`px-4 sm:px-6 py-2 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all ${
                   selectedArea === area.id
                     ? 'bg-[#2076bd] text-white shadow'
-                    : 'text-gray-600 hover:text-[#222222]'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-[#222222] dark:hover:text-white'
                 }`}
               >
                 {area.name}
@@ -89,36 +91,36 @@ export const Branches: React.FC = () => {
           {filteredBranches.map((branch) => (
             <div
               key={branch.id}
-              className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group"
+              className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group"
             >
               <div>
-                <div className="relative h-48 overflow-hidden bg-gray-100">
+                <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-slate-900">
                   <img
                     src={branch.image}
                     alt={branch.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white">
+                  <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white shadow">
                     {branch.area}
                   </span>
                 </div>
 
                 <div className="p-5 space-y-3">
-                  <h3 className="font-oswald text-lg font-bold text-[#222222] group-hover:text-[#2076bd] transition-colors uppercase leading-snug">
+                  <h3 className="font-oswald text-lg font-bold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors uppercase leading-snug">
                     {branch.name}
                   </h3>
 
-                  <div className="space-y-2 text-xs text-gray-600">
+                  <div className="space-y-2 text-xs text-gray-600 dark:text-gray-300">
                     <div className="flex items-start gap-2">
-                      <MapPin size={15} className="text-[#2076bd] shrink-0 mt-0.5" />
+                      <MapPin size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0 mt-0.5" />
                       <span>{branch.address}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Clock size={15} className="text-[#2076bd] shrink-0" />
+                      <Clock size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
                       <span>{branch.openingHours || '07:00 - 22:30 hàng ngày'}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Phone size={15} className="text-[#2076bd] shrink-0" />
+                      <Phone size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
                       <span>{branch.phone}</span>
                     </div>
                   </div>
@@ -128,7 +130,7 @@ export const Branches: React.FC = () => {
                     {(branch.features || []).map((feature, ai) => (
                       <span
                         key={ai}
-                        className="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-gray-600 font-medium"
+                        className="text-[10px] px-2 py-0.5 rounded bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 font-medium"
                       >
                         {feature}
                       </span>
@@ -142,10 +144,10 @@ export const Branches: React.FC = () => {
                   href={`https://maps.google.com/?q=${encodeURIComponent(branch.address + ', TP. Hồ Chí Minh')}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-2.5 rounded bg-gray-50 hover:bg-[#2076bd] text-[#2076bd] hover:text-white border border-gray-200 text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded bg-gray-50 dark:bg-slate-800 hover:bg-[#2076bd] dark:hover:bg-[#2076bd] text-[#2076bd] dark:text-[#3ba0e6] hover:text-white dark:hover:text-white border border-gray-200 dark:border-slate-700 text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5"
                 >
                   <Navigation size={13} />
-                  <span>CHỈ ĐƯỜNG GOOGLE MAPS</span>
+                  <span>{t('branches.get_directions')}</span>
                 </a>
               </div>
             </div>

@@ -36,7 +36,7 @@ export default function App() {
     <DolphyProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen flex flex-col bg-[#f8fafc] text-[#222222] selection:bg-[#2076bd] selection:text-white">
+        <div className="min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white transition-colors duration-200">
           <Navbar />
           
           <main className="flex-1">

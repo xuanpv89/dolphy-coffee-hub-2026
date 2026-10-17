@@ -1,7 +1,17 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Product, Course, CartItem, Order, StudentRegistration, JobApplication, Job } from '../types';
+import { Language, Theme, translations } from '../i18n/translations';
 
 interface DolphyContextType {
+  // Localization & Theme
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  toggleLanguage: () => void;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
+  t: (key: string) => string;
+
   // Cart
   cart: CartItem[];
   isCartOpen: boolean;
@@ -40,6 +50,58 @@ interface DolphyContextType {
 const DolphyContext = createContext<DolphyContextType | undefined>(undefined);
 
 export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  // Localization & Theme state
+  const [language, setLanguage] = useState<Language>(() => {
+    try {
+      const saved = localStorage.getItem('dolphy_lang');
+      return (saved === 'en' || saved === 'vi') ? saved : 'vi';
+    } catch {
+      return 'vi';
+    }
+  });
+
+  const [theme, setTheme] = useState<Theme>(() => {
+    try {
+      const saved = localStorage.getItem('dolphy_theme');
+      if (saved === 'dark' || saved === 'light') return saved;
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+    } catch {}
+    return 'light';
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('dolphy_lang', language);
+    } catch {}
+  }, [language]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('dolphy_theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch {}
+  }, [theme]);
+
+  const toggleLanguage = () => {
+    setLanguage(prev => (prev === 'vi' ? 'en' : 'vi'));
+  };
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  const t = (key: string): string => {
+    const dict = translations[language] as Record<string, string>;
+    const fallback = translations['vi'] as Record<string, string>;
+    return dict[key] || fallback[key] || key;
+  };
+
   // Cart state
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
@@ -293,6 +355,13 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   return (
     <DolphyContext.Provider
       value={{
+        language,
+        setLanguage,
+        toggleLanguage,
+        theme,
+        setTheme,
+        toggleTheme,
+        t,
         cart,
         isCartOpen,
         setIsCartOpen,
