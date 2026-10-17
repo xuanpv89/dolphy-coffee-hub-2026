@@ -52,16 +52,16 @@ export const CheckoutModal: React.FC = () => {
       <div className="relative w-full max-w-2xl bg-[#FDFBF7] rounded-2xl shadow-2xl overflow-hidden border border-[#D4A373]/30 my-8">
         
         {/* Header */}
-        <div className="px-6 py-4 bg-[#24140A] text-white flex items-center justify-between">
+        <div className="px-6 py-4 bg-[#2076bd] text-white flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xl">☕</span>
-            <h3 className="font-display text-lg font-bold">
-              {createdOrder ? 'Đặt Hàng Thành Công!' : 'Xác Nhận Đặt Hàng & Thanh Toán'}
+            <h3 className="font-oswald text-lg font-bold uppercase tracking-wider">
+              {createdOrder ? 'ĐẶT HÀNG THÀNH CÔNG!' : 'XÁC NHẬN ĐẶT HÀNG & THANH TOÁN'}
             </h3>
           </div>
           <button
             onClick={handleClose}
-            className="p-1 rounded-lg text-white/70 hover:text-white hover:bg-white/10"
+            className="p-1 rounded text-white/80 hover:text-white hover:bg-white/10"
           >
             <X size={20} />
           </button>
@@ -279,9 +279,9 @@ export const CheckoutModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#4A2C11] to-[#8C5329] text-white font-bold text-base hover:brightness-110 shadow-lg active:scale-98 transition-all"
+                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-sm uppercase tracking-wider font-semibold shadow-lg transition-colors"
                 >
-                  Xác Nhận Đặt Hàng ({cartTotal.toLocaleString('vi-VN')} ₫)
+                  XÁC NHẬN ĐẶT HÀNG ({cartTotal.toLocaleString('vi-VN')} VNĐ)
                 </button>
               </div>
 

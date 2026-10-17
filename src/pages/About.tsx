@@ -1,32 +1,32 @@
 import React from 'react';
-import { Award, Heart, ShieldCheck, Sparkles, MapPin, Coffee, CheckCircle2 } from 'lucide-react';
+import { Award, Heart, ShieldCheck, Sparkles, MapPin, Coffee, CheckCircle2, Phone, Mail } from 'lucide-react';
 import { brandInfo } from '../data/dolphyData';
 
 export const About: React.FC = () => {
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-16 pb-20 bg-white text-[#222222]">
       
-      {/* Header */}
-      <section className="bg-gradient-to-r from-[#24140A] via-[#4A2C11] to-[#7A4E27] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#FAEDCD]">
-            Hành Trình 13 Năm Đồng Hành
+      {/* 1. Page Header */}
+      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto space-y-3">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+            HÀNH TRÌNH HƠN 13 NĂM ĐỒNG HÀNH (2013 - 2026)
           </span>
-          <h1 className="font-display text-3xl sm:text-5xl font-bold text-white">
-            Câu Chuyện Thương Hiệu Dolphy
+          <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
+            DOLPHY’S STORY - CÂU CHUYỆN THƯƠNG HIỆU
           </h1>
-          <p className="text-sm sm:text-base text-[#D8CFCE] max-w-xl mx-auto italic">
+          <p className="text-sm sm:text-base text-blue-100 max-w-xl mx-auto italic">
             "My name’s DOLPHY. I’m a dolphin. I only serve pure coffee."
           </p>
         </div>
       </section>
 
-      {/* Main Story & Visuals */}
+      {/* 2. Main Story & Authentic Images */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#24140A]">
+            <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd]">
               Khởi Đầu Từ Niềm Đam Mê Cà Phê Thuần Túy
             </h2>
             <p>
@@ -43,27 +43,27 @@ export const About: React.FC = () => {
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
             <img
               src="/images/image5.jpg"
-              alt="Dolphy Thao Dien Corner"
-              className="rounded-2xl shadow-md h-56 w-full object-cover"
+              alt="Dolphy Thảo Điền Corner"
+              className="rounded-lg shadow border border-gray-200 h-60 w-full object-cover"
             />
             <img
               src="/images/image4.jpg"
               alt="Dolphy Barista Pouring Coffee"
-              className="rounded-2xl shadow-md h-56 w-full object-cover mt-6"
+              className="rounded-lg shadow border border-gray-200 h-60 w-full object-cover mt-6"
             />
           </div>
         </div>
 
         {/* Magazine Award Highlight */}
-        <div className="p-8 rounded-3xl bg-[#FAF7F2] border border-[#E8E0D5] flex flex-col md:flex-row items-center gap-6">
-          <div className="w-16 h-16 rounded-2xl bg-[#D4A373] text-[#24140A] flex items-center justify-center shrink-0">
+        <div className="p-8 rounded-xl bg-[#f0f8ff] border border-blue-200 flex flex-col md:flex-row items-center gap-6">
+          <div className="w-16 h-16 rounded-xl bg-[#f09c05] text-white flex items-center justify-center shrink-0 shadow">
             <Award size={36} />
           </div>
           <div className="space-y-1 text-center md:text-left">
-            <h3 className="font-display text-xl font-bold text-[#24140A]">
+            <h3 className="font-oswald text-xl font-bold uppercase text-[#2076bd]">
               Top 10 Quán Cà Phê Đáng Uống Nhất TP.HCM
             </h3>
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
               DOLPHY thực sự tự hào khi là một trong những thương hiệu cafe nổi tiếng với cộng đồng người nước ngoài sống tại TP.HCM nhiều năm liền. Đã từng được vinh danh là <strong>Top 10 quán cafe đáng uống nhất TP.HCM do tạp chí ẩm thực – du lịch Words bình chọn các năm 2015, 2016, 2017</strong>.
             </p>
           </div>
@@ -71,72 +71,59 @@ export const About: React.FC = () => {
 
         {/* Mission & Vision Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-8 rounded-3xl bg-white border border-[#E8E0D5] shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-[#FAF0E6] text-[#8C5329] flex items-center justify-center text-2xl">
-              🌟
+          <div className="p-8 rounded-xl bg-white border border-gray-200 shadow-sm space-y-4">
+            <div className="w-12 h-12 rounded-lg bg-blue-50 text-[#2076bd] flex items-center justify-center text-2xl font-bold">
+              ★
             </div>
-            <h3 className="font-display text-2xl font-bold text-[#24140A]">
+            <h3 className="font-oswald text-2xl font-bold uppercase text-[#2076bd]">
               Sứ Mệnh (Mission)
             </h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               Dựa trên lý tưởng về sứ mệnh <strong>“Happiness in a cup”</strong>, ở DOLPHY chúng tôi tin rằng <em>chỉ những Barista hạnh phúc mới có thể tạo nên những tách cà phê hạnh phúc</em>. 
             </p>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-500">
               Vì vậy, DOLPHY tập trung vào sự chăm sóc và phát triển các Barista, xây dựng chính sách lương công bằng, minh bạch, có sự thăng tiến rõ ràng. Sứ mệnh của DOLPHIERs chúng ta là tạo ra những tách cafe hạnh phúc.
             </p>
           </div>
 
-          <div className="p-8 rounded-3xl bg-white border border-[#E8E0D5] shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-[#FAF0E6] text-[#8C5329] flex items-center justify-center text-2xl">
-              🔭
+          <div className="p-8 rounded-xl bg-white border border-gray-200 shadow-sm space-y-4">
+            <div className="w-12 h-12 rounded-lg bg-orange-50 text-[#f09c05] flex items-center justify-center text-2xl font-bold">
+              ☀
             </div>
-            <h3 className="font-display text-2xl font-bold text-[#24140A]">
+            <h3 className="font-oswald text-2xl font-bold uppercase text-[#2076bd]">
               Tầm Nhìn (Vision)
             </h3>
-            <p className="text-sm text-gray-700 leading-relaxed font-semibold text-[#8C5329]">
+            <p className="text-sm text-gray-700 leading-relaxed font-semibold text-[#f09c05]">
               “DOLPHY có thể không lớn nhất, nhiều cửa hàng nhất, nhưng luôn luôn là chuỗi cửa hàng café đáng uống nhất và trạm kết nối giáo dục Barista thực chiến hàng đầu Việt Nam.”
             </p>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-500">
               Không ngừng đổi mới, nâng cấp chất lượng hạt cà phê nông trại Việt Nam và đưa hạt cà phê quê hương vươn tầm quốc tế.
             </p>
           </div>
         </div>
 
-        {/* Timeline Milestones */}
-        <div className="space-y-8 pt-6">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#24140A] text-center">
-            Dấu Mốc Phát Triển Của Dolphy (2013 - 2026)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] space-y-2">
-              <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#FAF0E6] text-[#8C5329]">2013</span>
-              <h4 className="font-bold text-sm text-[#24140A]">Khởi Đầu Tại Thảo Điền</h4>
-              <p className="text-xs text-gray-600">Mở cửa hàng đầu tiên vào ngày 20/10/2013, phục vụ cộng đồng expat quốc tế và người yêu cafe Ý.</p>
+        {/* Contact info box */}
+        <div id="contact" className="p-8 rounded-xl bg-gray-50 border border-gray-200">
+          <h3 className="font-oswald text-xl font-bold uppercase text-[#2076bd] mb-4">
+            THÔNG TIN LIÊN HỆ & PHÁP LÝ DOANH NGHIỆP
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-gray-700">
+            <div className="space-y-2">
+              <p><strong>Đơn vị chủ quản:</strong> CÔNG TY TNHH CÁ HEO XANH</p>
+              <p><strong>Mã số doanh nghiệp:</strong> 0313865203</p>
+              <p><strong>Hotline:</strong> <a href="tel:0938084985" className="text-[#2076bd] font-bold">{brandInfo.hotline}</a></p>
+              <p><strong>Email chính:</strong> {brandInfo.email}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] space-y-2">
-              <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#FAF0E6] text-[#8C5329]">2015 - 2017</span>
-              <h4 className="font-bold text-sm text-[#24140A]">Top 10 Quán Cafe Đáng Uống</h4>
-              <p className="text-xs text-gray-600">Được tạp chí Words bình chọn liên tiếp 3 năm là một trong 10 quán cafe đáng thưởng thức nhất Sài Gòn.</p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] space-y-2">
-              <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#FAF0E6] text-[#8C5329]">2020 - 2024</span>
-              <h4 className="font-bold text-sm text-[#24140A]">Phát Triển Hệ Thống 10 Quán</h4>
-              <p className="text-xs text-gray-600">Mở rộng chi nhánh sang Phú Mỹ Hưng (Quận 7) và Bình Thạnh, phát triển dòng Cà Phê Túi Coffee Bag.</p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-[#24140A] text-white space-y-2">
-              <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#D4A373] text-[#24140A]">2026</span>
-              <h4 className="font-bold text-sm text-[#FAEDCD]">Dolphy Coffee Hub & Academy</h4>
-              <p className="text-xs text-white/80">Xây dựng hệ sinh thái tự chủ, ra mắt học viện đào tạo Barista thực chiến và nền tảng số toàn diện.</p>
+            <div className="space-y-2">
+              <p><strong>Trụ sở chính:</strong> 31 Thảo Điền, Phường Thảo Điền, TP. Thủ Đức, TP.HCM</p>
+              <p><strong>Học viện Dolphy Academy:</strong> Trực tiếp tại quầy bar các chi nhánh Thảo Điền</p>
+              <p><strong>Email tuyển dụng:</strong> {brandInfo.recruitmentEmail}</p>
+              <p><strong>Đặt hàng online:</strong> dolphycoffee.cukcuk.vn</p>
             </div>
           </div>
         </div>
 
       </section>
-
     </div>
   );
 };

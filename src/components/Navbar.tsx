@@ -1,132 +1,120 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X, Coffee, GraduationCap, MapPin, BookOpen, Briefcase, UserCheck, PhoneCall } from 'lucide-react';
+import { ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck } from 'lucide-react';
 import { useDolphy } from '../context/DolphyContext';
 import { brandInfo } from '../data/dolphyData';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { cartCount, setIsCartOpen } = useDolphy();
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Trang Chủ', path: '/' },
-    { name: 'Dolphy Academy', path: '/academy', badge: 'Mới 2026' },
-    { name: 'Cà Phê & Quà Tặng', path: '/shop' },
-    { name: '10 Chi Nhánh', path: '/branches' },
-    { name: 'Cẩm Nang Pha Chế', path: '/knowledge' },
-    { name: 'Tuyển Dụng', path: '/careers' },
-    { name: 'Về Dolphy', path: '/about' },
+    { name: 'TRANG CHỦ', path: '/' },
+    { name: 'DOLPHY’S STORY', path: '/about' },
+    { name: 'CỬA HÀNG', path: '/shop' },
+    { name: 'DOLPHY ACADEMY', path: '/academy', badge: 'MỚI 2026' },
+    { name: 'CHI NHÁNH', path: '/branches' },
+    { name: 'GIAO HÀNG', path: 'https://dolphycoffee.cukcuk.vn/order-online/', external: true },
+    { name: 'TIN TỨC', path: '/knowledge' },
+    { name: 'TUYỂN DỤNG', path: '/careers' },
+    { name: 'LIÊN HỆ', path: '/about' },
   ];
 
   const isActive = (path: string) => {
+    if (path.startsWith('http')) return false;
     if (path === '/' && location.pathname === '/') return true;
     if (path !== '/' && location.pathname.startsWith(path)) return true;
     return false;
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#24140A]/95 backdrop-blur-md border-b border-[#D4A373]/20 text-[#FDFBF7] shadow-lg transition-all duration-300">
-      {/* Top Banner Alert */}
-      <div className="bg-gradient-to-r from-[#4A2C11] via-[#8C5329] to-[#4A2C11] py-1.5 px-4 text-xs font-medium text-center text-[#FAEDCD] flex items-center justify-center gap-3">
-        <span className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#E76F51] animate-ping inline-block"></span>
-          <span>🎓 <strong>Dolphy Academy 2026:</strong> Ưu đãi 1.000.000đ cho 10 học viên đăng ký khóa Barista đầu tiên</span>
-        </span>
-        <span className="hidden md:inline text-white/50">|</span>
-        <span className="hidden md:flex items-center gap-1 text-[#FAEDCD]">
-          <PhoneCall size={12} /> Hotline: <strong>{brandInfo.hotline}</strong>
-        </span>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <header className="w-full bg-white text-[#222222]">
+      {/* 1. TOP INTRO HEADER (Theo chuẩn branding dolphycafe.com) */}
+      <div className="border-b border-gray-100 py-3 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           
-          {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#D4A373] to-[#8C5329] p-0.5 shadow-md flex items-center justify-center group-hover:scale-105 transition-transform">
-              <div className="w-full h-full rounded-full bg-[#24140A] flex items-center justify-center overflow-hidden">
-                <span className="text-xl">🐬</span>
-              </div>
-            </div>
-            <div>
-              <div className="font-display text-xl font-bold tracking-wider text-[#FDFBF7] group-hover:text-[#D4A373] transition-colors flex items-center gap-2">
-                DOLPHY <span className="text-[#D4A373] font-light text-base">CAFÉ & ACADEMY</span>
-              </div>
-              <div className="text-[11px] text-[#D4A373]/80 tracking-widest uppercase">
-                Happiness in a cup • Est. 2013
-              </div>
-            </div>
+          {/* Logo Dolphy Cafe */}
+          <Link to="/" className="flex items-center gap-3">
+            <img 
+              src="/images/dolphy-logo.png" 
+              alt="Dolphy Cafe" 
+              className="h-12 md:h-14 w-auto object-contain"
+            />
           </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {navLinks.map((link) => {
-              const active = isActive(link.path);
-              return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 ${
-                    active
-                      ? 'text-[#FAEDCD] bg-white/10 font-semibold'
-                      : 'text-[#E5DED7] hover:text-[#FAEDCD] hover:bg-white/5'
-                  }`}
-                >
-                  {link.name}
-                  {link.badge && (
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-[#E76F51] text-white">
-                      {link.badge}
-                    </span>
-                  )}
-                  {active && (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#D4A373] rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
+          {/* Right Header Area: Hotline, Search, Social, Admin, Cart */}
+          <div className="flex items-center gap-4 sm:gap-6">
+            
+            {/* Search Input Box */}
+            <div className="hidden md:flex items-center relative">
+              <input
+                type="text"
+                placeholder="Tìm kiếm sản phẩm, khóa học..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-48 lg:w-64 pl-3 pr-8 py-1.5 text-xs rounded-full border border-gray-200 focus:outline-none focus:border-[#2076bd] transition-colors"
+              />
+              <button className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#2076bd]">
+                <Search size={14} />
+              </button>
+            </div>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-3">
-            {/* Admin Portal Quick Link */}
+            {/* Hotline */}
+            <div className="hidden lg:flex items-center gap-2 text-xs text-gray-600">
+              <PhoneCall size={14} className="text-[#2076bd]" />
+              <span>Hotline: <strong className="text-[#2076bd]">{brandInfo.hotline}</strong></span>
+            </div>
+
+            {/* Social Icons matching dolphycafe.com */}
+            <div className="hidden sm:flex items-center gap-2">
+              <a
+                href={brandInfo.socials.facebook}
+                target="_blank"
+                rel="noreferrer"
+                title="Dolphy Facebook"
+                className="w-7 h-7 rounded-full bg-[#f8f9fa] border border-gray-200 flex items-center justify-center text-[#2076bd] hover:bg-[#2076bd] hover:text-white transition-colors text-xs font-bold"
+              >
+                f
+              </a>
+              <a
+                href={brandInfo.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                title="Dolphy Instagram"
+                className="w-7 h-7 rounded-full bg-[#f8f9fa] border border-gray-200 flex items-center justify-center text-[#e1306c] hover:bg-[#e1306c] hover:text-white transition-colors text-xs font-bold"
+              >
+                ig
+              </a>
+            </div>
+
+            {/* Admin Hub shortcut */}
             <Link
               to="/admin"
               title="Cổng Quản Trị Hệ Thống CRM / Admin"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#D4A373]/30 text-xs text-[#D4A373] hover:bg-[#D4A373]/10 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-50 hover:bg-gray-100 text-gray-600 hover:text-[#2076bd] border border-gray-200 text-xs font-medium transition-colors"
             >
-              <UserCheck size={14} />
-              <span>Admin Hub</span>
+              <ShieldCheck size={14} className="text-[#2076bd]" />
+              <span className="hidden sm:inline">Admin CRM</span>
             </Link>
 
-            {/* Shopping Cart Button */}
+            {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2.5 rounded-full bg-white/10 hover:bg-white/15 text-[#FDFBF7] transition-all hover:scale-105 active:scale-95"
-              aria-label="Giỏ hàng"
+              className="flex items-center gap-2 bg-[#2076bd] hover:bg-[#f09c05] text-white px-3.5 py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm"
             >
-              <ShoppingBag size={20} />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#E76F51] text-white text-xs font-bold flex items-center justify-center shadow-lg animate-bounce">
-                  {cartCount}
-                </span>
-              )}
+              <ShoppingBag size={14} />
+              <span>GIỎ HÀNG</span>
+              <span className="bg-white text-[#2076bd] font-bold px-1.5 py-0.2 rounded-full text-[11px] min-w-[18px] text-center">
+                {cartCount}
+              </span>
             </button>
 
-            {/* Primary CTA: Học Barista */}
-            <Link
-              to="/academy"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#D4A373] to-[#8C5329] text-[#24140A] text-sm font-bold shadow-md hover:shadow-[#D4A373]/30 hover:brightness-110 active:scale-95 transition-all"
-            >
-              <GraduationCap size={16} />
-              <span>Đăng Ký Học Barista</span>
-            </Link>
-
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-[#FDFBF7] hover:bg-white/10"
-              aria-label="Toggle Menu"
+              className="lg:hidden p-2 text-gray-700 hover:text-[#2076bd]"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -134,44 +122,105 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* 2. STANDARD MENU BAR (Border & Oswald font matching dolphycafe.com) */}
+      <nav className="border-b border-gray-200 bg-white sticky top-0 z-30 shadow-sm hidden lg:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ul className="flex items-center justify-between text-[13px] font-oswald tracking-wider">
+            {navLinks.map((link) => {
+              const active = isActive(link.path);
+
+              if (link.external) {
+                return (
+                  <li key={link.name}>
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="py-3.5 px-3 text-[#222222] hover:text-[#2076bd] flex items-center gap-1 transition-colors group"
+                    >
+                      <span>{link.name}</span>
+                      <ExternalLink size={12} className="opacity-60 group-hover:opacity-100" />
+                    </a>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className={`py-3.5 px-3 flex items-center gap-1.5 transition-all relative ${
+                      active
+                        ? 'text-[#2076bd] font-semibold'
+                        : 'text-[#222222] hover:text-[#2076bd]'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    {link.badge && (
+                      <span className="bg-[#f09c05] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
+                        {link.badge}
+                      </span>
+                    )}
+                    {active && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#2076bd]" />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#24140A] border-b border-[#D4A373]/20 px-4 pt-2 pb-6 space-y-2">
+        <div className="lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+          <div className="pb-3 border-b border-gray-100">
+            <input
+              type="text"
+              placeholder="Tìm kiếm sản phẩm, khóa học..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#2076bd]"
+            />
+          </div>
           {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setMobileMenuOpen(false)}
-              className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium ${
-                isActive(link.path)
-                  ? 'bg-white/10 text-[#FAEDCD] font-bold'
-                  : 'text-[#E5DED7] hover:bg-white/5'
-              }`}
-            >
-              <span>{link.name}</span>
-              {link.badge && (
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#E76F51] text-white">
-                  {link.badge}
-                </span>
+            <div key={link.name}>
+              {link.external ? (
+                <a
+                  href={link.path}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between py-2 px-3 text-sm font-oswald text-gray-700 hover:text-[#2076bd] hover:bg-gray-50 rounded"
+                >
+                  <span>{link.name}</span>
+                  <ExternalLink size={14} />
+                </a>
+              ) : (
+                <Link
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center justify-between py-2 px-3 text-sm font-oswald rounded ${
+                    isActive(link.path)
+                      ? 'text-[#2076bd] bg-[#f0f8ff] font-semibold'
+                      : 'text-gray-700 hover:text-[#2076bd] hover:bg-gray-50'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {link.badge && (
+                    <span className="bg-[#f09c05] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full">
+                      {link.badge}
+                    </span>
+                  )}
+                </Link>
               )}
-            </Link>
+            </div>
           ))}
-          <div className="pt-4 border-t border-white/10 space-y-2">
-            <Link
-              to="/academy"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#D4A373] to-[#8C5329] text-[#24140A] font-bold text-center"
-            >
-              <GraduationCap size={18} />
-              <span>Đăng Ký Học Barista 2026</span>
-            </Link>
-            <Link
-              to="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-[#D4A373]/30 text-[#D4A373] text-sm font-medium text-center"
-            >
-              <UserCheck size={16} />
-              <span>Cổng Quản Trị Hệ Thống CRM & Admin</span>
+          <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+            <span>Hotline: <strong className="text-[#2076bd]">{brandInfo.hotline}</strong></span>
+            <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="text-[#2076bd] underline font-medium">
+              Admin Portal
             </Link>
           </div>
         </div>

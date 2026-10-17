@@ -18,7 +18,7 @@ export const Academy: React.FC = () => {
     },
     {
       q: 'Cam kết việc làm sau khóa học của Dolphy hoạt động như thế nào?',
-      a: 'Sau khi hoàn thành 6 buổi học và vượt qua bài thi thực hành cuối khóa, bạn sẽ được ưu tiên tuyển dụng ngay vào hệ thống 10 chi nhánh Dolphy Café tại Quận 2, Quận 7 hoặc Bình Thạnh với mức lương 25.000 – 35.000 đ/giờ. Nếu bạn muốn làm việc tại các chuỗi khác hoặc đi du học, Dolphy sẽ cấp chứng chỉ và thư giới thiệu (Letter of Recommendation).'
+      a: 'Sau khi hoàn thành 7 buổi học và vượt qua bài thi thực hành cuối khóa, bạn sẽ được ưu tiên tuyển dụng ngay vào hệ thống 10 chi nhánh Dolphy Café tại Quận 2, Quận 7 hoặc Bình Thạnh với mức lương 25.000 – 35.000 đ/giờ. Nếu bạn muốn làm việc tại các chuỗi khác hoặc đi du học, Dolphy sẽ cấp chứng chỉ và thư giới thiệu (Letter of Recommendation).'
     },
     {
       q: 'Dolphy có ràng buộc độc quyền học viên sau khi tốt nghiệp không?',
@@ -26,60 +26,57 @@ export const Academy: React.FC = () => {
     },
     {
       q: 'Một lớp học có bao nhiêu học viên?',
-      a: 'Dolphy Academy cam kết duy trì quy mô lớp nhỏ tối đa chỉ từ 4 đến 6 học viên để đảm bảo mỗi học viên đều có tối đa thời gian đứng máy pha trực tiếp trong suốt 3.5 giờ của mỗi buổi học.'
+      a: 'Dolphy Academy cam kết duy trì quy mô lớp nhỏ tối đa chỉ từ 4 đến 6 học viên để đảm bảo mỗi học viên đều có tối đa thời gian đứng máy pha trực tiếp trong suốt buổi học.'
     },
     {
       q: 'Chính sách đặt cọc và hoàn phí như thế nào?',
-      a: 'Bạn chỉ cần đặt cọc 2.000.000đ để giữ chỗ lớp học. Số học phí còn lại có thể thanh toán vào buổi học đầu tiên. Nếu có việc bận đột xuất, bạn được dời lịch sang khóa tiếp theo hoàn toàn miễn phí.'
+      a: 'Bạn chỉ cần đặt cọc 2.000.000đ để giữ chỗ lớp học qua hệ thống VietQR tự động. Số học phí còn lại có thể thanh toán vào buổi học đầu tiên. Nếu có việc bận đột xuất, bạn được dời lịch sang khóa tiếp theo hoàn toàn miễn phí.'
     }
   ];
 
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-16 pb-20 bg-white text-[#222222]">
       
       {/* 1. HERO BANNER */}
-      <section className="relative bg-gradient-to-br from-[#1A0E07] via-[#24140A] to-[#4A2C11] text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
+      <section className="relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
+        <div className="max-w-5xl mx-auto space-y-5 relative z-10">
           
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#D4A373]/30 text-xs sm:text-sm text-[#FAEDCD]">
-            <Sparkles size={16} className="text-[#E76F51]" />
-            <span>Chiến Lược Đào Tạo Mới 2026 • Dolphy Academy</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-widest font-bold">
+            <Sparkles size={14} />
+            <span>CHIẾN LƯỢC MỞ RỘNG 2026 • DOLPHY ACADEMY</span>
           </div>
 
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white leading-tight">
-            Học Viện Đào Tạo <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A373] via-[#FAEDCD] to-[#D4A373]">
-              Barista Thực Chiến Dolphy
-            </span>
+          <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight">
+            HỌC VIỆN ĐÀO TẠO BARISTA THỰC CHIẾN DOLPHY
           </h1>
 
-          <p className="text-base sm:text-xl text-[#D8CFCE] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Học nghề pha chế chuẩn quốc tế ngay tại quầy bar chuỗi cửa hàng thực tế. Cam kết cơ hội việc làm ngay sau khóa học với mức thu nhập từ 25.000 – 35.000 đ/giờ.
           </p>
 
           {/* Quick Perks */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-[#FAEDCD]">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-blue-100 font-medium">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#27AE60]" /> Thực hành 100% tại quầy bar
+              <CheckCircle2 size={16} className="text-[#f09c05]" /> Thực hành 100% tại quầy bar
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#27AE60]" /> Ưu tiên tuyển dụng chuỗi 10 quán
+              <CheckCircle2 size={16} className="text-[#f09c05]" /> Ưu tiên tuyển dụng chuỗi 10 quán
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#27AE60]" /> Không ràng buộc độc quyền
+              <CheckCircle2 size={16} className="text-[#f09c05]" /> Không ràng buộc độc quyền
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-[#27AE60]" /> Lớp nhỏ 4-6 học viên
+              <CheckCircle2 size={16} className="text-[#f09c05]" /> Lớp nhỏ 4-6 học viên
             </span>
           </div>
 
-          <div className="pt-6">
+          <div className="pt-4">
             <button
               onClick={() => setEnrollingCourse(currentCourse)}
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-[#D4A373] via-[#E9C496] to-[#C48B55] text-[#24140A] font-bold text-base shadow-xl hover:shadow-[#D4A373]/40 hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2"
+              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-xl"
             >
-              <GraduationCap size={20} />
-              <span>Đăng Ký Khóa Học Ngay (Ưu đãi 7.000.000₫)</span>
+              <GraduationCap size={18} className="mr-2" />
+              <span>ĐĂNG KÝ KHÓA HỌC NGAY (CỌC 2.000.000Đ)</span>
             </button>
           </div>
 
@@ -88,356 +85,189 @@ export const Academy: React.FC = () => {
 
       {/* 2. COURSE SELECTOR TABS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center border-b border-[#E8E0D5]">
-          <div className="flex gap-2 p-1.5 bg-[#FAF7F2] rounded-2xl border border-[#E8E0D5]">
+        <div className="flex justify-center border-b border-gray-200">
+          <div className="flex gap-2 p-1.5 bg-gray-100 rounded-lg">
             {coursesData.map(c => (
               <button
                 key={c.id}
                 onClick={() => setActiveCourseId(c.id)}
-                className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-4 sm:px-6 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all ${
                   activeCourseId === c.id
-                    ? 'bg-[#24140A] text-[#FAEDCD] shadow-md'
-                    : 'text-[#7A6E68] hover:text-[#24140A]'
+                    ? 'bg-[#2076bd] text-white shadow'
+                    : 'text-gray-600 hover:text-[#222222]'
                 }`}
               >
-                {c.title.split('Dolphy')[0] || c.title}
+                {c.name}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. ACTIVE COURSE OVERVIEW & PRICING */}
+      {/* 3. ACTIVE COURSE DETAILS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border border-[#E8E0D5] p-6 sm:p-10 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          <div className="lg:col-span-7 space-y-6">
+          {/* Main Info */}
+          <div className="lg:col-span-8 space-y-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#E76F51] text-white">
-                {currentCourse.badge}
-              </span>
-              <h2 className="font-display text-2xl sm:text-4xl font-bold text-[#24140A] mt-2">
-                {currentCourse.title}
-              </h2>
-              <p className="text-sm sm:text-base text-[#7A6E68] mt-2 leading-relaxed">
-                {currentCourse.subtitle}
-              </p>
-            </div>
-
-            {/* USPs */}
-            <div className="space-y-3 pt-2">
-              <h3 className="font-display text-base font-bold text-[#4A2C11]">
-                Điểm Khác Biệt Độc Quyền (USP):
-              </h3>
-              <div className="space-y-2">
-                {currentCourse.usps.map((usp, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-700">
-                    <CheckCircle2 size={16} className="text-[#27AE60] shrink-0 mt-0.5" />
-                    <span>{usp}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Target Audience */}
-            <div className="space-y-3 pt-2">
-              <h3 className="font-display text-base font-bold text-[#4A2C11]">
-                Khóa Học Này Dành Cho Ai?
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {currentCourse.targetAudience.map((aud, idx) => (
-                  <div key={idx} className="p-3 rounded-xl bg-[#FAF7F2] border border-[#E8E0D5] text-xs text-gray-700">
-                    • {aud}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Pricing & Booking Card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#FAF7F2] to-[#FFF] p-6 sm:p-8 rounded-2xl border-2 border-[#D4A373]/40 shadow-xl space-y-6">
-            
-            <div className="space-y-2 pb-4 border-b border-[#E8E0D5]">
-              <div className="text-xs text-gray-500 flex items-center justify-between">
-                <span>Học phí niêm yết:</span>
-                <span className="line-through">{currentCourse.price.toLocaleString('vi-VN')} ₫</span>
-              </div>
-              <div className="flex items-baseline justify-between">
-                <span className="text-sm font-bold text-[#4A2C11]">Ưu đãi tháng này:</span>
-                <span className="text-3xl font-extrabold text-[#C0392B]">
-                  {currentCourse.discountPrice.toLocaleString('vi-VN')} ₫
+              <div className="flex items-center gap-2 mb-2">
+                <span className="bg-[#f09c05] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
+                  {currentCourse.badge}
                 </span>
+                <span className="text-xs text-gray-500 font-oswald">Thời lượng: {currentCourse.duration}</span>
               </div>
-              <div className="text-xs text-[#8C5329] font-medium bg-[#FAEDCD]/40 p-2 rounded-lg">
-                💡 Bạn chỉ cần <strong>đặt cọc trước {currentCourse.depositAmount.toLocaleString('vi-VN')} ₫</strong> để giữ suất ưu đãi!
-              </div>
-            </div>
-
-            {/* Course Specs */}
-            <div className="space-y-2.5 text-xs text-gray-700">
-              <div className="flex justify-between py-1 border-b border-gray-100">
-                <span className="text-gray-500">Tổng thời lượng:</span>
-                <strong className="text-gray-900">{currentCourse.totalHours} giờ ({currentCourse.sessions} buổi)</strong>
-              </div>
-              <div className="flex justify-between py-1 border-b border-gray-100">
-                <span className="text-gray-500">Thời lượng mỗi buổi:</span>
-                <strong className="text-gray-900">{currentCourse.hoursPerSession} giờ / buổi</strong>
-              </div>
-              <div className="flex justify-between py-1 border-b border-gray-100">
-                <span className="text-gray-500">Hình thức học:</span>
-                <strong className="text-gray-900">Thực hành trực tiếp tại quán</strong>
-              </div>
-              <div className="flex justify-between py-1 border-b border-gray-100">
-                <span className="text-gray-500">Quy mô lớp:</span>
-                <strong className="text-[#E76F51]">Chỉ 4 - 6 học viên / lớp</strong>
-              </div>
-              <div className="flex justify-between py-1">
-                <span className="text-gray-500">Chứng chỉ:</span>
-                <strong className="text-gray-900">Chứng nhận Dolphy Academy</strong>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setEnrollingCourse(currentCourse)}
-              className="w-full py-4 rounded-xl bg-gradient-to-r from-[#4A2C11] via-[#7A4E27] to-[#8C5329] text-white font-bold text-sm shadow-lg hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-2"
-            >
-              <GraduationCap size={18} />
-              <span>Đăng Ký Học & Nhận Ưu Đãi</span>
-            </button>
-
-            <div className="text-center text-[11px] text-gray-500">
-              Hỗ trợ tư vấn trực tiếp 24/7 qua Hotline: <strong>{brandInfo.hotline}</strong>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 4. DETAILED SYLLABUS BREAKDOWN */}
-      <section id="syllabus" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-            Khung Đào Tạo Chuẩn
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#24140A]">
-            Nội Dung Chi Tiết {currentCourse.sessions} Buổi Học Thực Chiến
-          </h2>
-          <p className="text-sm text-[#7A6E68] max-w-xl mx-auto">
-            Mỗi buổi học đều tập trung vào kỹ năng thao tác thực tế trên máy, loại bỏ lý thuyết sáo rỗng.
-          </p>
-        </div>
-
-        <div className="space-y-4 max-w-4xl mx-auto">
-          {currentCourse.syllabus.map((syl) => {
-            const isOpen = openSyllabusSession === syl.session;
-            return (
-              <div
-                key={syl.session}
-                className="rounded-2xl border border-[#E8E0D5] bg-white overflow-hidden shadow-sm transition-all"
-              >
-                <button
-                  onClick={() => setOpenSyllabusSession(isOpen ? null : syl.session)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 hover:bg-[#FAF7F2] transition-colors"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#8C5329] font-bold text-xs flex items-center justify-center shrink-0">
-                      B{syl.session}
-                    </span>
-                    <h3 className="font-display text-base font-bold text-[#24140A]">
-                      {syl.title}
-                    </h3>
-                  </div>
-                  {isOpen ? <ChevronUp size={20} className="text-[#8C5329]" /> : <ChevronDown size={20} className="text-gray-400" />}
-                </button>
-
-                {isOpen && (
-                  <div className="p-5 pt-0 border-t border-gray-100 space-y-3 bg-[#FAF7F2]/40">
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                      {syl.description}
-                    </p>
-                    <div>
-                      <div className="text-xs font-bold text-[#8C5329] mb-1.5 uppercase tracking-wider">
-                        Kỹ năng thực hành cốt lõi:
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {syl.practicalSkills.map((skill, i) => (
-                          <span
-                            key={i}
-                            className="px-2.5 py-1 rounded-lg bg-white border border-[#E8E0D5] text-xs font-medium text-gray-800"
-                          >
-                            ✓ {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 5. MARKET COMPARISON TABLE (FROM PLANNING REPORT) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#E8E0D5] shadow-lg">
-          <div className="text-center space-y-2 mb-8">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#8C5329]">
-              Báo Cáo Nghiên Cứu Thị Trường Barista TP.HCM 2026
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#24140A]">
-              So Sánh Lợi Thế Cạnh Tranh Của Dolphy Academy
-            </h2>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs text-left border-collapse">
-              <thead>
-                <tr className="bg-[#24140A] text-white">
-                  <th className="p-3.5 rounded-tl-xl font-bold">Tiêu Chí Đối Sánh</th>
-                  <th className="p-3.5 bg-[#4A2C11] text-[#FAEDCD] font-bold">Dolphy Academy</th>
-                  <th className="p-3.5 font-bold">Các Trung Tâm Đào Tạo Khác</th>
-                  <th className="p-3.5 rounded-tr-xl font-bold">Tự Học / Học Việc Tại Quán</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                <tr className="hover:bg-gray-50">
-                  <td className="p-3.5 font-semibold text-gray-900">Môi trường thực hành</td>
-                  <td className="p-3.5 bg-[#FAF0E6]/50 font-bold text-[#8C5329]">
-                    100% tại quầy bar chuỗi cửa hàng thực tế
-                  </td>
-                  <td className="p-3.5 text-gray-600">Phòng lab mô phỏng, ít va chạm thực tế</td>
-                  <td className="p-3.5 text-gray-600">Làm việc vặt, ít được đứng máy pha chính</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="p-3.5 font-semibold text-gray-900">Cam kết việc làm</td>
-                  <td className="p-3.5 bg-[#FAF0E6]/50 font-bold text-[#27AE60]">
-                    Ưu tiên nhận việc ngay tại 10 chi nhánh Dolphy
-                  </td>
-                  <td className="p-3.5 text-gray-600">Tự nộp CV xin việc bên ngoài</td>
-                  <td className="p-3.5 text-gray-600">Lương thấp, không có lộ trình rõ ràng</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="p-3.5 font-semibold text-gray-900">Mức học phí</td>
-                  <td className="p-3.5 bg-[#FAF0E6]/50 font-bold text-[#C0392B]">
-                    7.000.000 ₫ (Tiết kiệm 20-30%)
-                  </td>
-                  <td className="p-3.5 text-gray-600">8.000.000 – 12.000.000 ₫</td>
-                  <td className="p-3.5 text-gray-600">Miễn phí nhưng mất 6-12 tháng thử việc</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="p-3.5 font-semibold text-gray-900">Quy mô lớp</td>
-                  <td className="p-3.5 bg-[#FAF0E6]/50 font-bold text-[#8C5329]">
-                    Chỉ 4 - 6 học viên / lớp (Kèm sát)
-                  </td>
-                  <td className="p-3.5 text-gray-600">10 - 15 học viên / lớp (Đông đúc)</td>
-                  <td className="p-3.5 text-gray-600">Không có người kèm riêng</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="p-3.5 font-semibold text-gray-900">Ràng buộc hợp đồng</td>
-                  <td className="p-3.5 bg-[#FAF0E6]/50 font-bold text-[#27AE60]">
-                    Không ràng buộc độc quyền
-                  </td>
-                  <td className="p-3.5 text-gray-600">Không ràng buộc</td>
-                  <td className="p-3.5 text-gray-600">Bị ký cam kết làm 1-2 năm lương thấp</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. TRAINER TEAM */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-            Đội Ngũ Giảng Dạy
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#24140A]">
-            Học Cùng Những Master Trainer Thực Chiến
-          </h2>
-          <p className="text-sm text-[#7A6E68] max-w-xl mx-auto">
-            Những người trực tiếp điều hành chất lượng đồ uống tại chuỗi Dolphy Café, giàu kinh nghiệm và tận tâm truyền nghề.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl border border-[#E8E0D5] p-6 shadow-sm flex gap-5 items-center">
-            <img
-              src="/images/image1.jpg"
-              alt="Trainer Dolphy"
-              className="w-24 h-24 rounded-2xl object-cover bg-gray-100 shrink-0"
-            />
-            <div>
-              <h3 className="font-display text-lg font-bold text-[#24140A]">Trưởng Bộ Phận Đào Tạo (Lead Trainer)</h3>
-              <p className="text-xs text-[#8C5329] font-semibold mt-0.5">8+ Năm Kinh Nghiệm F&B • SCA Certified</p>
-              <p className="text-xs text-gray-600 mt-2 leading-relaxed">
-                Đã đào tạo trực tiếp hơn 500 Barista chuyên nghiệp tại TP.HCM. Chuyên sâu về cân chỉnh Dial-in máy pha và kỹ thuật tạo bọt sữa lụa bóng.
+              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd]">
+                {currentCourse.name}
+              </h2>
+              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                {currentCourse.description}
               </p>
             </div>
-          </div>
 
-          <div className="bg-white rounded-2xl border border-[#E8E0D5] p-6 shadow-sm flex gap-5 items-center">
-            <img
-              src="/images/image2.jpg"
-              alt="Trainer Dolphy"
-              className="w-24 h-24 rounded-2xl object-cover bg-gray-100 shrink-0"
-            />
-            <div>
-              <h3 className="font-display text-lg font-bold text-[#24140A]">Chuyên Gia Latte Art & Sensory</h3>
-              <p className="text-xs text-[#8C5329] font-semibold mt-0.5">Top Barista Championship • 6 Năm Tại Dolphy</p>
-              <p className="text-xs text-gray-600 mt-2 leading-relaxed">
-                Đam mê nghệ thuật rót tạo hình bọt sữa và phương pháp pha chế ủ lạnh Cold Brew, gìn giữ phong cách dịch vụ "Happiness in a cup".
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FREQUENTLY ASKED QUESTIONS */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-            Giải Đáp Thắc Mắc
-          </span>
-          <h2 className="font-display text-3xl font-bold text-[#24140A]">
-            Câu Hỏi Thường Gặp Về Khóa Học
-          </h2>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => (
-            <div key={idx} className="p-5 rounded-2xl bg-white border border-[#E8E0D5] shadow-sm space-y-2">
-              <h3 className="font-display text-base font-bold text-[#4A2C11] flex items-start gap-2">
-                <span className="text-[#8C5329]">Q:</span>
-                <span>{faq.q}</span>
+            {/* Highlights */}
+            <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg space-y-3">
+              <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd]">
+                ĐIỂM NỔI BẬT CỦA KHÓA HỌC
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed pl-5">
-                {faq.a}
-              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-700">
+                {currentCourse.highlights.map((h, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-[#2076bd] shrink-0" />
+                    <span>{h}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+
+            {/* Syllabus breakdown */}
+            <div className="space-y-4">
+              <h3 className="font-oswald text-xl font-bold uppercase text-[#222222]">
+                GIÁO TRÌNH CHI TIẾT CÁC BUỔI HỌC
+              </h3>
+              
+              <div className="space-y-3">
+                {currentCourse.syllabus.map((session) => {
+                  const isOpen = openSyllabusSession === session.session;
+                  return (
+                    <div
+                      key={session.session}
+                      className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm"
+                    >
+                      <button
+                        onClick={() => setOpenSyllabusSession(isOpen ? null : session.session)}
+                        className="w-full p-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded bg-[#2076bd] text-white text-xs font-oswald font-bold flex items-center justify-center">
+                            #{session.session}
+                          </span>
+                          <div>
+                            <h4 className="font-oswald text-sm font-bold text-[#222222] uppercase">
+                              {session.title}
+                            </h4>
+                            <span className="text-[11px] text-gray-400 font-oswald">{session.duration}</span>
+                          </div>
+                        </div>
+                        {isOpen ? <ChevronUp size={18} className="text-gray-400" /> : <ChevronDown size={18} className="text-gray-400" />}
+                      </button>
+
+                      {isOpen && (
+                        <div className="p-4 pt-1 border-t border-gray-100 bg-gray-50/50 space-y-2 text-xs text-gray-600">
+                          <p className="font-medium text-gray-700">{session.desc}</p>
+                          <ul className="list-disc list-inside space-y-1 text-gray-600 pl-2">
+                            {session.skills.map((skill, si) => (
+                              <li key={si}>{skill}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Pricing & Deposit Card (Sidebar) */}
+          <div className="lg:col-span-4">
+            <div className="bg-white border-2 border-[#2076bd] rounded-xl p-6 shadow-xl sticky top-24 space-y-6">
+              
+              <div className="text-center border-b border-gray-100 pb-4">
+                <span className="text-xs text-gray-400 uppercase font-oswald">Học phí trọn gói</span>
+                <div className="font-oswald text-3xl font-bold text-[#2076bd] my-1">
+                  {currentCourse.price.toLocaleString('vi-VN')} VNĐ
+                </div>
+                <div className="text-xs text-[#f09c05] font-semibold font-oswald">
+                  TIỀN ĐẶT CỌC GIỮ CHỖ: {currentCourse.deposit.toLocaleString('vi-VN')} VNĐ
+                </div>
+              </div>
+
+              <div className="space-y-3 text-xs text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Clock size={15} className="text-[#2076bd]" />
+                  <span>Thời lượng: <strong>{currentCourse.duration}</strong></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users size={15} className="text-[#2076bd]" />
+                  <span>Quy mô: <strong>Tối đa 4 - 6 học viên/lớp</strong></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin size={15} className="text-[#2076bd]" />
+                  <span>Địa điểm: <strong>Chuỗi Dolphy Thảo Điền (Quận 2)</strong></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award size={15} className="text-[#2076bd]" />
+                  <span>Chứng chỉ: <strong>Dolphy Academy Barista Certificate</strong></span>
+                </div>
+              </div>
+
+              <div className="p-3 rounded bg-blue-50 border border-blue-100 text-xs text-blue-900 space-y-1">
+                <p className="font-bold flex items-center gap-1">
+                  <Sparkles size={14} className="text-[#f09c05]" />
+                  Ưu đãi đăng ký sớm:
+                </p>
+                <p>Giảm ngay 1.000.000đ cho 10 học viên đầu tiên trong tháng.</p>
+              </div>
+
+              <button
+                onClick={() => setEnrollingCourse(currentCourse)}
+                className="w-full py-3.5 rounded bg-[#f09c05] hover:bg-[#2076bd] text-white font-oswald text-sm uppercase tracking-wider font-semibold transition-colors shadow flex items-center justify-center gap-2"
+              >
+                <QrCode size={16} />
+                <span>ĐĂNG KÝ & TẠO MÃ VIETQR CỌC</span>
+              </button>
+
+              <div className="text-center text-[11px] text-gray-400">
+                Hỗ trợ tư vấn trực tiếp: <a href="tel:0938084985" className="text-[#2076bd] font-semibold">{brandInfo.hotline}</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* 8. BOTTOM ENROLLMENT CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-[#24140A] via-[#4A2C11] to-[#7A4E27] text-white p-8 sm:p-12 text-center space-y-6 shadow-2xl">
-          <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
-            Bắt Đầu Hành Trình Barista Chuyên Nghiệp Cùng Dolphy
-          </h2>
-          <p className="text-sm sm:text-base text-[#D8CFCE] max-w-2xl mx-auto">
-            Số lượng học viên mỗi lớp giới hạn tối đa 6 bạn để đảm bảo chất lượng đứng máy. Đăng ký ngay hôm nay để nhận ưu đãi học phí 7.000.000đ (chỉ cọc 2.000.000đ).
-          </p>
-          <div className="pt-2">
-            <button
-              onClick={() => setEnrollingCourse(currentCourse)}
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-[#D4A373] to-[#FAEDCD] text-[#24140A] font-bold text-base shadow-xl hover:brightness-110 active:scale-95 transition-all inline-flex items-center gap-2"
-            >
-              <GraduationCap size={20} />
-              <span>Đăng Ký Khóa Học Barista 2026</span>
-            </button>
+      {/* 4. FAQS */}
+      <section className="bg-[#f8f9fa] py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center">
+            <h2 className="section-title">CÂU HỎI THƯỜNG GẶP (FAQ)</h2>
+            <p className="text-xs sm:text-sm text-gray-500">
+              Giải đáp thắc mắc về khóa học Barista Thực Chiến tại Dolphy Academy.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm space-y-2">
+                <h4 className="font-oswald text-base font-bold text-[#2076bd] flex items-center gap-2">
+                  <span>Q{idx + 1}:</span> {faq.q}
+                </h4>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed pl-6">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

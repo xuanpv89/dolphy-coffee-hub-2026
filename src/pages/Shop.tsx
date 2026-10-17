@@ -5,7 +5,7 @@ import { useDolphy } from '../context/DolphyContext';
 import { Product, CartItem } from '../types';
 
 export const Shop: React.FC = () => {
-  const { addToCart, setIsCartOpen } = useDolphy();
+  const { addToCart, setIsCartOpen, showToast } = useDolphy();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortBy, setSortBy] = useState<'default' | 'price-asc' | 'price-desc'>('default');
@@ -32,26 +32,26 @@ export const Shop: React.FC = () => {
   });
 
   const categories = [
-    { id: 'all', name: 'Tất Cả Sản Phẩm' },
-    { id: 'coffee-bag', name: 'Cà Phê Túi (Arabica & Robusta)' },
-    { id: 'combo', name: 'Combo Hộp Quà Tết 2026' },
-    { id: 'equipment', name: 'Phin Nhôm Truyền Thống' }
+    { id: 'all', name: 'TẤT CẢ SẢN PHẨM' },
+    { id: 'coffee-bag', name: 'CÀ PHÊ HẠT / BỘT' },
+    { id: 'combo', name: 'COMBO QUÀ TẶNG' },
+    { id: 'equipment', name: 'PHIN NHÔM CAO CẤP' }
   ];
 
   return (
-    <div className="space-y-12 pb-20">
+    <div className="space-y-12 pb-20 bg-white text-[#222222]">
       
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-[#24140A] via-[#4A2C11] to-[#7A4E27] text-white py-14 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#FAEDCD]">
-            Dolphy Roastery & Gift Collection
+      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto space-y-3">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#f09c05] font-bold">
+            DOLPHY COFFEE BAG • FIND YOUR MATCH
           </span>
-          <h1 className="font-display text-3xl sm:text-5xl font-bold text-white">
-            Cà Phê Hạt Nguyên Chất & Bộ Quà Tặng
+          <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
+            CỬA HÀNG CÀ PHÊ HẠT NGUYÊN CHẤT & QUÀ TẶNG
           </h1>
-          <p className="text-sm sm:text-base text-[#D8CFCE] max-w-2xl mx-auto">
-            Hạt cà phê được thu hoạch chín 100%, rang xay mới mỗi tuần theo kỹ thuật độc quyền của Dolphy. Đóng gói van 1 chiều bảo toàn trọn vẹn hương vị.
+          <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto">
+            Hạt cà phê thu hoạch chín 100%, rang mới mỗi tuần theo kỹ thuật độc quyền của Dolphy Cafe. Đóng gói van 1 chiều bảo toàn trọn vẹn hương vị.
           </p>
         </div>
       </section>
@@ -59,7 +59,7 @@ export const Shop: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Filter & Search Bar */}
-        <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#E8E0D5] shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        <div className="bg-white p-4 sm:p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
           
           {/* Category Tabs */}
           <div className="flex flex-wrap gap-2">
@@ -67,10 +67,10 @@ export const Shop: React.FC = () => {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                className={`px-4 py-2 rounded text-xs font-oswald tracking-wider font-semibold transition-all uppercase ${
                   selectedCategory === cat.id
-                    ? 'bg-[#4A2C11] text-white shadow-md'
-                    : 'bg-[#FAF7F2] text-[#7A6E68] hover:bg-[#EAE4DC] hover:text-[#24140A]'
+                    ? 'bg-[#2076bd] text-white shadow'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-[#222222]'
                 }`}
               >
                 {cat.name}
@@ -83,155 +83,133 @@ export const Shop: React.FC = () => {
             <div className="relative flex-1 sm:w-60">
               <input
                 type="text"
-                placeholder="Tìm sản phẩm..."
+                placeholder="Tìm tên sản phẩm..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#4A2C11]"
+                className="w-full pl-9 pr-3.5 py-2 rounded border border-gray-200 text-xs focus:outline-none focus:border-[#2076bd]"
               />
-              <Search size={16} className="absolute left-3 top-2.5 text-gray-400" />
+              <Search size={15} className="absolute left-3 top-2.5 text-gray-400" />
             </div>
 
             <select
               value={sortBy}
               onChange={(e: any) => setSortBy(e.target.value)}
-              className="px-3 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#4A2C11] bg-white text-gray-700"
+              className="px-3 py-2 rounded border border-gray-200 text-xs focus:outline-none focus:border-[#2076bd] bg-white text-gray-700 font-oswald"
             >
-              <option value="default">Mặc định</option>
-              <option value="price-asc">Giá: Thấp đến Cao</option>
-              <option value="price-desc">Giá: Cao đến Thấp</option>
+              <option value="default">SẮP XẾP MẶC ĐỊNH</option>
+              <option value="price-asc">GIÁ: THẤP ĐẾN CAO</option>
+              <option value="price-desc">GIÁ: CAO ĐẾN THẤP</option>
             </select>
           </div>
+        </div>
 
+        {/* Promo Gift Banner */}
+        <div className="p-4 rounded-lg bg-orange-50 border border-orange-200 flex items-center justify-between gap-4 text-xs sm:text-sm text-orange-950">
+          <div className="flex items-center gap-2">
+            <Gift className="text-[#f09c05] shrink-0" size={20} />
+            <span>
+              <strong>Ưu đãi độc quyền Dolphy:</strong> Tặng ngay 01 Phin nhôm truyền thống cao cấp khi mua combo từ 2 gói cà phê 500g bất kỳ.
+            </span>
+          </div>
+          <button 
+            onClick={() => setSelectedCategory('combo')}
+            className="hidden sm:inline-block font-oswald uppercase text-xs font-bold text-[#2076bd] hover:underline shrink-0"
+          >
+            Xem combo quà tặng →
+          </button>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {sorted.map((product) => {
-            const currentGrind = grindOptions[product.id] || 'Hạt nguyên chất (Whole Bean)';
+            const selectedGrind = grindOptions[product.id] || 'Nguyên hạt (Espresso)';
 
             return (
               <div
                 key={product.id}
-                id={String(product.id)}
-                className="bg-white rounded-3xl border border-[#E8E0D5] overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col group"
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
-                {/* Image Gallery Showcase */}
-                <div className="relative h-64 overflow-hidden bg-[#FAF7F2]">
-                  <img
-                    src={product.images[0] || '/images/image10.jpg'}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3 flex flex-col gap-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#24140A]/85 text-[#FAEDCD]">
-                      {product.categoryName}
-                    </span>
+                <div>
+                  {/* Image */}
+                  <div className="relative aspect-square overflow-hidden bg-gray-50">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                    {product.badge && (
+                      <span className="absolute top-2 left-2 bg-[#f09c05] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
+                        {product.badge}
+                      </span>
+                    )}
                     {product.isBestSeller && (
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E76F51] text-white">
-                        Bán Chạy Nhất
+                      <span className="absolute top-2 right-2 bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
+                        BÁN CHẠY
                       </span>
                     )}
                   </div>
-                  {product.weight && (
-                    <span className="absolute bottom-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-white/95 text-gray-800 shadow">
-                      {product.weight}
-                    </span>
-                  )}
-                </div>
 
-                {/* Details */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="font-display text-lg font-bold text-[#24140A] group-hover:text-[#8C5329] transition-colors">
+                  {/* Body */}
+                  <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-[#f09c05] font-bold">
+                        {'★'.repeat(5)}
+                      </span>
+                      <span className="text-gray-400 text-[11px] font-oswald">{product.origin || 'Việt Nam'}</span>
+                    </div>
+
+                    <h3 className="font-oswald text-base font-semibold text-[#222222] group-hover:text-[#2076bd] transition-colors leading-snug line-clamp-2">
                       {product.name}
                     </h3>
-                    
-                    {product.origin && (
-                      <div className="text-xs text-[#8C5329] font-medium">
-                        📍 Xuất xứ: {product.origin}
-                      </div>
-                    )}
 
-                    <p className="text-xs text-[#7A6E68] line-clamp-3 leading-relaxed">
+                    <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed">
                       {product.description}
                     </p>
 
-                    {/* Taste Notes */}
-                    {product.tasteNotes && product.tasteNotes.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 pt-2">
-                        {product.tasteNotes.map((note, idx) => (
-                          <span
-                            key={idx}
-                            className="text-[11px] px-2 py-0.5 rounded-md bg-[#FAF0E6] text-[#8C5329] font-medium"
-                          >
-                            {note}
-                          </span>
-                        ))}
+                    {/* Grind Selector if beans */}
+                    {product.category === 'beans' || product.category === 'coffee-bag' ? (
+                      <div className="pt-2">
+                        <label className="block text-[11px] font-medium text-gray-600 mb-1 font-oswald uppercase">
+                          Tùy chọn xay cà phê:
+                        </label>
+                        <select
+                          value={selectedGrind}
+                          onChange={(e: any) => handleGrindChange(product.id, e.target.value)}
+                          className="w-full px-2.5 py-1.5 text-xs rounded border border-gray-200 bg-gray-50 text-gray-800 focus:outline-none focus:border-[#2076bd]"
+                        >
+                          <option value="Nguyên hạt (Espresso)">Nguyên hạt (Cho máy Espresso)</option>
+                          <option value="Xay Pha Phin">Xay vừa (Pha Phin truyền thống)</option>
+                          <option value="Xay Cold Brew">Xay thô (Pha Cold Brew / Ủ lạnh)</option>
+                          <option value="Xay V60 / Pour Over">Xay mịn vừa (Pha Pour Over / V60)</option>
+                        </select>
                       </div>
-                    )}
+                    ) : null}
+                  </div>
+                </div>
+
+                {/* Footer / Buy Action */}
+                <div className="p-4 pt-2 border-t border-gray-100 flex items-center justify-between">
+                  <div>
+                    <span className="text-[11px] text-gray-400 block font-oswald">Đơn giá</span>
+                    <span className="font-oswald text-lg font-bold text-[#2076bd]">
+                      {product.price.toLocaleString('vi-VN')}đ
+                    </span>
                   </div>
 
-                  {/* Grind Option Selector (if coffee-bag) */}
-                  {product.category === 'coffee-bag' && (
-                    <div className="pt-2 border-t border-gray-100 space-y-1.5">
-                      <label className="block text-[11px] font-bold text-gray-600">
-                        Lựa chọn mức độ xay:
-                      </label>
-                      <select
-                        value={currentGrind}
-                        onChange={(e: any) => handleGrindChange(product.id, e.target.value)}
-                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 text-xs text-gray-700 bg-[#FAF7F2] focus:outline-none focus:border-[#4A2C11]"
-                      >
-                        <option value="Hạt nguyên chất (Whole Bean)">Hạt nguyên chất (Whole Bean)</option>
-                        <option value="Xay pha Phin (Medium)">Xay pha Phin (Medium)</option>
-                        <option value="Xay Cold Brew (Coarse)">Xay Cold Brew (Coarse)</option>
-                        <option value="Xay máy Espresso (Fine)">Xay máy Espresso (Fine)</option>
-                      </select>
-                    </div>
-                  )}
-
-                  {/* Price & Add to Cart */}
-                  <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-                    <div>
-                      {product.compareAtPrice && (
-                        <span className="text-xs text-gray-400 line-through block">
-                          {product.compareAtPrice.toLocaleString('vi-VN')} ₫
-                        </span>
-                      )}
-                      <div className="text-xl font-extrabold text-[#C0392B]">
-                        {product.price.toLocaleString('vi-VN')} ₫
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => addToCart(product, 1, currentGrind)}
-                      className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#4A2C11] to-[#8C5329] text-white font-bold text-xs shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center gap-1.5"
-                    >
-                      <ShoppingBag size={15} />
-                      <span>Thêm Vào Giỏ</span>
-                    </button>
-                  </div>
-
+                  <button
+                    onClick={() => {
+                      addToCart(product, 1, selectedGrind);
+                      showToast(`Đã thêm "${product.name}" vào giỏ hàng!`);
+                    }}
+                    className="px-4 py-2 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-sm"
+                  >
+                    <ShoppingBag size={14} />
+                    <span>CHỌN MUA</span>
+                  </button>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Shipping & Support Notice */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#FAF7F2] border border-[#E8E0D5] grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
-          <div className="space-y-1">
-            <h4 className="font-bold text-sm text-[#4A2C11]">🚚 Giao Hàng Siêu Tốc TP.HCM</h4>
-            <p className="text-xs text-gray-600">Miễn phí ship đơn hàng từ 300.000đ tại nội thành TP.HCM.</p>
-          </div>
-          <div className="space-y-1">
-            <h4 className="font-bold text-sm text-[#4A2C11]">☕ Đảm Bảo Cà Phê Mới Rang</h4>
-            <p className="text-xs text-gray-600">Mọi mẻ hạt đều được rang mới không quá 7 ngày, thơm ngon chuẩn vị.</p>
-          </div>
-          <div className="space-y-1">
-            <h4 className="font-bold text-sm text-[#4A2C11]">🎁 Chiết Khấu Doanh Nghiệp</h4>
-            <p className="text-xs text-gray-600">Chiết khấu từ 5% – 20% cho đơn hàng cà phê từ 3kg hoặc quà Tết số lượng lớn.</p>
-          </div>
         </div>
 
       </div>

@@ -23,25 +23,25 @@ export const AdminDashboard: React.FC = () => {
     <div className="space-y-8 pb-20">
       
       {/* Top Header */}
-      <section className="bg-gradient-to-r from-[#24140A] via-[#3A1F0D] to-[#4A2C11] text-white py-10 px-4 sm:px-6 lg:px-8 border-b border-[#D4A373]/30">
+      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white py-10 px-4 sm:px-6 lg:px-8 border-b border-blue-400/30">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
-              <span className="text-xs uppercase font-bold tracking-widest text-[#FAEDCD]">
-                Hệ Thống Quản Trị Tự Chủ 2026
+              <span className="text-xs uppercase font-oswald font-bold tracking-widest text-[#f09c05]">
+                HỆ THỐNG QUẢN TRỊ TỰ CHỦ 2026
               </span>
             </div>
-            <h1 className="font-display text-2xl sm:text-3xl font-bold text-white mt-1">
-              Dolphy Coffee Hub • CRM & Admin Portal
+            <h1 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white mt-1">
+              DOLPHY COFFEE HUB • CRM & ADMIN PORTAL
             </h1>
-            <p className="text-xs text-[#D8CFCE] mt-0.5">
+            <p className="text-xs text-blue-100 mt-0.5">
               Theo dõi đo lường phễu tuyển sinh Dolphy Academy, đơn hàng shop và tuyển dụng nhân sự.
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs text-white/70 bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
+            <span className="text-xs text-white bg-white/20 px-3 py-1.5 rounded border border-white/20 font-oswald">
               Cập nhật trực tiếp (Real-time Sync)
             </span>
           </div>
@@ -118,46 +118,46 @@ export const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Tab Selector */}
-        <div className="flex border-b border-[#E8E0D5] gap-2 overflow-x-auto pb-1">
+        <div className="flex border-b border-gray-200 gap-2 overflow-x-auto pb-1">
           <button
             onClick={() => setActiveTab('students')}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all whitespace-nowrap ${
               activeTab === 'students'
-                ? 'bg-[#4A2C11] text-[#FAEDCD] shadow'
-                : 'bg-white text-gray-600 hover:bg-gray-100'
+                ? 'bg-[#2076bd] text-white shadow'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-[#222222]'
             }`}
           >
-            🎓 Học Viên Academy ({registrations.length})
+            🎓 HỌC VIÊN ACADEMY ({registrations.length})
           </button>
           <button
             onClick={() => setActiveTab('orders')}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all whitespace-nowrap ${
               activeTab === 'orders'
-                ? 'bg-[#4A2C11] text-[#FAEDCD] shadow'
-                : 'bg-white text-gray-600 hover:bg-gray-100'
+                ? 'bg-[#2076bd] text-white shadow'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-[#222222]'
             }`}
           >
-            📦 Đơn Hàng Shop ({orders.length})
+            📦 ĐƠN HÀNG SHOP ({orders.length})
           </button>
           <button
             onClick={() => setActiveTab('candidates')}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all whitespace-nowrap ${
               activeTab === 'candidates'
-                ? 'bg-[#4A2C11] text-[#FAEDCD] shadow'
-                : 'bg-white text-gray-600 hover:bg-gray-100'
+                ? 'bg-[#2076bd] text-white shadow'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-[#222222]'
             }`}
           >
-            💼 Tuyển Dụng Barista ({applications.length})
+            💼 TUYỂN DỤNG BARISTA ({applications.length})
           </button>
           <button
             onClick={() => setActiveTab('funnel')}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all whitespace-nowrap ${
               activeTab === 'funnel'
-                ? 'bg-[#4A2C11] text-[#FAEDCD] shadow'
-                : 'bg-white text-gray-600 hover:bg-gray-100'
+                ? 'bg-[#2076bd] text-white shadow'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-[#222222]'
             }`}
           >
-            📈 Báo Cáo Phễu Chuyển Đổi (Kế Hoạch 2026)
+            📈 BÁO CÁO PHỄU CHUYỂN ĐỔI (2026)
           </button>
         </div>
 

@@ -1,22 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --primary-brown: #24140a;
-  --coffee-espresso: #1a0e07;
-  --coffee-roast: #4a2c11;
-  --coffee-accent: #8c5329;
-  --coffee-amber: #d4a373;
-  --coffee-cream: #faedcd;
-  --coffee-paper: #fdfbf7;
+  --dolphy-blue: #2076bd;
+  --dolphy-blue-dark: #165b94;
+  --dolphy-blue-light: #3ba0e6;
+  --dolphy-amber: #f09c05;
+  --dolphy-amber-dark: #c97f00;
+  --dolphy-dark: #222222;
+  --dolphy-gray: #666666;
+  --dolphy-bg-light: #f8f9fa;
+  --dolphy-ice-blue: #f0f8ff;
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  color: #222222;
 }
 
-h1, h2, h3, .font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 /* Custom scrollbar */
@@ -25,24 +29,79 @@ h1, h2, h3, .font-display {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1ede6;
+  background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c5b4a0;
+  background: #2076bd;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8c5329;
+  background: #165b94;
 }
 
-/* Helper utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(220, 205, 185, 0.4);
+/* Brand styling helpers */
+.dolphy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  transition: all 0.25s ease-in-out;
 }
 
-.coffee-gradient {
-  background: linear-gradient(135deg, #24140A 0%, #4A2C11 50%, #7A4E27 100%);
+.dolphy-btn-primary {
+  background-color: #2076bd;
+  color: #ffffff;
+}
+.dolphy-btn-primary:hover {
+  background-color: #f09c05;
+  color: #ffffff;
+}
+
+.dolphy-btn-amber {
+  background-color: #f09c05;
+  color: #ffffff;
+}
+.dolphy-btn-amber:hover {
+  background-color: #2076bd;
+  color: #ffffff;
+}
+
+.dolphy-btn-outline {
+  border: 2px solid #2076bd;
+  color: #2076bd;
+}
+.dolphy-btn-outline:hover {
+  background-color: #2076bd;
+  color: #ffffff;
+}
+
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #2076bd;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #f09c05;
+  border-radius: 2px;
+}
+
+.section-title.text-left::after {
+  left: 0;
+  transform: none;
 }

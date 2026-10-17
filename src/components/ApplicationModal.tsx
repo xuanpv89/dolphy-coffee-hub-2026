@@ -48,19 +48,19 @@ export const ApplicationModal: React.FC = () => {
       <div className="relative w-full max-w-lg bg-[#FDFBF7] rounded-3xl shadow-2xl overflow-hidden border border-[#D4A373]/30 my-6">
         
         {/* Header */}
-        <div className="px-6 py-4 bg-[#24140A] text-white flex items-center justify-between">
+        <div className="px-6 py-4 bg-[#2076bd] text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <Briefcase className="text-[#D4A373]" size={22} />
+            <Briefcase className="text-[#f09c05]" size={22} />
             <div>
-              <h3 className="font-display text-base font-bold">
-                {createdApp ? 'Nộp Đơn Thành Công!' : 'Ứng Tuyển Vị Trí Barista & Nhân Sự'}
+              <h3 className="font-oswald text-base font-bold uppercase tracking-wider">
+                {createdApp ? 'NỘP ĐƠN THÀNH CÔNG!' : 'ỨNG TUYỂN VỊ TRÍ BARISTA & NHÂN SỰ'}
               </h3>
-              <p className="text-xs text-[#FAEDCD]">{applyingJob.title}</p>
+              <p className="text-xs text-blue-100">{applyingJob.title}</p>
             </div>
           </div>
           <button
             onClick={handleClose}
-            className="p-1 rounded-lg text-white/70 hover:text-white hover:bg-white/10"
+            className="p-1 rounded text-white/80 hover:text-white hover:bg-white/10"
           >
             <X size={20} />
           </button>
@@ -189,10 +189,10 @@ export const ApplicationModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#4A2C11] to-[#8C5329] text-white font-bold text-sm hover:brightness-110 shadow-lg active:scale-98 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-xs uppercase tracking-wider font-semibold shadow-lg transition-colors flex items-center justify-center gap-2"
                 >
                   <Send size={16} />
-                  <span>Gửi Hồ Sơ Ứng Tuyển Ngay</span>
+                  <span>GỬI HỒ SƠ ỨNG TUYỂN NGAY</span>
                 </button>
               </div>
 

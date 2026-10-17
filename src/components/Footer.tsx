@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Send, Heart, Coffee, GraduationCap, Award, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Award, ExternalLink, ShieldCheck } from 'lucide-react';
 import { brandInfo, branchesData } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 
@@ -11,234 +11,190 @@ export const Footer: React.FC = () => {
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newsletterEmail) return;
-    showToast('Cảm ơn bạn đã đăng ký nhận bản tin từ Dolphy Café!');
+    showToast('Cảm ơn bạn đã đăng ký nhận thông tin mới nhất từ Dolphy Cafe!');
     setNewsletterEmail('');
   };
 
   return (
-    <footer className="bg-[#1A0E07] text-[#D8CFCE] border-t border-[#D4A373]/20 pt-16 pb-8">
+    <footer className="bg-[#1f2022] text-[#d1d5db] border-t-2 border-[#2076bd] pt-14 pb-8 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        {/* Main 4-Column Grid matching dolphycafe.com */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-gray-700">
           
-          {/* Column 1: Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4A373] to-[#8C5329] p-0.5 flex items-center justify-center">
-                <div className="w-full h-full rounded-full bg-[#1A0E07] flex items-center justify-center">
-                  <span className="text-xl">🐬</span>
-                </div>
-              </div>
-              <span className="font-display text-2xl font-bold tracking-wider text-white">
-                DOLPHY <span className="text-[#D4A373] font-light">CAFÉ</span>
-              </span>
-            </div>
-
-            <p className="text-sm text-[#B8ACA7] leading-relaxed max-w-md">
-              DOLPHY – chú cá heo thân thiện mang đến những khoảnh khắc <strong>"Happiness in a cup"</strong> từ năm 2013. Nơi lưu giữ giá trị cà phê Ý nguyên bản hòa quyện cùng hạt cà phê thượng hạng của cao nguyên Việt Nam.
+          {/* CỘT 1: THEO DÕI BẢN TIN */}
+          <div className="space-y-4">
+            <h3 className="font-oswald text-base font-semibold text-white uppercase tracking-wider border-b border-[#2076bd] pb-2 inline-block">
+              THEO DÕI BẢN TIN
+            </h3>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              Nhận được những thông tin mới nhất từ website và các ưu đãi đặc quyền về cà phê gói & khóa học Barista thực chiến.
             </p>
 
-            <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#FAEDCD]">
-              <Award className="text-[#D4A373] shrink-0" size={18} />
-              <span>Top 10 Quán Cà Phê Đáng Uống Nhất TP.HCM do tạp chí <em>Words</em> bình chọn.</span>
-            </div>
+            <form onSubmit={handleSubscribe} className="space-y-2">
+              <input
+                type="email"
+                placeholder="Nhập email của bạn..."
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                required
+                className="w-full px-3 py-2 text-xs rounded bg-white text-[#222222] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2076bd]"
+              />
+              <button
+                type="submit"
+                className="w-full py-2 px-4 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-xs uppercase tracking-wider transition-colors font-medium flex items-center justify-center gap-1.5"
+              >
+                <span>ĐĂNG KÝ NGAY</span>
+                <Send size={12} />
+              </button>
+            </form>
 
-            <div className="space-y-2 text-sm text-[#D8CFCE] pt-2">
-              <div className="flex items-center gap-2.5">
-                <Phone size={15} className="text-[#D4A373]" />
-                <span>Hotline: <strong className="text-white">{brandInfo.hotline}</strong></span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail size={15} className="text-[#D4A373]" />
-                <span>Liên hệ: <a href={`mailto:${brandInfo.email}`} className="hover:text-[#D4A373]">{brandInfo.email}</a></span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail size={15} className="text-[#D4A373]" />
-                <span>Tuyển dụng: <a href={`mailto:${brandInfo.recruitmentEmail}`} className="hover:text-[#D4A373]">{brandInfo.recruitmentEmail}</a></span>
-              </div>
-            </div>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 pt-3">
-              <a
-                href={brandInfo.facebook}
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#D4A373] hover:text-[#1A0E07] flex items-center justify-center transition-colors text-white"
-                aria-label="Facebook"
-              >
-                FB
-              </a>
-              <a
-                href={brandInfo.instagram}
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#D4A373] hover:text-[#1A0E07] flex items-center justify-center transition-colors text-white"
-                aria-label="Instagram"
-              >
-                IG
-              </a>
-              <a
-                href={brandInfo.tiktok}
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#D4A373] hover:text-[#1A0E07] flex items-center justify-center transition-colors text-white"
-                aria-label="TikTok"
-              >
-                TT
-              </a>
-              <a
-                href={brandInfo.orderOnlineUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3 py-1.5 rounded-full bg-[#E76F51] text-white text-xs font-semibold hover:brightness-110 flex items-center gap-1.5"
-              >
-                <span>Đặt Món CukCuk</span>
-                <ExternalLink size={12} />
-              </a>
+            <div className="pt-2 text-xs text-gray-400">
+              <span className="text-[#f09c05] font-semibold">★ Top 10 Saigon Coffee:</span> Điểm hẹn cà phê quen thuộc tại Thảo Điền từ năm 2013.
             </div>
           </div>
 
-          {/* Column 2: Hệ Sinh Thái Dolphy */}
-          <div className="space-y-4">
-            <h3 className="font-display text-base font-bold text-white uppercase tracking-wider border-l-2 border-[#D4A373] pl-2.5">
-              Hệ Sinh Thái Dolphy
+          {/* CỘT 2: LIÊN HỆ */}
+          <div className="space-y-3">
+            <h3 className="font-oswald text-base font-semibold text-white uppercase tracking-wider border-b border-[#2076bd] pb-2 inline-block">
+              LIÊN HỆ
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <div className="text-xs text-gray-300 space-y-2">
+              <p className="font-bold text-white text-sm">Dolphy Café</p>
+              <p className="text-gray-400">CÔNG TY TNHH CÁ HEO XANH</p>
+              
+              <div className="flex items-center gap-2 pt-1">
+                <Phone size={13} className="text-[#2076bd]" />
+                <span>Hotline: <a href="tel:0938084985" className="text-white hover:text-[#f09c05] font-medium">{brandInfo.hotline}</a></span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Mail size={13} className="text-[#2076bd]" />
+                <span>Email: <a href={`mailto:${brandInfo.email}`} className="text-gray-300 hover:text-white">{brandInfo.email}</a></span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Mail size={13} className="text-[#2076bd]" />
+                <span>Tuyển dụng: <a href={`mailto:${brandInfo.recruitmentEmail}`} className="text-gray-300 hover:text-white">{brandInfo.recruitmentEmail}</a></span>
+              </div>
+
+              <div className="pt-2 text-[11px] text-gray-400 border-t border-gray-700 space-y-1">
+                <p>MST: <strong>0313865203</strong></p>
+                <p>Trụ sở chính: 31 Thảo Điền, P. Thảo Điền, TP. Thủ Đức, TP.HCM</p>
+              </div>
+            </div>
+          </div>
+
+          {/* CỘT 3: HỖ TRỢ & ĐIỀU HƯỚNG */}
+          <div className="space-y-3">
+            <h3 className="font-oswald text-base font-semibold text-white uppercase tracking-wider border-b border-[#2076bd] pb-2 inline-block">
+              HỖ TRỢ
+            </h3>
+            <ul className="text-xs space-y-2 text-gray-300 font-oswald tracking-wide">
               <li>
-                <Link to="/academy" className="hover:text-[#D4A373] transition-colors flex items-center gap-1.5">
-                  <GraduationCap size={14} className="text-[#D4A373]" />
-                  <span>Dolphy Academy 2026</span>
+                <Link to="/" className="hover:text-[#2076bd] transition-colors">TRANG CHỦ</Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-[#2076bd] transition-colors">DOLPHY’S STORY</Link>
+              </li>
+              <li>
+                <Link to="/shop" className="hover:text-[#2076bd] transition-colors">CỬA HÀNG CÀ PHÊ HẠT</Link>
+              </li>
+              <li>
+                <Link to="/academy" className="text-[#f09c05] hover:underline font-semibold flex items-center gap-1">
+                  <span>DOLPHY ACADEMY (ĐÀO TẠO)</span>
                 </Link>
               </li>
               <li>
-                <Link to="/academy#syllabus" className="hover:text-[#D4A373] transition-colors">
-                  Khóa Barista Thực Chiến (21h)
-                </Link>
+                <Link to="/branches" className="hover:text-[#2076bd] transition-colors">CHI NHÁNH CỬA HÀNG (10 ĐIỂM)</Link>
               </li>
               <li>
-                <Link to="/shop" className="hover:text-[#D4A373] transition-colors flex items-center gap-1.5">
-                  <Coffee size={14} className="text-[#D4A373]" />
-                  <span>Cà Phê Túi Arabica & Robusta</span>
-                </Link>
+                <a 
+                  href="https://dolphycoffee.cukcuk.vn/order-online/" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="hover:text-[#2076bd] transition-colors flex items-center gap-1"
+                >
+                  <span>GIAO HÀNG TRỰC TUYẾN</span>
+                  <ExternalLink size={10} />
+                </a>
               </li>
               <li>
-                <Link to="/shop?category=combo" className="hover:text-[#D4A373] transition-colors">
-                  Combo Quà Tết Traditional
-                </Link>
+                <Link to="/knowledge" className="hover:text-[#2076bd] transition-colors">TIN TỨC & CẨM NANG</Link>
               </li>
               <li>
-                <Link to="/branches" className="hover:text-[#D4A373] transition-colors flex items-center gap-1.5">
-                  <MapPin size={14} className="text-[#D4A373]" />
-                  <span>Hệ Thống 10 Chi Nhánh</span>
-                </Link>
+                <Link to="/careers" className="hover:text-[#2076bd] transition-colors">TUYỂN DỤNG BARISTA</Link>
               </li>
               <li>
-                <Link to="/knowledge" className="hover:text-[#D4A373] transition-colors">
-                  Cẩm Nang Pha Cold Brew & Phin
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="hover:text-[#D4A373] transition-colors">
-                  Cơ Hội Nghề Nghiệp Barista
-                </Link>
+                <Link to="/policies" className="hover:text-[#2076bd] transition-colors">CHÍNH SÁCH & ĐIỀU KHOẢN</Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: 10 Chi Nhánh Nổi Bật */}
+          {/* CỘT 4: KẾT NỐI VỚI CHÚNG TÔI */}
           <div className="space-y-4">
-            <h3 className="font-display text-base font-bold text-white uppercase tracking-wider border-l-2 border-[#D4A373] pl-2.5">
-              10 Cửa Hàng TP.HCM
+            <h3 className="font-oswald text-base font-semibold text-white uppercase tracking-wider border-b border-[#2076bd] pb-2 inline-block">
+              KẾT NỐI VỚI CHÚNG TÔI
             </h3>
-            <div className="space-y-2 text-xs text-[#B8ACA7]">
-              <div>
-                <strong className="text-[#FAEDCD] block">Quận 2 (TP. Thủ Đức):</strong>
-                <p>• 28 Thảo Điền (Flagship)</p>
-                <p>• 08 Thảo Điền</p>
-                <p>• 03 Nguyễn Văn Hưởng</p>
-                <p>• 113 Dương Văn An, An Phú</p>
-                <p>• 28 Trần Lựu, An Phú</p>
-              </div>
-              <div className="pt-1">
-                <strong className="text-[#FAEDCD] block">Quận 7 (Phú Mỹ Hưng):</strong>
-                <p>• 1441 Nguyễn Văn Linh</p>
-                <p>• 35 Đường Số 16, KDC Nam Viên</p>
-                <p>• R3-21 Lý Long Tường</p>
-                <p>• 8 Hoàng Văn Thái (VP Prudential)</p>
-              </div>
-              <div className="pt-1">
-                <strong className="text-[#FAEDCD] block">Bình Thạnh:</strong>
-                <p>• 79 Phạm Viết Chánh, P.19</p>
-              </div>
-              <div className="pt-2">
-                <Link to="/branches" className="text-[#D4A373] font-semibold hover:underline inline-flex items-center gap-1">
-                  Xem bản đồ & chỉ đường &rarr;
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Column 4: Bản Tin & Chính Sách */}
-          <div className="space-y-4">
-            <h3 className="font-display text-base font-bold text-white uppercase tracking-wider border-l-2 border-[#D4A373] pl-2.5">
-              Đăng Ký Bản Tin
-            </h3>
-            <p className="text-xs text-[#B8ACA7]">
-              Nhận thông tin ưu đãi cà phê mới nhất, lịch mở lớp Barista và các sự kiện workshop cuối tuần.
+            <p className="text-xs text-gray-300">
+              Theo dõi Dolphy Cafe trên mạng xã hội để cập nhật ưu đãi và hoạt động workshop mới nhất:
             </p>
-            <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="relative">
-                <input
-                  type="email"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Nhập email của bạn..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#D4A373]"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="absolute right-1 top-1 bottom-1 px-3 bg-[#D4A373] text-[#1A0E07] rounded-lg font-bold hover:brightness-110 transition-all flex items-center justify-center"
-                  aria-label="Gửi"
-                >
-                  <Send size={14} />
-                </button>
-              </div>
-            </form>
 
-            <div className="pt-3 border-t border-white/10 space-y-1.5 text-xs text-[#B8ACA7]">
-              <div>
-                <Link to="/policies" className="hover:text-[#D4A373]">Chính sách bảo mật thông tin</Link>
-              </div>
-              <div>
-                <Link to="/policies#terms" className="hover:text-[#D4A373]">Điều khoản & Điều kiện sử dụng</Link>
-              </div>
-              <div>
-                <Link to="/policies#guide" className="hover:text-[#D4A373]">Hướng dẫn đặt hàng & thanh toán</Link>
-              </div>
+            <div className="flex items-center gap-2">
+              <a
+                href={brandInfo.socials.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded bg-[#3b5998] hover:opacity-90 text-white flex items-center justify-center text-xs font-bold transition-opacity"
+                title="Facebook"
+              >
+                f
+              </a>
+              <a
+                href={brandInfo.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded bg-[#c13584] hover:opacity-90 text-white flex items-center justify-center text-xs font-bold transition-opacity"
+                title="Instagram"
+              >
+                ig
+              </a>
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-1.5 rounded bg-[#f09c05] hover:bg-[#2076bd] text-white text-xs font-oswald uppercase tracking-wider transition-colors"
+                title="Order Online"
+              >
+                CukCuk Order
+              </a>
+            </div>
+
+            <div className="pt-3 border-t border-gray-700">
+              <Link
+                to="/admin"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white text-xs border border-gray-600 transition-colors"
+              >
+                <ShieldCheck size={14} className="text-[#2076bd]" />
+                <span>Cổng Quản Trị Hệ Thống CRM</span>
+              </Link>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#B8ACA7] gap-4">
-          <div>
-            © 2013 - 2026 <strong>Dolphy Café</strong>. All rights reserved. Slogan "Happiness in a cup" is a registered trademark.
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1">
-              Made with <Heart size={12} className="text-[#E76F51] fill-current" /> for Coffee Lovers
-            </span>
+        {/* Bottom Copyright matching dolphycafe.com */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-3">
+          <p>
+            © 2013 - 2026 <strong>Dolphy Cafe</strong>. Bản quyền thuộc về CÔNG TY TNHH CÁ HEO XANH.
+          </p>
+          <div className="flex items-center gap-4 text-gray-400 text-[11px]">
+            <Link to="/policies" className="hover:text-white">Chính sách bảo mật</Link>
             <span>•</span>
-            <Link to="/admin" className="text-[#D4A373] hover:underline">
-              Cổng Quản Trị Hệ Thống (Admin Hub)
-            </Link>
+            <Link to="/policies" className="hover:text-white">Quy chế đào tạo Academy</Link>
+            <span>•</span>
+            <Link to="/admin" className="hover:text-[#2076bd]">Admin Portal</Link>
           </div>
         </div>
-
       </div>
     </footer>
   );

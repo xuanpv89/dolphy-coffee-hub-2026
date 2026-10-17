@@ -1,86 +1,501 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, GraduationCap, Coffee, MapPin, Sparkles, Award, ShieldCheck, Heart, Star, CheckCircle, ChevronRight, PhoneCall, QrCode } from 'lucide-react';
-import { brandInfo, coursesData, productsData, branchesData, testimonialsData, articlesData } from '../data/dolphyData';
+import { 
+  ShoppingBag, 
+  ChevronLeft, 
+  ChevronRight, 
+  Star, 
+  Coffee, 
+  GraduationCap, 
+  MapPin, 
+  Award, 
+  Clock, 
+  ArrowRight, 
+  CheckCircle2, 
+  ExternalLink,
+  BookOpen,
+  Calendar,
+  Sparkles
+} from 'lucide-react';
+import { brandInfo, coursesData, productsData, branchesData, articlesData } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 
 export const Home: React.FC = () => {
-  const { setEnrollingCourse, addToCart } = useDolphy();
-  const featuredCourse = coursesData[0];
-  const bestSellers = productsData.filter(p => p.isBestSeller).slice(0, 4);
+  const { setEnrollingCourse, addToCart, showToast } = useDolphy();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      image: '/images/slideshow_1.jpg',
+      badge: 'DOLPHY CAFÉ • EST. 2013',
+      title: 'HƯƠNG VỊ CÀ PHÊ SÀI GÒN',
+      subtitle: 'Tự hào hơn 13 năm đồng hành cùng người yêu cà phê Thảo Điền & TP.HCM.',
+      ctaText: 'XEM 10 CHI NHÁNH',
+      ctaLink: '/branches',
+      secondaryText: 'ĐẶT HÀNG GIAO TẬN NƠI',
+      secondaryLink: 'https://dolphycoffee.cukcuk.vn/order-online/'
+    },
+    {
+      image: '/images/slideshow_2.jpg',
+      badge: 'DOLPHY ACADEMY 2026',
+      title: 'HỌC VIỆN ĐÀO TẠO BARISTA THỰC CHIẾN',
+      subtitle: 'Khóa học 21 giờ - 100% tại quầy bar cửa hàng thật - Ưu tiên tuyển dụng ngay vào chuỗi.',
+      ctaText: 'ĐĂNG KÝ HỌC VIỆN (ƯU ĐÃI)',
+      ctaLink: '/academy',
+      secondaryText: 'XEM GIÁO TRÌNH 7 BUỔI',
+      secondaryLink: '/academy'
+    },
+    {
+      image: '/images/slideshow_3.jpg',
+      badge: 'SPECIALTY COFFEE BAG',
+      title: 'DOLPHY COFFEE BAG - FIND YOUR MATCH',
+      subtitle: 'Arabica Cầu Đất, Robusta Honey Bảo Lộc & Signature Blend rang mới mỗi tuần.',
+      ctaText: 'MUA CÀ PHÊ HẠT & PHIN',
+      ctaLink: '/shop',
+      secondaryText: 'TẶNG PHIN NHÔM CAO CẤP',
+      secondaryLink: '/shop'
+    }
+  ];
+
+  // Auto slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  // Best seller products from dolphycafe.com
+  const bestSellers = productsData.filter(p => p.isBestSeller || p.category === 'beans').slice(0, 4);
+
+  // Testimonials from dolphycafe.com
+  const testimonials = [
+    {
+      name: 'Katie Beck',
+      role: 'Khách hàng thân thiết tại Thảo Điền',
+      quote: 'This is one of my favorite coffee places in Saigon. I buy their bags of coffee beans often as well as sit on the corner sipping coffee while bikes whiz by. The staff is extremely friendly.',
+      translation: 'Đây là một trong những quán cà phê yêu thích của tôi ở Sài Gòn. Tôi thường mua cà phê hạt đóng gói của họ và ngồi nhâm nhi cà phê ở góc phố trong khi xe đạp chạy vù vù qua. Nhân viên cực kỳ thân thiện.',
+      stars: 5
+    },
+    {
+      name: '권유림 (Kwon Yu-rim)',
+      role: 'Khách hàng quốc tế',
+      quote: '빡시유는 여기가 제일 맛있어요 직원분들도 친절하고 만족스러워 자주 이용 합니다.',
+      translation: 'Bạc sỉu ở đây là ngon nhất. Nhân viên thân thiện và tôi rất hài lòng nên tôi thường xuyên ghé qua thưởng thức mỗi sáng.',
+      stars: 5
+    },
+    {
+      name: 'Hoàng Minh',
+      role: 'Học viên Barista K01 - Dolphy Academy',
+      quote: 'Khóa học Barista Thực Chiến 21 giờ tại Dolphy rất khác biệt. Mình được đứng máy pha Espresso thật tại quầy bar cửa hàng từ buổi thứ 2, ra nghề tự tin nhận ca ngay!',
+      translation: '',
+      stars: 5
+    }
+  ];
 
   return (
-    <div className="space-y-20 pb-20">
+    <div className="bg-white text-[#222222]">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-[88vh] flex items-center justify-center bg-[#1A0E07] text-white overflow-hidden">
-        {/* Background Overlay with Coffee Photography */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/image5.jpg"
-            alt="Dolphy Cafe Corner"
-            className="w-full h-full object-cover object-center opacity-30 scale-105 animate-pulse-slow"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A0E07] via-[#24140A]/85 to-transparent" />
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#1A0E07]/60 to-[#1A0E07]" />
-        </div>
+      {/* 1. TOP SLIDER CAROUSEL (taberna-top-slider matching dolphycafe.com) */}
+      <section className="relative w-full h-[450px] sm:h-[550px] lg:h-[650px] overflow-hidden bg-black">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+          >
+            {/* Background image */}
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 py-20">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#D4A373]/30 text-xs sm:text-sm text-[#FAEDCD] shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-[#E76F51]"></span>
-            <span>🐬 Hệ Sinh Thái Cà Phê & Đào Tạo Barista Thực Chiến 2026</span>
+            {/* Slide Content Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+              <div className="max-w-4xl space-y-4 sm:space-y-6">
+                <span className="inline-block bg-[#f09c05] text-white text-xs sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded">
+                  {slide.badge}
+                </span>
+
+                <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white tracking-wider leading-tight drop-shadow-md">
+                  {slide.title}
+                </h1>
+
+                <p className="text-white/90 text-sm sm:text-lg max-w-2xl mx-auto drop-shadow">
+                  {slide.subtitle}
+                </p>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <Link
+                    to={slide.ctaLink}
+                    className="w-full sm:w-auto px-6 py-3 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-sm uppercase tracking-wider font-medium transition-colors shadow-lg"
+                  >
+                    {slide.ctaText}
+                  </Link>
+                  {slide.secondaryLink.startsWith('http') ? (
+                    <a
+                      href={slide.secondaryLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full sm:w-auto px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-sm uppercase tracking-wider font-medium backdrop-blur transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <span>{slide.secondaryText}</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  ) : (
+                    <Link
+                      to={slide.secondaryLink}
+                      className="w-full sm:w-auto px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-sm uppercase tracking-wider font-medium backdrop-blur transition-all"
+                    >
+                      {slide.secondaryText}
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Carousel Prev/Next Buttons */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white flex items-center justify-center transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white flex items-center justify-center transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight size={24} />
+        </button>
+
+        {/* Carousel Indicators */}
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                i === currentSlide ? 'bg-[#f09c05] w-8' : 'bg-white/60 hover:bg-white'
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* 2. BRAND MISSION & INTRO BANNER (Matching dolphycafe.com intro) */}
+      <section className="bg-[#f0f8ff] border-b border-gray-200 py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <div className="flex items-center justify-center gap-2 text-[#f09c05]">
+            <Star size={16} fill="#f09c05" />
+            <span className="font-oswald text-xs uppercase tracking-widest text-[#2076bd] font-bold">
+              DOLPHY CAFE • DI SẢN CÀ PHÊ TỪ NĂM 2013
+            </span>
+            <Star size={16} fill="#f09c05" />
           </div>
 
-          {/* Heading */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
-            Happiness in a cup <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A373] via-[#FAEDCD] to-[#D4A373]">
-              Khởi Đầu Ngày Mới Với Dolphy
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-base sm:text-xl text-[#D8CFCE] max-w-2xl mx-auto leading-relaxed">
-            Hơn 13 năm đồng hành cùng người yêu cà phê Sài Gòn. Hệ sinh thái 10 chi nhánh cà phê Ý & Phin di sản kết hợp cùng <strong>Dolphy Academy</strong> – đào tạo Barista thực chiến cam kết đầu ra việc làm.
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal italic max-w-3xl mx-auto">
+            "Dolphy Cafe tự hào vì luôn nỗ lực cải tiến chất lượng từng ngày thông qua sự học hỏi và ứng dụng kiến thức cafe mới với mong muốn khách hàng có thể tận hưởng những hạt cafe chất lượng hàng đầu, đến từ những nông trại chất lượng cao của Việt Nam."
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link
-              to="/academy"
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#D4A373] via-[#E9C496] to-[#C48B55] text-[#24140A] font-bold text-base shadow-xl hover:shadow-[#D4A373]/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
-            >
-              <GraduationCap size={20} />
-              <span>Khám Phá Dolphy Academy</span>
-            </Link>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-blue-100 max-w-3xl mx-auto">
+            <div className="p-2">
+              <span className="block font-oswald text-2xl font-bold text-[#2076bd]">13+</span>
+              <span className="text-xs text-gray-600">Năm Di Sản (2013-2026)</span>
+            </div>
+            <div className="p-2">
+              <span className="block font-oswald text-2xl font-bold text-[#2076bd]">10</span>
+              <span className="text-xs text-gray-600">Chi Nhánh TP.HCM</span>
+            </div>
+            <div className="p-2">
+              <span className="block font-oswald text-2xl font-bold text-[#2076bd]">100%</span>
+              <span className="text-xs text-gray-600">Hạt Cà Phê Mộc Chuẩn</span>
+            </div>
+            <div className="p-2">
+              <span className="block font-oswald text-2xl font-bold text-[#f09c05]">TOP 10</span>
+              <span className="text-xs text-gray-600">Saigon Coffee Đáng Thử</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <Link
-              to="/shop"
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold text-base hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
-            >
-              <Coffee size={20} />
-              <span>Mua Cà Phê Hạt & Phin</span>
-            </Link>
+      {/* 3. SẢN PHẨM BÁN CHẠY (Section matching dolphycafe.com layout) */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="section-title">SẢN PHẨM BÁN CHẠY</h2>
+          <p className="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto">
+            Những dòng hạt cà phê nguyên chất được ưa chuộng nhất tại hệ thống chuỗi Dolphy Cafe.
+          </p>
+        </div>
 
-            <Link
-              to="/branches"
-              className="w-full sm:w-auto px-6 py-4 rounded-full text-[#FAEDCD] hover:text-white text-sm font-semibold flex items-center justify-center gap-1.5"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {bestSellers.map((product) => (
+            <div
+              key={product.id}
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group"
             >
-              <MapPin size={18} />
-              <span>10 Cửa Hàng TP.HCM</span>
-            </Link>
+              {/* Product Thumbnail */}
+              <div className="relative aspect-square overflow-hidden bg-gray-50">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                />
+                {product.isBestSeller && (
+                  <span className="absolute top-2 left-2 bg-[#f09c05] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
+                    BÁN CHẠY
+                  </span>
+                )}
+                {product.badge && (
+                  <span className="absolute top-2 right-2 bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
+                    {product.badge}
+                  </span>
+                )}
+              </div>
+
+              {/* Product Info */}
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-1 text-[#f09c05] text-xs mb-1">
+                    {'★'.repeat(5)}
+                    <span className="text-gray-400 text-[11px] ml-1">({product.rating || 5.0})</span>
+                  </div>
+                  <h3 className="font-oswald text-base font-semibold text-[#222222] group-hover:text-[#2076bd] transition-colors leading-snug line-clamp-2">
+                    {product.name}
+                  </h3>
+                  <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                    {product.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-gray-400 block">Giá từ</span>
+                    <span className="font-oswald text-lg font-bold text-[#2076bd]">
+                      {product.price.toLocaleString('vi-VN')}đ
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      addToCart(product, 1, 'Nguyên hạt (Espresso)');
+                      showToast(`Đã thêm "${product.name}" vào giỏ hàng!`);
+                    }}
+                    className="p-2 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white transition-colors"
+                    title="Thêm vào giỏ hàng"
+                  >
+                    <ShoppingBag size={16} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            to="/shop"
+            className="dolphy-btn dolphy-btn-outline px-8 py-3 rounded text-sm font-semibold inline-flex items-center gap-2"
+          >
+            <span>XEM TẤT CẢ SẢN PHẨM & CÀ PHÊ GÓI</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 4. MIDDLE BANNER (middle_banner.jpg matching dolphycafe.com) */}
+      <section 
+        className="relative py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: "url('/images/middle_banner.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+          <div className="space-y-4 max-w-xl text-center md:text-left">
+            <span className="bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block">
+              DOLPHY ONLINE DELIVERY
+            </span>
+            <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wider">
+              GIAO CÀ PHÊ TẬN NƠI - ĐẶT HÀNG NHANH CHÓNG
+            </h2>
+            <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+              Thưởng thức hương vị cà phê Dolphy quen thuộc ngay tại nhà hoặc văn phòng làm việc qua ứng dụng CukCuk và giao hàng nhanh nội thành TP.HCM.
+            </p>
           </div>
 
-          {/* Key Stats Bar */}
-          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto border-t border-white/10">
-            {brandInfo.stats.map((stat, idx) => (
-              <div key={idx} className="p-3 text-center">
-                <div className="font-display text-2xl sm:text-3xl font-bold text-[#D4A373]">
-                  {stat.value}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://dolphycoffee.cukcuk.vn/order-online/"
+              target="_blank"
+              rel="noreferrer"
+              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-lg flex items-center justify-center gap-2"
+            >
+              <span>ĐẶT MÓN CUKCUK NGAY</span>
+              <ExternalLink size={16} />
+            </a>
+            <Link
+              to="/branches"
+              className="dolphy-btn px-8 py-3.5 rounded bg-white hover:bg-gray-100 text-[#222222] text-sm font-semibold shadow-lg"
+            >
+              TÌM QUÁN GẦN BẠN
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. STRATEGIC PILLAR: DOLPHY ACADEMY 2026 */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="bg-gradient-to-br from-[#165b94] via-[#2076bd] to-[#165b94] rounded-2xl text-white p-8 sm:p-12 overflow-hidden relative shadow-xl">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            
+            <div className="space-y-5">
+              <span className="bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block">
+                CHIẾN LƯỢC MỞ RỘNG 2026
+              </span>
+
+              <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wide leading-tight">
+                HỌC VIỆN ĐÀO TẠO BARISTA THỰC CHIẾN DOLPHY ACADEMY
+              </h2>
+
+              <p className="text-sm text-blue-100 leading-relaxed">
+                Không dạy lý thuyết suông! Dolphy Academy đưa học viên vào <strong>thực hành trực tiếp 100% tại quầy bar cửa hàng thật</strong> thuộc chuỗi Dolphy Cafe. Giáo trình chuẩn quốc tế SCA kết hợp tư duy vận hành chuỗi thực tế.
+              </p>
+
+              <div className="space-y-2.5 text-xs sm:text-sm">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 size={18} className="text-[#f09c05] shrink-0" />
+                  <span><strong>Thời lượng:</strong> 21 giờ thực chiến (7 buổi chuyên sâu)</span>
                 </div>
-                <div className="text-xs text-[#B8ACA7] mt-1 font-medium">
-                  {stat.label}
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 size={18} className="text-[#f09c05] shrink-0" />
+                  <span><strong>Học phí:</strong> 7.000.000đ (Đặt cọc giữ chỗ 2.000.000đ qua VietQR)</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 size={18} className="text-[#f09c05] shrink-0" />
+                  <span><strong>Đặc quyền:</strong> Cam kết ưu tiên tuyển dụng ngay vào 10 chi nhánh Dolphy</span>
+                </div>
+              </div>
+
+              <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => setEnrollingCourse(coursesData[0])}
+                  className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold"
+                >
+                  ĐĂNG KÝ GIỮ CHỖ (CỌC 2 TRIỆU)
+                </button>
+                <Link
+                  to="/academy"
+                  className="dolphy-btn px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#2076bd] text-sm font-semibold transition-colors"
+                >
+                  XEM CHI TIẾT KHÓA HỌC
+                </Link>
+              </div>
+            </div>
+
+            {/* Course card preview */}
+            <div className="bg-white rounded-xl p-6 text-[#222222] shadow-2xl space-y-4">
+              <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                <span className="font-oswald text-xs uppercase tracking-wider text-[#2076bd] font-bold">
+                  KHÓA TRỌNG TÂM 2026
+                </span>
+                <span className="bg-red-50 text-red-600 font-oswald text-xs font-bold px-2 py-0.5 rounded">
+                  CÒN 4 CHỖ THÁNG NÀY
+                </span>
+              </div>
+
+              <h3 className="font-oswald text-xl font-bold text-[#2076bd] uppercase">
+                BARISTA THỰC CHIẾN - 21H ON-STORE
+              </h3>
+
+              <div className="space-y-2 text-xs text-gray-600">
+                <div className="flex justify-between py-1 border-b border-gray-50">
+                  <span>Học phí trọn gói:</span>
+                  <strong className="text-base text-[#2076bd] font-oswald">7.000.000 VNĐ</strong>
+                </div>
+                <div className="flex justify-between py-1 border-b border-gray-50">
+                  <span>Số tiền đặt cọc:</span>
+                  <strong className="text-base text-[#f09c05] font-oswald">2.000.000 VNĐ</strong>
+                </div>
+                <div className="flex justify-between py-1 border-b border-gray-50">
+                  <span>Địa điểm học:</span>
+                  <span className="font-medium">Quầy Bar Dolphy Thảo Điền</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span>Chứng chỉ & Việc làm:</span>
+                  <span className="text-green-600 font-semibold">Ưu tiên tuyển dụng 100%</span>
+                </div>
+              </div>
+
+              <div className="p-3 rounded bg-blue-50 border border-blue-100 text-xs text-blue-900 flex items-center gap-2">
+                <Sparkles size={16} className="text-[#f09c05] shrink-0" />
+                <span>Tặng kèm 1 áo Barista Dolphy + 1kg hạt Specialty tự luyện tập.</span>
+              </div>
+
+              <button
+                onClick={() => setEnrollingCourse(coursesData[0])}
+                className="w-full py-3 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-sm font-semibold uppercase tracking-wider transition-colors shadow"
+              >
+                ĐĂNG KÝ HỌC VIÊN NGAY
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 6. KHÁCH HÀNG NÓI VỀ CHÚNG TÔI (Section matching dolphycafe.com) */}
+      <section className="bg-[#f8f9fa] py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="section-title">KHÁCH HÀNG NÓI VỀ CHÚNG TÔI</h2>
+            <p className="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto">
+              Cảm nhận chân thực từ cộng đồng khách hàng quen thuộc và đối tác gắn bó với Dolphy Cafe.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center gap-1 text-[#f09c05]">
+                    {'★'.repeat(t.stars)}
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                    "{t.quote}"
+                  </p>
+                  {t.translation && (
+                    <p className="text-xs text-gray-500 border-t border-gray-100 pt-2">
+                      [{t.translation}]
+                    </p>
+                  )}
+                </div>
+
+                <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-oswald text-sm font-bold text-[#2076bd]">
+                      — {t.name}
+                    </h4>
+                    <span className="text-[11px] text-gray-400">{t.role}</span>
+                  </div>
+                  <span className="text-lg">☕</span>
                 </div>
               </div>
             ))}
@@ -88,505 +503,103 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. FOUR PILLARS OF DOLPHY HUB 2026 */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-            Hệ Sinh Thái Toàn Diện
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#24140A]">
-            Bốn Trụ Cột Phát Triển Dolphy Coffee Hub 2026
-          </h2>
-          <p className="text-sm sm:text-base text-[#7A6E68] max-w-xl mx-auto">
-            Không chỉ là chuỗi cà phê thưởng thức, Dolphy mở rộng thành trạm kết nối giáo dục, nguyên liệu và văn hóa cà phê bền vững.
+      {/* 7. TIN TỨC MỚI (Section matching dolphycafe.com) */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="section-title">TIN TỨC MỚI</h2>
+          <p className="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto">
+            Cập nhật hoạt động mới, cẩm nang pha chế và các câu chuyện văn hóa cà phê từ Dolphy.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Pillar 1 */}
-          <div className="p-6 rounded-2xl bg-white border border-[#E8E0D5] hover:border-[#D4A373] shadow-sm hover:shadow-md transition-all group">
-            <div className="w-12 h-12 rounded-xl bg-[#FAF0E6] text-[#8C5329] flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-              ☕
-            </div>
-            <h3 className="font-display text-lg font-bold text-[#24140A] mb-2">
-              Dolphy Café Chain
-            </h3>
-            <p className="text-xs text-[#7A6E68] leading-relaxed mb-4">
-              Hệ thống 10 quán cà phê tọa lạc tại các vị trí đắc địa ở Thảo Điền, Phú Mỹ Hưng và Bình Thạnh. Không gian mở thoáng mát ngắm phố Sài Gòn.
-            </p>
-            <Link to="/branches" className="text-xs font-bold text-[#8C5329] flex items-center gap-1 hover:underline">
-              <span>Khám phá 10 quán</span> &rarr;
-            </Link>
-          </div>
-
-          {/* Pillar 2 */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#24140A] to-[#4A2C11] text-white shadow-xl relative overflow-hidden group">
-            <div className="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#E76F51] text-white">
-              Trọng Tâm
-            </div>
-            <div className="w-12 h-12 rounded-xl bg-white/10 text-[#D4A373] flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-              🎓
-            </div>
-            <h3 className="font-display text-lg font-bold text-[#FAEDCD] mb-2">
-              Dolphy Academy
-            </h3>
-            <p className="text-xs text-white/80 leading-relaxed mb-4">
-              Học viện đào tạo Barista thực chiến 100% tại quầy bar cửa hàng. Cam kết ưu tiên nhận việc ngay sau khóa học với mức thu nhập 25k-35k/giờ.
-            </p>
-            <Link to="/academy" className="text-xs font-bold text-[#D4A373] flex items-center gap-1 hover:underline">
-              <span>Xem khóa học Barista</span> &rarr;
-            </Link>
-          </div>
-
-          {/* Pillar 3 */}
-          <div className="p-6 rounded-2xl bg-white border border-[#E8E0D5] hover:border-[#D4A373] shadow-sm hover:shadow-md transition-all group">
-            <div className="w-12 h-12 rounded-xl bg-[#FAF0E6] text-[#8C5329] flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-              📦
-            </div>
-            <h3 className="font-display text-lg font-bold text-[#24140A] mb-2">
-              Coffee Bag & Gift Sets
-            </h3>
-            <p className="text-xs text-[#7A6E68] leading-relaxed mb-4">
-              Cà phê hạt/bột nguyên chất Arabica Cầu Đất, Robusta Lâm Đồng, Espresso Blend và các bộ Combo Hộp Quà Tết Traditional sang trọng.
-            </p>
-            <Link to="/shop" className="text-xs font-bold text-[#8C5329] flex items-center gap-1 hover:underline">
-              <span>Đặt mua cà phê</span> &rarr;
-            </Link>
-          </div>
-
-          {/* Pillar 4 */}
-          <div className="p-6 rounded-2xl bg-white border border-[#E8E0D5] hover:border-[#D4A373] shadow-sm hover:shadow-md transition-all group">
-            <div className="w-12 h-12 rounded-xl bg-[#FAF0E6] text-[#8C5329] flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-              🌱
-            </div>
-            <h3 className="font-display text-lg font-bold text-[#24140A] mb-2">
-              Green & Community
-            </h3>
-            <p className="text-xs text-[#7A6E68] leading-relaxed mb-4">
-              Chương trình Green Stamp mang bình cá nhân giảm rác thải nhựa, Thẻ tích điểm Mua 10 Tặng 1 và các sự kiện workshop cộng đồng cuối tuần.
-            </p>
-            <Link to="/knowledge" className="text-xs font-bold text-[#8C5329] flex items-center gap-1 hover:underline">
-              <span>Đọc cẩm nang sống xanh</span> &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. FEATURED ACADEMY COURSE BANNER */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-[#24140A] via-[#3A1F0D] to-[#4A2C11] text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-[#D4A373]/30">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E76F51] text-white text-xs font-bold uppercase tracking-wider">
-                <Sparkles size={14} />
-                <span>Khóa Tuyển Sinh Trọng Điểm 2026</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {articlesData.slice(0, 4).map((article) => (
+            <article
+              key={article.id}
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col group"
+            >
+              <div className="aspect-[16/10] overflow-hidden bg-gray-100">
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
 
-              <h2 className="font-display text-3xl sm:text-5xl font-bold text-white leading-tight">
-                Khóa Học Barista Thực Chiến Dolphy
-              </h2>
-
-              <p className="text-sm sm:text-base text-[#D8CFCE] leading-relaxed">
-                Được thiết kế dựa trên nhu cầu thực tế của thị trường F&B Sài Gòn: Học trực tiếp trên máy pha Ý công nghiệp, kèm cặp 1:1 bởi Master Trainer, và <strong>cam kết ưu tiên tuyển dụng ngay tại 10 chi nhánh Dolphy</strong> hoặc giới thiệu việc làm tại các chuỗi đối tác.
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
-                  <div className="text-xs text-[#FAEDCD]">Thời lượng</div>
-                  <div className="text-lg font-bold text-white mt-0.5">21 Giờ</div>
-                  <div className="text-[11px] text-white/60">6 buổi x 3.5h</div>
-                </div>
-                <div className="p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
-                  <div className="text-xs text-[#FAEDCD]">Môi trường</div>
-                  <div className="text-lg font-bold text-white mt-0.5">100% Quầy Bar</div>
-                  <div className="text-[11px] text-white/60">Thực hành tại quán</div>
-                </div>
-                <div className="p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 col-span-2 sm:col-span-1">
-                  <div className="text-xs text-[#FAEDCD]">Cam kết</div>
-                  <div className="text-lg font-bold text-[#E76F51] mt-0.5">Có Việc Ngay</div>
-                  <div className="text-[11px] text-white/60">25.000 - 35.000đ/h</div>
-                </div>
-              </div>
-
-              {/* Price & Actions */}
-              <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <div>
-                  <div className="text-xs text-white/60 line-through">
-                    Học phí gốc: {featuredCourse.price.toLocaleString('vi-VN')} ₫
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-[11px] text-gray-400">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={12} />
+                      {article.publishedDate}
+                    </span>
+                    <span className="text-[#2076bd] font-medium font-oswald">
+                      {article.category}
+                    </span>
                   </div>
-                  <div className="text-3xl font-extrabold text-[#FAEDCD] flex items-baseline gap-2">
-                    {featuredCourse.discountPrice.toLocaleString('vi-VN')} ₫
-                    <span className="text-xs font-normal text-white/70">(Chỉ cọc 2.000.000₫)</span>
-                  </div>
+
+                  <h3 className="font-oswald text-sm font-semibold text-[#222222] group-hover:text-[#2076bd] transition-colors line-clamp-2 leading-snug">
+                    <Link to="/knowledge">{article.title}</Link>
+                  </h3>
+
+                  <p className="text-xs text-gray-500 line-clamp-2">
+                    {article.excerpt}
+                  </p>
                 </div>
 
-                <div className="flex gap-3 w-full sm:w-auto">
-                  <button
-                    onClick={() => setEnrollingCourse(featuredCourse)}
-                    className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-gradient-to-r from-[#D4A373] to-[#8C5329] text-[#24140A] font-bold text-sm shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2"
-                  >
-                    <GraduationCap size={18} />
-                    <span>Đăng Ký Giữ Chỗ Ngay</span>
-                  </button>
-
-                  <Link
-                    to="/academy"
-                    className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all flex items-center justify-center"
-                  >
-                    Xem Giáo Trình Chi Tiết
+                <div className="pt-3 border-t border-gray-100 mt-3 text-[11px] text-gray-400 flex items-center justify-between">
+                  <span>Đăng bởi Cá Heo Xanh</span>
+                  <Link to="/knowledge" className="text-[#2076bd] hover:underline font-semibold font-oswald">
+                    ĐỌC TIẾP →
                   </Link>
                 </div>
-              </div>
-            </div>
-
-            {/* Course Visual */}
-            <div className="lg:col-span-5 relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-[#D4A373]/40 aspect-[4/3] sm:aspect-square relative group">
-                <img
-                  src="/images/image4.jpg"
-                  alt="Học viên Barista thực hành"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                  <span className="text-xs font-bold text-[#D4A373] uppercase tracking-wider">
-                    Lớp Khai Giảng Hàng Tuần
-                  </span>
-                  <div className="text-white font-bold text-lg">
-                    Tối đa 4 - 6 học viên/lớp để đảm bảo chất lượng cầm tay chỉ việc
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 4. BEST SELLER PRODUCTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-              Cà Phê Đóng Gói Cao Cấp
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#24140A] mt-1">
-              Sản Phẩm Bán Chạy Tại Quầy
-            </h2>
-          </div>
-          <Link
-            to="/shop"
-            className="text-sm font-bold text-[#8C5329] hover:text-[#4A2C11] flex items-center gap-1 group"
-          >
-            <span>Xem toàn bộ menu cà phê & hộp quà</span>
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {bestSellers.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-2xl border border-[#E8E0D5] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
-            >
-              {/* Product Image */}
-              <Link to={`/shop#${product.id}`} className="relative block h-56 overflow-hidden bg-[#F5EFE6]">
-                <img
-                  src={product.images[0] || '/images/image10.jpg'}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#24140A]/80 text-[#FAEDCD]">
-                  {product.categoryName}
-                </span>
-                {product.weight && (
-                  <span className="absolute bottom-3 right-3 text-[11px] font-semibold px-2 py-0.5 rounded bg-white/90 text-gray-800 shadow-sm">
-                    {product.weight}
-                  </span>
-                )}
-              </Link>
-
-              {/* Product Details */}
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <h3 className="font-display text-base font-bold text-[#24140A] group-hover:text-[#8C5329] transition-colors line-clamp-1">
-                    {product.name}
-                  </h3>
-                  <p className="text-xs text-[#7A6E68] mt-1.5 line-clamp-2 leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                  <div>
-                    <div className="text-xs text-gray-400">Đơn giá</div>
-                    <div className="text-base font-extrabold text-[#C0392B]">
-                      {product.price.toLocaleString('vi-VN')} ₫
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => addToCart(product, 1)}
-                    className="p-2.5 rounded-xl bg-[#4A2C11] text-white hover:bg-[#8C5329] active:scale-95 transition-all shadow-sm flex items-center gap-1.5 text-xs font-semibold"
-                    title="Thêm vào giỏ hàng"
-                  >
-                    <span>Thêm</span>
-                    <Coffee size={14} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. 10 BRANCHES SPOTLIGHT */}
-      <section className="bg-[#FAF7F2] py-16 border-y border-[#E8E0D5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-3 mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-              Không Gian Thưởng Thức
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#24140A]">
-              10 Cửa Hàng Dolphy Café Tại TP. Hồ Chí Minh
-            </h2>
-            <p className="text-sm sm:text-base text-[#7A6E68] max-w-xl mx-auto">
-              Nằm tại những góc phố đẹp nhất Thảo Điền, Phú Mỹ Hưng và Bình Thạnh. Dừng chân ngắm phố xá chuyển động và tận hưởng ly cà phê thuần túy.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Area 1: Thảo Điền */}
-            <div className="bg-white rounded-2xl p-6 border border-[#E8E0D5] shadow-sm space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-                <h3 className="font-display text-lg font-bold text-[#4A2C11] flex items-center gap-2">
-                  <MapPin size={18} className="text-[#E76F51]" />
-                  <span>Quận 2 (TP. Thủ Đức)</span>
-                </h3>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#FAF0E6] text-[#8C5329] font-bold">
-                  5 Cửa Hàng
-                </span>
-              </div>
-              <ul className="space-y-3 text-xs text-gray-700">
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 28 Thảo Điền:</strong>
-                  <span>Góc phố biểu tượng Thảo Điền & Dolphy Training Hub</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 08 Thảo Điền:</strong>
-                  <span>Không gian mở thoáng đãng, máy lạnh tầng lửng</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 03 Nguyễn Văn Hưởng:</strong>
-                  <span>Lộng gió sông Sài Gòn, yên tĩnh đọc sách</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 113 Dương Văn An:</strong>
-                  <span>Khu An Phú văn minh, bàn làm việc nhóm</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 28 Trần Lựu:</strong>
-                  <span>Khu biệt thự yên ả, cà phê sáng thảnh thơi</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Area 2: Phú Mỹ Hưng */}
-            <div className="bg-white rounded-2xl p-6 border border-[#E8E0D5] shadow-sm space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-                <h3 className="font-display text-lg font-bold text-[#4A2C11] flex items-center gap-2">
-                  <MapPin size={18} className="text-[#E76F51]" />
-                  <span>Quận 7 (Phú Mỹ Hưng)</span>
-                </h3>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#FAF0E6] text-[#8C5329] font-bold">
-                  4 Cửa Hàng
-                </span>
-              </div>
-              <ul className="space-y-3 text-xs text-gray-700">
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 1441 Nguyễn Văn Linh:</strong>
-                  <span>Trục đại lộ sầm uất, Dolphy Academy Q7</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 35 Đường Số 16 (Nam Viên):</strong>
-                  <span>Liền kề công viên xanh, không khí trong lành</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• R3-21 Lý Long Tường:</strong>
-                  <span>Khu phố đi bộ, gần các nhà hàng quốc tế</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <strong className="text-[#24140A] shrink-0">• 8 Hoàng Văn Thái:</strong>
-                  <span>Tòa nhà Prudential, phục vụ take-away nhanh</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Area 3: Bình Thạnh & Map Link */}
-            <div className="bg-white rounded-2xl p-6 border border-[#E8E0D5] shadow-sm flex flex-col justify-between space-y-4">
-              <div>
-                <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-                  <h3 className="font-display text-lg font-bold text-[#4A2C11] flex items-center gap-2">
-                    <MapPin size={18} className="text-[#E76F51]" />
-                    <span>Quận Bình Thạnh</span>
-                  </h3>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#FAF0E6] text-[#8C5329] font-bold">
-                    1 Cửa Hàng
-                  </span>
-                </div>
-                <div className="pt-3 text-xs text-gray-700 space-y-1">
-                  <strong className="text-[#24140A] block">• 79 Phạm Viết Chánh, Phường 19:</strong>
-                  <p>Khu phố ẩm thực sành điệu, kết hợp gu cà phê Ý và cà phê phin đậm chất Sài Gòn.</p>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-[#24140A] text-white space-y-3 text-center">
-                <div className="text-xs text-[#FAEDCD]">
-                  Tìm cửa hàng Dolphy gần bạn nhất
-                </div>
-                <Link
-                  to="/branches"
-                  className="w-full py-2.5 rounded-lg bg-[#D4A373] text-[#24140A] font-bold text-xs hover:brightness-110 flex items-center justify-center gap-1.5"
-                >
-                  <span>Mở Bản Đồ & Chỉ Đường</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. CUSTOMER TESTIMONIALS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-            Khách Hàng Nói Về Chúng Tôi
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#24140A]">
-            Tình Yêu Của Khách Hàng Quốc Tế & Trong Nước
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonialsData.map((test) => (
-            <div
-              key={test.id}
-              className="p-6 rounded-2xl bg-white border border-[#E8E0D5] shadow-sm relative flex flex-col justify-between"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center gap-1 text-[#F39C12]">
-                  {[...Array(test.rating)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
-                </div>
-                <p className="text-sm text-gray-700 italic leading-relaxed">
-                  "{test.comment}"
-                </p>
-                {test.translation && (
-                  <p className="text-xs text-gray-500 pt-2 border-t border-gray-100">
-                    👉 <em>{test.translation}</em>
-                  </p>
-                )}
-              </div>
-
-              <div className="pt-4 mt-4 border-t border-gray-100 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#FAF0E6] text-[#8C5329] font-bold text-sm flex items-center justify-center">
-                  {test.author[0]}
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-[#24140A]">{test.author}</div>
-                  <div className="text-[11px] text-[#8C5329]">{test.role}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 7. COFFEE ARTICLES & GUIDES HIGHLIGHT */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#8C5329]">
-              Cẩm Nang & Văn Hóa
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#24140A] mt-1">
-              Bí Quyết Pha Chế & Chuyện Cà Phê
-            </h2>
-          </div>
-          <Link
-            to="/knowledge"
-            className="text-sm font-bold text-[#8C5329] hover:text-[#4A2C11] flex items-center gap-1 group"
-          >
-            <span>Đọc tất cả bài viết</span>
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {articlesData.slice(0, 3).map((art) => (
-            <article
-              key={art.id}
-              className="bg-white rounded-2xl border border-[#E8E0D5] overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col group"
-            >
-              <div className="h-48 overflow-hidden bg-[#F0EBE4] relative">
-                <img
-                  src={art.image}
-                  alt={art.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-black/70 text-white">
-                  {art.category}
-                </span>
-              </div>
-
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-                <div>
-                  <div className="text-[11px] text-gray-400 mb-1">{art.readTime} • {art.author}</div>
-                  <h3 className="font-display text-base font-bold text-[#24140A] group-hover:text-[#8C5329] transition-colors line-clamp-2">
-                    {art.title}
-                  </h3>
-                  <p className="text-xs text-[#7A6E68] mt-2 line-clamp-2 leading-relaxed">
-                    {art.excerpt}
-                  </p>
-                </div>
-
-                <Link
-                  to={`/knowledge#${art.id}`}
-                  className="text-xs font-bold text-[#4A2C11] hover:text-[#8C5329] flex items-center gap-1 pt-2 border-t border-gray-100"
-                >
-                  <span>Đọc tiếp bài viết</span>
-                  <ChevronRight size={14} />
-                </Link>
               </div>
             </article>
           ))}
         </div>
+
+        <div className="text-center mt-10">
+          <Link
+            to="/knowledge"
+            className="dolphy-btn dolphy-btn-outline px-8 py-3 rounded text-sm font-semibold"
+          >
+            XEM TẤT CẢ TIN TỨC & BÀI VIẾT
+          </Link>
+        </div>
       </section>
 
-      {/* 8. CAREERS & BARISTA HIRING CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-[#8C5329] via-[#4A2C11] to-[#24140A] text-white p-8 sm:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-3 max-w-xl text-center md:text-left">
-            <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-[#FAEDCD] text-xs font-bold uppercase tracking-wider">
-              Gia Nhập Đội Ngũ Dolphy
+      {/* 8. 10 CHI NHÁNH CỬA HÀNG (Quick Locator matching dolphycafe.com) */}
+      <section className="bg-[#f0f8ff] py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="space-y-3 max-w-xl text-center lg:text-left">
+            <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd]">
+              HỆ THỐNG 10 ĐIỂM BÁN TẠI TP.HCM
             </span>
-            <h2 className="font-display text-3xl font-bold text-white">
-              Bạn Muốn Trở Thành Một Chú Cá Heo Barista?
+            <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#222222]">
+              TÌM CỬA HÀNG DOLPHY CAFE GẦN BẠN NHẤT
             </h2>
-            <p className="text-sm text-[#E5DED7] leading-relaxed">
-              Dolphy liên tục tuyển dụng Barista Full-time & Part-time (25k - 35k/giờ) tại Quận 2, Quận 7 và Bình Thạnh. Không cần kinh nghiệm, bạn sẽ được đào tạo bài bản và làm việc trong môi trường thân thiện, văn minh.
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Tọa lạc tại các vị trí đắc địa ở Thảo Điền (Quốc Hương, Xuân Thủy, Nguyễn Bá Huân,...), Bình Thạnh và Phú Mỹ Hưng Quận 7. Không gian thoáng mát, máy lạnh, wifi mạnh mẽ và thân thiện với thú cưng.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+          <div className="flex flex-wrap gap-3 justify-center">
             <Link
-              to="/careers"
-              className="px-6 py-3.5 rounded-full bg-[#FAEDCD] text-[#24140A] font-bold text-sm shadow-md hover:bg-white active:scale-95 transition-all text-center"
+              to="/branches"
+              className="dolphy-btn dolphy-btn-primary px-6 py-3 rounded text-sm font-semibold shadow flex items-center gap-2"
             >
-              Ứng Tuyển Barista Ngay
+              <MapPin size={16} />
+              <span>XEM BẢN ĐỒ & TIỆN ÍCH 10 CHI NHÁNH</span>
             </Link>
+            <a
+              href="https://dolphycoffee.cukcuk.vn/order-online/"
+              target="_blank"
+              rel="noreferrer"
+              className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold shadow flex items-center gap-2"
+            >
+              <span>GIAO HÀNG TẬN NƠI</span>
+              <ExternalLink size={14} />
+            </a>
           </div>
         </div>
       </section>

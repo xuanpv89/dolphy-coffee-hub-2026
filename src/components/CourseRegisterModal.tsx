@@ -71,19 +71,19 @@ export const CourseRegisterModal: React.FC = () => {
       <div className="relative w-full max-w-2xl bg-[#FDFBF7] rounded-3xl shadow-2xl overflow-hidden border border-[#D4A373]/30 my-6">
         
         {/* Header */}
-        <div className="px-6 py-4 bg-gradient-to-r from-[#24140A] via-[#4A2C11] to-[#7A4E27] text-white flex items-center justify-between">
+        <div className="px-6 py-4 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <GraduationCap className="text-[#D4A373]" size={24} />
+            <GraduationCap className="text-[#f09c05]" size={24} />
             <div>
-              <h3 className="font-display text-lg font-bold">
-                {createdReg ? 'Đăng Ký Thành Công!' : 'Đăng Ký Khóa Học Dolphy Academy 2026'}
+              <h3 className="font-oswald text-lg font-bold uppercase tracking-wider">
+                {createdReg ? 'ĐĂNG KÝ THÀNH CÔNG!' : 'ĐĂNG KÝ KHÓA HỌC DOLPHY ACADEMY 2026'}
               </h3>
-              <p className="text-xs text-[#FAEDCD]">Cam kết đào tạo thực chiến & ưu tiên tuyển dụng</p>
+              <p className="text-xs text-blue-100">Cam kết đào tạo thực chiến & ưu tiên tuyển dụng</p>
             </div>
           </div>
           <button
             onClick={handleClose}
-            className="p-1 rounded-lg text-white/70 hover:text-white hover:bg-white/10"
+            className="p-1 rounded text-white/80 hover:text-white hover:bg-white/10"
           >
             <X size={20} />
           </button>
@@ -326,10 +326,10 @@ export const CourseRegisterModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#4A2C11] via-[#7A4E27] to-[#8C5329] text-white font-bold text-base hover:brightness-110 shadow-lg active:scale-98 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-sm uppercase tracking-wider font-semibold shadow-lg transition-colors flex items-center justify-center gap-2"
                 >
                   <GraduationCap size={18} />
-                  <span>Xác Nhận Đăng Ký ({currentPrice.toLocaleString('vi-VN')} ₫)</span>
+                  <span>XÁC NHẬN ĐĂNG KÝ ({currentPrice.toLocaleString('vi-VN')} VNĐ)</span>
                 </button>
               </div>
 
