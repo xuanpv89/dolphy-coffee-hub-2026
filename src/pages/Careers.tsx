@@ -5,6 +5,25 @@ import { useDolphy } from '../context/DolphyContext';
 
 export const Careers: React.FC = () => {
   const { setApplyingJob, t, language } = useDolphy();
+  const [selectedDept, setSelectedDept] = React.useState<string>('all');
+  const [searchJob, setSearchJob] = React.useState<string>('');
+
+  const departments = [
+    { id: 'all', name: language === 'vi' ? 'Tất cả vị trí' : 'All Roles', count: jobsData.length },
+    { id: 'Khối Cửa Hàng', name: language === 'vi' ? 'Khối Cửa Hàng' : 'Store Ops', count: jobsData.filter(j => j.department.includes('Cửa Hàng')).length },
+    { id: 'Khối Vận Hành', name: language === 'vi' ? 'Khối Vận Hành' : 'Operations', count: jobsData.filter(j => j.department.includes('Vận Hành')).length },
+    { id: 'Khối Doanh Nghiệp', name: language === 'vi' ? 'B2B & Catering' : 'B2B & Catering', count: jobsData.filter(j => j.department.includes('Doanh Nghiệp')).length },
+    { id: 'Khối Học Viện', name: language === 'vi' ? 'Học Viện Barista' : 'Academy', count: jobsData.filter(j => j.department.includes('Học Viện')).length },
+    { id: 'Khối Marketing', name: language === 'vi' ? 'Marketing & Media' : 'Marketing', count: jobsData.filter(j => j.department.includes('Marketing')).length },
+    { id: 'Khối Bếp Bánh', name: language === 'vi' ? 'Bếp Bánh Bakery' : 'Bakery Chef', count: jobsData.filter(j => j.department.includes('Bánh')).length }
+  ];
+
+  const filteredJobs = jobsData.filter(j => {
+    const matchDept = selectedDept === 'all' || j.department.includes(selectedDept);
+    const matchSearch = j.title.toLowerCase().includes(searchJob.toLowerCase()) ||
+                        j.description.toLowerCase().includes(searchJob.toLowerCase());
+    return matchDept && matchSearch;
+  });
 
   return (
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
@@ -285,8 +304,47 @@ export const Careers: React.FC = () => {
           </p>
         </div>
 
+        {/* Department Filters & Search */}
+        <div className="bg-white dark:bg-[#1e293b] p-4 rounded-xl border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-2">
+            {departments.map((dept) => (
+              <button
+                key={dept.id}
+                onClick={() => setSelectedDept(dept.id)}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-oswald tracking-wider font-semibold transition-all uppercase flex items-center gap-1.5 ${
+                  selectedDept === dept.id
+                    ? 'bg-[#2076bd] text-white shadow-md'
+                    : 'bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'
+                }`}
+              >
+                <span>{dept.name}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                  selectedDept === dept.id ? 'bg-white/30 text-white' : 'bg-gray-200 dark:bg-slate-700 text-gray-500'
+                }`}>
+                  {dept.count}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="relative w-full md:w-64">
+            <input
+              type="text"
+              placeholder={language === 'vi' ? 'Tìm theo tên vị trí...' : 'Search roles...'}
+              value={searchJob}
+              onChange={(e) => setSearchJob(e.target.value)}
+              className="w-full pl-3 pr-3 py-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-gray-800 dark:text-white focus:outline-none focus:border-[#2076bd]"
+            />
+          </div>
+        </div>
+
         <div className="space-y-6">
-          {jobsData.map((job) => (
+          {filteredJobs.length === 0 ? (
+            <div className="text-center py-12 bg-gray-50 dark:bg-slate-800/40 rounded-xl text-gray-500 dark:text-gray-400">
+              {language === 'vi' ? 'Không tìm thấy vị trí tuyển dụng phù hợp.' : 'No matching positions found.'}
+            </div>
+          ) : (
+            filteredJobs.map((job) => (
             <div
               key={job.id}
               className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all space-y-6"
@@ -355,7 +413,7 @@ export const Careers: React.FC = () => {
                 </button>
               </div>
             </div>
-          ))}
+          )))}
         </div>
       </section>
 

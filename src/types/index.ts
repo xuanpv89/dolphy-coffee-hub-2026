@@ -2,7 +2,7 @@ export interface Product {
   id: string | number;
   name: string;
   alias: string;
-  category: 'coffee-bag' | 'combo' | 'equipment';
+  category: 'coffee-bag' | 'combo' | 'equipment' | 'bottled-drinks' | 'bakery';
   categoryName: string;
   price: number;
   compareAtPrice?: number;

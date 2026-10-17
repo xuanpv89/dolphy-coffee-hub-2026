@@ -322,10 +322,10 @@ export const Home: React.FC = () => {
 
       {/* 4. MIDDLE BANNER */}
       <section 
-        className="relative py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/images/middle_banner.jpg')" }}
+        className="relative py-20 sm:py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }}
       >
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d3b66]/95 via-[#165b94]/90 to-black/85" />
         <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-white">
           <div className="space-y-4 max-w-xl text-center md:text-left">
             <span className="bg-[#f09c05] text-white text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block">

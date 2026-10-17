@@ -308,9 +308,10 @@ export const coursesData: Course[] = [
 ];
 
 export const productsData: Product[] = [
+  // 1. Cà Phê Gói & Hạt Mộc (Coffee Bags)
   {
     id: 'arabica-250g',
-    name: 'Arabica 250g (100% Arabica) (Gói)',
+    name: 'Arabica Cầu Đất 250g (100% Arabica) (Gói)',
     alias: 'arabica-250g-100-arabica-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
@@ -334,7 +335,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   },
   {
     id: 'arabica-500g',
-    name: 'Arabica 500g (100% Arabica) (Gói)',
+    name: 'Arabica Cầu Đất 500g (100% Arabica) (Gói Tiết Kiệm)',
     alias: 'arabica-500g-100-arabica-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
@@ -355,7 +356,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   },
   {
     id: 'robusta-250g',
-    name: 'Robusta 250g (100% Robusta) (Gói)',
+    name: 'Fine Robusta Lâm Đồng 250g (100% Robusta) (Gói)',
     alias: 'robusta-250g-100-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
@@ -378,7 +379,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   },
   {
     id: 'robusta-500g',
-    name: 'Robusta 500g (100% Robusta) (Gói)',
+    name: 'Fine Robusta Lâm Đồng 500g (100% Robusta) (Gói)',
     alias: 'robusta-500g-100-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
@@ -399,7 +400,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
   },
   {
     id: 'espresso-250g',
-    name: 'Espresso 250g (80% Arabica + 20% Robusta) (Gói)',
+    name: 'Espresso Blend Signature 250g (80% Arabica + 20% Robusta)',
     alias: 'espresso-250g-80-arabica-20-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
@@ -422,7 +423,7 @@ Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt k
   },
   {
     id: 'espresso-500g',
-    name: 'Espresso 500g (80% Arabica + 20% Robusta) (Gói)',
+    name: 'Espresso Blend Signature 500g (80% Arabica + 20% Robusta)',
     alias: 'espresso-500g-80-arabica-20-robusta-goi',
     category: 'coffee-bag',
     categoryName: 'Cà phê túi / Coffee Bag',
@@ -442,11 +443,308 @@ Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt k
     inStock: true
   },
   {
+    id: 'single-origin-typica-250g',
+    name: 'Specialty Single Origin Typica Cầu Đất 250g (Micro-lot)',
+    alias: 'specialty-single-origin-typica-cau-dat-250g',
+    category: 'coffee-bag',
+    categoryName: 'Cà phê túi / Coffee Bag',
+    price: 320000,
+    weight: '250g',
+    origin: 'Trạm Hành, Cầu Đất (Độ cao 1.650m - Sơ chế ướt lên men yếm khí)',
+    roastLevel: 'Light-Medium Roast (Rang sáng)',
+    tasteNotes: ['Hương trà đen Bergamot', 'Vị cam vàng tươi mát', 'Mật ong hoa rừng', 'Body mượt như lụa'],
+    description: `Dòng cà phê Single Origin Typica cổ thụ tuyển chọn từ những gốc cà phê hơn 40 năm tuổi tại Cầu Đất. Trái chín được tuyển lựa bằng tay với độ đường Brix > 22%, lên men yếm khí 48 giờ và phơi giàn trong nhà kính.
+
+Mỗi ngụm cà phê bừng nở hương cam sảng khoái và vị ngọt sâu như mật ong hoa rừng. Sản phẩm dành riêng cho những tín đồ thưởng thức Pour-over thủ công.`,
+    brewingRecommendation: 'Pha V60, Chemex, Origami, Aeropress hoặc Cold Drip.',
+    image: '/images/prod_arabica_250g.jpg',
+    images: [
+      '/images/prod_arabica_250g.jpg',
+      '/images/fanpage/retail-beans-bakery-display.jpg'
+    ],
+    inStock: true,
+    isBestSeller: false
+  },
+  {
+    id: 'traditional-phin-blend-500g',
+    name: 'Cà Phê Mộc Phin Sài Gòn Đậm Vị 500g (Gu Truyền Thống)',
+    alias: 'ca-phe-moc-phin-sai-gon-dam-vi-500g',
+    category: 'coffee-bag',
+    categoryName: 'Cà phê túi / Coffee Bag',
+    price: 310000,
+    weight: '500g',
+    origin: 'Cao nguyên Đắk Nông & Lâm Đồng',
+    roastLevel: 'Dark Roast (Rang đậm)',
+    tasteNotes: ['Hương khói gỗ thông', 'Vị đắng bùi socola 85%', 'Độ sánh cao', 'Hậu vị ngọt sâu'],
+    description: `Công thức rang mộc gia truyền tái hiện trọn vẹn phong vị cà phê vỉa hè Sài Gòn xưa: đậm, đắng, sánh bốc khói nghi ngút khi nhỏ từng giọt qua chiếc phin nhôm. Tuyệt đối không hương liệu nhân tạo, không bột bắp đậu nành.`,
+    brewingRecommendation: 'Pha phin nhôm truyền thống, pha cà phê sữa đá Sài Gòn, cà phê đen đường phèn.',
+    image: '/images/prod_robusta_500g.jpg',
+    images: [
+      '/images/prod_robusta_500g.jpg',
+      '/images/fanpage/knowledge-phin-brewing-guide.jpg'
+    ],
+    inStock: true
+  },
+
+  // 2. Đồ Uống Đóng Chai Fresh (Bottled Drinks)
+  {
+    id: 'bottle-coldbrew-classic',
+    name: 'Chai Cold Brew Truyền Thống Dolphy 330ml (Ủ Chậm 18 Giờ)',
+    alias: 'chai-cold-brew-truyen-thong-dolphy-330ml',
+    category: 'bottled-drinks',
+    categoryName: 'Đồ uống đóng chai Fresh',
+    price: 65000,
+    weight: '330ml',
+    origin: 'Chiết xuất từ hạt 100% Arabica Cầu Đất',
+    tasteNotes: ['Thanh mát dịu nhẹ', 'Hương socola sữa', 'Ít chua', 'Hậu vị ngọt thanh'],
+    description: `Được ủ lạnh chậm suốt 18 tiếng ở nhiệt độ 4°C bằng nước lọc tinh khiết RO, chiết xuất từng giọt tinh túy không gắt dầu, hàm lượng axit thấp, êm dịu cho dạ dày. Đóng chai thủy tinh cao cấp, bảo quản tủ mát 5 ngày.`,
+    brewingRecommendation: 'Uống trực tiếp với đá lạnh hoặc thêm 1 lát cam tươi.',
+    image: '/images/fanpage/drink-layered-coffee-tumbler.jpg',
+    images: [
+      '/images/fanpage/drink-layered-coffee-tumbler.jpg',
+      '/images/fanpage/retail-ice-coffee-poster.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
+  },
+  {
+    id: 'bottle-coldbrew-orange',
+    name: 'Chai Cold Brew Cam Vàng Mọng Nước 330ml (Signature Drink)',
+    alias: 'chai-cold-brew-cam-vang-mong-nuoc-330ml',
+    category: 'bottled-drinks',
+    categoryName: 'Đồ uống đóng chai Fresh',
+    price: 75000,
+    weight: '330ml',
+    origin: 'Cold Brew Arabica + Nước ép cam vàng Navel tươi',
+    tasteNotes: ['Chua ngọt sảng khoái', 'Hương tinh dầu vỏ cam', 'Hậu vị cà phê thơm nồng'],
+    description: `Món giải khát 'best-seller' những trưa hè oi ả tại Thảo Điền! Sự kết hợp bùng nổ giữa cà phê ủ lạnh mượt mà và nước ép cam vàng Navel ngọt mọng, điểm xuyết thêm chút hương hoa hồi thoang thoảng.`,
+    brewingRecommendation: 'Lắc đều, rót ra ly kèm đá viên và thưởng thức.',
+    image: '/images/fanpage/drink-strawberry-smoothie-tumbler.jpg',
+    images: [
+      '/images/fanpage/drink-strawberry-smoothie-tumbler.jpg',
+      '/images/fanpage/drink-layered-coffee-tumbler.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
+  },
+  {
+    id: 'bottle-salted-cream-coffee',
+    name: 'Chai Cà Phê Muối Kem Béo Dolphy Signature 330ml',
+    alias: 'chai-ca-phe-muoi-kem-beo-dolphy-signature-330ml',
+    category: 'bottled-drinks',
+    categoryName: 'Đồ uống đóng chai Fresh',
+    price: 68000,
+    weight: '330ml',
+    origin: 'Cà phê phin Robusta + Lớp màng kem muối biển hồng Himalaya',
+    tasteNotes: ['Vị mặn mòi tinh tế', 'Kem béo ngậy mịn màng', 'Cà phê đậm đà', 'Hài hòa quyến rũ'],
+    description: `Lớp kem béo làm từ sữa tươi thanh trùng kết hợp muối hồng Himalaya nguyên khoáng, phủ lên trên cốt cà phê phin đậm đặc được chiết xuất chậm từ hạt Robusta rang nâu.`,
+    brewingRecommendation: 'Ngon nhất khi uống từng ngụm nghiêng 45 độ để kem muối và cà phê cùng hòa quyện.',
+    image: '/images/fanpage/drink-salted-cream-tulip.jpg',
+    images: [
+      '/images/fanpage/drink-salted-cream-tulip.jpg',
+      '/images/fanpage/retail-ice-coffee-poster.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
+  },
+  {
+    id: 'bottle-bac-siu-saigon',
+    name: 'Chai Bạc Sỉu Sài Gòn Ba Tầng 330ml (Gu Thảo Điền)',
+    alias: 'chai-bac-siu-saigon-ba-tang-330ml',
+    category: 'bottled-drinks',
+    categoryName: 'Đồ uống đóng chai Fresh',
+    price: 62000,
+    weight: '330ml',
+    origin: 'Sữa đặc Ngôi Sao + Sữa tươi thanh trùng Đà Lạt + Cốt cà phê Dolphy',
+    tasteNotes: ['Ngọt bùi béo ngậy', 'Thơm nồng hương cà phê', 'Vị thanh không ngấy'],
+    description: `Thức uống quốc dân được khách hàng nước ngoài và bản xứ tại Thảo Điền khen ngợi suốt 13 năm qua: sữa nhiều hơn cà phê, béo thơm ngất ngây mà không hề ngọt gắt.`,
+    brewingRecommendation: 'Lắc nhẹ trước khi uống, dùng kèm đá bi.',
+    image: '/images/fanpage/retail-ice-coffee-poster.jpg',
+    images: [
+      '/images/fanpage/retail-ice-coffee-poster.jpg',
+      '/images/fanpage/drink-layered-coffee-tumbler.jpg'
+    ],
+    inStock: true
+  },
+  {
+    id: 'bottle-oolong-milk-tea',
+    name: 'Chai Trà Sữa Ô Long Nướng Dolphy 500ml (Kèm Thạch Củ Năng)',
+    alias: 'chai-tra-sua-o-long-nuong-dolphy-500ml',
+    category: 'bottled-drinks',
+    categoryName: 'Đồ uống đóng chai Fresh',
+    price: 79000,
+    weight: '500ml',
+    origin: 'Lá trà Ô Long Cao Sơn Bảo Lộc sao lửa than củi',
+    tasteNotes: ['Mùi khói trà nướng thơm lừng', 'Vị chát dịu hậu ngọt', 'Sữa béo thanh thoát'],
+    description: `Ủ từ cốt trà Ô Long nướng nguyên lá cao cấp Bảo Lộc, kết hợp cùng sữa tươi nguyên kem. Mùi trà thơm đượm nồng nàn lưu luyến mãi nơi cuống họng.`,
+    brewingRecommendation: 'Uống lạnh trực tiếp từ chai hoặc thêm đá.',
+    image: '/images/fanpage/drink-okinawa-milk-tea.jpg',
+    images: [
+      '/images/fanpage/drink-okinawa-milk-tea.jpg'
+    ],
+    inStock: true
+  },
+
+  // 3. Bánh Nướng Tươi Dolphy Bakery (Bakery & Pastries)
+  {
+    id: 'bakery-butter-croissant',
+    name: 'Bánh Croissant Bơ Pháp Truyền Thống (Nướng Tươi Mỗi Sáng)',
+    alias: 'banh-croissant-bo-phap-truyen-thong',
+    category: 'bakery',
+    categoryName: 'Bánh Dolphy Bakery',
+    price: 45000,
+    weight: '75g',
+    origin: 'Bơ nguyên chất Elle & Vire nhập khẩu từ Pháp',
+    tasteNotes: ['Vỏ ngoài giòn rụm', 'Ruột tổ ong xốp mềm', 'Thơm lừng mùi bơ thơm'],
+    description: `Chiếc bánh sừng bò kinh điển được nhào nặn và ủ bột kỳ công 24 giờ với hàng chục lớp bơ Pháp thơm nức. Thưởng thức cùng tách Cappuccino hoặc Americano nóng là bữa sáng lý tưởng chuẩn phong cách châu Âu tại Thảo Điền.`,
+    brewingRecommendation: 'Dùng kèm cà phê sáng hoặc hâm nóng lại trong lò nướng 2 phút ở 160°C.',
+    image: '/images/fanpage/retail-beans-bakery-display.jpg',
+    images: [
+      '/images/fanpage/retail-beans-bakery-display.jpg',
+      '/images/fanpage/retail-teabreak-catering.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
+  },
+  {
+    id: 'bakery-pain-au-chocolat',
+    name: 'Bánh Pain au Chocolat Socola Bỉ Đậm Đà',
+    alias: 'banh-pain-au-chocolat-socola-bi',
+    category: 'bakery',
+    categoryName: 'Bánh Dolphy Bakery',
+    price: 52000,
+    weight: '85g',
+    origin: 'Nhân socola thanh Callebaut Bỉ 54%',
+    tasteNotes: ['Giòn xốp nhiều tầng', 'Socola tan chảy béo đắng', 'Mùi bơ ngào ngạt'],
+    description: `Hai thanh socola đen Bỉ thượng hạng ẩn mình bên trong lớp vỏ ngàn lớp giòn tan. Khi cắn vào, socola hơi ấm quyện cùng bột bánh béo ngậy tạo nên trải nghiệm vị giác khó quên.`,
+    brewingRecommendation: 'Thích hợp với Latte nóng hoặc Trà Ô Long.',
+    image: '/images/fanpage/retail-teabreak-catering.jpg',
+    images: [
+      '/images/fanpage/retail-teabreak-catering.jpg',
+      '/images/fanpage/retail-beans-bakery-display.jpg'
+    ],
+    inStock: true
+  },
+  {
+    id: 'bakery-blueberry-danish',
+    name: 'Bánh Danish Việt Quất Phô Mai Tươi (Blueberry Cheese Danish)',
+    alias: 'banh-danish-viet-quat-pho-mai-tuoi',
+    category: 'bakery',
+    categoryName: 'Bánh Dolphy Bakery',
+    price: 58000,
+    weight: '90g',
+    origin: 'Mứt quả việt quất Canada & Phô mai kem Anchor',
+    tasteNotes: ['Chua thanh ngọt mọng', 'Kem phô mai béo ngậy', 'Đế bánh giòn rụm'],
+    description: `Sự kết hợp hoàn hảo giữa vị chua ngọt tự nhiên của quả việt quất tươi và lớp kem phô mai béo mềm trên nền đế bánh Danish nướng vàng ươm.`,
+    brewingRecommendation: 'Rất hợp khi nhâm nhi cùng Cold Brew cam hoặc Trà nóng.',
+    image: '/images/fanpage/retail-beans-bakery-display.jpg',
+    images: [
+      '/images/fanpage/retail-beans-bakery-display.jpg'
+    ],
+    inStock: true
+  },
+  {
+    id: 'bakery-cookies-chocochip',
+    name: 'Hộp Bánh Cookies Chocolate Chip Hạt Điều Dolphy (Hộp 6 Chiếc)',
+    alias: 'hop-banh-cookies-chocolate-chip-hat-dieu-dolphy',
+    category: 'bakery',
+    categoryName: 'Bánh Dolphy Bakery',
+    price: 85000,
+    weight: '180g (6 chiếc đóng túi riêng)',
+    origin: 'Hạt điều Bình Phước tuyển chọn + Hạt socola chip',
+    tasteNotes: ['Giòn tan rôm rốp', 'Bùi béo hạt điều', 'Ngọt dịu không ngấy'],
+    description: `Món bánh ăn vặt nướng thủ công được đóng hộp xinh xắn, là bạn đồng hành tuyệt vời trong các buổi học nhóm, làm việc văn phòng hoặc quà tặng nhỏ xinh.`,
+    brewingRecommendation: 'Chấm nhẹ vào ly cà phê sữa hoặc trà chiều.',
+    image: '/images/fanpage/retail-teabreak-catering.jpg',
+    images: [
+      '/images/fanpage/retail-teabreak-catering.jpg'
+    ],
+    inStock: true
+  },
+
+  // 4. Dụng Cụ Pha Chế & Merchandise (Gear & Lifestyle)
+  {
+    id: 'phin-ca-phe-nhom',
+    name: 'Phin Cà Phê Nhôm Mạ Anode Dolphy (4 Màu Sắc Cao Cấp)',
+    alias: 'phin-ca-phe-nhom-truyen-thong',
+    category: 'equipment',
+    categoryName: 'Dụng cụ & Merchandise',
+    price: 100000,
+    weight: '150g',
+    description: `Phin nhôm truyền thống được chế tác từ chất liệu nhôm dày dặn, cứng cáp với công nghệ mạ anode cao cấp, giúp duy trì nhiệt độ ủ ổn định và bảo toàn trọn vẹn hương vị cà phê nguyên bản.
+
+Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
+1. Đen truyền thống (Traditional Black)
+2. Vàng đồng quý phái (Bronze Gold)
+3. Xám đậm hiện đại (Dark Grey)
+4. Xanh dương đại dương (Royal Blue)`,
+    image: '/images/prod_phin_nhom.jpg',
+    images: [
+      '/images/prod_phin_nhom.jpg',
+      '/images/fanpage/knowledge-phin-brewing-guide.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
+  },
+  {
+    id: 'dolphy-tumbler-500ml',
+    name: 'Bình Giữ Nhiệt Dolphy Stainless Steel Tumbler 500ml (Xanh Đại Dương)',
+    alias: 'binh-giu-nhiet-dolphy-tumbler-500ml',
+    category: 'equipment',
+    categoryName: 'Dụng cụ & Merchandise',
+    price: 280000,
+    weight: '300g (Ruột Inox 304 2 lớp chân không)',
+    description: `Bình giữ nhiệt Dolphy phiên bản giới hạn với họa tiết chú cá heo xanh khắc laser tinh xảo. Khả năng giữ nóng 8 giờ và giữ lạnh đá viên lên đến 18 giờ.
+
+Đặc quyền sống xanh: Mang bình đến bất kỳ chi nhánh Dolphy nào được giảm trực tiếp 10% trên hóa đơn và tích thêm 1 Green Stamp!`,
+    image: '/images/fanpage/community-green-stamp-card.jpg',
+    images: [
+      '/images/fanpage/community-green-stamp-card.jpg',
+      '/images/fanpage/drink-layered-coffee-tumbler.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
+  },
+  {
+    id: 'barista-milk-pitcher',
+    name: 'Ca Đánh Sữa Barista Pitcher 450ml Thép Không Gỉ (Vạch Chia Đo SCA)',
+    alias: 'ca-danh-sua-barista-pitcher-450ml',
+    category: 'equipment',
+    categoryName: 'Dụng cụ & Merchandise',
+    price: 220000,
+    weight: '210g',
+    description: `Ca đánh sữa chuyên nghiệp chuẩn học viện Dolphy Barista Academy. Miệng rót mỏ vịt nhọn giúp kiểm soát dòng sữa cực mảnh, dễ dàng tạo hình các họa tiết phức tạp như Thiên nga, Rosetta nhiều cánh hay Tulip đa tầng.`,
+    image: '/images/fanpage/academy-latte-art-pouring.jpg',
+    images: [
+      '/images/fanpage/academy-latte-art-pouring.jpg',
+      '/images/fanpage/academy-milk-frothing.jpg'
+    ],
+    inStock: true
+  },
+  {
+    id: 'dolphiers-striped-tshirt',
+    name: 'Áo Thun Dolphier Official Sọc Xanh Trắng (100% Cotton 2 Chiều)',
+    alias: 'ao-thun-dolphier-official-soc-xanh-trang',
+    category: 'equipment',
+    categoryName: 'Dụng cụ & Merchandise',
+    price: 195000,
+    weight: '250g (Đủ size S, M, L, XL)',
+    description: `Chiếc áo thun đồng phục mang tính biểu tượng của gia đình Dolphy! Chất vải thun cotton 100% dày dặn, thấm hút mồ hôi tốt với họa tiết sọc ngang xanh - trắng năng động, ngực thêu logo cá heo sắc sảo.`,
+    image: '/images/fanpage/career-dolphiers-striped-uniform.jpg',
+    images: [
+      '/images/fanpage/career-dolphiers-striped-uniform.jpg',
+      '/images/fanpage/career-customer-warm-greeting.jpg'
+    ],
+    inStock: true
+  },
+
+  // 5. Combo Quà Tặng & Dịch Vụ Doanh Nghiệp (Combos & B2B)
+  {
     id: 'combo-phin-traditional-light',
     name: 'COMBO PHIN VIETNAM - TRADITIONAL LIGHT (Gu Tinh Tế)',
     alias: 'combo-phin-vietnam-traditional-light',
     category: 'combo',
-    categoryName: 'Combo Hộp Quà Tết 2026',
+    categoryName: 'Combo & Doanh nghiệp',
     price: 779000,
     compareAtPrice: 840000,
     weight: '750g cà phê + 1 phin nhôm',
@@ -473,7 +771,7 @@ Thành phần hộp quà gồm:
     name: 'COMBO PHIN VIET NAM - TRADITIONAL MEDIUM (Gu Hài Hòa)',
     alias: 'cappuccino',
     category: 'combo',
-    categoryName: 'Combo Hộp Quà Tết 2026',
+    categoryName: 'Combo & Doanh nghiệp',
     price: 679000,
     compareAtPrice: 730000,
     weight: '750g cà phê + 1 phin nhôm',
@@ -497,7 +795,7 @@ Thành phần combo gồm:
     name: 'COMBO PHIN VIETNAM - TRADITIONAL STRONG (Gu Mạnh Mẽ)',
     alias: 'latte',
     category: 'combo',
-    categoryName: 'Combo Hộp Quà Tết 2026',
+    categoryName: 'Combo & Doanh nghiệp',
     price: 579000,
     compareAtPrice: 635000,
     weight: '750g cà phê + 1 phin nhôm',
@@ -517,26 +815,69 @@ Thành phần combo gồm:
     inStock: true
   },
   {
-    id: 'phin-ca-phe-nhom',
-    name: 'Phin Cà Phê Nhôm Truyền Thống Dolphy',
-    alias: 'phin-ca-phe-nhom-truyen-thong',
-    category: 'equipment',
-    categoryName: 'Dụng cụ pha chế',
-    price: 100000,
-    weight: '150g',
-    description: `Phin nhôm truyền thống được chế tác từ chất liệu nhôm dày dặn, cứng cáp với công nghệ mạ anode cao cấp, giúp duy trì nhiệt độ ủ ổn định và bảo toàn trọn vẹn hương vị cà phê nguyên bản.
-
-Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
-1. Đen truyền thống (Traditional Black)
-2. Vàng đồng quý phái (Bronze Gold)
-3. Xám đậm hiện đại (Dark Grey)
-4. Xanh dương đại dương (Royal Blue)`,
-    image: '/images/prod_phin_nhom.jpg',
+    id: 'combo-tet-giftbox-2026',
+    name: 'Hộp Quà Tết Dolphy Giáp Thìn 2026 "Xuân Khởi Sắc"',
+    alias: 'hop-qua-tet-dolphy-giap-thin-2026-xuan-khoi-sac',
+    category: 'combo',
+    categoryName: 'Combo & Doanh nghiệp',
+    price: 950000,
+    compareAtPrice: 1100000,
+    weight: '1.2kg (Trọn bộ quà tặng cao cấp)',
+    description: `Set quà Tết độc quyền kết hợp giữa cà phê rang mộc thượng hạng và phụ kiện lễ hội:
+• 01 Gói Arabica Cầu Đất 250g
+• 01 Gói Espresso Signature 250g
+• 01 Phin nhôm mạ vàng Gold Edition
+• 01 Bộ bao lì xì Dolphy may mắn độc quyền
+• Hộp cứng vân gỗ bọc nhung ép kim sang trọng.`,
+    image: '/images/fanpage/career-red-envelopes-tet.jpg',
     images: [
-      '/images/prod_phin_nhom.jpg',
-      '/images/fanpage/knowledge-phin-brewing-guide.jpg'
+      '/images/fanpage/career-red-envelopes-tet.jpg',
+      '/images/prod_combo_phin_light.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
+  },
+  {
+    id: 'b2b-teabreak-mini-package',
+    name: 'Gói Tiệc Teabreak Doanh Nghiệp Mini (20 - 30 Khách)',
+    alias: 'goi-tiec-teabreak-doanh-nghiep-mini',
+    category: 'combo',
+    categoryName: 'Combo & Doanh nghiệp',
+    price: 2500000,
+    weight: 'Trọn gói setup tận nơi',
+    description: `Giải pháp tiệc teabreak trọn gói cho hội thảo, workshop, họp văn phòng:
+• 30 Suất đồ uống (Cà phê phin sữa đá, Trà trái cây nhiệt đới, Nước ép tươi)
+• 60 Chiếc bánh ngọt & mặn nướng tươi (Croissant bơ Pháp, Pain au chocolat, Danish việt quất)
+• Trái cây tươi cắt sẵn theo mùa (Dưa hấu, Nho Mỹ, Dâu tây)
+• Đầy đủ khay kệ trang trí hoa tươi, ly dĩa giấy thân thiện môi trường và nhân viên setup chu đáo.`,
+    image: '/images/fanpage/retail-teabreak-catering.jpg',
+    images: [
+      '/images/fanpage/retail-teabreak-catering.jpg',
+      '/images/fanpage/community-b2b-corporate-booth.jpg'
     ],
     inStock: true
+  },
+  {
+    id: 'b2b-teabreak-vip-package',
+    name: 'Gói Tiệc Teabreak & Quầy Barista Lưu Động VIP (50 - 100 Khách)',
+    alias: 'goi-tiec-teabreak-quay-barista-luu-dong-vip',
+    category: 'combo',
+    categoryName: 'Combo & Doanh nghiệp',
+    price: 6800000,
+    weight: 'Trọn gói quầy Barista pha trực tiếp',
+    description: `Đẳng cấp khác biệt cho sự kiện khai trương, hội nghị khách hàng, giải thi đấu:
+• Mang máy pha Espresso công nghiệp và quầy bar gỗ Dolphy đến tận địa điểm
+• 02 Barista chuyên nghiệp phục vụ pha chế trực tiếp không giới hạn (Latte Art, Cappuccino, Cold Brew...)
+• Bàn tiệc bánh ngọt Âu cao cấp 5 sao và trà hoa thảo mộc
+• Đã được tin dùng bởi Prudential Tower, SSIS, Spartan Race Vietnam.`,
+    image: '/images/fanpage/community-b2b-corporate-booth.jpg',
+    images: [
+      '/images/fanpage/community-b2b-corporate-booth.jpg',
+      '/images/fanpage/retail-office-teabreak-service.jpg',
+      '/images/fanpage/retail-teabreak-catering.jpg'
+    ],
+    inStock: true,
+    isBestSeller: true
   }
 ];
 
@@ -1279,20 +1620,94 @@ export const jobsData: Job[] = [
     title: 'Giám Sát Ca / Quản Lý Cửa Hàng (Store Supervisor / Manager)',
     department: 'Khối Vận Hành',
     type: 'Full-time',
-    salary: '9.000.000 – 14.000.000 đ/tháng + KPIs + Thưởng',
-    locations: ['Quận 2', 'Quận 7'],
-    ageRange: '22 – 30 tuổi',
-    description: 'Chịu trách nhiệm vận hành cửa hàng, quản lý ca làm việc, kiểm soát chất lượng đồ uống và chăm sóc khách hàng tại chi nhánh.',
+    salary: '10.000.000 – 15.000.000 đ/tháng + KPIs + Thưởng Doanh Số',
+    locations: ['Quận 2 (Thảo Điền)', 'Quận 7 (Phú Mỹ Hưng)'],
+    ageRange: '22 – 32 tuổi',
+    description: 'Chịu trách nhiệm toàn diện về chất lượng phục vụ, kiểm soát cost nguyên vật liệu dưới 28%, vận hành hệ thống POS CukCuk và đào tạo đội ngũ nhân sự tại chi nhánh.',
     requirements: [
-      'Có từ 1 năm kinh nghiệm ở vị trí tương đương tại các chuỗi F&B hoặc Specialty Coffee.',
-      'Kỹ năng quản lý nhân sự, phân chia ca làm việc và giải quyết tình huống khéo léo.',
-      'Giao tiếp tiếng Anh trôi chảy.',
-      'Tâm huyết với nghề và thấu hiểu triết lý "Happiness in a cup".'
+      'Có từ 1 năm kinh nghiệm quản lý ca hoặc cửa hàng tại các chuỗi F&B hoặc Specialty Coffee.',
+      'Kỹ năng lãnh đạo, giao tiếp tiếng Anh tốt với khách quốc tế.',
+      'Tinh thần trách nhiệm cao, thấu hiểu văn hóa Happiness in a cup.'
     ],
     benefits: [
-      'Thu nhập cạnh tranh theo năng lực quản lý.',
-      'Được tham gia các khóa đào tạo quản trị chuyên sâu.',
-      'Chế độ bảo hiểm và phúc lợi đầy đủ theo luật lao động.'
+      'Thu nhập cạnh tranh cùng thưởng KPIs doanh thu hàng tháng.',
+      'Được tham gia các khóa đào tạo quản trị F&B thực chiến cao cấp.',
+      'Đầy đủ chế độ BHXH, BHYT, nghỉ phép năm và du lịch thường niên.'
+    ]
+  },
+  {
+    id: 'job-b2b-catering',
+    title: 'Chuyên Viên Phát Triển Dịch Vụ Doanh Nghiệp (B2B & Teabreak Specialist)',
+    department: 'Khối Doanh Nghiệp & Catering',
+    type: 'Full-time',
+    salary: '10.000.000 – 18.000.000 đ/tháng + Hoa hồng hợp đồng',
+    locations: ['Văn phòng Dolphy Hub 2026 - Quận 2'],
+    ageRange: '22 – 30 tuổi',
+    description: 'Tìm kiếm, tư vấn và chăm sóc khách hàng doanh nghiệp, trường quốc tế (SSIS, AIS...) và các đơn vị tổ chức sự kiện có nhu cầu tiệc Teabreak, cà phê văn phòng và quà tặng Tết.',
+    requirements: [
+      'Có kinh nghiệm sales B2B trong mảng F&B, sự kiện hoặc khách sạn.',
+      'Kỹ năng đàm phán, thuyết trình và lập báo giá chuyên nghiệp.',
+      'Nhanh nhẹn, ngoại hình sáng, tác phong chỉn chu.'
+    ],
+    benefits: [
+      'Lương cứng + Hoa hồng hấp dẫn theo doanh thu dự án.',
+      'Môi trường làm việc tự chủ, sáng tạo và nhiều cơ hội mở rộng quan hệ đối tác lớn.'
+    ]
+  },
+  {
+    id: 'job-academy-trainer',
+    title: 'Huấn Luyện Viên Barista & Sensory (Dolphy Academy Trainer)',
+    department: 'Khối Học Viện & Đào Tạo',
+    type: 'Full-time',
+    salary: '12.000.000 – 18.000.000 đ/tháng + Thưởng đứng lớp',
+    locations: ['Dolphy Training Hub - 28 Thảo Điền & 1441 Nguyễn Văn Linh'],
+    ageRange: '24 – 35 tuổi',
+    description: 'Giảng dạy các khóa học Barista Thực Chiến, Latte Art chuyên sâu và Workshop trải nghiệm cho học viên và nhân sự nội bộ.',
+    requirements: [
+      'Có chứng chỉ SCA (Barista Skills / Sensory Skills) hoặc từng đạt giải tại các cuộc thi Barista.',
+      'Ít nhất 2 năm kinh nghiệm đứng quầy và 1 năm kinh nghiệm đào tạo.',
+      'Kỹ năng truyền cảm hứng, kiên nhẫn và giọng nói rõ ràng.'
+    ],
+    benefits: [
+      'Thù lao đứng lớp cạnh tranh, được cấp kinh phí tham gia các kỳ thi Barista quốc gia.',
+      'Được tự do sáng tạo giáo trình và cập nhật xu hướng cà phê làn sóng thứ ba.'
+    ]
+  },
+  {
+    id: 'job-marketing-creator',
+    title: 'Content Creator & Quản Trị Fanpage (Social Media Specialist)',
+    department: 'Khối Marketing & Sáng Tạo',
+    type: 'Full-time',
+    salary: '9.000.000 – 14.000.000 đ/tháng',
+    locations: ['Quận 2 - Đi thị sát 10 chi nhánh'],
+    ageRange: '21 – 28 tuổi',
+    description: 'Lên ý tưởng, chụp ảnh, quay video ngắn (TikTok/Reels) về những khoảnh khắc đời thường tại 10 chi nhánh Dolphy, văn hóa thú cưng, giải chạy Spartan và các sự kiện cộng đồng.',
+    requirements: [
+      'Thành thạo chụp ảnh, quay dựng video ngắn bằng điện thoại/máy ảnh.',
+      'Gu thẩm mỹ tinh tế, trẻ trung, nắm bắt nhanh các trào lưu MXH.',
+      'Yêu thích cà phê và văn hóa lối sống Thảo Điền.'
+    ],
+    benefits: [
+      'Được cấp thiết bị làm việc, thưởng nóng cho các video viral.',
+      'Miễn phí đồ uống hàng ngày tại toàn bộ 10 chi nhánh Dolphy.'
+    ]
+  },
+  {
+    id: 'job-bakery-chef',
+    title: 'Nhân Viên Bếp Bánh Nướng Tươi (Dolphy Bakery Pastry Staff)',
+    department: 'Khối Bếp Bánh & Sản Xuất',
+    type: 'Toàn thời gian / Bán thời gian',
+    salary: '7.500.000 – 10.500.000 đ/tháng + Phụ cấp ca sáng',
+    locations: ['Bếp Trung Tâm Dolphy Bakery - TP. Thủ Đức'],
+    ageRange: '18 – 30 tuổi',
+    description: 'Tham gia sơ chế, tạo hình và nướng các mẻ bánh Croissant, Danish, Cookies thơm lừng mỗi sáng sớm để phân phối đến 10 chi nhánh.',
+    requirements: [
+      'Yêu thích làm bánh, cẩn thận, sạch sẽ và tuân thủ nghiêm ngặt vệ sinh ATTP.',
+      'Chưa có kinh nghiệm sẽ được Bếp trưởng đào tạo từ đầu.'
+    ],
+    benefits: [
+      'Được học nghề làm bánh Âu chuyên nghiệp.',
+      'Phụ cấp ăn trưa và thưởng chuyên cần.'
     ]
   }
 ];
