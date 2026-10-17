@@ -253,7 +253,7 @@ export const Home: React.FC = () => {
               {/* Product Thumbnail */}
               <div className="relative aspect-square overflow-hidden bg-gray-50">
                 <img
-                  src={product.image}
+                  src={product.image || product.images?.[0]}
                   alt={product.name}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 />

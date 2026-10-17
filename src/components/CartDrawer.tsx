@@ -62,7 +62,7 @@ export const CartDrawer: React.FC = () => {
                   className="p-3.5 rounded-lg border border-gray-200 bg-white flex gap-3 shadow-sm hover:border-[#2076bd] transition-colors"
                 >
                   <img
-                    src={item.product.image}
+                    src={item.product.image || item.product.images?.[0] || '/images/prod_arabica_250g.jpg'}
                     alt={item.product.name}
                     className="w-16 h-16 object-cover rounded bg-gray-50 shrink-0"
                   />

@@ -12,6 +12,7 @@ export interface Product {
   tasteNotes?: string[];
   description: string;
   brewingRecommendation?: string;
+  image?: string;
   images: string[];
   inStock: boolean;
   isBestSeller?: boolean;

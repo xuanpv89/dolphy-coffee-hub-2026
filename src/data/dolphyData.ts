@@ -237,6 +237,7 @@ export const productsData: Product[] = [
 
 Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hương thơm phong phú của hoa cỏ, độ chua thanh tao nhã và hậu vị ngọt sâu lưu luyến. Phù hợp hoàn hảo cho cách pha Pour Over (V60), Cold Brew và pha máy Espresso hiện đại.`,
     brewingRecommendation: 'Pha Pour-over / V60, Cold Brew, Máy pha Espresso gia đình hoặc quán.',
+    image: '/images/prod_arabica_250g.jpg',
     images: [
       '/images/prod_arabica_250g.jpg',
       '/images/prod_arabica_500g.jpg',
@@ -259,6 +260,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
     tasteNotes: ['Hương hoa cỏ', 'Vị thanh ngọt', 'Acidity sáng', 'Hậu vị thanh lịch'],
     description: `Gói tiết kiệm 500g dành cho người yêu thích hương vị Arabica tinh tế sử dụng hàng ngày tại nhà hoặc văn phòng. 100% hạt Arabica được đóng gói van 1 chiều giúp bảo toàn hương vị và khí CO2 tự nhiên của hạt cà phê tươi mới.`,
     brewingRecommendation: 'Pha V60, Cold Brew, French Press, Máy Espresso.',
+    image: '/images/prod_arabica_500g.jpg',
     images: [
       '/images/prod_arabica_500g.jpg',
       '/images/prod_arabica_250g.jpg'
@@ -280,6 +282,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
 
 Đặc trưng bởi hương vị cà phê Việt Nam truyền thống mạnh mẽ, body dày đậm, hậu vị béo ngậy và hàm lượng caffeine tự nhiên giúp bạn bừng tỉnh năng lượng tức thì. Lựa chọn số 1 cho người mê cà phê sữa đá, cà phê đen đá và pha phin truyền thống.`,
     brewingRecommendation: 'Pha phin nhôm truyền thống, pha máy Espresso gu đậm, pha cà phê sữa đá.',
+    image: '/images/prod_robusta_250g.jpg',
     images: [
       '/images/prod_robusta_250g.jpg',
       '/images/prod_robusta_500g.jpg'
@@ -301,6 +304,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
     tasteNotes: ['Đậm đà', 'Thơm nồng', 'Socola nguyên chất', 'Hậu vị bền bỉ'],
     description: `Gói 500g kinh tế cho người sành gu cà phê đậm đà hoặc các văn phòng làm việc. Hạt Robusta hạt to đồng đều, được rang theo công thức gia truyền của Dolphy giúp hạt dậy mùi thơm ngào ngạt mà không hề bị khét cháy.`,
     brewingRecommendation: 'Pha phin truyền thống, cà phê đen, bạc sỉu.',
+    image: '/images/prod_robusta_500g.jpg',
     images: [
       '/images/prod_robusta_500g.jpg',
       '/images/prod_robusta_250g.jpg'
@@ -322,6 +326,7 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
 
 Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt kem crema dày óng ánh, vị chua thanh hòa quyện êm ái cùng độ đắng dịu ngọt của caramel. Rất dễ uống và thích hợp cho cả món cà phê đen lẫn món có sữa như Latte, Cappuccino.`,
     brewingRecommendation: 'Máy pha Espresso, Moka Pot, Phin nhôm tân thời, Cold Brew kết hợp cam sả.',
+    image: '/images/prod_espresso_250g.jpg',
     images: [
       '/images/prod_espresso_250g.jpg',
       '/images/prod_espresso_500g.jpg'
@@ -343,6 +348,7 @@ Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt k
     tasteNotes: ['Cân bằng tuyệt đối', 'Vị ngọt caramel', 'Crema óng ả', 'Đậm đà êm mượt'],
     description: `Gói lớn 500g dòng Espresso Blend kinh điển của Dolphy. Đảm bảo nguồn năng lượng mỗi sớm mai với hương thơm lan tỏa ngập tràn không gian.`,
     brewingRecommendation: 'Máy pha Espresso, Phin truyền thống, French Press.',
+    image: '/images/prod_espresso_500g.jpg',
     images: [
       '/images/prod_espresso_500g.jpg',
       '/images/prod_espresso_250g.jpg'
@@ -368,6 +374,7 @@ Thành phần hộp quà gồm:
 • 01 gói cà phê Arabica thượng hạng (250gr)
 • 01 Phin cà phê nhôm cao cấp dập logo Dolphy tinh xảo
 • Hộp quà sang trọng thiết kế đậm phong vị Tết truyền thống`,
+    image: '/images/prod_combo_phin_light.jpg',
     images: [
       '/images/prod_combo_phin_light.jpg',
       '/images/prod_phin_nhom.jpg'
@@ -392,6 +399,7 @@ Thành phần combo gồm:
 • 01 gói cà phê Mix Arabica & Robusta (250gr)
 • 01 Phin cà phê nhôm cao cấp Dolphy
 • Hộp quà Tết trang nhã kèm thiệp chúc mừng`,
+    image: '/images/prod_combo_phin_medium.jpg',
     images: [
       '/images/prod_combo_phin_medium.jpg',
       '/images/prod_phin_nhom.jpg'
@@ -415,6 +423,7 @@ Thành phần combo gồm:
 • 01 gói cà phê Robusta tuyển chọn (250gr)
 • 01 Phin cà phê nhôm truyền thống Dolphy
 • Hộp quà cao cấp`,
+    image: '/images/prod_combo_phin_strong.jpg',
     images: [
       '/images/prod_combo_phin_strong.jpg',
       '/images/prod_phin_nhom.jpg'
@@ -436,6 +445,7 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
 2. Vàng đồng quý phái (Bronze Gold)
 3. Xám đậm hiện đại (Dark Grey)
 4. Xanh dương đại dương (Royal Blue)`,
+    image: '/images/prod_phin_nhom.jpg',
     images: [
       '/images/prod_phin_nhom.jpg',
       '/images/image4.jpg'
