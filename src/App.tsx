@@ -32,39 +32,48 @@ const ScrollToTop: React.FC = () => {
   return null;
 };
 
+const AppLayout: React.FC = () => {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
+
+  return (
+    <div className={`min-h-screen flex flex-col ${isAdmin ? 'bg-[#f1f5f9] dark:bg-[#0b1329]' : 'bg-[#f8fafc] dark:bg-[#0f172a]'} text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white transition-colors duration-200`}>
+      {!isAdmin && <Navbar />}
+      
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/academy" element={<Academy />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/branches" element={<Branches />} />
+          <Route path="/knowledge" element={<KnowledgeHub />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/policies" element={<Policies />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
+
+      {!isAdmin && <Footer />}
+
+      {/* Interactive Global Drawers & Modals */}
+      <CartDrawer />
+      <CheckoutModal />
+      <CourseRegisterModal />
+      <ApplicationModal />
+      <Toast />
+      {!isAdmin && <BackToTop />}
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <DolphyProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white transition-colors duration-200">
-          <Navbar />
-          
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/academy" element={<Academy />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/branches" element={<Branches />} />
-              <Route path="/knowledge" element={<KnowledgeHub />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/policies" element={<Policies />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </main>
-
-          <Footer />
-
-          {/* Interactive Global Drawers & Modals */}
-          <CartDrawer />
-          <CheckoutModal />
-          <CourseRegisterModal />
-          <ApplicationModal />
-          <Toast />
-          <BackToTop />
-        </div>
+        <AppLayout />
       </Router>
     </DolphyProvider>
   );
