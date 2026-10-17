@@ -39,6 +39,18 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   letter-spacing: 0.3px;
 }
 
+.font-serif-cormorant, .font-cormorant, .font-serif-editorial {
+  font-family: 'Playfair Display', 'Lora', Georgia, serif;
+}
+
+.font-serif-playfair, .font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-serif-lora, .font-lora {
+  font-family: 'Lora', Georgia, serif;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
