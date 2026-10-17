@@ -90,7 +90,7 @@ export const Shop: React.FC = () => {
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }} />
         <div className="relative max-w-7xl mx-auto space-y-3">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/20 backdrop-blur-sm">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#FAEA28] font-bold inline-flex items-center gap-1.5 px-3 py-1 rounded bg-black/20 backdrop-blur-sm">
             <Sparkles size={14} />
             <span>{t('shop.hero_tag')}</span>
           </span>
@@ -262,7 +262,7 @@ export const Shop: React.FC = () => {
                       
                       {/* Best Seller Badge */}
                       {product.isBestSeller && (
-                        <span className="absolute top-2.5 right-2.5 bg-[#c88232] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
+                        <span className="absolute top-2.5 right-2.5 bg-[#FAEA28] text-slate-950 text-[10px] font-oswald uppercase tracking-wider font-extrabold px-2 py-0.5 rounded shadow">
                           {t('shop.badge_bestseller')}
                         </span>
                       )}
@@ -284,7 +284,7 @@ export const Shop: React.FC = () => {
                     {/* Body */}
                     <div className="p-4 space-y-2.5">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-[#c88232] font-bold">
+                        <span className="text-[#FAEA28] font-bold">
                           {'★'.repeat(5)}
                         </span>
                         <span className="text-gray-400 dark:text-gray-500 text-[11px] font-oswald">{pOrigin || 'Dolphy Specialty'}</span>
@@ -355,7 +355,7 @@ export const Shop: React.FC = () => {
                         addToCart(product, 1, selectedGrind);
                         showToast(language === 'vi' ? `Đã thêm "${product.name}" vào giỏ!` : `Added "${product.name}" to cart!`);
                       }}
-                      className="px-3.5 py-2 rounded-lg bg-[#2076bd] hover:bg-[#c88232] text-white text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm"
+                      className="px-3.5 py-2 rounded-lg bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm"
                     >
                       <ShoppingBag size={13} />
                       <span>{t('shop.select_btn')}</span>
@@ -430,7 +430,7 @@ export const Shop: React.FC = () => {
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
+                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
                     {language === 'vi' ? 'Quầy Trưng Bày Thực Tế' : 'In-Store Retail Display'}
                   </span>
                   <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">
@@ -610,7 +610,7 @@ export const Shop: React.FC = () => {
                       showToast(language === 'vi' ? `Đã thêm "${modalProduct.name}" vào giỏ hàng!` : `Added "${modalProduct.name}" to cart!`);
                       setModalProduct(null);
                     }}
-                    className="flex-1 py-3 rounded-xl bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+                    className="flex-1 py-3 rounded-xl bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
                   >
                     <ShoppingBag size={15} />
                     <span>{t('shop.add_to_cart')}</span>
@@ -619,7 +619,7 @@ export const Shop: React.FC = () => {
                     href="https://dolphycoffee.cukcuk.vn/order-online/"
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-3 rounded-xl bg-[#c88232] hover:bg-[#d98900] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-md"
+                    className="px-4 py-3 rounded-xl bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950 font-oswald text-xs uppercase tracking-wider font-extrabold transition-colors flex items-center justify-center gap-1.5 shadow-md"
                     title={language === 'vi' ? 'Đặt giao hàng tận nơi' : 'Online Delivery'}
                   >
                     <span>{language === 'vi' ? 'Giao Hàng Tận Nơi' : 'Delivery'}</span>

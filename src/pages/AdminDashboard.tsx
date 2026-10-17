@@ -429,7 +429,7 @@ export const AdminDashboard: React.FC = () => {
             {/* Exit Admin & Open Website Link */}
             <Link
               to="/"
-              className="px-3 py-1.5 rounded-lg bg-[#2076bd] hover:bg-[#c88232] text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-all shadow-sm flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-lg bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-all shadow-sm flex items-center gap-1.5"
             >
               <ArrowLeft size={13} />
               <span className="hidden sm:inline">{language === 'vi' ? 'Về Website Chính' : 'Back to Website'}</span>
@@ -438,7 +438,7 @@ export const AdminDashboard: React.FC = () => {
 
             {/* Manager Avatar Badge */}
             <div className="hidden lg:flex items-center gap-2 pl-2 border-l border-slate-800">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#2076bd] to-[#c88232] text-white font-bold text-xs flex items-center justify-center shadow">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#2076bd] to-[#FAEA28] text-slate-950 font-bold text-xs flex items-center justify-center shadow">
                 AD
               </div>
               <div className="text-left text-xs leading-tight">
@@ -1243,7 +1243,7 @@ export const AdminDashboard: React.FC = () => {
                 href={brandInfo.mapEmbedUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-1.5 rounded-lg bg-[#2076bd] hover:bg-[#c88232] text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 shadow-xs"
+                className="px-3.5 py-1.5 rounded-lg bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 shadow-xs"
               >
                 <MapPin size={13} />
                 <span>{language === 'vi' ? 'Mở Bản Đồ Vệ Tinh' : 'Open Google Map'}</span>
@@ -1415,7 +1415,7 @@ export const AdminDashboard: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2">
                 <button
                   onClick={exportSitemapAsJson}
-                  className="px-3.5 py-1.5 rounded-lg bg-[#2076bd] hover:bg-[#c88232] text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 shadow-xs"
+                  className="px-3.5 py-1.5 rounded-lg bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 shadow-xs"
                 >
                   <Download size={13} />
                   <span>{language === 'vi' ? 'Tải Sitemap JSON' : 'Export Sitemap JSON'}</span>

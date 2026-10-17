@@ -25,7 +25,7 @@ export const Branches: React.FC = () => {
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-3">
-          <span className="text-xs font-oswald uppercase tracking-widest text-[#c88232] font-bold">
+          <span className="text-xs font-oswald uppercase tracking-widest text-[#FAEA28] font-bold">
             {language === 'vi' ? 'HỆ THỐNG CHUỖI CỬA HÀNG DOLPHY CAFE' : 'DOLPHY CAFÉ STORE NETWORK'}
           </span>
           <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
@@ -43,7 +43,7 @@ export const Branches: React.FC = () => {
         <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md bg-white dark:bg-[#1e293b]">
           <div className="p-4 bg-[#2076bd] text-white flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-[#c88232]" />
+              <MapPin size={18} className="text-[#FAEA28]" />
               <span className="font-oswald text-sm font-bold uppercase tracking-wide">
                 {t('branches.map_box_title')}
               </span>

@@ -50,8 +50,8 @@ export const FooterV2: React.FC = () => {
         {/* 10 Branches by Neighborhood */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <MapPin size={16} className="text-[#c88232]" />
-            <h4 className="font-oswald text-xs uppercase tracking-widest text-amber-400 font-bold">
+            <MapPin size={16} className="text-[#FAEA28]" />
+            <h4 className="font-oswald text-xs uppercase tracking-widest text-[#FAEA28] font-bold">
               {language === 'vi' ? 'HỆ THỐNG 10 KHÔNG GIAN XANH DOLPHY CAFÉ TẠI TP.HCM' : '10 GREEN DOLPHY CAFÉ SPACES IN SAIGON'}
             </h4>
           </div>

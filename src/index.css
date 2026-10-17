@@ -6,10 +6,10 @@
   --dolphy-blue: #2076bd;
   --dolphy-blue-dark: #165b94;
   --dolphy-blue-light: #3ba0e6;
-  --dolphy-amber: #c88232;
-  --dolphy-amber-dark: #ad6c24;
-  --dolphy-accent: #c88232;
-  --dolphy-accent-dark: #ad6c24;
+  --dolphy-amber: #FAEA28;
+  --dolphy-amber-dark: #D4C618;
+  --dolphy-accent: #FAEA28;
+  --dolphy-accent-dark: #D4C618;
   --dolphy-dark: #222222;
   --dolphy-gray: #666666;
   --dolphy-bg-light: #f8f9fa;
@@ -84,13 +84,14 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   color: #ffffff;
 }
 .dolphy-btn-primary:hover {
-  background-color: #c88232;
-  color: #ffffff;
+  background-color: #FAEA28;
+  color: #1a1a1a;
 }
 
 .dolphy-btn-amber {
-  background-color: #c88232;
-  color: #ffffff;
+  background-color: #FAEA28;
+  color: #1a1a1a;
+  font-weight: 600;
 }
 .dolphy-btn-amber:hover {
   background-color: #2076bd;
@@ -130,7 +131,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background-color: #c88232;
+  background-color: #FAEA28;
   border-radius: 2px;
 }
 

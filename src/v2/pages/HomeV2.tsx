@@ -436,7 +436,7 @@ export const HomeV2: React.FC = () => {
             </div>
 
             <div className="lg:col-span-5 space-y-5 text-left">
-              <span className="px-3.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-[#c88232] font-mono text-xs font-bold uppercase tracking-wider">
+              <span className="px-3.5 py-1 rounded-full bg-yellow-100 dark:bg-yellow-950/60 text-[#857200] dark:text-[#FAEA28] font-mono text-xs font-bold uppercase tracking-wider">
                 {activeStory.stat}
               </span>
 

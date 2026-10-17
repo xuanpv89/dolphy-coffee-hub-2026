@@ -31,7 +31,7 @@ export const Careers: React.FC = () => {
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#c88232] text-white text-xs font-oswald uppercase tracking-widest font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold">
             <Sparkles size={14} />
             <span>{t('careers.hero_tag')}</span>
           </div>
@@ -53,7 +53,7 @@ export const Careers: React.FC = () => {
             className="w-full h-full object-cover object-[center_35%]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
-            <span className="text-[#c88232] font-oswald text-xs sm:text-sm uppercase tracking-widest font-bold">
+            <span className="text-[#FAEA28] font-oswald text-xs sm:text-sm uppercase tracking-widest font-bold">
               {t('careers.banner_tag')}
             </span>
             <h2 className="font-oswald text-2xl sm:text-4xl font-bold uppercase mt-1">
@@ -91,7 +91,7 @@ export const Careers: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3">
-            <div className="w-12 h-12 rounded-lg bg-orange-50 dark:bg-slate-800 text-[#c88232] flex items-center justify-center mx-auto text-2xl font-bold">
+            <div className="w-12 h-12 rounded-lg bg-yellow-50 dark:bg-yellow-950/40 text-[#857200] dark:text-[#FAEA28] flex items-center justify-center mx-auto text-2xl font-bold">
               ⏰
             </div>
             <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -119,7 +119,7 @@ export const Careers: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3">
-            <div className="w-12 h-12 rounded-lg bg-orange-50 dark:bg-slate-800 text-[#c88232] flex items-center justify-center mx-auto text-2xl font-bold">
+            <div className="w-12 h-12 rounded-lg bg-yellow-50 dark:bg-yellow-950/40 text-[#857200] dark:text-[#FAEA28] flex items-center justify-center mx-auto text-2xl font-bold">
               🚀
             </div>
             <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -183,7 +183,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
                 {language === 'vi' ? 'Sáng Tạo & Gắn Kết' : 'Craft & Bonding'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -229,7 +229,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
                 {language === 'vi' ? 'Văn Hóa Chân Thành' : 'Warm Hospitality'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -275,7 +275,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#c88232]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
                 {language === 'vi' ? 'Phúc Lợi & Đãi Ngộ' : 'Benefits & Perks'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -364,7 +364,7 @@ export const Careers: React.FC = () => {
                       <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-[#2076bd] dark:text-[#3ba0e6]">
                         {jType}
                       </span>
-                      <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-orange-50 dark:bg-orange-950/40 text-[#c88232]">
+                      <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-yellow-50 dark:bg-yellow-950/40 text-[#857200] dark:text-[#FAEA28]">
                         {jDept}
                       </span>
                     </div>
@@ -415,7 +415,7 @@ export const Careers: React.FC = () => {
 
                   <button
                     onClick={() => setApplyingJob(job)}
-                    className="w-full sm:w-auto px-6 py-2.5 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-xs font-semibold uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-6 py-2.5 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs font-semibold uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-2"
                   >
                     <Send size={14} />
                     <span>{t('careers.apply_now')}</span>

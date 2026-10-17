@@ -54,7 +54,7 @@ export const AcademyV2: React.FC = () => {
                     }`}>
                       KHOÁ #{idx + 1}
                     </span>
-                    <span className={`font-serif-cormorant text-lg font-bold ${active ? 'text-amber-300' : 'text-[#c88232]'}`}>
+                    <span className={`font-serif-cormorant text-lg font-bold ${active ? 'text-[#FAEA28]' : 'text-[#857200] dark:text-[#FAEA28]'}`}>
                       {price}₫
                     </span>
                   </div>

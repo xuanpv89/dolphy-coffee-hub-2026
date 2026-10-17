@@ -19,11 +19,11 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#0b1626] dark:bg-[#060e1a] text-slate-300 border-t-2 border-[#2076bd] pt-14 pb-8 font-sans transition-colors">
+    <footer className="bg-[#0b1626] dark:bg-[#060e1a] text-white/90 border-t-2 border-[#2076bd] pt-14 pb-8 font-sans transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-white/10">
           
           {/* CỘT 1: NHẬN DIỆN THƯƠNG HIỆU & MẠNG XÃ HỘI (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
@@ -35,29 +35,29 @@ export const Footer: React.FC = () => {
                 <span className="font-oswald text-xl font-bold tracking-wider text-white uppercase block leading-none">
                   DOLPHY CAFÉ
                 </span>
-                <span className="text-[10px] tracking-widest text-[#c88232] font-semibold uppercase block mt-1 font-oswald">
+                <span className="text-[10px] tracking-widest text-[#FAEA28] font-bold uppercase block mt-1 font-oswald">
                   HAPPINESS IN A CUP • SINCE 2013
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-white/80 leading-relaxed">
               {language === 'vi'
                 ? 'Chuỗi cà phê hạt mộc nguyên chất và Học viện Barista thực chiến tại TP.HCM từ năm 2013. Tự hào kết nối cộng đồng bản địa và quốc tế qua từng tách cà phê chân thành.'
                 : 'Specialty whole bean coffee chain & hands-on Barista Academy in HCMC since 2013. Proudly serving authentic espresso and connecting global communities.'}
             </p>
 
             {/* Top 10 Award Highlight */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs text-[#c88232]">
-              <Award size={15} className="shrink-0" />
-              <span className="font-oswald text-[11px] font-medium tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-[#FAEA28]">
+              <Award size={15} className="shrink-0 text-[#FAEA28]" />
+              <span className="font-oswald text-[11px] font-semibold tracking-wide text-white/95">
                 {t('footer.top10_badge')}
               </span>
             </div>
 
             {/* Social Media Links */}
             <div className="space-y-2 pt-2">
-              <span className="text-[11px] font-oswald uppercase tracking-wider text-slate-400 block font-semibold">
+              <span className="text-[11px] font-oswald uppercase tracking-wider text-white/80 block font-semibold">
                 {t('footer.social_title')}
               </span>
               <div className="flex flex-wrap items-center gap-2">
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
                   href={brandInfo.tiktok || 'https://www.tiktok.com/@_.dolphycafe._'}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-lg bg-black hover:bg-slate-900 text-white flex items-center justify-center transition-all shadow hover:scale-105 border border-slate-700"
+                  className="w-9 h-9 rounded-lg bg-black hover:bg-slate-900 text-white flex items-center justify-center transition-all shadow hover:scale-105 border border-white/20"
                   title="TikTok: @_.dolphycafe._"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -118,72 +118,72 @@ export const Footer: React.FC = () => {
 
           {/* CỘT 2: KHÁM PHÁ & HỆ THỐNG (lg:col-span-2) */}
           <div className="lg:col-span-2 space-y-3">
-            <h3 className="font-oswald text-sm font-semibold text-white uppercase tracking-wider border-b border-[#2076bd] pb-2 inline-block">
+            <h3 className="font-oswald text-sm font-semibold text-white uppercase tracking-wider border-b-2 border-[#FAEA28] pb-1.5 inline-block">
               {t('footer.support_title')}
             </h3>
-            <ul className="text-xs space-y-2 text-slate-300 font-oswald tracking-wide">
+            <ul className="text-xs space-y-2 text-white/85 font-oswald tracking-wide">
               <li>
-                <Link to="/" className="hover:text-[#3ba0e6] transition-colors">{t('nav.home')}</Link>
+                <Link to="/" className="hover:text-white transition-colors">{t('nav.home')}</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#3ba0e6] transition-colors">{t('nav.about')}</Link>
+                <Link to="/about" className="hover:text-white transition-colors">{t('nav.about')}</Link>
               </li>
               <li>
-                <Link to="/shop" className="hover:text-[#3ba0e6] transition-colors">{t('nav.shop')}</Link>
+                <Link to="/shop" className="hover:text-white transition-colors">{t('nav.shop')}</Link>
               </li>
               <li>
-                <Link to="/academy" className="text-[#c88232] hover:underline font-semibold flex items-center gap-1">
+                <Link to="/academy" className="text-[#FAEA28] hover:underline font-bold flex items-center gap-1">
                   <span>{t('nav.academy')}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/branches" className="hover:text-[#3ba0e6] transition-colors">{t('nav.branches')}</Link>
+                <Link to="/branches" className="hover:text-white transition-colors">{t('nav.branches')}</Link>
               </li>
               <li>
-                <Link to="/knowledge" className="hover:text-[#3ba0e6] transition-colors">{t('nav.knowledge')}</Link>
+                <Link to="/knowledge" className="hover:text-white transition-colors">{t('nav.knowledge')}</Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-[#3ba0e6] transition-colors">{t('nav.careers')}</Link>
+                <Link to="/careers" className="hover:text-white transition-colors">{t('nav.careers')}</Link>
               </li>
               <li>
-                <Link to="/policies" className="hover:text-[#3ba0e6] transition-colors">{t('policies.title')}</Link>
+                <Link to="/policies" className="hover:text-white transition-colors">{t('policies.title')}</Link>
               </li>
             </ul>
           </div>
 
           {/* CỘT 3: LIÊN HỆ & TRỤ SỞ (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
-            <h3 className="font-oswald text-sm font-semibold text-white uppercase tracking-wider border-b border-[#2076bd] pb-2 inline-block">
+            <h3 className="font-oswald text-sm font-semibold text-white uppercase tracking-wider border-b-2 border-[#FAEA28] pb-1.5 inline-block">
               {t('footer.contact_title')}
             </h3>
-            <div className="text-xs text-slate-300 space-y-2.5">
+            <div className="text-xs text-white/85 space-y-2.5">
               <p className="font-bold text-white text-sm">Dolphy Café</p>
-              <p className="text-slate-400 text-[11px]">{t('footer.company_name')}</p>
+              <p className="text-white/70 text-[11px]">{t('footer.company_name')}</p>
               
               <div className="flex items-center gap-2 pt-1">
-                <Phone size={13} className="text-[#3ba0e6] shrink-0" />
-                <span>Hotline: <a href="tel:0938084985" className="text-white hover:text-[#c88232] font-semibold">{brandInfo.hotline}</a></span>
+                <Phone size={13} className="text-[#FAEA28] shrink-0" />
+                <span>Hotline: <a href="tel:0938084985" className="text-white hover:text-[#FAEA28] font-bold">{brandInfo.hotline}</a></span>
               </div>
 
               <div className="flex items-center gap-2">
-                <Mail size={13} className="text-[#3ba0e6] shrink-0" />
-                <span>Email: <a href={`mailto:${brandInfo.email}`} className="text-slate-300 hover:text-white">{brandInfo.email}</a></span>
+                <Mail size={13} className="text-[#FAEA28] shrink-0" />
+                <span>Email: <a href={`mailto:${brandInfo.email}`} className="text-white/90 hover:text-white">{brandInfo.email}</a></span>
               </div>
 
               <div className="flex items-center gap-2">
-                <Mail size={13} className="text-[#3ba0e6] shrink-0" />
-                <span>{language === 'vi' ? 'Tuyển dụng' : 'Careers'}: <a href={`mailto:${brandInfo.recruitmentEmail}`} className="text-slate-300 hover:text-white">{brandInfo.recruitmentEmail}</a></span>
+                <Mail size={13} className="text-[#FAEA28] shrink-0" />
+                <span>{language === 'vi' ? 'Tuyển dụng' : 'Careers'}: <a href={`mailto:${brandInfo.recruitmentEmail}`} className="text-white/90 hover:text-white">{brandInfo.recruitmentEmail}</a></span>
               </div>
 
               <div className="flex items-center gap-2">
-                <Clock size={13} className="text-[#3ba0e6] shrink-0" />
+                <Clock size={13} className="text-[#FAEA28] shrink-0" />
                 <span>{language === 'vi' ? 'Giờ mở cửa: 06:30 - 22:30 mỗi ngày' : 'Hours: 06:30 - 22:30 daily'}</span>
               </div>
 
-              <div className="pt-2 text-[11px] text-slate-400 border-t border-slate-800 space-y-1">
+              <div className="pt-2 text-[11px] text-white/70 border-t border-white/10 space-y-1">
                 <p>{t('footer.tax_id')}</p>
                 <div className="flex items-start gap-1.5">
-                  <MapPin size={12} className="text-[#c88232] shrink-0 mt-0.5" />
+                  <MapPin size={12} className="text-[#FAEA28] shrink-0 mt-0.5" />
                   <span>{t('footer.hq_address')}</span>
                 </div>
               </div>
@@ -192,10 +192,10 @@ export const Footer: React.FC = () => {
 
           {/* CỘT 4: BẢN TIN & GIAO HÀNG (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="font-oswald text-sm font-semibold text-white uppercase tracking-wider border-b border-[#2076bd] pb-2 inline-block">
+            <h3 className="font-oswald text-sm font-semibold text-white uppercase tracking-wider border-b-2 border-[#FAEA28] pb-1.5 inline-block">
               {t('footer.newsletter_title')}
             </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-white/80 leading-relaxed">
               {t('footer.newsletter_desc')}
             </p>
 
@@ -206,11 +206,11 @@ export const Footer: React.FC = () => {
                 value={newsletterEmail}
                 onChange={(e) => setNewsletterEmail(e.target.value)}
                 required
-                className="w-full px-3 py-2 text-xs rounded-lg bg-slate-800/90 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#2076bd]"
+                className="w-full px-3 py-2 text-xs rounded-lg bg-white/10 border border-white/15 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#FAEA28] focus:border-[#FAEA28]"
               />
               <button
                 type="submit"
-                className="w-full py-2 px-4 rounded-lg bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-xs uppercase tracking-wider transition-colors font-semibold flex items-center justify-center gap-1.5 shadow"
+                className="w-full py-2 px-4 rounded-lg bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs uppercase tracking-wider transition-all font-bold flex items-center justify-center gap-1.5 shadow"
               >
                 <span>{t('footer.subscribe_btn')}</span>
                 <Send size={12} />
@@ -223,7 +223,7 @@ export const Footer: React.FC = () => {
                 href="https://dolphycoffee.cukcuk.vn/order-online/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full py-2 px-3.5 rounded-lg bg-gradient-to-r from-[#2076bd] to-[#165b94] hover:from-[#c88232] hover:to-[#ad6c24] text-white text-xs font-oswald uppercase tracking-wider font-semibold transition-all shadow-md flex items-center justify-center gap-1.5"
+                className="w-full py-2 px-3.5 rounded-lg bg-gradient-to-r from-[#2076bd] to-[#165b94] hover:from-[#FAEA28] hover:to-[#E2D41A] hover:text-slate-950 text-white text-xs font-oswald uppercase tracking-wider font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
                 title={language === 'vi' ? 'Đặt giao hàng tận nơi' : 'Order online delivery'}
               >
                 <span>{language === 'vi' ? 'Giao Hàng Tận Nơi (CukCuk)' : 'Online Delivery'}</span>
@@ -234,9 +234,9 @@ export const Footer: React.FC = () => {
             <div className="pt-2">
               <Link
                 to="/admin"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs border border-slate-700/80 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 hover:bg-white/15 text-white/80 hover:text-white text-xs border border-white/10 transition-colors"
               >
-                <ShieldCheck size={14} className="text-[#3ba0e6]" />
+                <ShieldCheck size={14} className="text-[#FAEA28]" />
                 <span>{t('footer.admin_link')}</span>
               </Link>
             </div>
@@ -245,16 +245,16 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3 text-center sm:text-left">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/70 gap-3 text-center sm:text-left">
           <p>
             © 2013 - 2026 <strong>Dolphy Cafe</strong>. {t('footer.rights')}
           </p>
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-slate-400 text-[11px]">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-white/70 text-[11px]">
             <Link to="/policies" className="hover:text-white transition-colors">{t('footer.privacy_policy')}</Link>
             <span>•</span>
             <Link to="/policies" className="hover:text-white transition-colors">{t('footer.academy_policy')}</Link>
             <span>•</span>
-            <Link to="/admin" className="hover:text-[#3ba0e6] transition-colors">{t('footer.admin_portal')}</Link>
+            <Link to="/admin" className="hover:text-[#FAEA28] transition-colors">{t('footer.admin_portal')}</Link>
           </div>
         </div>
       </div>
