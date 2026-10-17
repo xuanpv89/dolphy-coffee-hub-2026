@@ -531,7 +531,7 @@ export const Home: React.FC = () => {
                   <div className="flex items-center justify-between text-[11px] text-gray-400">
                     <span className="flex items-center gap-1">
                       <Calendar size={12} />
-                      {article.publishedDate}
+                      {article.date || '2026-10-15'}
                     </span>
                     <span className="text-[#2076bd] font-medium font-oswald">
                       {article.category}

@@ -97,7 +97,7 @@ export const Academy: React.FC = () => {
                     : 'text-gray-600 hover:text-[#222222]'
                 }`}
               >
-                {c.name}
+                {c.title}
               </button>
             ))}
           </div>
@@ -118,10 +118,10 @@ export const Academy: React.FC = () => {
                 <span className="text-xs text-gray-500 font-oswald">Thời lượng: {currentCourse.duration}</span>
               </div>
               <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd]">
-                {currentCourse.name}
+                {currentCourse.title}
               </h2>
               <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                {currentCourse.description}
+                {currentCourse.subtitle}
               </p>
             </div>
 
@@ -131,7 +131,7 @@ export const Academy: React.FC = () => {
                 ĐIỂM NỔI BẬT CỦA KHÓA HỌC
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-700">
-                {currentCourse.highlights.map((h, i) => (
+                {(currentCourse.usps || currentCourse.outcomes || []).map((h, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <CheckCircle2 size={15} className="text-[#2076bd] shrink-0" />
                     <span>{h}</span>
@@ -166,7 +166,7 @@ export const Academy: React.FC = () => {
                             <h4 className="font-oswald text-sm font-bold text-[#222222] uppercase">
                               {session.title}
                             </h4>
-                            <span className="text-[11px] text-gray-400 font-oswald">{session.duration}</span>
+                            <span className="text-[11px] text-gray-400 font-oswald">{currentCourse.hoursPerSession}h / buổi</span>
                           </div>
                         </div>
                         {isOpen ? <ChevronUp size={18} className="text-gray-400" /> : <ChevronDown size={18} className="text-gray-400" />}
@@ -174,9 +174,9 @@ export const Academy: React.FC = () => {
 
                       {isOpen && (
                         <div className="p-4 pt-1 border-t border-gray-100 bg-gray-50/50 space-y-2 text-xs text-gray-600">
-                          <p className="font-medium text-gray-700">{session.desc}</p>
+                          <p className="font-medium text-gray-700">{session.description}</p>
                           <ul className="list-disc list-inside space-y-1 text-gray-600 pl-2">
-                            {session.skills.map((skill, si) => (
+                            {(session.practicalSkills || []).map((skill, si) => (
                               <li key={si}>{skill}</li>
                             ))}
                           </ul>
@@ -196,10 +196,10 @@ export const Academy: React.FC = () => {
               <div className="text-center border-b border-gray-100 pb-4">
                 <span className="text-xs text-gray-400 uppercase font-oswald">Học phí trọn gói</span>
                 <div className="font-oswald text-3xl font-bold text-[#2076bd] my-1">
-                  {currentCourse.price.toLocaleString('vi-VN')} VNĐ
+                  {(currentCourse.discountPrice || currentCourse.price).toLocaleString('vi-VN')} VNĐ
                 </div>
                 <div className="text-xs text-[#f09c05] font-semibold font-oswald">
-                  TIỀN ĐẶT CỌC GIỮ CHỖ: {currentCourse.deposit.toLocaleString('vi-VN')} VNĐ
+                  TIỀN ĐẶT CỌC GIỮ CHỖ: {(currentCourse.depositAmount || 2000000).toLocaleString('vi-VN')} VNĐ
                 </div>
               </div>
 

@@ -115,7 +115,7 @@ export const Branches: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock size={15} className="text-[#2076bd] shrink-0" />
-                      <span>{branch.hours}</span>
+                      <span>{branch.openingHours || '07:00 - 22:30 hàng ngày'}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone size={15} className="text-[#2076bd] shrink-0" />
@@ -123,14 +123,14 @@ export const Branches: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Amenities */}
+                  {/* Amenities / Features */}
                   <div className="pt-2 flex flex-wrap gap-1.5">
-                    {branch.amenities.map((amenity, ai) => (
+                    {(branch.features || []).map((feature, ai) => (
                       <span
                         key={ai}
                         className="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-gray-600 font-medium"
                       >
-                        {amenity}
+                        {feature}
                       </span>
                     ))}
                   </div>

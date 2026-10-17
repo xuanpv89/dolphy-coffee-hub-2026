@@ -95,7 +95,7 @@ export const KnowledgeHub: React.FC = () => {
 
                 <div className="p-5 space-y-3">
                   <div className="flex items-center gap-3 text-[11px] text-gray-400">
-                    <span className="flex items-center gap-1 font-oswald"><Calendar size={12} /> {art.publishedDate}</span>
+                    <span className="flex items-center gap-1 font-oswald"><Calendar size={12} /> {art.date || '2026-10-15'}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1"><Clock size={12} /> {art.readTime}</span>
                   </div>
@@ -142,7 +142,7 @@ export const KnowledgeHub: React.FC = () => {
                 {selectedArticle.title}
               </h2>
               <div className="flex items-center gap-4 text-xs text-gray-400 border-b border-gray-100 pb-3">
-                <span>{selectedArticle.publishedDate}</span>
+                <span>{selectedArticle.date || '2026-10-15'}</span>
                 <span>•</span>
                 <span>{selectedArticle.author}</span>
                 <span>•</span>

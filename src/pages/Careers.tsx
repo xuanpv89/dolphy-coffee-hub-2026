@@ -118,17 +118,24 @@ export const Careers: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-600">
                 <div className="space-y-2">
                   <h4 className="font-oswald text-xs font-bold uppercase text-[#222222]">Mô tả công việc:</h4>
-                  <ul className="list-disc list-inside space-y-1 pl-1">
-                    {job.responsibilities.map((r, i) => (
-                      <li key={i}>{r}</li>
-                    ))}
-                  </ul>
+                  <p className="leading-relaxed text-gray-700">{job.description}</p>
+                  
+                  {job.benefits && job.benefits.length > 0 && (
+                    <div className="pt-2">
+                      <h5 className="font-oswald text-xs font-bold uppercase text-[#2076bd] mb-1">Quyền lợi:</h5>
+                      <ul className="list-disc list-inside space-y-1 pl-1">
+                        {job.benefits.map((b, i) => (
+                          <li key={i}>{b}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 <div className="space-y-2">
                   <h4 className="font-oswald text-xs font-bold uppercase text-[#222222]">Yêu cầu ứng viên:</h4>
                   <ul className="list-disc list-inside space-y-1 pl-1">
-                    {job.requirements.map((req, i) => (
+                    {(job.requirements || []).map((req, i) => (
                       <li key={i}>{req}</li>
                     ))}
                   </ul>
