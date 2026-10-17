@@ -238,8 +238,8 @@ export const productsData: Product[] = [
 Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hương thơm phong phú của hoa cỏ, độ chua thanh tao nhã và hậu vị ngọt sâu lưu luyến. Phù hợp hoàn hảo cho cách pha Pour Over (V60), Cold Brew và pha máy Espresso hiện đại.`,
     brewingRecommendation: 'Pha Pour-over / V60, Cold Brew, Máy pha Espresso gia đình hoặc quán.',
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/12.jpg?v=1767175895743',
-      '/images/image10.jpg',
+      '/images/prod_arabica_250g.jpg',
+      '/images/prod_arabica_500g.jpg',
       '/images/image12.jpg'
     ],
     inStock: true,
@@ -260,8 +260,8 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
     description: `Gói tiết kiệm 500g dành cho người yêu thích hương vị Arabica tinh tế sử dụng hàng ngày tại nhà hoặc văn phòng. 100% hạt Arabica được đóng gói van 1 chiều giúp bảo toàn hương vị và khí CO2 tự nhiên của hạt cà phê tươi mới.`,
     brewingRecommendation: 'Pha V60, Cold Brew, French Press, Máy Espresso.',
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/11.jpg?v=1767175962007',
-      '/images/image11.jpg'
+      '/images/prod_arabica_500g.jpg',
+      '/images/prod_arabica_250g.jpg'
     ],
     inStock: true
   },
@@ -281,8 +281,8 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
 Đặc trưng bởi hương vị cà phê Việt Nam truyền thống mạnh mẽ, body dày đậm, hậu vị béo ngậy và hàm lượng caffeine tự nhiên giúp bạn bừng tỉnh năng lượng tức thì. Lựa chọn số 1 cho người mê cà phê sữa đá, cà phê đen đá và pha phin truyền thống.`,
     brewingRecommendation: 'Pha phin nhôm truyền thống, pha máy Espresso gu đậm, pha cà phê sữa đá.',
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/6.jpg?v=1767176189570',
-      '/images/image13.jpg'
+      '/images/prod_robusta_250g.jpg',
+      '/images/prod_robusta_500g.jpg'
     ],
     inStock: true,
     isBestSeller: true
@@ -302,8 +302,8 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
     description: `Gói 500g kinh tế cho người sành gu cà phê đậm đà hoặc các văn phòng làm việc. Hạt Robusta hạt to đồng đều, được rang theo công thức gia truyền của Dolphy giúp hạt dậy mùi thơm ngào ngạt mà không hề bị khét cháy.`,
     brewingRecommendation: 'Pha phin truyền thống, cà phê đen, bạc sỉu.',
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/5.jpg?v=1767176214157',
-      '/images/image8.jpg'
+      '/images/prod_robusta_500g.jpg',
+      '/images/prod_robusta_250g.jpg'
     ],
     inStock: true
   },
@@ -323,8 +323,8 @@ Hạt được rang ở mức vừa (Medium) để lưu giữ trọn vẹn hươ
 Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt kem crema dày óng ánh, vị chua thanh hòa quyện êm ái cùng độ đắng dịu ngọt của caramel. Rất dễ uống và thích hợp cho cả món cà phê đen lẫn món có sữa như Latte, Cappuccino.`,
     brewingRecommendation: 'Máy pha Espresso, Moka Pot, Phin nhôm tân thời, Cold Brew kết hợp cam sả.',
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/8.jpg?v=1767176081467',
-      '/images/image6.jpg'
+      '/images/prod_espresso_250g.jpg',
+      '/images/prod_espresso_500g.jpg'
     ],
     inStock: true,
     isBestSeller: true
@@ -344,8 +344,8 @@ Tỉ lệ này tạo nên một ly Espresso cân bằng mỹ mãn: lớp bọt k
     description: `Gói lớn 500g dòng Espresso Blend kinh điển của Dolphy. Đảm bảo nguồn năng lượng mỗi sớm mai với hương thơm lan tỏa ngập tràn không gian.`,
     brewingRecommendation: 'Máy pha Espresso, Phin truyền thống, French Press.',
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/7.jpg?v=1767176109963',
-      '/images/image7.jpg'
+      '/images/prod_espresso_500g.jpg',
+      '/images/prod_espresso_250g.jpg'
     ],
     inStock: true
   },
@@ -369,8 +369,8 @@ Thành phần hộp quà gồm:
 • 01 Phin cà phê nhôm cao cấp dập logo Dolphy tinh xảo
 • Hộp quà sang trọng thiết kế đậm phong vị Tết truyền thống`,
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/10.jpg?v=1767175402633',
-      '/images/image9.jpg'
+      '/images/prod_combo_phin_light.jpg',
+      '/images/prod_phin_nhom.jpg'
     ],
     inStock: true,
     isBestSeller: true
@@ -393,8 +393,8 @@ Thành phần combo gồm:
 • 01 Phin cà phê nhôm cao cấp Dolphy
 • Hộp quà Tết trang nhã kèm thiệp chúc mừng`,
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/1.jpg?v=1767174668247',
-      '/images/image10.jpg'
+      '/images/prod_combo_phin_medium.jpg',
+      '/images/prod_phin_nhom.jpg'
     ],
     inStock: true
   },
@@ -416,8 +416,8 @@ Thành phần combo gồm:
 • 01 Phin cà phê nhôm truyền thống Dolphy
 • Hộp quà cao cấp`,
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/13.jpg?v=1767174780650',
-      '/images/image12.jpg'
+      '/images/prod_combo_phin_strong.jpg',
+      '/images/prod_phin_nhom.jpg'
     ],
     inStock: true
   },
@@ -437,10 +437,8 @@ Sản phẩm có 4 màu sắc tinh tế để bạn lựa chọn:
 3. Xám đậm hiện đại (Dark Grey)
 4. Xanh dương đại dương (Royal Blue)`,
     images: [
-      'https://bizweb.dktcdn.net/100/434/956/products/16.jpg?v=1767174111863',
-      'https://bizweb.dktcdn.net/100/434/956/products/15.jpg?v=1767174118750',
-      'https://bizweb.dktcdn.net/100/434/956/products/17.jpg?v=1767862582710',
-      'https://bizweb.dktcdn.net/100/434/956/products/18.jpg?v=1767862583850'
+      '/images/prod_phin_nhom.jpg',
+      '/images/image4.jpg'
     ],
     inStock: true
   }
@@ -526,7 +524,7 @@ export const branchesData: Branch[] = [
     openingHours: '06:30 - 22:00',
     mapUrl: 'https://maps.google.com/?q=1441+Nguyen+Van+Linh+District+7+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/image5.jpg',
+    image: '/images/image9.jpg',
     features: ['Trục đường lớn Phú Mỹ Hưng', 'Khách quốc tế & Hàn Quốc đông đúc', 'Dolphy Academy Training Hub Q7'],
     isFlagship: true
   },
@@ -581,7 +579,7 @@ export const branchesData: Branch[] = [
     openingHours: '06:30 - 22:30',
     mapUrl: 'https://maps.google.com/?q=79+Pham+Viet+Chanh+Binh+Thanh+Ho+Chi+Minh',
     mapEmbed: 'https://www.google.com/maps/d/u/0/embed?mid=1G8GDTYb1sLjNzvR_axBATk2463LZn5M&ehbc=2E312F',
-    image: '/images/image1.jpg',
+    image: '/images/image10.jpg',
     features: ['Khu phố Tây/Nhật Phạm Viết Chánh sôi động', 'Nhạc acoustic nhẹ nhàng', 'Bạc sỉu & cà phê pha phin truyền thống']
   }
 ];
@@ -596,7 +594,7 @@ export const articlesData: Article[] = [
     author: 'Dolphy Master Barista',
     readTime: '5 phút đọc',
     excerpt: 'COLD BREW – cách pha hoàn toàn khác biệt không cần dùng nước nóng, bắt nguồn từ những thủy thủ Hà Lan thế kỷ 17 với vị ngọt dịu và ít chua đặc biệt.',
-    image: '/images/image2.jpg',
+    image: '/images/art_series_pha.jpg',
     tags: ['Cold Brew', 'Pha chế tại nhà', 'Cà phê ủ lạnh'],
     content: `COLD BREW – là một cách pha hoàn toàn khác biệt với những cách pha chúng ta đã từng biết, đó là KHÔNG CẦN SỬ DỤNG NƯỚC NÓNG.
 
@@ -624,7 +622,7 @@ Thưởng thức: Rót ra ly cùng vài viên đá mát lạnh, có thể kết 
     author: 'Dolphy Storyteller',
     readTime: '6 phút đọc',
     excerpt: 'Hơn cả một thức uống, cà phê phin là nghệ thuật của sự kiên nhẫn và phong cách sống chậm rãi ngắm nhìn phố phường chuyển động.',
-    image: '/images/image3.jpg',
+    image: '/images/prod_phin_nhom.jpg',
     tags: ['Cà phê phin', 'Văn hóa Việt Nam', 'Phin nhôm'],
     content: `Hơn cả một thức uống, cà phê là một phần của cuộc sống, tiếp thêm năng lượng và tinh thần cho mỗi người thưởng thức. Mỗi ngày, bạn sẽ thấy các quán cà phê khắp các con phố ở Việt Nam, từ các quán ven đường nhỏ bé đến những không gian sang trọng.
 
@@ -641,7 +639,7 @@ Tại Dolphy, chúng tôi nâng tầm trải nghiệm phin truyền thống bằ
     author: 'Dolphy Academy',
     readTime: '7 phút đọc',
     excerpt: 'Cùng Dolphy Café tìm hiểu nguồn gốc của Caffè Latte từ nước Ý và bí quyết tạo nên lớp foam sữa bóng bẩy hoàn hảo.',
-    image: '/images/image4.jpg',
+    image: '/images/art_latte.jpg',
     tags: ['Latte', 'Latte Art', 'Cà phê Ý'],
     content: `Latte (viết đầy đủ là Caffè Latte) trong tiếng Ý có nghĩa là "cà phê và sữa". Ra đời từ nước Ý thơ mộng, Latte nhanh chóng chinh phục toàn cầu bởi sự cân bằng tuyệt vời giữa vị đắng nhẹ của cà phê Espresso và sự béo ngọt mịn màng của sữa nóng được đánh bọt vi mô (Micro-foam).
 
@@ -659,7 +657,7 @@ Khác với Cappuccino vốn có lớp bọt sữa dày bồng bềnh, Latte thi
     author: 'Dolphy Roastery',
     readTime: '4 phút đọc',
     excerpt: 'Nhất nước, nhì cà, tam pha, tứ thưởng. Bí quyết lựa chọn giữa 100% Arabica, 100% Robusta hay tỷ lệ vàng Espresso Blend 80:20.',
-    image: '/images/image6.jpg',
+    image: '/images/prod_arabica_250g.jpg',
     tags: ['Coffee Bag', 'Arabica', 'Robusta', 'Espresso Blend'],
     content: `Nhất nước, nhì cà, tam pha, tứ thưởng! Để có một tách cà phê thơm ngon tại gia, chọn đúng loại hạt phù hợp với khẩu vị là bước quan trọng nhất.
 
@@ -676,7 +674,7 @@ Khác với Cappuccino vốn có lớp bọt sữa dày bồng bềnh, Latte thi
     author: 'Dolphy Marketing',
     readTime: '3 phút đọc',
     excerpt: 'Tri ân khách hàng thân thiết: Tích lũy 10 dấu trên thẻ quà tặng để nhận ngay 1 đồ uống miễn phí tùy chọn.',
-    image: '/images/image5.jpg',
+    image: '/images/art_the_qua_tang.jpg',
     tags: ['Ưu đãi', 'Mua 10 tặng 1', 'Khách hàng thân thiết'],
     content: `Để tri ân quý khách hàng đã luôn đồng hành cùng DOLPHY CAFÉ trong suốt 13 năm qua, chúng tôi tiếp tục triển khai chương trình Thẻ Quà Tặng tích điểm "Mua 10 tặng 1".
 
@@ -694,7 +692,7 @@ Quy định áp dụng:
     author: 'Dolphy Green Initiative',
     readTime: '3 phút đọc',
     excerpt: 'Mang theo bình nước cá nhân khi mua cà phê tại Dolphy để nhận ngay Green Stamp và cùng cắt giảm rác thải nhựa.',
-    image: '/images/image7.jpg',
+    image: '/images/art_green_stamp.png',
     tags: ['Green Stamp', 'Bảo vệ môi trường', 'Sống xanh'],
     content: `Dolphy luôn trân trọng những hành động góp phần giảm thiểu các tác động tiêu cực của con người lên trái đất, dù là nhỏ bé nhất.
 

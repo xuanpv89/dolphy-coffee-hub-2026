@@ -53,14 +53,14 @@ export const AdminDashboard: React.FC = () => {
         {/* Metric Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
-          <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-gray-200 shadow-sm space-y-2">
             <div className="flex items-center justify-between text-xs text-gray-500">
               <span className="font-semibold uppercase tracking-wider">Tổng Doanh Thu</span>
               <div className="p-2 rounded-xl bg-green-50 text-green-600">
                 <DollarSign size={18} />
               </div>
             </div>
-            <div className="text-2xl font-extrabold text-[#24140A]">
+            <div className="text-2xl font-extrabold text-gray-900">
               {totalRevenue.toLocaleString('vi-VN')} ₫
             </div>
             <div className="text-[11px] text-[#27AE60] flex items-center gap-1 font-medium">
@@ -70,14 +70,14 @@ export const AdminDashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-gray-200 shadow-sm space-y-2">
             <div className="flex items-center justify-between text-xs text-gray-500">
               <span className="font-semibold uppercase tracking-wider">Học Viên Academy</span>
               <div className="p-2 rounded-xl bg-orange-50 text-orange-600">
                 <Users size={18} />
               </div>
             </div>
-            <div className="text-2xl font-extrabold text-[#24140A]">
+            <div className="text-2xl font-extrabold text-[#2076bd]">
               {registrations.length} Học Viên
             </div>
             <div className="text-[11px] text-gray-500">
@@ -85,14 +85,14 @@ export const AdminDashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-gray-200 shadow-sm space-y-2">
             <div className="flex items-center justify-between text-xs text-gray-500">
               <span className="font-semibold uppercase tracking-wider">Đơn Hàng Shop</span>
               <div className="p-2 rounded-xl bg-blue-50 text-blue-600">
                 <ShoppingBag size={18} />
               </div>
             </div>
-            <div className="text-2xl font-extrabold text-[#24140A]">
+            <div className="text-2xl font-extrabold text-[#2076bd]">
               {orders.length} Đơn Hàng
             </div>
             <div className="text-[11px] text-gray-500">
@@ -100,14 +100,14 @@ export const AdminDashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-gray-200 shadow-sm space-y-2">
             <div className="flex items-center justify-between text-xs text-gray-500">
               <span className="font-semibold uppercase tracking-wider">Hồ Sơ Barista Ứng Tuyển</span>
               <div className="p-2 rounded-xl bg-purple-50 text-purple-600">
                 <Briefcase size={18} />
               </div>
             </div>
-            <div className="text-2xl font-extrabold text-[#24140A]">
+            <div className="text-2xl font-extrabold text-[#2076bd]">
               {applications.length} Ứng Viên
             </div>
             <div className="text-[11px] text-gray-500">
@@ -163,9 +163,9 @@ export const AdminDashboard: React.FC = () => {
 
         {/* Tab 1: Students CRM */}
         {activeTab === 'students' && (
-          <div className="bg-white rounded-3xl border border-[#E8E0D5] overflow-hidden shadow-sm">
+          <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
             <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-              <h3 className="font-display text-base font-bold text-[#24140A]">
+              <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd]">
                 Danh Sách Hồ Sơ Đăng Ký Dolphy Academy
               </h3>
               <span className="text-xs text-gray-500">Tự động cập nhật từ form đăng ký online</span>
@@ -173,7 +173,7 @@ export const AdminDashboard: React.FC = () => {
 
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="bg-[#FAF7F2] text-gray-700 uppercase tracking-wider font-bold border-b border-gray-200">
+                <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider font-bold border-b border-gray-200">
                   <tr>
                     <th className="p-3.5">Mã HV</th>
                     <th className="p-3.5">Họ Và Tên</th>
@@ -187,7 +187,7 @@ export const AdminDashboard: React.FC = () => {
                 <tbody className="divide-y divide-gray-100">
                   {registrations.map((reg) => (
                     <tr key={reg.id} className="hover:bg-gray-50">
-                      <td className="p-3.5 font-mono font-bold text-[#8C5329]">{reg.id}</td>
+                      <td className="p-3.5 font-mono font-bold text-[#2076bd]">{reg.id}</td>
                       <td className="p-3.5 font-bold text-gray-900">{reg.fullName}</td>
                       <td className="p-3.5">
                         <div className="font-medium text-gray-800">{reg.phone}</div>
@@ -201,7 +201,7 @@ export const AdminDashboard: React.FC = () => {
                         <div className="text-gray-400">{reg.preferredSchedule}</div>
                       </td>
                       <td className="p-3.5">
-                        <span className="font-extrabold text-[#C0392B]">
+                        <span className="font-extrabold text-[#f09c05]">
                           {reg.amount.toLocaleString('vi-VN')} ₫
                         </span>
                         <span className="block text-[10px] text-gray-500">
@@ -212,7 +212,7 @@ export const AdminDashboard: React.FC = () => {
                         <select
                           value={reg.status}
                           onChange={(e: any) => updateRegistrationStatus(reg.id, e.target.value)}
-                          className="px-2.5 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold focus:outline-none focus:border-[#4A2C11] bg-white"
+                          className="px-2.5 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold focus:outline-none focus:border-[#2076bd] bg-white"
                         >
                           <option value="new">Mới Đăng Ký</option>
                           <option value="contacted">Đã Liên Hệ Zalo</option>
@@ -230,9 +230,9 @@ export const AdminDashboard: React.FC = () => {
 
         {/* Tab 2: Orders */}
         {activeTab === 'orders' && (
-          <div className="bg-white rounded-3xl border border-[#E8E0D5] overflow-hidden shadow-sm">
+          <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
             <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-              <h3 className="font-display text-base font-bold text-[#24140A]">
+              <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd]">
                 Danh Sách Đơn Hàng Cà Phê & Quà Tặng
               </h3>
               <span className="text-xs text-gray-500">Đơn hàng tạo từ website</span>
@@ -240,7 +240,7 @@ export const AdminDashboard: React.FC = () => {
 
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="bg-[#FAF7F2] text-gray-700 uppercase tracking-wider font-bold border-b border-gray-200">
+                <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider font-bold border-b border-gray-200">
                   <tr>
                     <th className="p-3.5">Mã Đơn</th>
                     <th className="p-3.5">Khách Hàng</th>
@@ -254,7 +254,7 @@ export const AdminDashboard: React.FC = () => {
                 <tbody className="divide-y divide-gray-100">
                   {orders.map((order) => (
                     <tr key={order.id} className="hover:bg-gray-50">
-                      <td className="p-3.5 font-mono font-bold text-[#8C5329]">{order.id}</td>
+                      <td className="p-3.5 font-mono font-bold text-[#2076bd]">{order.id}</td>
                       <td className="p-3.5">
                         <div className="font-bold text-gray-900">{order.customerName}</div>
                         <div className="text-gray-500 text-[11px]">{order.phone}</div>
@@ -271,7 +271,7 @@ export const AdminDashboard: React.FC = () => {
                         {order.address}
                         {order.note && <div className="text-[10px] text-gray-400 italic">Note: {order.note}</div>}
                       </td>
-                      <td className="p-3.5 font-extrabold text-[#C0392B]">
+                      <td className="p-3.5 font-extrabold text-[#f09c05]">
                         {order.totalAmount.toLocaleString('vi-VN')} ₫
                       </td>
                       <td className="p-3.5 uppercase font-bold text-[10px] text-gray-600">
@@ -281,7 +281,7 @@ export const AdminDashboard: React.FC = () => {
                         <select
                           value={order.status}
                           onChange={(e: any) => updateOrderStatus(order.id, e.target.value)}
-                          className="px-2.5 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold focus:outline-none focus:border-[#4A2C11] bg-white"
+                          className="px-2.5 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold focus:outline-none focus:border-[#2076bd] bg-white"
                         >
                           <option value="pending">Chờ Xử Lý</option>
                           <option value="confirmed">Đã Xác Nhận</option>
@@ -299,9 +299,9 @@ export const AdminDashboard: React.FC = () => {
 
         {/* Tab 3: Candidates */}
         {activeTab === 'candidates' && (
-          <div className="bg-white rounded-3xl border border-[#E8E0D5] overflow-hidden shadow-sm">
+          <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
             <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-              <h3 className="font-display text-base font-bold text-[#24140A]">
+              <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd]">
                 Hồ Sơ Ứng Viên Tuyển Dụng Barista & Quản Lý
               </h3>
               <span className="text-xs text-gray-500">Dữ liệu hồ sơ gửi từ Careers Portal</span>
@@ -309,7 +309,7 @@ export const AdminDashboard: React.FC = () => {
 
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="bg-[#FAF7F2] text-gray-700 uppercase tracking-wider font-bold border-b border-gray-200">
+                <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider font-bold border-b border-gray-200">
                   <tr>
                     <th className="p-3.5">Mã Ứng Viên</th>
                     <th className="p-3.5">Họ Và Tên</th>
@@ -323,13 +323,13 @@ export const AdminDashboard: React.FC = () => {
                 <tbody className="divide-y divide-gray-100">
                   {applications.map((app) => (
                     <tr key={app.id} className="hover:bg-gray-50">
-                      <td className="p-3.5 font-mono font-bold text-[#8C5329]">{app.id}</td>
+                      <td className="p-3.5 font-mono font-bold text-[#2076bd]">{app.id}</td>
                       <td className="p-3.5 font-bold text-gray-900">{app.fullName}</td>
                       <td className="p-3.5">
                         <div className="font-medium text-gray-800">{app.phone}</div>
                         <div className="text-gray-400 text-[11px]">{app.email || 'Không có'}</div>
                       </td>
-                      <td className="p-3.5 font-semibold text-[#4A2C11]">
+                      <td className="p-3.5 font-semibold text-[#2076bd]">
                         {app.position}
                       </td>
                       <td className="p-3.5 text-gray-600 text-[11px]">
@@ -343,7 +343,7 @@ export const AdminDashboard: React.FC = () => {
                         <select
                           value={app.status}
                           onChange={(e: any) => updateApplicationStatus(app.id, e.target.value)}
-                          className="px-2.5 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold focus:outline-none focus:border-[#4A2C11] bg-white"
+                          className="px-2.5 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold focus:outline-none focus:border-[#2076bd] bg-white"
                         >
                           <option value="new">Hồ Sơ Mới</option>
                           <option value="interview_scheduled">Hẹn Phỏng Vấn</option>
@@ -361,12 +361,12 @@ export const AdminDashboard: React.FC = () => {
 
         {/* Tab 4: Funnel Metrics from Planning Doc */}
         {activeTab === 'funnel' && (
-          <div className="bg-white rounded-3xl border border-[#E8E0D5] p-6 sm:p-8 shadow-sm space-y-6">
+          <div className="bg-white rounded-3xl border border-gray-200 p-6 sm:p-8 shadow-sm space-y-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#8C5329]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#2076bd]">
                 Kế Hoạch Triển Khai 4 Tháng Đầu (Nov 2026 - Feb 2027)
               </span>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-[#24140A] mt-1">
+              <h3 className="font-oswald text-xl sm:text-2xl font-bold uppercase text-[#2076bd] mt-1">
                 Mô Hình Phễu Chuyển Đổi & KPIs Đào Tạo Dolphy Academy
               </h3>
               <p className="text-xs text-gray-600 mt-1">
@@ -390,38 +390,38 @@ export const AdminDashboard: React.FC = () => {
                 <div className="text-[10px] text-gray-500">Truy cập Landing page</div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#FAEDCD]/30 border border-[#D4A373]/30 text-center space-y-1">
-                <div className="text-[10px] font-bold text-[#8C5329] uppercase">Tầng 3</div>
-                <div className="text-xs font-bold text-[#4A2C11]">Lượt Quan Tâm</div>
-                <div className="text-lg font-bold text-[#4A2C11]">100+</div>
-                <div className="text-[10px] text-[#8C5329]">Đăng ký workshop/trial</div>
+              <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-200 text-center space-y-1">
+                <div className="text-[10px] font-bold text-[#2076bd] uppercase">Tầng 3</div>
+                <div className="text-xs font-bold text-[#2076bd]">Lượt Quan Tâm</div>
+                <div className="text-lg font-bold text-[#2076bd]">100+</div>
+                <div className="text-[10px] text-blue-600">Đăng ký workshop/trial</div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#FAEDCD]/50 border border-[#D4A373]/40 text-center space-y-1">
-                <div className="text-[10px] font-bold text-[#8C5329] uppercase">Tầng 4</div>
-                <div className="text-xs font-bold text-[#4A2C11]">Leads Tiềm Năng</div>
-                <div className="text-lg font-bold text-[#4A2C11]">20</div>
-                <div className="text-[10px] text-[#8C5329]">Nhắn tin tư vấn 1-1</div>
+              <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200 text-center space-y-1">
+                <div className="text-[10px] font-bold text-[#2076bd] uppercase">Tầng 4</div>
+                <div className="text-xs font-bold text-[#2076bd]">Leads Tiềm Năng</div>
+                <div className="text-lg font-bold text-[#2076bd]">20</div>
+                <div className="text-[10px] text-blue-600">Nhắn tin tư vấn 1-1</div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#FAF0E6] border border-[#8C5329]/30 text-center space-y-1">
-                <div className="text-[10px] font-bold text-[#8C5329] uppercase">Tầng 5</div>
-                <div className="text-xs font-bold text-[#8C5329]">HV Đăng Ký</div>
-                <div className="text-lg font-bold text-[#8C5329]">10</div>
+              <div className="p-4 rounded-2xl bg-blue-100/50 border border-blue-200 text-center space-y-1">
+                <div className="text-[10px] font-bold text-[#2076bd] uppercase">Tầng 5</div>
+                <div className="text-xs font-bold text-[#2076bd]">HV Đăng Ký</div>
+                <div className="text-lg font-bold text-[#2076bd]">10</div>
                 <div className="text-[10px] text-gray-600">Điền form ghi danh</div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-[#24140A] to-[#4A2C11] text-white text-center space-y-1 shadow-md">
-                <div className="text-[10px] font-bold text-[#D4A373] uppercase">Mục Tiêu Tháng</div>
-                <div className="text-xs font-bold text-[#FAEDCD]">HV Đóng Học Phí</div>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-[#165b94] to-[#2076bd] text-white text-center space-y-1 shadow-md">
+                <div className="text-[10px] font-bold text-[#f09c05] uppercase">Mục Tiêu Tháng</div>
+                <div className="text-xs font-bold text-white">HV Đóng Học Phí</div>
                 <div className="text-xl font-extrabold text-white">5 Học Viên</div>
                 <div className="text-[10px] text-green-300 font-bold">35.000.000 ₫</div>
               </div>
 
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#FAF7F2] border border-[#E8E0D5] space-y-2 text-xs text-gray-700 leading-relaxed">
-              <strong className="text-[#4A2C11] block font-bold text-sm">
+            <div className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100 space-y-2 text-xs text-gray-700 leading-relaxed">
+              <strong className="text-[#2076bd] block font-bold text-sm">
                 📌 Cơ Chế Vận Hành Tuyển Sinh & Khai Thác Nguồn Cũ (Resell Database):
               </strong>
               <p>

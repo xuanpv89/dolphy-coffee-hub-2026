@@ -45,7 +45,7 @@ export const ApplicationModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-lg bg-[#FDFBF7] rounded-3xl shadow-2xl overflow-hidden border border-[#D4A373]/30 my-6">
+      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden border border-blue-100 my-6">
         
         {/* Header */}
         <div className="px-6 py-4 bg-[#2076bd] text-white flex items-center justify-between">
@@ -70,22 +70,22 @@ export const ApplicationModal: React.FC = () => {
         <div className="p-6">
           {createdApp ? (
             <div className="text-center py-6 space-y-4">
-              <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-blue-50 text-[#2076bd] rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 size={36} />
               </div>
-              <h4 className="font-display text-xl font-bold text-[#24140A]">
+              <h4 className="font-oswald text-xl font-bold uppercase text-[#2076bd]">
                 Hồ Sơ Của Bạn Đã Được Chuyển Đến HR Dolphy!
               </h4>
-              <p className="text-sm text-[#7A6E68]">
+              <p className="text-sm text-gray-600">
                 Cảm ơn bạn đã mong muốn trở thành một chú cá heo đồng hành cùng Dolphy. Phòng Nhân sự sẽ liên hệ mời phỏng vấn trong 2-3 ngày làm việc tới số điện thoại <strong>{createdApp.phone}</strong>.
               </p>
-              <div className="inline-block px-4 py-1.5 rounded-full bg-[#FAEDCD] text-[#4A2C11] font-mono font-bold text-xs">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#2076bd] font-mono font-bold text-xs border border-blue-200">
                 Mã Hồ Sơ Ứng Viên: {createdApp.id}
               </div>
               <div className="pt-4">
                 <button
                   onClick={handleClose}
-                  className="px-6 py-2.5 rounded-xl bg-[#4A2C11] text-white font-bold text-sm hover:bg-[#7A4E27]"
+                  className="px-6 py-2.5 rounded-xl bg-[#2076bd] text-white font-bold text-sm hover:bg-[#165b94]"
                 >
                   Xác Nhận & Đóng
                 </button>
@@ -94,8 +94,8 @@ export const ApplicationModal: React.FC = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               
-              <div className="p-3 rounded-xl bg-[#FAEDCD]/40 border border-[#D4A373]/30 text-xs text-[#4A2C11] flex items-center gap-2">
-                <Heart size={16} className="text-[#E76F51] shrink-0" />
+              <div className="p-3 rounded-xl bg-blue-50/60 border border-blue-100 text-xs text-[#2076bd] flex items-center gap-2">
+                <Heart size={16} className="text-[#f09c05] shrink-0" />
                 <span>Mức thu nhập: <strong>{applyingJob.salary}</strong>. Không cần kinh nghiệm (được đào tạo bài bản).</span>
               </div>
 
@@ -109,7 +109,7 @@ export const ApplicationModal: React.FC = () => {
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="Ví dụ: Hoàng Tuấn Anh"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                 />
               </div>
 
@@ -124,7 +124,7 @@ export const ApplicationModal: React.FC = () => {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="09xx xxx xxx"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                   />
                 </div>
                 <div>
@@ -136,7 +136,7 @@ export const ApplicationModal: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="ungvien@gmail.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                   />
                 </div>
               </div>
@@ -148,7 +148,7 @@ export const ApplicationModal: React.FC = () => {
                 <select
                   value={formData.branchPreference}
                   onChange={(e) => setFormData({ ...formData, branchPreference: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                 >
                   <option value="Khu vực Quận 2 (Thảo Điền / An Phú)">Khu vực Quận 2 (Thảo Điền / An Phú)</option>
                   <option value="Khu vực Quận 7 (Phú Mỹ Hưng)">Khu vực Quận 7 (Phú Mỹ Hưng)</option>
@@ -164,7 +164,7 @@ export const ApplicationModal: React.FC = () => {
                 <select
                   value={formData.shiftPreference}
                   onChange={(e) => setFormData({ ...formData, shiftPreference: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                 >
                   <option value="Ca sáng (06:30 - 14:30)">Ca sáng (06:30 - 14:30)</option>
                   <option value="Ca chiều / tối (14:30 - 22:30)">Ca chiều / tối (14:30 - 22:30)</option>
@@ -182,7 +182,7 @@ export const ApplicationModal: React.FC = () => {
                   value={formData.experienceNotes}
                   onChange={(e) => setFormData({ ...formData, experienceNotes: e.target.value })}
                   placeholder="Ví dụ: Đang là sinh viên năm 2, tiếng Anh giao tiếp tốt, yêu thích văn hóa cà phê..."
-                  className="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                  className="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                 />
               </div>
 

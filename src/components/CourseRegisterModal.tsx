@@ -68,7 +68,7 @@ export const CourseRegisterModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-[#FDFBF7] rounded-3xl shadow-2xl overflow-hidden border border-[#D4A373]/30 my-6">
+      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-blue-100 my-6">
         
         {/* Header */}
         <div className="px-6 py-4 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white flex items-center justify-between">
@@ -93,23 +93,23 @@ export const CourseRegisterModal: React.FC = () => {
         <div className="p-6 max-h-[82vh] overflow-y-auto">
           {createdReg ? (
             <div className="text-center py-6 space-y-5">
-              <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
+              <div className="w-16 h-16 bg-blue-50 text-[#2076bd] rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 size={36} />
               </div>
               
               <div>
-                <h4 className="font-display text-2xl font-bold text-[#24140A]">Chúc Mừng Bạn Đã Trở Thành Học Viên!</h4>
-                <p className="text-sm text-[#7A6E68] mt-1">
+                <h4 className="font-oswald text-2xl font-bold uppercase text-[#2076bd]">Chúc Mừng Bạn Đã Trở Thành Học Viên!</h4>
+                <p className="text-sm text-gray-600 mt-1">
                   Dolphy Academy đã nhận được thông tin ghi danh cho khóa: <strong>{createdReg.courseTitle}</strong>.
                 </p>
-                <div className="mt-3 inline-block px-4 py-1.5 rounded-full bg-[#FAEDCD] text-[#4A2C11] font-mono font-bold text-sm">
+                <div className="mt-3 inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#2076bd] font-mono font-bold text-sm border border-blue-200">
                   Mã Hồ Sơ Học Viên: {createdReg.id}
                 </div>
               </div>
 
               {/* QR Code Transfer */}
-              <div className="p-5 rounded-2xl bg-white border border-[#E8E0D5] max-w-sm mx-auto shadow-md space-y-3">
-                <div className="flex items-center justify-center gap-2 font-bold text-sm text-[#4A2C11]">
+              <div className="p-5 rounded-2xl bg-white border border-blue-100 max-w-sm mx-auto shadow-md space-y-3">
+                <div className="flex items-center justify-center gap-2 font-bold text-sm text-[#2076bd]">
                   <QrCode size={18} />
                   <span>
                     Mã Chuyển Khoản {createdReg.paymentOption === 'deposit' ? 'Đặt Cọc Giữ Chỗ' : 'Toàn Bộ Học Phí'}
@@ -135,7 +135,7 @@ export const CourseRegisterModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   onClick={handleClose}
-                  className="px-6 py-2.5 rounded-xl bg-[#4A2C11] text-white font-bold text-sm hover:bg-[#7A4E27]"
+                  className="px-6 py-2.5 rounded-xl bg-[#2076bd] text-white font-bold text-sm hover:bg-[#165b94]"
                 >
                   Hoàn Tất & Đóng
                 </button>
@@ -145,16 +145,16 @@ export const CourseRegisterModal: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               
               {/* Course Selection Card */}
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-[#FAEDCD]/40 to-[#FDFBF7] border border-[#D4A373]/40 space-y-2">
+              <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-100 space-y-2">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#E76F51] text-white">
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#f09c05] text-white">
                       {selectedCourse.badge || 'Khóa Đào Tạo'}
                     </span>
-                    <h4 className="font-display text-base font-bold text-[#24140A] mt-1">
+                    <h4 className="font-oswald text-base font-bold uppercase text-[#2076bd] mt-1">
                       {selectedCourse.title}
                     </h4>
-                    <p className="text-xs text-[#7A6E68] mt-0.5">
+                    <p className="text-xs text-gray-500 mt-0.5">
                       Thời lượng: {selectedCourse.totalHours} giờ ({selectedCourse.sessions} buổi x {selectedCourse.hoursPerSession}h)
                     </p>
                   </div>
@@ -162,7 +162,7 @@ export const CourseRegisterModal: React.FC = () => {
                     <span className="text-xs text-gray-400 line-through block">
                       {selectedCourse.price.toLocaleString('vi-VN')} ₫
                     </span>
-                    <span className="text-lg font-bold text-[#C0392B]">
+                    <span className="text-lg font-bold text-[#f09c05]">
                       {selectedCourse.discountPrice.toLocaleString('vi-VN')} ₫
                     </span>
                   </div>
@@ -182,7 +182,7 @@ export const CourseRegisterModal: React.FC = () => {
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       placeholder="Nguyễn Văn A"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                     />
                   </div>
                   <div>
@@ -195,7 +195,7 @@ export const CourseRegisterModal: React.FC = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="09xx xxx xxx"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                     />
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export const CourseRegisterModal: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="hocvien@gmail.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                   />
                 </div>
 
@@ -221,7 +221,7 @@ export const CourseRegisterModal: React.FC = () => {
                     <select
                       value={formData.branchPreference}
                       onChange={(e) => setFormData({ ...formData, branchPreference: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                     >
                       {selectedCourse.locations.map(loc => (
                         <option key={loc} value={loc}>{loc}</option>
@@ -235,7 +235,7 @@ export const CourseRegisterModal: React.FC = () => {
                     <select
                       value={formData.preferredSchedule}
                       onChange={(e) => setFormData({ ...formData, preferredSchedule: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                     >
                       {selectedCourse.schedule.map(sch => (
                         <option key={sch} value={sch}>{sch}</option>
@@ -253,7 +253,7 @@ export const CourseRegisterModal: React.FC = () => {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Ví dụ: Muốn xin việc ngay tại Dolphy, sắp đi du học, v.v..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A2C11] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#2076bd] bg-white"
                   />
                 </div>
               </div>
@@ -268,7 +268,7 @@ export const CourseRegisterModal: React.FC = () => {
                     onClick={() => setFormData({ ...formData, paymentOption: 'deposit' })}
                     className={`cursor-pointer p-3.5 rounded-xl border transition-all ${
                       formData.paymentOption === 'deposit'
-                        ? 'border-[#4A2C11] bg-[#FAEDCD]/30 ring-2 ring-[#4A2C11]'
+                        ? 'border-[#2076bd] bg-blue-50/50 ring-2 ring-[#2076bd]'
                         : 'border-gray-200 bg-white hover:bg-gray-50'
                     }`}
                   >
@@ -277,13 +277,13 @@ export const CourseRegisterModal: React.FC = () => {
                       name="paymentOption"
                       checked={formData.paymentOption === 'deposit'}
                       onChange={() => setFormData({ ...formData, paymentOption: 'deposit' })}
-                      className="text-[#4A2C11] focus:ring-[#4A2C11]"
+                      className="text-[#2076bd] focus:ring-[#2076bd]"
                     />
                     <div className="mt-1">
-                      <div className="font-bold text-xs text-[#24140A]">
+                      <div className="font-bold text-xs text-gray-800">
                         Đặt Cọc Giữ Chỗ (Ưu tiên)
                       </div>
-                      <div className="text-base font-bold text-[#C0392B] mt-0.5">
+                      <div className="text-base font-bold text-[#f09c05] mt-0.5">
                         {selectedCourse.depositAmount.toLocaleString('vi-VN')} ₫
                       </div>
                       <div className="text-[11px] text-gray-500 mt-0.5">
@@ -296,7 +296,7 @@ export const CourseRegisterModal: React.FC = () => {
                     onClick={() => setFormData({ ...formData, paymentOption: 'full' })}
                     className={`cursor-pointer p-3.5 rounded-xl border transition-all ${
                       formData.paymentOption === 'full'
-                        ? 'border-[#4A2C11] bg-[#FAEDCD]/30 ring-2 ring-[#4A2C11]'
+                        ? 'border-[#2076bd] bg-blue-50/50 ring-2 ring-[#2076bd]'
                         : 'border-gray-200 bg-white hover:bg-gray-50'
                     }`}
                   >
@@ -305,13 +305,13 @@ export const CourseRegisterModal: React.FC = () => {
                       name="paymentOption"
                       checked={formData.paymentOption === 'full'}
                       onChange={() => setFormData({ ...formData, paymentOption: 'full' })}
-                      className="text-[#4A2C11] focus:ring-[#4A2C11]"
+                      className="text-[#2076bd] focus:ring-[#2076bd]"
                     />
                     <div className="mt-1">
-                      <div className="font-bold text-xs text-[#24140A]">
+                      <div className="font-bold text-xs text-gray-800">
                         Thanh Toán Toàn Bộ Học Phí
                       </div>
-                      <div className="text-base font-bold text-[#C0392B] mt-0.5">
+                      <div className="text-base font-bold text-[#f09c05] mt-0.5">
                         {selectedCourse.discountPrice.toLocaleString('vi-VN')} ₫
                       </div>
                       <div className="text-[11px] text-gray-500 mt-0.5">
