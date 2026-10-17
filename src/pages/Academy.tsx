@@ -94,13 +94,61 @@ export const Academy: React.FC = () => {
 
       {/* 2. COURSE SELECTOR TABS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-b border-gray-200 dark:border-slate-800 overflow-x-auto scrollbar-none pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-          <div className="flex sm:justify-center gap-2 p-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg w-max min-w-full sm:w-auto">
+        {/* Mobile & Tablet View: 2x2 Clean Grid - All 4 courses visible at a glance without side scrolling */}
+        <div className="lg:hidden space-y-2.5">
+          <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 font-oswald uppercase tracking-wider px-0.5">
+            <span className="font-bold text-[#2076bd] dark:text-[#3ba0e6]">
+              {language === 'vi' ? 'DANH SÁCH 4 KHÓA ĐÀO TẠO DOLPHY' : '4 DOLPHY TRAINING PROGRAMS'}
+            </span>
+            <span className="text-[11px] text-gray-400 dark:text-gray-500">
+              {language === 'vi' ? 'Chạm để xem chi tiết' : 'Tap to switch'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2.5 p-1.5 bg-gray-100 dark:bg-slate-800/80 rounded-xl">
+            {coursesData.map((c, idx) => {
+              const active = activeCourseId === c.id;
+              const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+              const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+
+              return (
+                <button
+                  key={c.id}
+                  onClick={() => setActiveCourseId(c.id)}
+                  className={`p-3 rounded-lg text-left transition-all flex flex-col justify-between min-h-[98px] border ${
+                    active
+                      ? 'bg-[#2076bd] text-white border-[#2076bd] shadow-md ring-2 ring-[#2076bd]/30'
+                      : 'bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-slate-700 hover:border-[#2076bd]/60'
+                  }`}
+                >
+                  <div className="flex items-center justify-between w-full mb-1.5">
+                    <span className={`text-[10px] font-oswald font-bold px-1.5 py-0.5 rounded ${
+                      active ? 'bg-white/20 text-white' : 'bg-gray-100 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
+                    }`}>
+                      #{idx + 1}
+                    </span>
+                    <span className={`text-[11px] font-oswald font-bold ${active ? 'text-amber-300' : 'text-[#c88232]'}`}>
+                      {price}₫
+                    </span>
+                  </div>
+
+                  <span className="font-oswald text-xs uppercase font-bold tracking-wide leading-tight line-clamp-3">
+                    {title}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop View: Horizontal single row */}
+        <div className="hidden lg:block border-b border-gray-200 dark:border-slate-800 pb-2">
+          <div className="flex justify-center gap-2 p-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg w-auto">
             {coursesData.map(c => (
               <button
                 key={c.id}
                 onClick={() => setActiveCourseId(c.id)}
-                className={`whitespace-nowrap shrink-0 px-4 sm:px-6 py-2.5 rounded text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all ${
+                className={`whitespace-nowrap shrink-0 px-6 py-2.5 rounded text-sm font-oswald uppercase tracking-wider font-bold transition-all ${
                   activeCourseId === c.id
                     ? 'bg-[#2076bd] text-white shadow'
                     : 'text-gray-600 dark:text-gray-300 hover:text-[#222222] dark:hover:text-white'
