@@ -96,14 +96,14 @@ export const CheckoutModal: React.FC = () => {
                   </div>
                   <img
                     src={qrUrl}
-                    alt="VietQR Code Dolphy Cafe"
+                    alt="VietQR Code Dolphy Café"
                     className="w-56 h-56 mx-auto rounded-lg border border-gray-200 dark:border-slate-700 bg-white"
                   />
                   <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1 text-left bg-gray-50 dark:bg-slate-800/80 p-3 rounded-lg border border-gray-100 dark:border-slate-700">
                     <div>{t('checkout.bank_name')}</div>
                     <div>{t('checkout.bank_acc')}</div>
                     <div>{t('checkout.bank_owner')}</div>
-                    <div>{language === 'vi' ? 'Số tiền:' : 'Amount:'} <strong className="text-[#c88232]">{createdOrder.totalAmount.toLocaleString('vi-VN')} ₫</strong></div>
+                    <div>{language === 'vi' ? 'Số tiền:' : 'Amount:'} <strong className="text-[#857200] dark:text-[#FAEA28]">{createdOrder.totalAmount.toLocaleString('vi-VN')} ₫</strong></div>
                     <div>{language === 'vi' ? 'Nội dung:' : 'Reference:'} <strong>{createdOrder.id}</strong></div>
                   </div>
                   <p className="text-[11px] text-gray-500 dark:text-gray-400 italic">

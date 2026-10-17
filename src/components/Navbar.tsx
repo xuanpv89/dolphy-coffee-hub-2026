@@ -35,16 +35,16 @@ export const Navbar: React.FC = () => {
       <div className="border-b border-gray-100 dark:border-slate-800/80 py-2 sm:py-2.5 px-3 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-1.5 sm:gap-4">
           
-          {/* Logo Dolphy Cafe */}
+          {/* Logo Dolphy Café */}
           <Link to="/" className="flex items-center shrink-0">
             <img 
               src="/images/dolphy-logo.png" 
-              alt="Dolphy Cafe" 
+              alt="Dolphy Café" 
               className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain dark:hidden"
             />
             <img 
               src="/images/dolphy-logo-dark.png" 
-              alt="Dolphy Cafe" 
+              alt="Dolphy Café" 
               className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain hidden dark:block"
             />
           </Link>

@@ -20,7 +20,7 @@ const consolidated = {
     slogan: "Happiness in a cup",
     url: "https://dolphycafe.com/",
     established: "20/10/2013",
-    description: "Dolphy Cafe tự hào vì luôn nỗ lực cải tiến chất lượng từng ngày thông qua sự học hỏi và ứng dụng kiến thức cafe mới với mong muốn khách hàng có thể tận hưởng những hạt cafe chất lượng hàng đầu, đến từ những nông trại chất lượng cao của Việt Nam.",
+    description: "Dolphy Café tự hào vì luôn nỗ lực cải tiến chất lượng từng ngày thông qua sự học hỏi và ứng dụng kiến thức cafe mới với mong muốn khách hàng có thể tận hưởng những hạt cafe chất lượng hàng đầu, đến từ những nông trại chất lượng cao của Việt Nam.",
     contact: {
       hotline: "0938 084 985",
       email: "contact@dolphycafe.com",

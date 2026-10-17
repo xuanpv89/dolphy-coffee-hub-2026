@@ -12,8 +12,8 @@ export const Footer: React.FC = () => {
     e.preventDefault();
     if (!newsletterEmail) return;
     showToast(language === 'vi' 
-      ? 'Cảm ơn bạn đã đăng ký nhận thông tin mới nhất từ Dolphy Cafe!' 
-      : 'Thank you for subscribing to Dolphy Cafe newsletter!'
+      ? 'Cảm ơn bạn đã đăng ký nhận thông tin mới nhất từ Dolphy Café!' 
+      : 'Thank you for subscribing to Dolphy Café newsletter!'
     );
     setNewsletterEmail('');
   };
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="w-9 h-9 rounded-lg bg-[#FF0000] hover:opacity-90 text-white flex items-center justify-center transition-all shadow hover:scale-105"
-                  title="YouTube: Dolphy Cafe"
+                  title="YouTube: Dolphy Café"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -247,7 +247,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Copyright */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/70 gap-3 text-center sm:text-left">
           <p>
-            © 2013 - 2026 <strong>Dolphy Cafe</strong>. {t('footer.rights')}
+            © 2013 - 2026 <strong>Dolphy Café</strong>. {t('footer.rights')}
           </p>
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-white/70 text-[11px]">
             <Link to="/policies" className="hover:text-white transition-colors">{t('footer.privacy_policy')}</Link>

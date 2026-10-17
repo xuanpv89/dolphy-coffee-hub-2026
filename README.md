@@ -1,6 +1,6 @@
 # Dolphy Coffee Hub 2026 ☕🌿
 
-> **Website chính thức của Hệ sinh thái Cà phê Dolphy Cafe - Dolphy Academy & Specialty Roastery.**
+> **Website chính thức của Hệ sinh thái Cà phê Dolphy Caf� - Dolphy Academy & Specialty Roastery.**
 > Kế thừa di sản 13 năm (thành lập từ năm 2013, Top 10 Saigon Coffee) kết hợp chiến lược mở rộng đào tạo thực chiến và thương mại điện tử chuyên nghiệp.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/xuanpv89/dolphy-coffee-hub-2026)
@@ -14,7 +14,7 @@
 
 ## 🌟 Tổng Quan Hệ Sinh Thái Dolphy 2026
 
-Dự án được xây dựng dựa trên dữ liệu nghiên cứu thị trường, kế hoạch kinh doanh và toàn bộ tư liệu thực tế của Dolphy Cafe:
+Dự án được xây dựng dựa trên dữ liệu nghiên cứu thị trường, kế hoạch kinh doanh và toàn bộ tư liệu thực tế của Dolphy Caf�:
 1. **Di sản & Hệ thống 10 Chi nhánh (Heritage & 10 Branches)**:
    - Thảo Điền (Quận 2): Nguyễn Bá Huân, Xuân Thủy, Thảo Điền, Quốc Hương, Tống Hữu Định,...
    - Bình Thạnh: Nguyễn Cửu Vân, Điện Biên Phủ,...
@@ -71,7 +71,7 @@ npm run preview
 ```
 DOLPHY WEBSITE/
 ├── public/
-│   ├── images/              # Hình ảnh thực tế trích xuất từ Dolphy Cafe & Academy
+│   ├── images/              # Hình ảnh thực tế trích xuất từ Dolphy Caf� & Academy
 │   └── favicon.svg
 ├── src/
 │   ├── components/          # UI Components
@@ -128,5 +128,6 @@ Bạn có thể import trực tiếp repository `xuanpv89/dolphy-coffee-hub-2026
 
 ## 📜 Bản Quyền & Giấy Phép
 
-© 2013 - 2026 **Dolphy Cafe & Dolphy Academy**. All rights reserved.
+© 2013 - 2026 **Dolphy Caf� & Dolphy Academy**. All rights reserved.
 Phát triển bởi đội ngũ công nghệ Dolphy Hub.
+

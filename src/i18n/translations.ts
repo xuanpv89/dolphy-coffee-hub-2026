@@ -38,14 +38,14 @@ export const translations = {
     'home.hero3_subtitle': 'Thực hành 100% tại quầy bar cửa hàng thật • Cam kết ưu tiên tuyển dụng ngay',
     'home.hero3_cta': 'ĐĂNG KÝ HỌC VIỆN',
 
-    'home.slogan_quote': '“Dolphy Cafe tự hào vì luôn nỗ lực cải tiến chất lượng từng ngày thông qua sự học hỏi và ứng dụng kiến thức cafe mới với mong muốn khách hàng có thể tận hưởng những hạt cafe chất lượng hàng đầu, đến từ những nông trại chất lượng cao của Việt Nam.”',
+    'home.slogan_quote': '“Dolphy Café tự hào vì luôn nỗ lực cải tiến chất lượng từng ngày thông qua sự học hỏi và ứng dụng kiến thức cafe mới với mong muốn khách hàng có thể tận hưởng những hạt cafe chất lượng hàng đầu, đến từ những nông trại chất lượng cao của Việt Nam.”',
     'home.stat_years': 'Năm Di Sản (2013-2026)',
     'home.stat_branches': 'Chi Nhánh TP.HCM',
     'home.stat_pure': 'Hạt Cà Phê Mộc Chuẩn',
     'home.stat_top10': 'Saigon Coffee Đáng Thử',
 
     'home.bestsellers_title': 'SẢN PHẨM BÁN CHẠY',
-    'home.bestsellers_sub': 'Những dòng hạt cà phê nguyên chất được ưa chuộng nhất tại hệ thống chuỗi Dolphy Cafe.',
+    'home.bestsellers_sub': 'Những dòng hạt cà phê nguyên chất được ưa chuộng nhất tại hệ thống chuỗi Dolphy Café.',
     'home.view_all_products': 'XEM TẤT CẢ SẢN PHẨM & CÀ PHÊ GÓI',
 
     'home.delivery_tag': 'DOLPHY ONLINE DELIVERY',
@@ -56,7 +56,7 @@ export const translations = {
 
     'home.academy_badge': 'CHIẾN LƯỢC MỞ RỘNG 2026',
     'home.academy_title': 'HỌC VIỆN ĐÀO TẠO BARISTA THỰC CHIẾN DOLPHY ACADEMY',
-    'home.academy_desc': 'Không dạy lý thuyết suông! Dolphy Academy đưa học viên vào thực hành trực tiếp 100% tại quầy bar cửa hàng thật thuộc chuỗi Dolphy Cafe. Giáo trình chuẩn quốc tế SCA kết hợp tư duy vận hành chuỗi thực tế.',
+    'home.academy_desc': 'Không dạy lý thuyết suông! Dolphy Academy đưa học viên vào thực hành trực tiếp 100% tại quầy bar cửa hàng thật thuộc chuỗi Dolphy Café. Giáo trình chuẩn quốc tế SCA kết hợp tư duy vận hành chuỗi thực tế.',
     'home.academy_feature1': 'Thời lượng: 21 giờ thực chiến (7 buổi chuyên sâu)',
     'home.academy_feature2': 'Học phí: 7.000.000đ (Đặt cọc giữ chỗ 2.000.000đ qua VietQR)',
     'home.academy_feature3': 'Đặc quyền: Cam kết ưu tiên tuyển dụng ngay vào 10 chi nhánh Dolphy',
@@ -74,7 +74,7 @@ export const translations = {
     'home.academy_btn': 'ĐĂNG KÝ HỌC VIÊN NGAY',
 
     'home.testimonials_title': 'KHÁCH HÀNG NÓI VỀ CHÚNG TÔI',
-    'home.testimonials_sub': 'Cảm nhận chân thực từ cộng đồng khách hàng quen thuộc và đối tác gắn bó với Dolphy Cafe.',
+    'home.testimonials_sub': 'Cảm nhận chân thực từ cộng đồng khách hàng quen thuộc và đối tác gắn bó với Dolphy Café.',
 
     // Community / Fanpage Gallery
     'home.community_badge': 'KHOẢNH KHẮC DOLPHY • FANPAGE LIVE FEED',
@@ -88,7 +88,7 @@ export const translations = {
     'home.view_all_news': 'XEM TẤT CẢ TIN TỨC & BÀI VIẾT',
 
     'home.finder_tag': 'HỆ THỐNG 10 ĐIỂM BẢN TẠI TP.HCM',
-    'home.finder_title': 'TÌM CỬA HÀNG DOLPHY CAFE GẦN BẠN NHẤT',
+    'home.finder_title': 'TÌM CỬA HÀNG DOLPHY CAFÉ GẦN BẠN NHẤT',
     'home.finder_desc': 'Tọa lạc tại các vị trí đắc địa ở Thảo Điền (Quốc Hương, Xuân Thủy, Nguyễn Bá Huân,...), Bình Thạnh và Phú Mỹ Hưng Quận 7. Không gian thoáng mát, máy lạnh, wifi mạnh mẽ và thân thiện với thú cưng.',
     'home.map_button': 'XEM BẢN ĐỒ & TIỆN ÍCH 10 CHI NHÁNH',
     'home.delivery_button': 'GIAO HÀNG TẬN NƠI',
@@ -96,7 +96,7 @@ export const translations = {
     // Shop Page
     'shop.hero_tag': 'DOLPHY COFFEE BAG • FIND YOUR MATCH',
     'shop.hero_title': 'CỬA HÀNG CÀ PHÊ HẠT NGUYÊN CHẤT & QUÀ TẶNG',
-    'shop.hero_desc': 'Hạt cà phê thu hoạch chín 100%, rang mới mỗi tuần theo kỹ thuật độc quyền của Dolphy Cafe. Đóng gói van 1 chiều bảo toàn trọn vẹn hương vị.',
+    'shop.hero_desc': 'Hạt cà phê thu hoạch chín 100%, rang mới mỗi tuần theo kỹ thuật độc quyền của Dolphy Café. Đóng gói van 1 chiều bảo toàn trọn vẹn hương vị.',
     'shop.filter_all': 'TẤT CẢ SẢN PHẨM',
     'shop.filter_beans': 'CÀ PHÊ HẠT & GÓI',
     'shop.filter_drinks': 'ĐỒ UỐNG ĐÓNG CHAI FRESH',
@@ -149,9 +149,9 @@ export const translations = {
     'branches.phone': 'Hotline',
 
     // Knowledge Page
-    'knowledge.hero_tag': 'TIN TỨC & CẨM NANG DOLPHY CAFE',
+    'knowledge.hero_tag': 'TIN TỨC & CẨM NANG DOLPHY CAFÉ',
     'knowledge.hero_title': 'TRI THỨC CÀ PHÊ & BÍ QUYẾT PHA CHẾ',
-    'knowledge.hero_desc': 'Khám phá kiến thức Latte Art, lịch sử chiếc phin nhôm truyền thống, cách nhận biết cà phê hạt sạch và hành trình xanh cùng Dolphy Cafe.',
+    'knowledge.hero_desc': 'Khám phá kiến thức Latte Art, lịch sử chiếc phin nhôm truyền thống, cách nhận biết cà phê hạt sạch và hành trình xanh cùng Dolphy Café.',
     'knowledge.tab_all': 'TẤT CẢ BÀI VIẾT',
     'knowledge.tab_brewing': 'CẨM NANG PHA CHẾ',
     'knowledge.tab_culture': 'VĂN HÓA & CỘNG ĐỒNG',
@@ -170,7 +170,7 @@ export const translations = {
     'careers.banner_tag': 'GIA ĐÌNH DOLPHY CAFÉ • NƠI ƯƠM MẦM ĐAM MÊ CÀ PHÊ',
     'careers.banner_title': 'TRỞ THÀNH MỘT PHẦN CỦA ĐỘI NGŨ BARISTA DOLPHY',
     'careers.banner_desc': 'Tại Dolphy, mỗi ngày đi làm là một ngày tràn đầy năng lượng cùng đồng đội thân thiết, khách quen mến mộ và không gian cà phê mở rộn rã tiếng cười.',
-    'careers.why_title': 'VÌ SAO CHỌN DOLPHY CAFE?',
+    'careers.why_title': 'VÌ SAO CHỌN DOLPHY CAFÉ?',
     'careers.why_sub': 'Môi trường làm việc thân thiện, chuẩn chỉ, thăng tiến công bằng và tôn trọng nhân sự.',
     'careers.culture_title': 'ĐỜI SỐNG & VĂN HÓA DOLPHIERS',
     'careers.culture_sub': 'Tại Dolphy, chúng tôi không chỉ làm việc cùng nhau mà còn cùng nhau rèn luyện thể thao, gắn kết tình đồng đội và phát triển đam mê cà phê.',
@@ -247,7 +247,7 @@ export const translations = {
     'checkout.qr_title': 'Mã Quét Thanh Toán VietQR',
     'checkout.bank_name': 'Ngân hàng: MB Bank (Quân Đội)',
     'checkout.bank_acc': 'Số tài khoản: 0938084985',
-    'checkout.bank_owner': 'Chủ tài khoản: DOLPHY CAFE',
+    'checkout.bank_owner': 'Chủ tài khoản: DOLPHY CAFÉ',
     'checkout.done_btn': 'Hoàn Tất & Tiếp Tục Mua Sắm',
 
     // Course Register Modal
@@ -288,7 +288,7 @@ export const translations = {
     'footer.top10_badge': 'Top 10 Saigon Coffee: Điểm hẹn cà phê quen thuộc tại Thảo Điền từ năm 2013.',
     'footer.support_title': 'HỖ TRỢ',
     'footer.social_title': 'KẾT NỐI VỚI CHÚNG TÔI',
-    'footer.social_desc': 'Theo dõi Dolphy Cafe trên mạng xã hội để cập nhật ưu đãi và hoạt động workshop mới nhất:',
+    'footer.social_desc': 'Theo dõi Dolphy Café trên mạng xã hội để cập nhật ưu đãi và hoạt động workshop mới nhất:',
     'footer.admin_link': 'Cổng Quản Trị Hệ Thống CRM',
     'footer.rights': 'Bản quyền thuộc về CÔNG TY TNHH CÁ HEO XANH.',
     'footer.privacy_policy': 'Chính sách bảo mật',
@@ -332,14 +332,14 @@ export const translations = {
     'home.hero3_subtitle': '100% training on live store bars • Guaranteed direct hiring priority',
     'home.hero3_cta': 'ENROLL NOW',
 
-    'home.slogan_quote': '“Dolphy Cafe is dedicated to continuously enhancing quality through constant learning and adopting new coffee knowledge, with the desire that every guest enjoys top-quality coffee harvested from Vietnam’s prime highlands.”',
+    'home.slogan_quote': '“Dolphy Café is dedicated to continuously enhancing quality through constant learning and adopting new coffee knowledge, with the desire that every guest enjoys top-quality coffee harvested from Vietnam’s prime highlands.”',
     'home.stat_years': 'Years of Heritage (2013-2026)',
     'home.stat_branches': 'HCMC Locations',
     'home.stat_pure': 'Pure Specialty Standard',
     'home.stat_top10': 'Top Saigon Must-Try Cafe',
 
     'home.bestsellers_title': 'BEST SELLER PRODUCTS',
-    'home.bestsellers_sub': 'Pure whole bean and drip coffee selections most favored across Dolphy Cafe stores.',
+    'home.bestsellers_sub': 'Pure whole bean and drip coffee selections most favored across Dolphy Café stores.',
     'home.view_all_products': 'VIEW ALL PRODUCTS & COFFEE BAGS',
 
     'home.delivery_tag': 'DOLPHY ONLINE DELIVERY',
@@ -541,7 +541,7 @@ export const translations = {
     'checkout.qr_title': 'VietQR Payment Code',
     'checkout.bank_name': 'Bank: MB Bank (Military Bank)',
     'checkout.bank_acc': 'Account No: 0938084985',
-    'checkout.bank_owner': 'Account Holder: DOLPHY CAFE',
+    'checkout.bank_owner': 'Account Holder: DOLPHY CAFÉ',
     'checkout.done_btn': 'Finish & Continue Shopping',
 
     // Course Register Modal
@@ -582,7 +582,7 @@ export const translations = {
     'footer.top10_badge': 'Top 10 Saigon Coffee: A cherished coffee hub in Thao Dien since 2013.',
     'footer.support_title': 'SUPPORT',
     'footer.social_title': 'FOLLOW US',
-    'footer.social_desc': 'Follow Dolphy Cafe on social media for latest updates and workshops:',
+    'footer.social_desc': 'Follow Dolphy Café on social media for latest updates and workshops:',
     'footer.admin_link': 'Admin CRM Portal',
     'footer.rights': 'All rights reserved by BLUE DOLPHIN CO., LTD.',
     'footer.privacy_policy': 'Privacy Policy',

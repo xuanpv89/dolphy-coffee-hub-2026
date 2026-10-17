@@ -1617,10 +1617,10 @@ Mức giá trải nghiệm đồng giá chỉ 75.000đ. Hãy ghé ngay Dolphy đ
   },
   {
     id: 'khai-truong-ba-huyen-thanh-quan',
-    titleEn: 'Welcome New Branch: Dolphy Cafe Arrives at 08 Ba Huyen Thanh Quan (District 3)',
+    titleEn: 'Welcome New Branch: Dolphy Café Arrives at 08 Ba Huyen Thanh Quan (District 3)',
     categoryEn: 'Store News',
     readTimeEn: '3 min read',
-    excerptEn: 'Dolphy Cafe officially opens in the heart of District 3 with a Soft Opening 30% discount on all handcrafted drinks and fresh bakery.',
+    excerptEn: 'Dolphy Café officially opens in the heart of District 3 with a Soft Opening 30% discount on all handcrafted drinks and fresh bakery.',
     contentEn: `Following a 13-year journey serving as an iconic coffee destination in Thao Dien (District 2) and Phu My Hung (District 7), DOLPHY CAFÉ brings happiness in a cup closer to the central heart of Ho Chi Minh City:
 
 ADDRESS: 08 Ba Huyen Thanh Quan, Vo Thi Sau Ward, District 3, HCMC.
@@ -1629,13 +1629,13 @@ OPENING HOURS: 06:00 AM – 10:00 PM daily.
 SOFT OPENING SPECIALS:
 • 30% OFF all Handcrafted Drinks and Fresh Daily Pastries.
 • Experience authentic phin drip coffee, specialty espresso, and warm French butter croissants under the shade of ancient Saigon trees.`,
-    title: 'Chào Đón Chi Nhánh Mới: Dolphy Cafe Đổ Bộ 08 Bà Huyện Thanh Quan (Quận 3)',
+    title: 'Chào Đón Chi Nhánh Mới: Dolphy Café Đổ Bộ 08 Bà Huyện Thanh Quan (Quận 3)',
     slug: 'khai-truong-dolphy-ba-huyen-thanh-quan-quan-3',
     category: 'Tin Tức Chi Nhánh',
     date: '2026-09-25',
     author: 'Dolphy Expansion',
     readTime: '3 phút đọc',
-    excerpt: 'Dolphy Cafe chính thức có mặt tại trung tâm Quận 3 với chương trình Soft Opening ưu đãi 30% toàn bộ Menu đồ uống và bánh ngọt.',
+    excerpt: 'Dolphy Café chính thức có mặt tại trung tâm Quận 3 với chương trình Soft Opening ưu đãi 30% toàn bộ Menu đồ uống và bánh ngọt.',
     image: '/images/fanpage/soft-opening-ba-huyen-thanh-quan.jpg',
     tags: ['Chi nhánh mới', 'Quận 3', 'Soft Opening', 'Giảm giá 30%'],
     content: `Sau hành trình 13 năm gắn bó và trở thành biểu tượng cà phê tại Thảo Điền (Quận 2) và Phú Mỹ Hưng (Quận 7), DOLPHY CAFÉ chính thức mang hương vị cà phê hạnh phúc đến gần hơn với cư dân trung tâm TP.HCM:

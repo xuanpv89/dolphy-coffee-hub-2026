@@ -327,7 +327,7 @@ With Dolphy's Robusta Coffee, you will still be able to enjoy the authentic tast
 Robusta bag 250gr: 185.000 VND
 Robusta bag 500gr: 350.000 VND
 In addition, Dolphy also has a line of whole Espresso and Arabica beans, you will be able to choose the grind level to suit all needs. Inbox or contact us at 0938 084 985 to order!
-DOLPHY CAFE - THE BEST LATTE IN TOWN
+DOLPHY CAF� - THE BEST LATTE IN TOWN
 🌐 Website: https://dolphycafe.com/
 📞 Order online: 093 808 49 85
 🚖 Available on Grab App
@@ -340,7 +340,7 @@ DOLPHY CAFE - THE BEST LATTE IN TOWN
 > **Nguồn bài viết:** [https://dolphycafe.com/dolphy-cafe-coffee-bag-find-your-match](https://dolphycafe.com/dolphy-cafe-coffee-bag-find-your-match)
 
 Nhất nước, nhì cà, tam pha, tứ thưởng với các loại cà nhà Dolphy!
-Nhằm đáp ứng nhu cầu thưởng thức cà phê ngày càng tinh tế của quý khách hàng, Dolphy Cafe mang đến những sản phẩm cà phê hạt/ bột phù hợp cho từng nhu cầu:
+Nhằm đáp ứng nhu cầu thưởng thức cà phê ngày càng tinh tế của quý khách hàng, DOLPHY CAF� mang đến những sản phẩm cà phê hạt/ bột phù hợp cho từng nhu cầu:
 - Robusta - 100% hạt Robusta với vị đậm, ngọt, đắng của socola
 - Espresso - 80% hạt Arabica, 20% hạt Robusta có vị chua tinh tế, đắng nhẹ và hậu vị ngọt
 - Arabica - 100% hạt Arabica với hương trà đen, vị của socola đen và các loại hạt, hậu vị êm
@@ -348,7 +348,7 @@ Với các hạt nhân xanh được lựa chọn cẩn thận, Dolphy đã tinh
 Còn chần chờ gì mà không liên hệ hotline 0938 084 985 hoặc inbox để chúng mình tư vấn loại hạt phù hợp nhất!
 ---------------------
 First is the water, second is the coffee, third is the brewing, and fourth is the enjoyment with Dolphy’s coffee!
-To meet our customers' increasingly refined coffee tastes, Dolphy Cafe offers coffee beans/powder products suited for every need:
+To meet our customers' increasingly refined coffee tastes, DOLPHY CAF� offers coffee beans/powder products suited for every need:
 - Robusta - 100% Robusta beans with a rich, sweet, and bitter chocolate flavor
 - Espresso - 80% Arabica beans, 20% Robusta beans with a sophisticated acidity, light bitterness, and sweet aftertaste
 - Arabica - 100% Arabica beans with the aroma of black tea, the flavor of dark chocolate and nuts, and a smooth aftertaste
@@ -425,7 +425,7 @@ Bước 4: Đủ thời gian cần thiết, bạn lấy bình cà phê ra khỏi
 Ngoài ra, phương pháp Cold Brew hiện nay đã được sử dụng với rất nhiều dụng cụ pha hiện đại khác nhau, bạn có thể dễ dàng lựa chọn dụng cụ với đa dạng hình dáng và giá cả phù hợp với mình.
 Cà phê A1 của Dolphy phù hợp để pha với dụng cụ này, nếu bạn chưa có dụng cụ để xay hạt thì các bạn chỉ cần nói tên dụng cụ Dolphy sẽ xay giúp bạn nhé.
 Chúc bạn thành công!
-Dolphy Café - Happiness in a cup
+DOLPHY CAF�́ - Happiness in a cup
 -----------
 Instagram: @dolphycafe
 Facebook: Dolphy Café
@@ -454,7 +454,7 @@ Disadvantages:
 Moreover, the Cold Brew method is now used with many different modern brewing tools, you can easily choose tools with a variety of shapes and prices that are suitable for you.
 Dolphy's A1 coffee is suitable for brewing with this tool, if you do not have a tool to grind the beans, just say the name of the tool Dolphy will grind for you.
 Good luck!
-Dolphy Café - Happiness in a cup
+DOLPHY CAF�́ - Happiness in a cup
 -----------
 Instagram: @dolphycafe
 Facebook: Dolphy Café
@@ -583,4 +583,5 @@ Sau khi nhận được đơn hàng bạn gửi chúng tôi sẽ liên hệ bằ
 Trân trọng cảm ơn.
 
 ---
+
 

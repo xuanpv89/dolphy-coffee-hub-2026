@@ -1,7 +1,7 @@
 {
   "name": "dolphy-coffee-hub-2026",
   "version": "1.0.0",
-  "description": "Dolphy Coffee Hub 2026 - Official Ecosystem Website (Dolphy Cafe, Dolphy Academy, Roastery & Community)",
+  "description": "Dolphy Coffee Hub 2026 - Official Ecosystem Website (Dolphy Café, Dolphy Academy, Roastery & Community)",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -237,7 +237,7 @@ export const Home: React.FC = () => {
           <div className="flex items-center justify-center gap-2 text-[#FAEA28]">
             <Star size={16} fill="#FAEA28" />
             <span className="font-oswald text-xs uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
-              DOLPHY CAFE • EST. 2013
+              DOLPHY CAFÉ • EST. 2013
             </span>
             <Star size={16} fill="#FAEA28" />
           </div>
