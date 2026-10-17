@@ -47,7 +47,7 @@ const AppLayout: React.FC = () => {
   const isV2 = location.pathname.startsWith('/v2');
 
   const bgClasses = isV2
-    ? 'bg-[#FAF6F0] dark:bg-[#120E0B] text-[#2C2117] dark:text-[#E8DEC8] selection:bg-[#c88232] selection:text-white'
+    ? 'bg-[#FAF6F0] dark:bg-[#120E0B] text-[#2C2117] dark:text-[#E8DEC8] selection:bg-[#FAEA28] selection:text-slate-950'
     : isAdmin
     ? 'bg-[#f1f5f9] dark:bg-[#0b1329] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white'
     : 'bg-[#f8fafc] dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white';

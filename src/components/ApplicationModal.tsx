@@ -50,7 +50,7 @@ export const ApplicationModal: React.FC = () => {
         {/* Header */}
         <div className="px-6 py-4 bg-[#2076bd] text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <Briefcase className="text-[#c88232]" size={22} />
+            <Briefcase className="text-[#FAEA28]" size={22} />
             <div>
               <h3 className="font-oswald text-base font-bold uppercase tracking-wider">
                 {createdApp 
@@ -99,7 +99,7 @@ export const ApplicationModal: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               
               <div className="p-3 rounded-xl bg-blue-50/60 dark:bg-slate-800/60 border border-blue-100 dark:border-slate-700 text-xs text-[#2076bd] dark:text-[#38bdf8] flex items-center gap-2">
-                <Heart size={16} className="text-[#c88232] shrink-0" />
+                <Heart size={16} className="text-[#2076bd] dark:text-[#38bdf8] shrink-0" />
                 <span>
                   {language === 'vi'
                     ? <>Mức thu nhập: <strong>{applyingJob.salary}</strong>. Không cần kinh nghiệm (được đào tạo bài bản).</>
@@ -197,7 +197,7 @@ export const ApplicationModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-xs uppercase tracking-wider font-semibold shadow-lg transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs uppercase tracking-wider font-semibold shadow-lg transition-colors flex items-center justify-center gap-2"
                 >
                   <Send size={16} />
                   <span>{t('app_modal.submit')}</span>

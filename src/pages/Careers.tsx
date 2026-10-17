@@ -91,7 +91,7 @@ export const Careers: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3">
-            <div className="w-12 h-12 rounded-lg bg-yellow-50 dark:bg-yellow-950/40 text-[#857200] dark:text-[#FAEA28] flex items-center justify-center mx-auto text-2xl font-bold">
+            <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center mx-auto text-2xl font-bold">
               ⏰
             </div>
             <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -119,7 +119,7 @@ export const Careers: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3">
-            <div className="w-12 h-12 rounded-lg bg-yellow-50 dark:bg-yellow-950/40 text-[#857200] dark:text-[#FAEA28] flex items-center justify-center mx-auto text-2xl font-bold">
+            <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center mx-auto text-2xl font-bold">
               🚀
             </div>
             <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -183,7 +183,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Sáng Tạo & Gắn Kết' : 'Craft & Bonding'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -229,7 +229,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Văn Hóa Chân Thành' : 'Warm Hospitality'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -275,7 +275,7 @@ export const Careers: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Phúc Lợi & Đãi Ngộ' : 'Benefits & Perks'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -364,7 +364,7 @@ export const Careers: React.FC = () => {
                       <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-[#2076bd] dark:text-[#3ba0e6]">
                         {jType}
                       </span>
-                      <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-yellow-50 dark:bg-yellow-950/40 text-[#857200] dark:text-[#FAEA28]">
+                      <span className="text-[10px] font-oswald font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAEA28] text-slate-950 shadow-xs">
                         {jDept}
                       </span>
                     </div>

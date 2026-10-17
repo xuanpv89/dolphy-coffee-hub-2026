@@ -430,7 +430,7 @@ export const Shop: React.FC = () => {
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
+                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                     {language === 'vi' ? 'Quầy Trưng Bày Thực Tế' : 'In-Store Retail Display'}
                   </span>
                   <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">

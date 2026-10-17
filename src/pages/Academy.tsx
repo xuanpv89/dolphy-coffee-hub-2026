@@ -127,7 +127,7 @@ export const Academy: React.FC = () => {
                     }`}>
                       #{idx + 1}
                     </span>
-                    <span className={`text-[11px] font-oswald font-bold ${active ? 'text-[#FAEA28]' : 'text-[#857200] dark:text-[#FAEA28]'}`}>
+                    <span className={`text-[11px] font-oswald font-bold ${active ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
                       {price}₫
                     </span>
                   </div>
@@ -262,7 +262,7 @@ export const Academy: React.FC = () => {
                 <div className="font-oswald text-3xl font-bold text-[#2076bd] dark:text-[#3ba0e6] my-1">
                   {(currentCourse.discountPrice || currentCourse.price).toLocaleString('vi-VN')}₫
                 </div>
-                <div className="text-xs text-[#857200] dark:text-[#FAEA28] font-bold font-oswald uppercase">
+                <div className="text-xs text-[#2076bd] dark:text-[#3ba0e6] font-bold font-oswald uppercase">
                   {t('academy.deposit_amount')}: {(currentCourse.depositAmount || 2000000).toLocaleString('vi-VN')}₫
                 </div>
               </div>
@@ -287,7 +287,7 @@ export const Academy: React.FC = () => {
               </div>
 
               <div className="p-3 rounded bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-xs text-blue-900 dark:text-blue-200 space-y-1">
-                <p className="font-bold flex items-center gap-1">
+                <p className="font-bold flex items-center gap-1 text-[#2076bd] dark:text-[#3ba0e6]">
                   <Sparkles size={14} className="text-[#FAEA28]" />
                   {language === 'vi' ? 'Ưu đãi đăng ký sớm:' : 'Early Bird Privilege:'}
                 </p>
@@ -339,7 +339,7 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Sân Chơi Thường Niên' : 'Annual Championship'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -385,7 +385,7 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Vinh Danh Tài Năng' : 'Trophy Ceremony'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
@@ -431,7 +431,7 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#857200] dark:text-[#FAEA28]">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Cảm Quan Hương Vị' : 'Sensory Evaluation'}
               </span>
               <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">

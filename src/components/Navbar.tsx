@@ -87,7 +87,7 @@ export const Navbar: React.FC = () => {
             {/* Theme Toggle Button (Light / Dark) */}
             <button
               onClick={toggleTheme}
-              className="p-1.5 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-amber-400 hover:border-[#2076bd] hover:text-[#2076bd] transition-colors"
+              className="p-1.5 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-[#FAEA28] hover:border-[#2076bd] hover:text-[#2076bd] transition-colors"
               title={theme === 'light' ? t('nav.theme_dark') : t('nav.theme_light')}
             >
               {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}

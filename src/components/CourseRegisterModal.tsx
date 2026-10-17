@@ -73,7 +73,7 @@ export const CourseRegisterModal: React.FC = () => {
         {/* Header */}
         <div className="px-6 py-4 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <GraduationCap className="text-[#c88232]" size={24} />
+            <GraduationCap className="text-[#FAEA28]" size={24} />
             <div>
               <h3 className="font-oswald text-lg font-bold uppercase tracking-wider">
                 {createdReg 
@@ -134,7 +134,7 @@ export const CourseRegisterModal: React.FC = () => {
                   <div>{t('checkout.bank_name')}</div>
                   <div>{t('checkout.bank_acc')}</div>
                   <div>{t('checkout.bank_owner')}</div>
-                  <div>{language === 'vi' ? 'Số tiền:' : 'Amount:'} <strong className="text-[#c88232] font-bold">{createdReg.amount.toLocaleString('vi-VN')} ₫</strong></div>
+                  <div>{language === 'vi' ? 'Số tiền:' : 'Amount:'} <strong className="text-[#2076bd] dark:text-[#38bdf8] font-bold">{createdReg.amount.toLocaleString('vi-VN')} ₫</strong></div>
                   <div>{language === 'vi' ? 'Nội dung:' : 'Content:'} <strong>{createdReg.id} - {createdReg.phone}</strong></div>
                 </div>
                 <p className="text-[11px] text-gray-500 dark:text-slate-400 italic">
@@ -160,7 +160,7 @@ export const CourseRegisterModal: React.FC = () => {
               <div className="p-4 rounded-2xl bg-blue-50/50 dark:bg-slate-800/60 border border-blue-100 dark:border-slate-700 space-y-2">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#c88232] text-white">
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#FAEA28] text-slate-950 font-extrabold">
                       {selectedCourse.badge || (language === 'vi' ? 'Khóa Đào Tạo' : 'Course')}
                     </span>
                     <h4 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#38bdf8] mt-1">
@@ -176,7 +176,7 @@ export const CourseRegisterModal: React.FC = () => {
                     <span className="text-xs text-gray-400 dark:text-slate-500 line-through block">
                       {selectedCourse.price.toLocaleString('vi-VN')} ₫
                     </span>
-                    <span className="text-lg font-bold text-[#c88232]">
+                    <span className="text-lg font-bold text-[#2076bd] dark:text-[#38bdf8]">
                       {selectedCourse.discountPrice.toLocaleString('vi-VN')} ₫
                     </span>
                   </div>
@@ -297,7 +297,7 @@ export const CourseRegisterModal: React.FC = () => {
                       <div className="font-bold text-xs text-gray-800 dark:text-white">
                         {language === 'vi' ? 'Đặt Cọc Giữ Chỗ (Ưu tiên)' : 'Seat Deposit (Priority)'}
                       </div>
-                      <div className="text-base font-bold text-[#c88232] mt-0.5">
+                      <div className="text-base font-bold text-[#2076bd] dark:text-[#38bdf8] mt-0.5">
                         {selectedCourse.depositAmount.toLocaleString('vi-VN')} ₫
                       </div>
                       <div className="text-[11px] text-gray-500 dark:text-slate-400 mt-0.5">
@@ -327,7 +327,7 @@ export const CourseRegisterModal: React.FC = () => {
                       <div className="font-bold text-xs text-gray-800 dark:text-white">
                         {language === 'vi' ? 'Thanh Toán Toàn Bộ Học Phí' : 'Full Tuition Payment'}
                       </div>
-                      <div className="text-base font-bold text-[#c88232] mt-0.5">
+                      <div className="text-base font-bold text-[#2076bd] dark:text-[#38bdf8] mt-0.5">
                         {selectedCourse.discountPrice.toLocaleString('vi-VN')} ₫
                       </div>
                       <div className="text-[11px] text-gray-500 dark:text-slate-400 mt-0.5">
@@ -344,7 +344,7 @@ export const CourseRegisterModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-sm uppercase tracking-wider font-semibold shadow-lg transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-sm uppercase tracking-wider font-semibold shadow-lg transition-colors flex items-center justify-center gap-2"
                 >
                   <GraduationCap size={18} />
                   <span>

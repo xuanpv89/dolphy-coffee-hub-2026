@@ -393,7 +393,7 @@ export const AdminDashboard: React.FC = () => {
                 <span className="font-oswald text-base font-bold tracking-wider uppercase text-white group-hover:text-[#3ba0e6] transition-colors leading-none">
                   DOLPHY HUB ADMIN
                 </span>
-                <span className="text-[10px] text-[#c88232] font-semibold tracking-widest uppercase">
+                <span className="text-[10px] text-[#FAEA28] font-semibold tracking-widest uppercase">
                   Operation & F&B Suite 2026
                 </span>
               </div>
@@ -413,7 +413,7 @@ export const AdminDashboard: React.FC = () => {
               className="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-oswald font-semibold uppercase text-gray-200 border border-slate-700 transition-colors flex items-center gap-1.5"
               title="Đổi ngôn ngữ / Change Language"
             >
-              <Globe size={13} className="text-[#c88232]" />
+              <Globe size={13} className="text-[#FAEA28]" />
               <span>{language.toUpperCase()}</span>
             </button>
 
@@ -560,8 +560,8 @@ export const AdminDashboard: React.FC = () => {
             onClick={() => { setActiveTab('sitemap'); setSearchTerm(''); }}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-oswald uppercase tracking-wider font-bold transition-all flex items-center gap-2 shrink-0 ${
               activeTab === 'sitemap'
-                ? 'bg-[#c88232] text-white shadow-md'
-                : 'text-[#c88232] dark:text-[#e09848] hover:bg-orange-50 dark:hover:bg-slate-800 border border-[#c88232]/30'
+                ? 'bg-[#2076bd] text-white shadow-md'
+                : 'text-[#2076bd] dark:text-[#3ba0e6] hover:bg-blue-50 dark:hover:bg-slate-800 border border-[#2076bd]/30'
             }`}
           >
             <LinkIcon size={16} />
@@ -601,7 +601,7 @@ export const AdminDashboard: React.FC = () => {
               <div className="p-5 rounded-2xl bg-white dark:bg-[#131d36] border border-gray-200 dark:border-slate-800 shadow-xs space-y-2">
                 <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                   <span className="font-semibold uppercase tracking-wider">{language === 'vi' ? 'Học Viên Đăng Ký' : 'Student Registrations'}</span>
-                  <div className="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/40 text-[#c88232]">
+                  <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-[#2076bd] dark:text-[#3ba0e6]">
                     <GraduationCap size={18} />
                   </div>
                 </div>
@@ -669,10 +669,10 @@ export const AdminDashboard: React.FC = () => {
                   <span className="text-xs font-oswald uppercase tracking-wider font-bold text-gray-600 dark:text-gray-400">
                     {language === 'vi' ? 'Chỉ Số Hài Lòng Khách Hàng (CSAT)' : 'Customer Satisfaction (CSAT)'}
                   </span>
-                  <span className="text-xs font-bold text-[#c88232]">4.9 / 5.0 (98% Positive)</span>
+                  <span className="text-xs font-bold text-[#2076bd] dark:text-[#3ba0e6]">4.9 / 5.0 (98% Positive)</span>
                 </div>
                 <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
-                  <div className="bg-[#c88232] h-2 rounded-full" style={{ width: '98%' }}></div>
+                  <div className="bg-[#2076bd] h-2 rounded-full" style={{ width: '98%' }}></div>
                 </div>
                 <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
                   {language === 'vi'
@@ -710,7 +710,7 @@ export const AdminDashboard: React.FC = () => {
                     {language === 'vi' ? 'Dữ liệu thời gian thực đồng bộ từ hệ sinh thái Dolphy' : 'Real-time synchronization across Dolphy network'}
                   </p>
                 </div>
-                <span className="text-xs font-oswald text-[#c88232] font-semibold uppercase">
+                <span className="text-xs font-oswald text-[#2076bd] dark:text-[#3ba0e6] font-semibold uppercase">
                   {registrations.length + orders.length + applications.length} {language === 'vi' ? 'tác vụ đã ghi nhận' : 'events recorded'}
                 </span>
               </div>
@@ -719,7 +719,7 @@ export const AdminDashboard: React.FC = () => {
                 {registrations.slice(0, 3).map(reg => (
                   <div key={reg.id} className="py-3 flex items-center justify-between gap-4 text-xs">
                     <div className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-950/60 text-[#c88232] flex items-center justify-center font-bold">
+                      <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center font-bold">
                         <GraduationCap size={15} />
                       </span>
                       <div>
@@ -1173,7 +1173,7 @@ export const AdminDashboard: React.FC = () => {
                           <div className="font-bold text-gray-900 dark:text-white flex items-center gap-1.5">
                             <span>{prod.name}</span>
                             {prod.isBestSeller && (
-                              <span className="px-1.5 py-0.2 rounded text-[9px] bg-[#c88232] text-white font-oswald uppercase font-bold">
+                              <span className="px-1.5 py-0.2 rounded text-[9px] bg-[#FAEA28] text-slate-950 font-oswald uppercase font-extrabold">
                                 Best Seller
                               </span>
                             )}
@@ -1314,7 +1314,7 @@ export const AdminDashboard: React.FC = () => {
         {activeTab === 'funnel' && (
           <div className="bg-white dark:bg-[#131d36] rounded-2xl border border-gray-200 dark:border-slate-800 overflow-hidden shadow-xs space-y-6 p-6">
             <div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#c88232] font-oswald">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-oswald">
                 Dolphy Strategy 2026
               </span>
               <h3 className="font-oswald text-xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] mt-0.5">
@@ -1364,7 +1364,7 @@ export const AdminDashboard: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-gradient-to-br from-[#165b94] to-[#2076bd] text-white text-center space-y-1 shadow-md">
-                <div className="text-[10px] font-bold text-[#c88232] uppercase">Target Goal</div>
+                <div className="text-[10px] font-bold text-[#FAEA28] uppercase">Target Goal</div>
                 <div className="text-xs font-bold text-white">{language === 'vi' ? 'HV Đóng Học Phí' : 'Paid Students'}</div>
                 <div className="text-xl font-extrabold text-white">5 Students</div>
                 <div className="text-[10px] text-green-300 font-bold">35.000.000 ₫</div>
@@ -1398,7 +1398,7 @@ export const AdminDashboard: React.FC = () => {
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-gray-100 dark:border-slate-800">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-oswald uppercase tracking-wider font-bold bg-[#c88232] text-white">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-oswald uppercase tracking-wider font-bold bg-[#2076bd] text-white">
                     Sitemap Hub
                   </span>
                   <h3 className="font-oswald text-lg font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
@@ -1495,7 +1495,7 @@ export const AdminDashboard: React.FC = () => {
                               : item.category === 'product'
                               ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300'
                               : item.category === 'course'
-                              ? 'bg-orange-100 dark:bg-orange-950/60 text-[#c88232]'
+                              ? 'bg-[#FAEA28] text-slate-950 font-extrabold'
                               : item.category === 'job'
                               ? 'bg-pink-100 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300'
                               : item.category === 'branch'

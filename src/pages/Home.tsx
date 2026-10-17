@@ -260,7 +260,7 @@ export const Home: React.FC = () => {
               <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_pure')}</span>
             </div>
             <div className="p-2">
-              <span className="block font-oswald text-2xl font-bold text-[#b09600] dark:text-[#FAEA28]">TOP 10</span>
+              <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">TOP 10</span>
               <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_top10')}</span>
             </div>
           </div>
@@ -304,7 +304,7 @@ export const Home: React.FC = () => {
               {/* Product Info */}
               <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-[#b59b00] dark:text-[#FAEA28] text-xs mb-1">
+                  <div className="flex items-center gap-1 text-[#FAEA28] text-xs mb-1">
                     {'★'.repeat(5)}
                     <span className="text-gray-400 text-[11px] ml-1">({product.rating || 5.0})</span>
                   </div>
@@ -462,7 +462,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
                   <span>{t('home.academy_deposit')}</span>
-                  <strong className="text-base text-[#857200] dark:text-[#FAEA28] font-oswald font-bold">2.000.000₫</strong>
+                  <strong className="text-base text-[#2076bd] dark:text-[#3ba0e6] font-oswald font-bold">2.000.000₫</strong>
                 </div>
                 <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
                   <span>{t('home.academy_location_lbl')}</span>
@@ -475,7 +475,7 @@ export const Home: React.FC = () => {
               </div>
 
               <div className="p-3 rounded bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-200 flex items-center gap-2">
-                <Sparkles size={16} className="text-[#857200] dark:text-[#FAEA28] shrink-0" />
+                <Sparkles size={16} className="text-[#FAEA28] shrink-0" />
                 <span>{t('home.academy_gift')}</span>
               </div>
 
@@ -806,7 +806,7 @@ export const Home: React.FC = () => {
               </h3>
 
               <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-                <MapPin size={13} className="text-[#857200] dark:text-[#FAEA28]" />
+                <MapPin size={13} className="text-[#2076bd] dark:text-[#3ba0e6]" />
                 <span>{language === 'vi' ? selectedPhoto.location : selectedPhoto.locationEn}</span>
               </div>
             </div>

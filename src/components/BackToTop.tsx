@@ -76,7 +76,7 @@ export const BackToTop: React.FC = () => {
             cx="24"
             cy="24"
             r={radius}
-            className="text-[#c88232] stroke-current transition-all duration-150 ease-out"
+            className="text-[#FAEA28] stroke-current transition-all duration-150 ease-out"
             strokeWidth="2.5"
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
@@ -86,7 +86,7 @@ export const BackToTop: React.FC = () => {
         </svg>
 
         {/* Center Button Icon */}
-        <div className="w-9 h-9 rounded-full bg-[#2076bd] group-hover:bg-[#c88232] text-white flex items-center justify-center transition-colors duration-200 shadow-sm">
+        <div className="w-9 h-9 rounded-full bg-[#2076bd] group-hover:bg-[#FAEA28] text-white group-hover:text-slate-950 flex items-center justify-center transition-colors duration-200 shadow-sm">
           <ArrowUp
             size={18}
             className="transition-transform duration-200 group-hover:-translate-y-0.5"

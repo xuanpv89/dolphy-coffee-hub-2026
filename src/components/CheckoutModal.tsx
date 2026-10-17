@@ -103,7 +103,7 @@ export const CheckoutModal: React.FC = () => {
                     <div>{t('checkout.bank_name')}</div>
                     <div>{t('checkout.bank_acc')}</div>
                     <div>{t('checkout.bank_owner')}</div>
-                    <div>{language === 'vi' ? 'Số tiền:' : 'Amount:'} <strong className="text-[#857200] dark:text-[#FAEA28]">{createdOrder.totalAmount.toLocaleString('vi-VN')} ₫</strong></div>
+                    <div>{language === 'vi' ? 'Số tiền:' : 'Amount:'} <strong className="text-[#2076bd] dark:text-[#3ba0e6]">{createdOrder.totalAmount.toLocaleString('vi-VN')} ₫</strong></div>
                     <div>{language === 'vi' ? 'Nội dung:' : 'Reference:'} <strong>{createdOrder.id}</strong></div>
                   </div>
                   <p className="text-[11px] text-gray-500 dark:text-gray-400 italic">
@@ -117,7 +117,7 @@ export const CheckoutModal: React.FC = () => {
               <div className="pt-4 flex justify-center gap-3">
                 <button
                   onClick={handleClose}
-                  className="px-6 py-2.5 rounded-xl bg-[#2076bd] text-white font-bold text-sm hover:bg-[#165b94]"
+                  className="px-6 py-2.5 rounded-xl bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-bold text-sm transition-colors"
                 >
                   {t('checkout.done_btn')}
                 </button>
@@ -138,7 +138,7 @@ export const CheckoutModal: React.FC = () => {
                         <span className="font-semibold text-gray-800 dark:text-gray-200">{item.product.name}</span>
                         <span className="text-gray-500 dark:text-gray-400 block text-[11px]">{item.grindOption} x {item.quantity}</span>
                       </div>
-                      <span className="font-bold text-[#c88232]">
+                      <span className="font-bold text-[#2076bd] dark:text-[#3ba0e6]">
                         {(item.product.price * item.quantity).toLocaleString('vi-VN')} ₫
                       </span>
                     </div>
@@ -146,7 +146,7 @@ export const CheckoutModal: React.FC = () => {
                 </div>
                 <div className="pt-2 border-t border-gray-200 dark:border-slate-700 flex justify-between text-sm font-bold text-gray-900 dark:text-white">
                   <span>{t('cart.total_label')}</span>
-                  <span className="text-[#c88232] text-base">{cartTotal.toLocaleString('vi-VN')} ₫</span>
+                  <span className="text-[#2076bd] dark:text-[#3ba0e6] text-base">{cartTotal.toLocaleString('vi-VN')} ₫</span>
                 </div>
               </div>
 
@@ -285,7 +285,7 @@ export const CheckoutModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#c88232] text-white font-oswald text-sm uppercase tracking-wider font-semibold shadow-lg transition-colors"
+                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-sm uppercase tracking-wider font-semibold shadow-lg transition-colors"
                 >
                   {t('checkout.submit_btn')} ({cartTotal.toLocaleString('vi-VN')} ₫)
                 </button>
