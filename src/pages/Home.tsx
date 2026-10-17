@@ -10,14 +10,18 @@ import {
   CheckCircle2, 
   ExternalLink,
   Calendar,
-  Sparkles
+  Sparkles,
+  Heart,
+  Camera,
+  X
 } from 'lucide-react';
-import { coursesData, productsData, articlesData } from '../data/dolphyData';
+import { coursesData, productsData, articlesData, communityGalleryData, CommunityPhoto } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 
 export const Home: React.FC = () => {
   const { setEnrollingCourse, addToCart, showToast, t, language } = useDolphy();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedPhoto, setSelectedPhoto] = useState<CommunityPhoto | null>(null);
 
   const slides = [
     {
@@ -500,7 +504,95 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. TIN TỨC MỚI */}
+      {/* 7. KHOẢNH KHẮC DOLPHY / FANPAGE LIVE FEED */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-10 space-y-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] text-xs font-oswald uppercase tracking-widest font-bold">
+            <Camera size={14} />
+            <span>{t('home.community_badge')}</span>
+          </div>
+          <h2 className="section-title">{t('home.community_title')}</h2>
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+            {t('home.community_sub')}
+          </p>
+        </div>
+
+        {/* 8-Photo Interactive Gallery Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {communityGalleryData.map((item) => (
+            <div
+              key={item.id}
+              onClick={() => setSelectedPhoto(item)}
+              className="group relative aspect-square rounded-xl overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/60 cursor-pointer bg-gray-100 dark:bg-slate-800 transition-all duration-300"
+            >
+              <img
+                src={item.image}
+                alt={language === 'vi' ? item.title : item.titleEn}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+
+              {/* Tag Category top-left */}
+              <div className="absolute top-2.5 left-2.5 z-10">
+                <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-white">
+                  {language === 'vi' ? item.category : item.categoryEn}
+                </span>
+              </div>
+
+              {/* Hover Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4 text-white">
+                <span className="text-[11px] text-[#f09c05] font-oswald flex items-center gap-1 mb-1">
+                  <MapPin size={12} />
+                  <span>{language === 'vi' ? item.location : item.locationEn}</span>
+                </span>
+
+                <h4 className="font-oswald text-xs sm:text-sm font-semibold uppercase leading-tight line-clamp-2">
+                  {language === 'vi' ? item.title : item.titleEn}
+                </h4>
+
+                <div className="flex items-center justify-between pt-2 border-t border-white/20 mt-2 text-[11px] text-white/80">
+                  <span className="flex items-center gap-1 text-red-400">
+                    <Heart size={12} className="fill-red-400 text-red-400" />
+                    <span>{item.likes} {t('home.community_like')}</span>
+                  </span>
+                  <span className="text-[10px] uppercase font-oswald text-[#3ba0e6]">
+                    {language === 'vi' ? 'Xem ảnh' : 'View'} →
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Fanpage CTA Bar */}
+        <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/60 border border-blue-100 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <div className="w-10 h-10 rounded-full bg-[#2076bd] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">
+              f
+            </div>
+            <div>
+              <p className="font-oswald text-sm font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase">
+                Dolphy Café Official Fanpage
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                #DolphyCafe #HappinessInACup #DolphyThaoDien #BlueDolphins
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://www.facebook.com/dolphycafe"
+            target="_blank"
+            rel="noreferrer"
+            className="w-full sm:w-auto px-5 py-2.5 rounded bg-[#2076bd] hover:bg-[#f09c05] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors shadow flex items-center justify-center gap-2"
+          >
+            <span>{t('home.community_follow')}</span>
+            <ExternalLink size={13} />
+          </a>
+        </div>
+      </section>
+
+      {/* 8. TIN TỨC MỚI */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="section-title">{t('home.news_title')}</h2>
@@ -600,6 +692,55 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal for Community Photo */}
+      {selectedPhoto && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
+          onClick={() => setSelectedPhoto(null)}
+        >
+          <div 
+            className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedPhoto(null)}
+              className="absolute top-3 right-3 z-10 p-2 text-white bg-black/60 hover:bg-black/80 rounded-full transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="aspect-[4/3] bg-black">
+              <img
+                src={selectedPhoto.image}
+                alt={language === 'vi' ? selectedPhoto.title : selectedPhoto.titleEn}
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            <div className="p-5 space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6]">
+                  {language === 'vi' ? selectedPhoto.category : selectedPhoto.categoryEn}
+                </span>
+                <span className="flex items-center gap-1 text-red-500 font-semibold text-xs">
+                  <Heart size={14} className="fill-red-500" />
+                  <span>{selectedPhoto.likes} {t('home.community_like')}</span>
+                </span>
+              </div>
+
+              <h3 className="font-oswald text-lg font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? selectedPhoto.title : selectedPhoto.titleEn}
+              </h3>
+
+              <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                <MapPin size={13} className="text-[#f09c05]" />
+                <span>{language === 'vi' ? selectedPhoto.location : selectedPhoto.locationEn}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

@@ -11,7 +11,8 @@ export const Branches: React.FC = () => {
     { id: 'all', name: t('branches.tab_all') },
     { id: 'Quận 2 (TP. Thủ Đức)', name: t('branches.tab_d2') },
     { id: 'Quận 7 (Phú Mỹ Hưng)', name: t('branches.tab_d7') },
-    { id: 'Quận Bình Thạnh', name: t('branches.tab_bt') }
+    { id: 'Quận Bình Thạnh', name: t('branches.tab_bt') },
+    { id: 'Quận 3 (Trung Tâm)', name: t('branches.tab_d3') }
   ];
 
   const filteredBranches = branchesData.filter(b => 

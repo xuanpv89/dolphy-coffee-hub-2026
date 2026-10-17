@@ -115,6 +115,90 @@ export const Careers: React.FC = () => {
         </div>
       </section>
 
+      {/* DOLPHIERS CULTURE & SPORTS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center space-y-2">
+          <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+            {language === 'vi' ? 'CON NGƯỜI & VĂN HÓA DOANH NGHIỆP' : 'PEOPLE & CULTURE'}
+          </span>
+          <h2 className="section-title">{t('careers.culture_title')}</h2>
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+            {t('careers.culture_sub')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/badminton-club-2025.jpg"
+                alt="Dolphy Badminton Club 2025"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                {language === 'vi' ? 'Hoạt Động Thể Thao' : 'Sports Club'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                Dolphy Badminton Club 2025
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Giao lưu cầu lông hàng tuần giúp các bạn nhân sự rèn luyện thể lực và thắt chặt tình bạn sau những giờ ca làm việc.'
+                  : 'Weekly badminton matches keeping the bar team active, fit, and socially bonded after shifts.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/barista-expat-patio.jpg"
+                alt="Giao lưu khách quốc tế tại Thảo Điền"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                {language === 'vi' ? 'Môi Trường Quốc Tế' : 'Expat Community'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Kết Nối Khách Hàng Toàn Cầu' : 'International Connections'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Giao tiếp tiếng Anh hàng ngày với các chuyên gia, giáo viên trường quốc tế và cư dân tại Thảo Điền & Phú Mỹ Hưng.'
+                  : 'Practice fluent English speaking daily with foreign residents, expats, and travelers in Saigon.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/tet-holiday-ao-dai.jpg"
+                alt="Không khí lễ hội Tết truyền thống"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                {language === 'vi' ? 'Văn Hóa Lễ Hội' : 'Festival Traditions'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Duyên Dáng Lễ Hội & Thưởng Tết' : 'Festive Celebrations & Bonuses'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Chế độ thưởng lễ Tết, lì xì may mắn và các sự kiện nội bộ đầm ấm như một đại gia đình Cá Heo Xanh.'
+                  : 'Generous holiday bonuses, lucky red envelopes, and heartwarming team family events.'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Open Positions */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="space-y-1">

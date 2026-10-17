@@ -256,7 +256,93 @@ export const Academy: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. FAQS */}
+      {/* 4. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center space-y-2">
+          <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+            {language === 'vi' ? 'HỌC VIỆN & SÂN CHƠI CHUYÊN NGHIỆP' : 'ACADEMY & CHAMPIONSHIP'}
+          </span>
+          <h2 className="section-title">
+            {t('academy.gallery_title')}
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+            {t('academy.gallery_sub')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[4/3] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/barista-training-workshop.jpg"
+                alt="Đào tạo kỹ năng cối xay và máy pha Rancilio"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                {language === 'vi' ? 'Thực Hành Quầy Bar 1:1' : '1-on-1 Live Bar Coaching'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Căn chỉnh cối xay & Chiết xuất Espresso' : 'Dial-in & Espresso Calibration'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Học viên được trực tiếp cầm tay chỉ việc trên dòng máy pha công nghiệp Rancilio và máy xay chuyên dụng.'
+                  : 'Direct coaching on commercial Rancilio machines, testing sensory extraction profiles.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[4/3] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/top-12-baristas.jpg"
+                alt="Top 12 Barista tài năng Dolphy Cafe"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                {language === 'vi' ? 'Sân Chơi Chuyên Nghiệp' : 'Annual Competition'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Bảng Vinh Danh Top 12 Barista' : 'Top 12 Finalists Recognition'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Nơi các bạn trẻ thỏa sức sáng tạo công thức Signature Drink và biểu diễn Latte Art đỉnh cao trước hội đồng giám khảo.'
+                  : 'Where talented baristas showcase signature recipes and silky latte art before certified judges.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+            <div className="aspect-[4/3] overflow-hidden bg-slate-900">
+              <img
+                src="/images/fanpage/barista-championship-ceremony.jpg"
+                alt="Lễ vinh danh giải thưởng Blue Dolphins Barista Championship"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-4 space-y-1">
+              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#f09c05]">
+                {language === 'vi' ? 'Lễ Trao Giải Season VII' : 'Season VII Awards Ceremony'}
+              </span>
+              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+                {language === 'vi' ? 'Khoảnh Khắc Tỏa Sáng Nghề Barista' : 'Shining Barista Career Moments'}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {language === 'vi'
+                  ? 'Cơ hội thăng tiến lên Shift Leader, Store Manager và mở rộng sự nghiệp ra các chuỗi cà phê quốc tế.'
+                  : 'Fast-track career advancement to Shift Leader, Store Manager, and international hospitality.'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. FAQS */}
       <section className="bg-[#f8f9fa] dark:bg-slate-900/60 py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-slate-800 transition-colors">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center">

@@ -12,13 +12,18 @@ export const KnowledgeHub: React.FC = () => {
 
   const categories = [
     { id: 'all', name: t('knowledge.tab_all') },
-    { id: 'Cẩm Nang Pha Chế', name: t('knowledge.tab_brewing') },
-    { id: 'Văn Hóa Cà Phê', name: t('knowledge.tab_culture') },
-    { id: 'Chương Trình Khách Hàng', name: t('knowledge.tab_events') }
+    { id: 'Cẩm Nang', name: t('knowledge.tab_brewing') },
+    { id: 'Văn Hóa', name: t('knowledge.tab_culture') },
+    { id: 'Học Viện', name: t('knowledge.tab_academy') },
+    { id: 'Kiến Trúc', name: t('knowledge.tab_spaces') },
+    { id: 'Thức Uống', name: t('knowledge.tab_drinks') },
+    { id: 'Chương Trình', name: t('knowledge.tab_events') }
   ];
 
   const filtered = articlesData.filter(art => {
-    const matchCat = selectedCategory === 'all' || art.category.includes(selectedCategory);
+    const matchCat = selectedCategory === 'all' || 
+                     art.category.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+                     (selectedCategory === 'Kiến Trúc' && art.category.includes('Chi Nhánh'));
     const matchSearch = art.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         art.content.toLowerCase().includes(searchQuery.toLowerCase());
     return matchCat && matchSearch;

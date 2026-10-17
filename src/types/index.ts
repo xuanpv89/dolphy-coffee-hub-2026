@@ -51,7 +51,7 @@ export interface Course {
 export interface Branch {
   id: string;
   name: string;
-  area: 'Quận 2 (TP. Thủ Đức)' | 'Quận 7 (Phú Mỹ Hưng)' | 'Quận Bình Thạnh';
+  area: 'Quận 2 (TP. Thủ Đức)' | 'Quận 7 (Phú Mỹ Hưng)' | 'Quận Bình Thạnh' | 'Quận 3 (Trung Tâm)';
   district: string;
   address: string;
   phone: string;
