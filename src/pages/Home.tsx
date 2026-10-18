@@ -582,7 +582,7 @@ export const Home: React.FC = () => {
           <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div className="w-full relative overflow-hidden group bg-black">
+        <div className="w-full relative overflow-hidden group">
           <video
             ref={homeVideoRef}
             src="/videos/dolphys-story.mp4"
@@ -593,7 +593,7 @@ export const Home: React.FC = () => {
             controls
             preload="auto"
             poster="/images/fanpage/barista-espresso-extraction.jpg"
-            className="w-full h-auto block"
+            className="w-full aspect-video object-cover block"
             onVolumeChange={(e) => {
               const target = e.currentTarget;
               setIsHomeVideoMuted(target.muted || target.volume === 0);
