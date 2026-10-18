@@ -8,6 +8,7 @@ export const About: React.FC = () => {
   const { t, language } = useDolphy();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [soundFeedback, setSoundFeedback] = useState<string | null>(null);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -38,6 +39,8 @@ export const About: React.FC = () => {
       const nextMuted = !videoRef.current.muted;
       videoRef.current.muted = nextMuted;
       setIsMuted(nextMuted);
+      setSoundFeedback(nextMuted ? (language === 'vi' ? 'Đã tắt tiếng' : 'Muted') : (language === 'vi' ? 'Đã bật tiếng' : 'Unmuted'));
+      setTimeout(() => setSoundFeedback(null), 1500);
     }
   };
 
@@ -194,82 +197,49 @@ export const About: React.FC = () => {
         </div>
       </section>
 
-      {/* 2.5 THƯỚC PHIM TÀI LIỆU: CÂU CHUYỆN DOLPHY CAFÉ */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-blue-900/40">
-          <div className="p-6 sm:p-8 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <span className="inline-block px-3 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow-sm">
-                {language === 'vi' ? 'Thước Phim Tài Liệu' : 'Official Documentary'}
-              </span>
-              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white mt-2 leading-tight">
-                {language === 'vi' ? "Câu Chuyện Dolphy (Dolphy's Story)" : "Dolphy's Story - Official Film"}
-              </h2>
-              <p className="text-xs sm:text-sm text-blue-100 max-w-xl mt-1 leading-relaxed">
-                {language === 'vi'
-                  ? 'Hành trình hơn 13 năm từ quầy bar nhỏ góc đường Thảo Điền đến hệ sinh thái cà phê tử tế kết nối hàng triệu trái tim.'
-                  : 'A 13-year journey from a small Thao Dien corner bar to a beloved community coffee ecosystem.'}
-              </p>
-            </div>
-            <div className="shrink-0 flex items-center gap-2">
-              <button
-                type="button"
-                onClick={toggleMute}
-                className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-sm border border-white/20 flex items-center gap-1.5 transition-all cursor-pointer"
-                title={isMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
-              >
-                {isMuted ? (
-                  <>
-                    <VolumeX className="w-3.5 h-3.5 text-[#FAEA28]" />
-                    <span>{language === 'vi' ? 'Bật tiếng' : 'Unmute'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-[#FAEA28]" />
-                    <span>{language === 'vi' ? 'Tắt tiếng' : 'Mute'}</span>
-                  </>
-                )}
-              </button>
-              <span className="px-3 py-1.5 rounded-full bg-white/10 text-white text-xs font-mono font-semibold backdrop-blur-sm border border-white/20">
-                1080p Full HD
-              </span>
-            </div>
-          </div>
-          
-          <div className="relative aspect-video bg-black overflow-hidden group">
-            <video
-              ref={videoRef}
-              src="/videos/dolphys-story.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              preload="auto"
-              poster="/images/fanpage/barista-espresso-extraction.jpg"
-              className="w-full h-full object-contain"
-              onVolumeChange={(e) => {
-                const target = e.currentTarget;
-                setIsMuted(target.muted || target.volume === 0);
-              }}
-            >
-              Your browser does not support the video tag.
-            </video>
+      {/* 2.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC */}
+      <section className="w-full bg-white dark:bg-slate-900 py-12 sm:py-16 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10">
+          <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
+            {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
+          </h2>
+          <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
+        </div>
 
-            {/* Quick Unmute Floating Indicator */}
-            {isMuted && (
-              <button
-                type="button"
-                onClick={toggleMute}
-                className="absolute top-4 right-4 z-10 px-3.5 py-2 rounded-full bg-black/75 hover:bg-black/90 text-white text-xs font-medium backdrop-blur-md border border-white/25 flex items-center gap-2 transition-all shadow-xl cursor-pointer hover:scale-105"
-              >
-                <VolumeX className="w-4 h-4 text-[#FAEA28]" />
-                <span className="text-[11px] font-semibold tracking-wider uppercase text-yellow-300">
-                  {language === 'vi' ? 'Chạm để bật tiếng' : 'Tap for Sound'}
-                </span>
-              </button>
-            )}
-          </div>
+        <div
+          onClick={toggleMute}
+          className="w-full relative aspect-[2.4/1] sm:aspect-[2.5/1] overflow-hidden group cursor-pointer bg-black"
+          title={isMuted ? (language === 'vi' ? 'Chạm để bật tiếng' : 'Click to unmute') : (language === 'vi' ? 'Chạm để tắt tiếng' : 'Click to mute')}
+        >
+          <video
+            ref={videoRef}
+            src="/videos/dolphys-story.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/images/fanpage/barista-espresso-extraction.jpg"
+            className="w-full h-full object-cover scale-[1.05] origin-center"
+            onVolumeChange={(e) => {
+              const target = e.currentTarget;
+              setIsMuted(target.muted || target.volume === 0);
+            }}
+          >
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Feedback pill when user clicks to toggle sound */}
+          {soundFeedback && (
+            <div className="absolute top-4 right-4 z-20 px-3.5 py-1.5 rounded-full bg-black/80 text-white text-xs font-semibold backdrop-blur-md border border-white/20 flex items-center gap-1.5 shadow-xl transition-all pointer-events-none">
+              {isMuted ? (
+                <VolumeX className="w-3.5 h-3.5 text-[#FAEA28]" />
+              ) : (
+                <Volume2 className="w-3.5 h-3.5 text-[#FAEA28]" />
+              )}
+              <span>{soundFeedback}</span>
+            </div>
+          )}
         </div>
       </section>
 

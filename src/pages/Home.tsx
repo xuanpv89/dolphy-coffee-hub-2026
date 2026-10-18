@@ -27,6 +27,7 @@ export const Home: React.FC = () => {
 
   const homeVideoRef = useRef<HTMLVideoElement>(null);
   const [isHomeVideoMuted, setIsHomeVideoMuted] = useState(true);
+  const [homeSoundFeedback, setHomeSoundFeedback] = useState<string | null>(null);
 
   useEffect(() => {
     const video = homeVideoRef.current;
@@ -57,6 +58,12 @@ export const Home: React.FC = () => {
       const nextMuted = !homeVideoRef.current.muted;
       homeVideoRef.current.muted = nextMuted;
       setIsHomeVideoMuted(nextMuted);
+      setHomeSoundFeedback(
+        nextMuted
+          ? (language === 'vi' ? 'Đã tắt tiếng' : 'Muted')
+          : (language === 'vi' ? 'Đã bật tiếng' : 'Unmuted')
+      );
+      setTimeout(() => setHomeSoundFeedback(null), 1500);
     }
   };
 
@@ -582,7 +589,11 @@ export const Home: React.FC = () => {
           <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div className="w-full relative overflow-hidden group">
+        <div
+          onClick={toggleHomeVideoMute}
+          className="w-full relative aspect-[2.4/1] sm:aspect-[2.5/1] overflow-hidden group cursor-pointer bg-black"
+          title={isHomeVideoMuted ? (language === 'vi' ? 'Chạm để bật tiếng' : 'Click to unmute') : (language === 'vi' ? 'Chạm để tắt tiếng' : 'Click to mute')}
+        >
           <video
             ref={homeVideoRef}
             src="/videos/dolphys-story.mp4"
@@ -590,10 +601,9 @@ export const Home: React.FC = () => {
             muted
             loop
             playsInline
-            controls
             preload="auto"
             poster="/images/fanpage/barista-espresso-extraction.jpg"
-            className="w-full aspect-video object-cover block"
+            className="w-full h-full object-cover scale-[1.05] origin-center"
             onVolumeChange={(e) => {
               const target = e.currentTarget;
               setIsHomeVideoMuted(target.muted || target.volume === 0);
@@ -602,18 +612,16 @@ export const Home: React.FC = () => {
             Your browser does not support the video tag.
           </video>
 
-          {/* Quick Unmute Floating Indicator */}
-          {isHomeVideoMuted && (
-            <button
-              type="button"
-              onClick={toggleHomeVideoMute}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 px-4 py-2 rounded-full bg-black/75 hover:bg-black/90 text-white text-xs font-medium backdrop-blur-md border border-white/20 flex items-center gap-2 transition-all shadow-xl cursor-pointer hover:scale-105"
-            >
-              <VolumeX className="w-4 h-4 text-[#FAEA28]" />
-              <span className="text-[11px] font-semibold tracking-wider uppercase text-yellow-300">
-                {language === 'vi' ? 'Chạm để bật tiếng' : 'Tap for Sound'}
-              </span>
-            </button>
+          {/* Feedback pill when user clicks to toggle sound */}
+          {homeSoundFeedback && (
+            <div className="absolute top-4 right-4 z-20 px-3.5 py-1.5 rounded-full bg-black/80 text-white text-xs font-semibold backdrop-blur-md border border-white/20 flex items-center gap-1.5 shadow-xl transition-all pointer-events-none">
+              {isHomeVideoMuted ? (
+                <VolumeX className="w-3.5 h-3.5 text-[#FAEA28]" />
+              ) : (
+                <Volume2 className="w-3.5 h-3.5 text-[#FAEA28]" />
+              )}
+              <span>{homeSoundFeedback}</span>
+            </div>
           )}
         </div>
       </section>
