@@ -573,86 +573,48 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 6.5 THƯỚC PHIM CÂU CHUYỆN DOLPHY CAFÉ */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-blue-900/40">
-          <div className="p-6 sm:p-8 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow-sm">
-                <Sparkles size={13} />
-                <span>{language === 'vi' ? 'Thước Phim Tài Liệu' : 'Brand Documentary'}</span>
-              </div>
-              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white mt-2 leading-tight">
-                {language === 'vi' ? "Câu Chuyện Dolphy (Dolphy's Story)" : "Dolphy's Story - Official Film"}
-              </h2>
-              <p className="text-xs sm:text-sm text-blue-100 max-w-xl mt-1 leading-relaxed">
-                {language === 'vi'
-                  ? 'Gần 13 năm bền bỉ phục vụ cà phê mộc và lan tỏa năng lượng "Happiness in a cup" tại Sài Gòn.'
-                  : 'Over a decade serving pure specialty coffee and sharing Happiness in a cup in Saigon.'}
-              </p>
-            </div>
-            <div className="shrink-0 flex items-center gap-3">
-              <button
-                type="button"
-                onClick={toggleHomeVideoMute}
-                className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-sm border border-white/20 flex items-center gap-1.5 transition-all cursor-pointer"
-                title={isHomeVideoMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
-              >
-                {isHomeVideoMuted ? (
-                  <>
-                    <VolumeX className="w-3.5 h-3.5 text-[#FAEA28]" />
-                    <span>{language === 'vi' ? 'Bật tiếng' : 'Unmute'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-[#FAEA28]" />
-                    <span>{language === 'vi' ? 'Tắt tiếng' : 'Mute'}</span>
-                  </>
-                )}
-              </button>
-              <Link
-                to="/about"
-                className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white text-white hover:text-slate-950 font-oswald text-xs uppercase tracking-wider font-semibold transition-all backdrop-blur-sm border border-white/20"
-              >
-                {language === 'vi' ? 'Đọc Đầy Đủ Câu Chuyện →' : 'Read Full Story →'}
-              </Link>
-            </div>
-          </div>
-          
-          <div className="relative aspect-video bg-black overflow-hidden group">
-            <video
-              ref={homeVideoRef}
-              src="/videos/dolphys-story.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              preload="auto"
-              poster="/images/fanpage/barista-espresso-extraction.jpg"
-              className="w-full h-full object-contain"
-              onVolumeChange={(e) => {
-                const target = e.currentTarget;
-                setIsHomeVideoMuted(target.muted || target.volume === 0);
-              }}
-            >
-              Your browser does not support the video tag.
-            </video>
+      {/* 6.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC */}
+      <section className="w-full bg-slate-950 text-white py-14 sm:py-20 border-y border-slate-900 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
+          <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-white leading-tight">
+            {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
+          </h2>
+          <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
+        </div>
 
-            {/* Quick Unmute Floating Indicator */}
-            {isHomeVideoMuted && (
-              <button
-                type="button"
-                onClick={toggleHomeVideoMute}
-                className="absolute top-4 right-4 z-10 px-3.5 py-2 rounded-full bg-black/75 hover:bg-black/90 text-white text-xs font-medium backdrop-blur-md border border-white/25 flex items-center gap-2 transition-all shadow-xl cursor-pointer hover:scale-105"
-              >
-                <VolumeX className="w-4 h-4 text-[#FAEA28]" />
-                <span className="text-[11px] font-semibold tracking-wider uppercase text-yellow-300">
-                  {language === 'vi' ? 'Chạm để bật tiếng' : 'Tap for Sound'}
-                </span>
-              </button>
-            )}
-          </div>
+        <div className="w-full relative aspect-video max-h-[85vh] bg-black overflow-hidden group">
+          <video
+            ref={homeVideoRef}
+            src="/videos/dolphys-story.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            preload="auto"
+            poster="/images/fanpage/barista-espresso-extraction.jpg"
+            className="w-full h-full object-contain mx-auto"
+            onVolumeChange={(e) => {
+              const target = e.currentTarget;
+              setIsHomeVideoMuted(target.muted || target.volume === 0);
+            }}
+          >
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Quick Unmute Floating Indicator */}
+          {isHomeVideoMuted && (
+            <button
+              type="button"
+              onClick={toggleHomeVideoMute}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 px-4 py-2 rounded-full bg-black/75 hover:bg-black/90 text-white text-xs font-medium backdrop-blur-md border border-white/20 flex items-center gap-2 transition-all shadow-xl cursor-pointer hover:scale-105"
+            >
+              <VolumeX className="w-4 h-4 text-[#FAEA28]" />
+              <span className="text-[11px] font-semibold tracking-wider uppercase text-yellow-300">
+                {language === 'vi' ? 'Chạm để bật tiếng' : 'Tap for Sound'}
+              </span>
+            </button>
+          )}
         </div>
       </section>
 

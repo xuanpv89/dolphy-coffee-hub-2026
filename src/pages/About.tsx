@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Award, Heart, Sparkles, MapPin, Coffee, Users, Leaf, Smile, CheckCircle, ExternalLink, Calendar, Film, Volume2, VolumeX } from 'lucide-react';
+import { Award, Heart, Sparkles, MapPin, Coffee, Users, Leaf, Smile, CheckCircle, ExternalLink, Calendar, Volume2, VolumeX } from 'lucide-react';
 import { brandInfo } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 import { Link } from 'react-router-dom';
@@ -199,10 +199,9 @@ export const About: React.FC = () => {
         <div className="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-blue-900/40">
           <div className="p-6 sm:p-8 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow-sm">
-                <Film size={13} />
-                <span>{language === 'vi' ? 'Thước Phim Thương Hiệu' : 'Official Documentary'}</span>
-              </div>
+              <span className="inline-block px-3 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow-sm">
+                {language === 'vi' ? 'Thước Phim Tài Liệu' : 'Official Documentary'}
+              </span>
               <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white mt-2 leading-tight">
                 {language === 'vi' ? "Câu Chuyện Dolphy (Dolphy's Story)" : "Dolphy's Story - Official Film"}
               </h2>
