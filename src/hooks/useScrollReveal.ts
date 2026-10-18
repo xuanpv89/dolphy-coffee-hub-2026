@@ -1,64 +1,100 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+export const REVEAL_SELECTOR = '.reveal-on-scroll, .reveal-stagger, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, [data-reveal]';
+
 /**
- * High-performance global Scroll Reveal hook using IntersectionObserver
- * Handles entrance animations as elements scroll into the viewport.
- * Automatically scans on route changes and DOM mutations.
+ * High-performance global Scroll Reveal hook
+ * Reveals elements with hardware-accelerated animations as they approach the viewport.
+ * Features early threshold trigger, window scroll backup, and safe fallback timeout.
  */
 export function useScrollReveal() {
   const location = useLocation();
 
   useEffect(() => {
     // If user prefers reduced motion, reveal everything immediately
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const selector = '.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, [data-reveal]';
-
-    if (prefersReducedMotion) {
-      document.querySelectorAll(selector).forEach((el) => {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
         el.classList.add('is-revealed');
       });
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px 0px -40px 0px', // trigger slightly before it hits bottom of viewport
-        threshold: 0.08, // element is at least 8% visible
-      }
-    );
+    const checkAndReveal = () => {
+      const elements = document.querySelectorAll(REVEAL_SELECTOR);
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    const observeElements = () => {
-      const elements = document.querySelectorAll(selector);
       elements.forEach((el) => {
         if (!el.classList.contains('is-revealed')) {
-          // If already in initial viewport, reveal quickly
           const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Trigger when element top is within 100px of viewport bottom, or already past
+          if (rect.top <= windowHeight + 100 && rect.bottom >= -100) {
             el.classList.add('is-revealed');
-          } else {
-            observer.observe(el);
           }
         }
       });
     };
 
-    // Initial check after paint
-    const timer = setTimeout(observeElements, 50);
+    // IntersectionObserver with early margin for smooth entrance
+    let observer: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: '120px 0px 120px 0px', // trigger 120px before entering viewport
+          threshold: 0, // trigger immediately upon entering margin
+        }
+      );
 
-    // Watch for dynamic DOM updates (like category tab filtering or content loads)
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+        if (!el.classList.contains('is-revealed')) {
+          observer?.observe(el);
+        }
+      });
+    }
+
+    // Run immediately on page load / route change
+    checkAndReveal();
+
+    // Check again after initial renders / image load
+    const t1 = setTimeout(checkAndReveal, 60);
+    const t2 = setTimeout(checkAndReveal, 200);
+    const t3 = setTimeout(checkAndReveal, 500);
+
+    // Guaranteed Safety Fallback: After 1.2s, reveal ALL remaining elements
+    // so no user EVER sees a blank/white section
+    const safetyFallback = setTimeout(() => {
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+        el.classList.add('is-revealed');
+      });
+    }, 1200);
+
+    // Backup scroll/resize listener
+    const handleScrollOrResize = () => {
+      requestAnimationFrame(checkAndReveal);
+    };
+
+    window.addEventListener('scroll', handleScrollOrResize, { passive: true });
+    window.addEventListener('resize', handleScrollOrResize, { passive: true });
+
+    // Mutation observer for dynamic content updates
     const mutationObserver = new MutationObserver(() => {
-      observeElements();
+      checkAndReveal();
+      if (observer) {
+        document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+          if (!el.classList.contains('is-revealed')) {
+            observer?.observe(el);
+          }
+        });
+      }
     });
 
     mutationObserver.observe(document.body, {
@@ -67,8 +103,13 @@ export function useScrollReveal() {
     });
 
     return () => {
-      clearTimeout(timer);
-      observer.disconnect();
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(safetyFallback);
+      window.removeEventListener('scroll', handleScrollOrResize);
+      window.removeEventListener('resize', handleScrollOrResize);
+      observer?.disconnect();
       mutationObserver.disconnect();
     };
   }, [location.pathname, location.search]);
