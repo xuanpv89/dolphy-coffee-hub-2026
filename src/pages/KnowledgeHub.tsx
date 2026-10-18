@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Clock, Search, ArrowRight, Calendar, X, Sparkles } from 'lucide-react';
 import { articlesData } from '../data/dolphyData';
 import { Article } from '../types';
@@ -9,6 +10,22 @@ export const KnowledgeHub: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+
+  useEffect(() => {
+    if (selectedArticle) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setSelectedArticle(null);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [selectedArticle]);
 
   const categories = [
     { id: 'all', name: t('knowledge.tab_all') },
@@ -142,60 +159,70 @@ export const KnowledgeHub: React.FC = () => {
       </div>
 
       {/* Article Detail Modal */}
-      {selectedArticle && (() => {
-        const modalTitle = language === 'en' ? (selectedArticle.titleEn || selectedArticle.title) : selectedArticle.title;
-        const modalCategory = language === 'en' ? (selectedArticle.categoryEn || selectedArticle.category) : selectedArticle.category;
-        const modalContent = language === 'en' ? (selectedArticle.contentEn || selectedArticle.content) : selectedArticle.content;
-        const modalReadTime = language === 'en' ? (selectedArticle.readTimeEn || selectedArticle.readTime) : selectedArticle.readTime;
+      {selectedArticle && createPortal(
+        (() => {
+          const modalTitle = language === 'en' ? (selectedArticle.titleEn || selectedArticle.title) : selectedArticle.title;
+          const modalCategory = language === 'en' ? (selectedArticle.categoryEn || selectedArticle.category) : selectedArticle.category;
+          const modalContent = language === 'en' ? (selectedArticle.contentEn || selectedArticle.content) : selectedArticle.content;
+          const modalReadTime = language === 'en' ? (selectedArticle.readTimeEn || selectedArticle.readTime) : selectedArticle.readTime;
 
-        return (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-            <div className="bg-white dark:bg-[#1e293b] rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 relative text-[#222222] dark:text-white">
-              <button
-                onClick={() => setSelectedArticle(null)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#222222] dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
+          return (
+            <div 
+              onClick={() => setSelectedArticle(null)}
+              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-fade-in overflow-y-auto"
+            >
+              <div 
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-3xl w-full max-h-[88vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 relative text-[#222222] dark:text-white border border-gray-100 dark:border-slate-700/60 transition-all my-auto"
               >
-                <X size={20} />
-              </button>
-
-              <div className="space-y-3">
-                <span className="bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
-                  {modalCategory}
-                </span>
-                <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
-                  {modalTitle}
-                </h2>
-                <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-slate-800 pb-3">
-                  <span>{selectedArticle.date || '2026-10-15'}</span>
-                  <span>•</span>
-                  <span>{selectedArticle.author}</span>
-                  <span>•</span>
-                  <span>{modalReadTime}</span>
-                </div>
-              </div>
-
-              <img
-                src={selectedArticle.image}
-                alt={modalTitle}
-                className="w-full h-64 object-cover rounded-lg"
-              />
-
-              <div className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 leading-relaxed whitespace-pre-line space-y-4">
-                {modalContent}
-              </div>
-
-              <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-end">
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="dolphy-btn dolphy-btn-primary px-6 py-2 rounded text-xs font-semibold"
+                  className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#222222] dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                  aria-label="Close article modal"
                 >
-                  {language === 'vi' ? 'ĐÓNG BÀI VIẾT' : 'CLOSE ARTICLE'}
+                  <X size={20} />
                 </button>
+
+                <div className="space-y-3">
+                  <span className="bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded">
+                    {modalCategory}
+                  </span>
+                  <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+                    {modalTitle}
+                  </h2>
+                  <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-slate-800 pb-3">
+                    <span>{selectedArticle.date || '2026-10-15'}</span>
+                    <span>•</span>
+                    <span>{selectedArticle.author}</span>
+                    <span>•</span>
+                    <span>{modalReadTime}</span>
+                  </div>
+                </div>
+
+                <img
+                  src={selectedArticle.image}
+                  alt={modalTitle}
+                  className="w-full h-64 sm:h-72 object-cover rounded-lg"
+                />
+
+                <div className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 leading-relaxed whitespace-pre-line space-y-4">
+                  {modalContent}
+                </div>
+
+                <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-end">
+                  <button
+                    onClick={() => setSelectedArticle(null)}
+                    className="dolphy-btn dolphy-btn-primary px-6 py-2 rounded text-xs font-semibold cursor-pointer"
+                  >
+                    {language === 'vi' ? 'ĐÓNG BÀI VIẾT' : 'CLOSE ARTICLE'}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })()}
+          );
+        })(),
+        document.body
+      )}
 
     </div>
   );

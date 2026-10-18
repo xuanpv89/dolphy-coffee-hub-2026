@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { Search, ShoppingBag, Gift, Eye, X, Check, ExternalLink, ChevronLeft, ChevronRight, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { productsData } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
@@ -501,13 +502,13 @@ export const Shop: React.FC = () => {
       </div>
 
       {/* 5. Quick View Product Modal */}
-      {modalProduct && (
+      {modalProduct && createPortal(
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fade-in overflow-y-auto"
           onClick={() => setModalProduct(null)}
         >
           <div 
-            className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-gray-200 dark:border-slate-800"
+            className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-gray-200 dark:border-slate-800 my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -629,7 +630,8 @@ export const Shop: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </div>

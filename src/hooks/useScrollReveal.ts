@@ -22,15 +22,15 @@ export function useScrollReveal() {
 
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    // 1. Reveal ONLY elements that are ALREADY in the initial viewport on page load
+    // 1. Reveal elements already in the initial viewport
     document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < windowHeight * 0.55 && rect.bottom > 0) {
+      if (rect.top < windowHeight * 0.85 && rect.bottom > 0) {
         el.classList.add('is-revealed');
       }
     });
 
-    // 2. Observe all other elements as they scroll into view
+    // 2. High-performance asynchronous IntersectionObserver for scrolling elements
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -42,8 +42,8 @@ export function useScrollReveal() {
       },
       {
         root: null,
-        rootMargin: '0px 0px -70px 0px', // Trigger when element is 70px inside viewport so user sees the animation!
-        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05,
       }
     );
 
@@ -54,31 +54,13 @@ export function useScrollReveal() {
       }
     });
 
-    // 3. Fallback check on scroll for any browser quirks
-    const onScroll = () => {
-      const currentHeight = window.innerHeight || document.documentElement.clientHeight;
-      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
-        if (!el.classList.contains('is-revealed')) {
-          const rect = el.getBoundingClientRect();
-          // When top of element enters viewport by 50px
-          if (rect.top <= currentHeight - 50 && rect.bottom >= 0) {
-            el.classList.add('is-revealed');
-            observer.unobserve(el);
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-
-    // 4. MutationObserver for dynamically rendered items (e.g. tabs, data loads)
+    // 3. MutationObserver for dynamically rendered items (tabs, filters, route changes)
     const mutationObserver = new MutationObserver(() => {
       const currentHeight = window.innerHeight || document.documentElement.clientHeight;
       document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
         if (!el.classList.contains('is-revealed')) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= currentHeight - 30 && rect.bottom >= 0) {
+          if (rect.top < currentHeight * 0.85 && rect.bottom > 0) {
             el.classList.add('is-revealed');
           } else {
             observer.observe(el);
@@ -90,8 +72,6 @@ export function useScrollReveal() {
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
       observer.disconnect();
       mutationObserver.disconnect();
     };

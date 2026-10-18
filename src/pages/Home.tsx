@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { 
   ShoppingBag, 
@@ -856,13 +857,13 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Lightbox Modal for Community Photo */}
-      {selectedPhoto && (
+      {selectedPhoto && createPortal(
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
           onClick={() => setSelectedPhoto(null)}
         >
           <div 
-            className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative"
+            className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -901,7 +902,8 @@ export const Home: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </div>
