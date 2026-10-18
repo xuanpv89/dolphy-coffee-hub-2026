@@ -170,9 +170,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 /* Base scroll reveal (Fade Up) */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(42px);
+  transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
@@ -184,9 +184,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 /* Directional variants */
 .reveal-left {
   opacity: 0;
-  transform: translateX(-35px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-48px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 .reveal-left.is-revealed {
@@ -196,9 +196,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(35px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(48px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 .reveal-right.is-revealed {
@@ -208,9 +208,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.92) translateY(18px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.90) translateY(24px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 .reveal-scale.is-revealed {
@@ -220,7 +220,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 
 .reveal-fade {
   opacity: 0;
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity;
 }
 .reveal-fade.is-revealed {
@@ -228,21 +228,21 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 /* Precise transition delays */
-.reveal-delay-75 { transition-delay: 75ms; }
-.reveal-delay-100 { transition-delay: 100ms; }
-.reveal-delay-150 { transition-delay: 150ms; }
-.reveal-delay-200 { transition-delay: 200ms; }
-.reveal-delay-250 { transition-delay: 250ms; }
-.reveal-delay-300 { transition-delay: 300ms; }
-.reveal-delay-400 { transition-delay: 400ms; }
-.reveal-delay-500 { transition-delay: 500ms; }
+.reveal-delay-75 { transition-delay: 100ms; }
+.reveal-delay-100 { transition-delay: 150ms; }
+.reveal-delay-150 { transition-delay: 200ms; }
+.reveal-delay-200 { transition-delay: 280ms; }
+.reveal-delay-250 { transition-delay: 350ms; }
+.reveal-delay-300 { transition-delay: 420ms; }
+.reveal-delay-400 { transition-delay: 550ms; }
+.reveal-delay-500 { transition-delay: 700ms; }
 
 /* Staggered Children Cascade: grids, card rows, feature columns */
 .reveal-stagger > * {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(36px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
@@ -251,18 +251,18 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   transform: translateY(0);
 }
 
-.reveal-stagger.is-revealed > *:nth-child(1) { transition-delay: 50ms; }
-.reveal-stagger.is-revealed > *:nth-child(2) { transition-delay: 130ms; }
-.reveal-stagger.is-revealed > *:nth-child(3) { transition-delay: 210ms; }
-.reveal-stagger.is-revealed > *:nth-child(4) { transition-delay: 290ms; }
-.reveal-stagger.is-revealed > *:nth-child(5) { transition-delay: 370ms; }
-.reveal-stagger.is-revealed > *:nth-child(6) { transition-delay: 450ms; }
-.reveal-stagger.is-revealed > *:nth-child(7) { transition-delay: 530ms; }
-.reveal-stagger.is-revealed > *:nth-child(8) { transition-delay: 610ms; }
-.reveal-stagger.is-revealed > *:nth-child(9) { transition-delay: 690ms; }
-.reveal-stagger.is-revealed > *:nth-child(10) { transition-delay: 770ms; }
-.reveal-stagger.is-revealed > *:nth-child(11) { transition-delay: 850ms; }
-.reveal-stagger.is-revealed > *:nth-child(12) { transition-delay: 930ms; }
+.reveal-stagger.is-revealed > *:nth-child(1) { transition-delay: 80ms; }
+.reveal-stagger.is-revealed > *:nth-child(2) { transition-delay: 220ms; }
+.reveal-stagger.is-revealed > *:nth-child(3) { transition-delay: 360ms; }
+.reveal-stagger.is-revealed > *:nth-child(4) { transition-delay: 500ms; }
+.reveal-stagger.is-revealed > *:nth-child(5) { transition-delay: 640ms; }
+.reveal-stagger.is-revealed > *:nth-child(6) { transition-delay: 780ms; }
+.reveal-stagger.is-revealed > *:nth-child(7) { transition-delay: 920ms; }
+.reveal-stagger.is-revealed > *:nth-child(8) { transition-delay: 1060ms; }
+.reveal-stagger.is-revealed > *:nth-child(9) { transition-delay: 1200ms; }
+.reveal-stagger.is-revealed > *:nth-child(10) { transition-delay: 1340ms; }
+.reveal-stagger.is-revealed > *:nth-child(11) { transition-delay: 1480ms; }
+.reveal-stagger.is-revealed > *:nth-child(12) { transition-delay: 1620ms; }
 
 /* Micro-animations */
 @keyframes floatGentle {
