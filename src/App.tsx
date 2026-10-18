@@ -9,10 +9,9 @@ import { CourseRegisterModal } from './components/CourseRegisterModal';
 import { ApplicationModal } from './components/ApplicationModal';
 import { Toast } from './components/Toast';
 import { BackToTop } from './components/BackToTop';
-import { VersionSwitcherBadge } from './components/VersionSwitcherBadge';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
-// V1 Pages
+// Pages
 import { Home } from './pages/Home';
 import { Academy } from './pages/Academy';
 import { Shop } from './pages/Shop';
@@ -22,14 +21,6 @@ import { Careers } from './pages/Careers';
 import { About } from './pages/About';
 import { Policies } from './pages/Policies';
 import { AdminDashboard } from './pages/AdminDashboard';
-
-// V2 Artisanal Coffeehouse Concept
-import { NavbarV2 } from './v2/components/NavbarV2';
-import { FooterV2 } from './v2/components/FooterV2';
-import { HomeV2 } from './v2/pages/HomeV2';
-import { MenuV2 } from './v2/pages/MenuV2';
-import { StoryV2 } from './v2/pages/StoryV2';
-import { AcademyV2 } from './v2/pages/AcademyV2';
 
 // Helper component to scroll to top on page change
 const ScrollToTop: React.FC = () => {
@@ -45,25 +36,21 @@ const ScrollToTop: React.FC = () => {
 const AppLayout: React.FC = () => {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith('/admin');
-  const isV2 = location.pathname.startsWith('/v2');
 
   // Activate hardware-accelerated scroll reveal & view transitions
   useScrollReveal();
 
-  const bgClasses = isV2
-    ? 'bg-[#FAF6F0] dark:bg-[#120E0B] text-[#2C2117] dark:text-[#E8DEC8] selection:bg-[#FAEA28] selection:text-slate-950'
-    : isAdmin
+  const bgClasses = isAdmin
     ? 'bg-[#f1f5f9] dark:bg-[#0b1329] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white'
     : 'bg-[#f8fafc] dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white';
 
   return (
     <div className={`min-h-screen flex flex-col ${bgClasses} transition-colors duration-200`}>
-      {/* Dynamic Header */}
-      {!isAdmin && (isV2 ? <NavbarV2 /> : <Navbar />)}
+      {/* Header */}
+      {!isAdmin && <Navbar />}
       
       <main key={location.pathname} className="flex-1 page-enter">
         <Routes>
-          {/* Classic V1 Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/academy" element={<Academy />} />
           <Route path="/shop" element={<Shop />} />
@@ -74,19 +61,13 @@ const AppLayout: React.FC = () => {
           <Route path="/policies" element={<Policies />} />
           <Route path="/admin" element={<AdminDashboard />} />
 
-          {/* Artisanal F&B Concept V2 Routes */}
-          <Route path="/v2" element={<HomeV2 />} />
-          <Route path="/v2/menu" element={<MenuV2 />} />
-          <Route path="/v2/story" element={<StoryV2 />} />
-          <Route path="/v2/academy" element={<AcademyV2 />} />
-
           {/* Fallback */}
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
 
-      {/* Dynamic Footer */}
-      {!isAdmin && (isV2 ? <FooterV2 /> : <Footer />)}
+      {/* Footer */}
+      {!isAdmin && <Footer />}
 
       {/* Interactive Global Drawers & Modals */}
       <CartDrawer />
@@ -95,7 +76,6 @@ const AppLayout: React.FC = () => {
       <ApplicationModal />
       <Toast />
       {!isAdmin && <BackToTop />}
-      {!isAdmin && <VersionSwitcherBadge />}
     </div>
   );
 };
@@ -110,4 +90,3 @@ export default function App() {
     </DolphyProvider>
   );
 }
-
