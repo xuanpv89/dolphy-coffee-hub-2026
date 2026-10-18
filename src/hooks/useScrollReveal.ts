@@ -25,7 +25,7 @@ export function useScrollReveal() {
     // 1. Reveal ONLY elements that are ALREADY in the initial viewport on page load
     document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < windowHeight * 0.75 && rect.bottom > 0) {
+      if (rect.top < windowHeight * 0.55 && rect.bottom > 0) {
         el.classList.add('is-revealed');
       }
     });
@@ -42,8 +42,8 @@ export function useScrollReveal() {
       },
       {
         root: null,
-        rootMargin: '0px 0px -50px 0px', // Trigger when element is 50px inside viewport so user sees the animation!
-        threshold: 0.08,
+        rootMargin: '0px 0px -70px 0px', // Trigger when element is 70px inside viewport so user sees the animation!
+        threshold: 0.1,
       }
     );
 
@@ -60,8 +60,8 @@ export function useScrollReveal() {
       document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
         if (!el.classList.contains('is-revealed')) {
           const rect = el.getBoundingClientRect();
-          // When top of element enters viewport by 40px
-          if (rect.top <= currentHeight - 40 && rect.bottom >= 0) {
+          // When top of element enters viewport by 50px
+          if (rect.top <= currentHeight - 50 && rect.bottom >= 0) {
             el.classList.add('is-revealed');
             observer.unobserve(el);
           }
