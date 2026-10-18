@@ -574,15 +574,15 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 6.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC */}
-      <section className="w-full bg-slate-950 text-white py-14 sm:py-20 border-y border-slate-900 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
-          <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-white leading-tight">
+      <section className="w-full bg-white dark:bg-slate-900 py-12 sm:py-16 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10">
+          <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
             {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div className="w-full relative aspect-video max-h-[85vh] bg-black overflow-hidden group">
+        <div className="w-full relative overflow-hidden group bg-black">
           <video
             ref={homeVideoRef}
             src="/videos/dolphys-story.mp4"
@@ -593,7 +593,7 @@ export const Home: React.FC = () => {
             controls
             preload="auto"
             poster="/images/fanpage/barista-espresso-extraction.jpg"
-            className="w-full h-full object-contain mx-auto"
+            className="w-full h-auto block"
             onVolumeChange={(e) => {
               const target = e.currentTarget;
               setIsHomeVideoMuted(target.muted || target.volume === 0);
