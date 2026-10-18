@@ -49,7 +49,7 @@ export const HomeV2: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Inspiring Coffee Narrative */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-7 space-y-6 text-left reveal-left">
             
             {/* Hand-stamped heritage badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A1410] text-[#D8C7B5] dark:bg-[#2A1F18] text-xs font-serif-cormorant tracking-widest uppercase border border-[#3A2D23] shadow-xs">
@@ -85,7 +85,7 @@ export const HomeV2: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-3.5">
               <a
                 href="#menu-section"
-                className="px-6 py-3.5 rounded-full bg-[#2076bd] hover:bg-[#165b94] text-white font-oswald text-xs uppercase tracking-wider font-bold transition-all shadow-md flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-[#2076bd] hover:bg-[#165b94] text-white font-oswald text-xs uppercase tracking-wider font-bold transition-all shadow-md flex items-center gap-2 hover-lift"
               >
                 <Coffee size={15} />
                 <span>{language === 'vi' ? 'Xem Thực Đơn Bảng Đen' : 'Explore Cafe Menu'}</span>
@@ -93,7 +93,7 @@ export const HomeV2: React.FC = () => {
 
               <a
                 href="#flavor-matcher"
-                className="px-6 py-3.5 rounded-full bg-[#1A1410] dark:bg-[#281F18] hover:bg-black text-amber-300 font-oswald text-xs uppercase tracking-wider font-bold transition-all border border-[#3A2D23] flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-[#1A1410] dark:bg-[#281F18] hover:bg-black text-amber-300 font-oswald text-xs uppercase tracking-wider font-bold transition-all border border-[#3A2D23] flex items-center gap-2 hover-lift"
               >
                 <Flame size={15} className="text-amber-400" />
                 <span>{language === 'vi' ? 'Chọn Vị Gu Của Bạn' : 'Taste Matcher'}</span>
@@ -101,7 +101,7 @@ export const HomeV2: React.FC = () => {
 
               <Link
                 to="/v2/story"
-                className="px-4 py-3.5 rounded-full text-[#4A3B30] dark:text-[#C5B7A9] hover:text-[#1A1410] dark:hover:text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5"
+                className="px-4 py-3.5 rounded-full text-[#4A3B30] dark:text-[#C5B7A9] hover:text-[#1A1410] dark:hover:text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 hover-lift"
               >
                 <span>{language === 'vi' ? 'Câu chuyện 13 năm' : 'Heritage Story'}</span>
                 <ArrowRight size={14} />
@@ -124,7 +124,7 @@ export const HomeV2: React.FC = () => {
           </div>
 
           {/* Right Column: Multi-layer Authentic Photo Mosaic */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative reveal-right">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Main Photo: 28 Thao Dien Live Patio & Lush Greenery */}

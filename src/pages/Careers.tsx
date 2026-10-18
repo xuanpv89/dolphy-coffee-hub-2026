@@ -29,7 +29,7 @@ export const Careers: React.FC = () => {
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* Header */}
-      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+      <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold">
             <Sparkles size={14} />
@@ -45,7 +45,7 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Banner Image & Intro */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="reveal-scale max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80 md:h-96">
           <img
             src="/images/fanpage/barista-championship-ceremony.jpg"
@@ -67,7 +67,7 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Why Join Us */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-2 mb-10">
           <h2 className="section-title">{t('careers.why_title')}</h2>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
@@ -75,8 +75,8 @@ export const Careers: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 reveal-stagger">
+          <div className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3 hover-lift">
             <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center mx-auto text-2xl font-bold">
               ★
             </div>
@@ -135,7 +135,7 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* DOLPHIERS CULTURE & SPORTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-3">
           <div>
             <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
@@ -150,8 +150,8 @@ export const Careers: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
             <div className="aspect-[16/10] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/career-dolphiers-striped-uniform.jpg"
@@ -292,7 +292,7 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="space-y-1">
           <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
             {t('careers.open_positions')}
@@ -338,7 +338,7 @@ export const Careers: React.FC = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 reveal-stagger">
           {filteredJobs.length === 0 ? (
             <div className="text-center py-12 bg-gray-50 dark:bg-slate-800/40 rounded-xl text-gray-500 dark:text-gray-400">
               {language === 'vi' ? 'Không tìm thấy vị trí tuyển dụng phù hợp.' : 'No matching positions found.'}
@@ -356,7 +356,7 @@ export const Careers: React.FC = () => {
               return (
               <div
                 key={job.id}
-                className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all space-y-6"
+                className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm hover-lift hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all space-y-6"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-100 dark:border-slate-800">
                   <div>

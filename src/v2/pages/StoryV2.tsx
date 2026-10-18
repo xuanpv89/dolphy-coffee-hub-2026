@@ -11,7 +11,7 @@ export const StoryV2: React.FC = () => {
       <div className="max-w-5xl mx-auto space-y-16">
         
         {/* Editorial Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
+        <div className="text-center space-y-4 max-w-3xl mx-auto reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A1410] text-[#D8C7B5] text-xs font-serif-cormorant tracking-widest uppercase border border-[#3A2D23]">
             <Sparkles size={13} className="text-amber-400" />
             <span>Ký Sự 13 Năm Cà Phê Mộc Sài Gòn (2013 - 2026)</span>
@@ -29,7 +29,7 @@ export const StoryV2: React.FC = () => {
 
         {/* Photo Story 1: 31 Thao Dien Beginnings */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-white dark:bg-[#1C1612] p-6 sm:p-10 rounded-3xl border border-[#E8DFC8] dark:border-[#2B2018] shadow-sm">
-          <div className="md:col-span-6 aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900 shadow-md">
+          <div className="md:col-span-6 aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900 shadow-md reveal-left">
             <img
               src="/images/fanpage/store-31-thao-dien-facade.jpg"
               alt="Cửa hàng đầu tiên tại 31 Thảo Điền"
@@ -37,7 +37,7 @@ export const StoryV2: React.FC = () => {
             />
           </div>
 
-          <div className="md:col-span-6 space-y-4 text-left">
+          <div className="md:col-span-6 space-y-4 text-left reveal-right">
             <span className="font-mono text-xs font-bold text-amber-500 uppercase tracking-widest">
               CHƯƠNG I • NĂM 2013
             </span>
@@ -55,7 +55,7 @@ export const StoryV2: React.FC = () => {
 
         {/* Photo Story 2: Pet-friendly & Koi Pond Living */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-white dark:bg-[#1C1612] p-6 sm:p-10 rounded-3xl border border-[#E8DFC8] dark:border-[#2B2018] shadow-sm">
-          <div className="md:col-span-6 space-y-4 text-left order-2 md:order-1">
+          <div className="md:col-span-6 space-y-4 text-left order-2 md:order-1 reveal-left">
             <span className="font-mono text-xs font-bold text-amber-500 uppercase tracking-widest">
               CHƯƠNG II • NẾP SỐNG XANH
             </span>
@@ -70,7 +70,7 @@ export const StoryV2: React.FC = () => {
             </blockquote>
           </div>
 
-          <div className="md:col-span-6 aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900 shadow-md order-1 md:order-2">
+          <div className="md:col-span-6 aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900 shadow-md order-1 md:order-2 reveal-right">
             <img
               src="/images/fanpage/community-expat-family-pet.jpg"
               alt="Pet Friendly Community Thao Dien"
@@ -81,7 +81,7 @@ export const StoryV2: React.FC = () => {
 
         {/* Photo Story 3: Dolphiers Philosophy */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-white dark:bg-[#1C1612] p-6 sm:p-10 rounded-3xl border border-[#E8DFC8] dark:border-[#2B2018] shadow-sm">
-          <div className="md:col-span-6 aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900 shadow-md">
+          <div className="md:col-span-6 aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900 shadow-md reveal-left">
             <img
               src="/images/fanpage/career-dolphiers-striped-uniform.jpg"
               alt="Đội ngũ Barista Dolphy áo sọc xanh"
@@ -89,7 +89,7 @@ export const StoryV2: React.FC = () => {
             />
           </div>
 
-          <div className="md:col-span-6 space-y-4 text-left">
+          <div className="md:col-span-6 space-y-4 text-left reveal-right">
             <span className="font-mono text-xs font-bold text-amber-500 uppercase tracking-widest">
               CHƯƠNG III • TRIẾT LÝ CON NGƯỜI
             </span>
@@ -106,7 +106,7 @@ export const StoryV2: React.FC = () => {
         </div>
 
         {/* Official legal badge */}
-        <div className="p-8 rounded-3xl bg-[#F5EFEB] dark:bg-[#18120D] border border-[#E8DFC8] dark:border-[#2B2018] text-xs text-[#705F52] dark:text-[#998777] space-y-2 text-center">
+        <div className="p-8 rounded-3xl bg-[#F5EFEB] dark:bg-[#18120D] border border-[#E8DFC8] dark:border-[#2B2018] text-xs text-[#705F52] dark:text-[#998777] space-y-2 text-center reveal-scale">
           <p className="font-bold uppercase tracking-wider text-[#1A1410] dark:text-white">CÔNG TY CỔ PHẦN CÀ PHÊ DOLPHY</p>
           <p>Mã số doanh nghiệp: 0313865203 do Sở KH&ĐT TP.HCM cấp ngày 16/06/2016</p>
           <p>Trụ sở chính: 28 Thảo Điền, P. Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh</p>

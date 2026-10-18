@@ -10,6 +10,7 @@ import { ApplicationModal } from './components/ApplicationModal';
 import { Toast } from './components/Toast';
 import { BackToTop } from './components/BackToTop';
 import { VersionSwitcherBadge } from './components/VersionSwitcherBadge';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 // V1 Pages
 import { Home } from './pages/Home';
@@ -46,6 +47,9 @@ const AppLayout: React.FC = () => {
   const isAdmin = location.pathname.startsWith('/admin');
   const isV2 = location.pathname.startsWith('/v2');
 
+  // Activate hardware-accelerated scroll reveal & view transitions
+  useScrollReveal();
+
   const bgClasses = isV2
     ? 'bg-[#FAF6F0] dark:bg-[#120E0B] text-[#2C2117] dark:text-[#E8DEC8] selection:bg-[#FAEA28] selection:text-slate-950'
     : isAdmin
@@ -57,7 +61,7 @@ const AppLayout: React.FC = () => {
       {/* Dynamic Header */}
       {!isAdmin && (isV2 ? <NavbarV2 /> : <Navbar />)}
       
-      <main className="flex-1">
+      <main key={location.pathname} className="flex-1 page-enter">
         <Routes>
           {/* Classic V1 Routes */}
           <Route path="/" element={<Home />} />

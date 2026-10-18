@@ -38,7 +38,7 @@ export const MenuV2: React.FC = () => {
       <div className="max-w-7xl mx-auto space-y-10">
         
         {/* Editorial Header */}
-        <div className="text-center space-y-3 max-w-3xl mx-auto">
+        <div className="text-center space-y-3 max-w-3xl mx-auto reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1410] text-amber-300 font-serif-cormorant text-xs uppercase tracking-widest font-bold">
             <Sparkles size={13} />
             <span>{language === 'vi' ? 'Thực Đơn Quầy Bar Thảo Điền' : 'Live Counter Blackboard Menu'}</span>
@@ -56,7 +56,7 @@ export const MenuV2: React.FC = () => {
         </div>
 
         {/* Filter Bar */}
-        <div className="p-4 rounded-2xl bg-white dark:bg-[#1C1612] border border-[#E8DFC8] dark:border-[#2B2018] shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#1C1612] border border-[#E8DFC8] dark:border-[#2B2018] shadow-xs flex flex-col md:flex-row items-center justify-between gap-4 reveal-on-scroll">
           
           {/* Category Tabs */}
           <div className="flex flex-wrap gap-1.5 w-full md:w-auto">
@@ -100,11 +100,11 @@ export const MenuV2: React.FC = () => {
         </div>
 
         {/* Menu Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="p-5 rounded-2xl bg-white dark:bg-[#1C1612] border border-[#E8DFC8] dark:border-[#2B2018] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="p-5 rounded-2xl bg-white dark:bg-[#1C1612] border border-[#E8DFC8] dark:border-[#2B2018] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover-lift"
             >
               <div className="space-y-4">
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-900">
@@ -162,7 +162,7 @@ export const MenuV2: React.FC = () => {
         </div>
 
         {/* Cukcuk order callout */}
-        <div className="p-8 rounded-3xl bg-gradient-to-r from-[#1A1410] to-[#2B1D15] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl text-left">
+        <div className="p-8 rounded-3xl bg-gradient-to-r from-[#1A1410] to-[#2B1D15] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl text-left reveal-scale">
           <div className="space-y-2">
             <span className="font-oswald text-xs uppercase tracking-widest text-amber-300 font-bold">
               Giao Hàng Tận Nơi Toàn TP.HCM

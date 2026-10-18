@@ -87,7 +87,7 @@ export const Shop: React.FC = () => {
     <div className="space-y-12 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. Header Banner */}
-      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+      <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }} />
         <div className="relative max-w-7xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
@@ -106,7 +106,7 @@ export const Shop: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* 2. Filter & Search Control Panel */}
-        <div className="bg-white dark:bg-[#1e293b] p-4 sm:p-5 rounded-xl border border-gray-200 dark:border-slate-800 shadow-sm space-y-4">
+        <div className="reveal-on-scroll bg-white dark:bg-[#1e293b] p-4 sm:p-5 rounded-xl border border-gray-200 dark:border-slate-800 shadow-sm space-y-4">
           
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-2">
@@ -186,7 +186,7 @@ export const Shop: React.FC = () => {
         </div>
 
         {/* Promo Gift Banner */}
-        <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-white dark:from-slate-800/90 dark:via-slate-800/60 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-800 dark:text-slate-200 shadow-sm">
+        <div className="reveal-scale p-4 rounded-xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-white dark:from-slate-800/90 dark:via-slate-800/60 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-800 dark:text-slate-200 shadow-sm">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-[#2076bd] text-white flex items-center justify-center shrink-0 shadow-xs">
               <Gift size={18} />
@@ -197,7 +197,7 @@ export const Shop: React.FC = () => {
           </div>
           <button 
             onClick={() => setSelectedCategory('combo')}
-            className="dolphy-btn dolphy-btn-primary px-3.5 py-1.5 rounded text-xs font-oswald uppercase tracking-wider shrink-0"
+            className="dolphy-btn dolphy-btn-primary px-3.5 py-1.5 rounded text-xs font-oswald uppercase tracking-wider shrink-0 hover-lift"
           >
             {t('shop.promo_link')}
           </button>
@@ -236,7 +236,7 @@ export const Shop: React.FC = () => {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
             {paginatedProducts.map((product) => {
               const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
               const selectedGrind = grindOptions[product.id] || defaultGrind;
@@ -248,7 +248,7 @@ export const Shop: React.FC = () => {
               return (
                 <div
                   key={product.id}
-                  className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-xl overflow-hidden hover-lift hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     {/* Image with quick view button */}

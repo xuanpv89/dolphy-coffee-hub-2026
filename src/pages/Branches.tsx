@@ -23,7 +23,7 @@ export const Branches: React.FC = () => {
     <div className="space-y-12 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* Header */}
-      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+      <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
             <MapPin size={13} />
@@ -41,7 +41,7 @@ export const Branches: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Interactive Google Map Embed */}
-        <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md bg-white dark:bg-[#1e293b]">
+        <div className="reveal-scale rounded-lg overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md bg-white dark:bg-[#1e293b]">
           <div className="p-4 bg-[#2076bd] text-white flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MapPin size={18} className="text-[#FAEA28]" />
@@ -70,7 +70,7 @@ export const Branches: React.FC = () => {
         </div>
 
         {/* Filter Area Tabs */}
-        <div className="flex justify-center">
+        <div className="flex justify-center reveal-on-scroll">
           <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg">
             {areas.map((area) => (
               <button
@@ -89,7 +89,7 @@ export const Branches: React.FC = () => {
         </div>
 
         {/* Branches Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {filteredBranches.map((branch) => {
             const areaLabel = language === 'en' ? (
               branch.area.includes('Quận 2') ? 'District 2 (Thu Duc City)' :
@@ -107,7 +107,7 @@ export const Branches: React.FC = () => {
             return (
             <div
               key={branch.id}
-              className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group"
+              className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover-lift hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="relative h-56 overflow-hidden bg-gray-100 dark:bg-slate-900">

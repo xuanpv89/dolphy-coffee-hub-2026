@@ -11,7 +11,7 @@ export const Policies: React.FC = () => {
       
       {/* Header */}
       <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4 reveal-on-scroll">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
             <Shield size={13} />
             <span>{t('policies.tag')}</span>
@@ -28,7 +28,7 @@ export const Policies: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Navigation Tabs */}
-        <div className="flex justify-center border-b border-gray-200 dark:border-slate-800">
+        <div className="flex justify-center border-b border-gray-200 dark:border-slate-800 reveal-on-scroll">
           <div className="flex gap-2 p-1.5 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700">
             <button
               onClick={() => setActiveTab('guide')}
@@ -67,7 +67,7 @@ export const Policies: React.FC = () => {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white dark:bg-[#1e293b] rounded-3xl border border-gray-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm leading-relaxed text-sm text-gray-700 dark:text-gray-200 space-y-6">
+        <div className="bg-white dark:bg-[#1e293b] rounded-3xl border border-gray-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm leading-relaxed text-sm text-gray-700 dark:text-gray-200 space-y-6 reveal-on-scroll">
           
           {activeTab === 'guide' && (
             <div className="space-y-4">

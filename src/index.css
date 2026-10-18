@@ -145,3 +145,157 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   left: 0;
   transform: none;
 }
+
+/* ==========================================================================
+   DOLPHY PREMIUM SCROLL REVEAL & ENTRANCE ANIMATIONS
+   High-performance hardware-accelerated animations using Apple/Vercel bezier
+   ========================================================================== */
+
+/* Page entrance transition */
+.page-enter {
+  animation: dolphyPageEnter 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dolphyPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Base scroll reveal (Fade Up) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional variants */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92) translateY(18px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+/* Precise transition delays */
+.reveal-delay-75 { transition-delay: 75ms; }
+.reveal-delay-100 { transition-delay: 100ms; }
+.reveal-delay-150 { transition-delay: 150ms; }
+.reveal-delay-200 { transition-delay: 200ms; }
+.reveal-delay-250 { transition-delay: 250ms; }
+.reveal-delay-300 { transition-delay: 300ms; }
+.reveal-delay-400 { transition-delay: 400ms; }
+.reveal-delay-500 { transition-delay: 500ms; }
+
+/* Staggered Children Cascade: grids, card rows, feature columns */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-stagger.is-revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.is-revealed > *:nth-child(1) { transition-delay: 60ms; }
+.reveal-stagger.is-revealed > *:nth-child(2) { transition-delay: 130ms; }
+.reveal-stagger.is-revealed > *:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger.is-revealed > *:nth-child(4) { transition-delay: 270ms; }
+.reveal-stagger.is-revealed > *:nth-child(5) { transition-delay: 340ms; }
+.reveal-stagger.is-revealed > *:nth-child(6) { transition-delay: 410ms; }
+.reveal-stagger.is-revealed > *:nth-child(7) { transition-delay: 480ms; }
+.reveal-stagger.is-revealed > *:nth-child(8) { transition-delay: 550ms; }
+.reveal-stagger.is-revealed > *:nth-child(9) { transition-delay: 620ms; }
+.reveal-stagger.is-revealed > *:nth-child(10) { transition-delay: 690ms; }
+.reveal-stagger.is-revealed > *:nth-child(11) { transition-delay: 760ms; }
+.reveal-stagger.is-revealed > *:nth-child(12) { transition-delay: 830ms; }
+
+/* Micro-animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: floatGentle 3.5s ease-in-out infinite;
+}
+
+/* Card lift and glow hover */
+.hover-lift {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Accessibility: respect user prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-fade,
+  .reveal-stagger > *,
+  .page-enter {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+

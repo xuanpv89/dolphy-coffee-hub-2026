@@ -47,7 +47,7 @@ export const Academy: React.FC = () => {
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. HERO BANNER */}
-      <section className="relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
+      <section className="reveal-on-scroll relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
         <div className="max-w-5xl mx-auto space-y-5 relative z-10">
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
@@ -82,7 +82,7 @@ export const Academy: React.FC = () => {
           <div className="pt-4">
             <button
               onClick={() => setEnrollingCourse(currentCourse)}
-              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-xl"
+              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-xl hover-lift"
             >
               <GraduationCap size={18} className="mr-2" />
               <span>{t('academy.reserve_cta')}</span>
@@ -93,7 +93,7 @@ export const Academy: React.FC = () => {
       </section>
 
       {/* 2. COURSE SELECTOR TABS & CARDS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-3">
           <div className="flex items-center justify-between text-xs font-oswald uppercase tracking-wider px-1">
             <span className="font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-1.5">
@@ -105,7 +105,7 @@ export const Academy: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 reveal-stagger">
             {coursesData.map((c, idx) => {
               const active = activeCourseId === c.id;
               const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
@@ -163,7 +163,7 @@ export const Academy: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
           {/* Main Info */}
-          <div className="lg:col-span-8 space-y-8">
+          <div className="lg:col-span-8 space-y-8 reveal-left">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-[10px] font-oswald uppercase tracking-wider px-2 py-0.5 rounded shadow">
@@ -213,7 +213,7 @@ export const Academy: React.FC = () => {
                   return (
                     <div
                       key={session.session}
-                      className="border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden bg-white dark:bg-[#1e293b] shadow-sm"
+                      className="border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden bg-white dark:bg-[#1e293b] shadow-sm hover-lift"
                     >
                       <button
                         onClick={() => setOpenSyllabusSession(isOpen ? null : session.session)}
@@ -251,7 +251,7 @@ export const Academy: React.FC = () => {
           </div>
 
           {/* Pricing & Deposit Card (Sidebar) */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 reveal-right">
             <div className="bg-white dark:bg-[#1e293b] border-2 border-[#2076bd] dark:border-[#3ba0e6] rounded-xl p-6 shadow-xl sticky top-24 space-y-6">
               
               <div className="text-center border-b border-gray-100 dark:border-slate-800 pb-4">
@@ -293,7 +293,7 @@ export const Academy: React.FC = () => {
 
               <button
                 onClick={() => setEnrollingCourse(currentCourse)}
-                className="w-full py-3.5 rounded bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow flex items-center justify-center gap-2 hover-lift"
               >
                 <QrCode size={16} />
                 <span>{language === 'vi' ? 'ĐĂNG KÝ & TẠO MÃ VIETQR CỌC' : 'RESERVE & GENERATE VIETQR'}</span>
@@ -309,7 +309,7 @@ export const Academy: React.FC = () => {
       </section>
 
       {/* 4. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-3">
           <div>
             <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
@@ -326,8 +326,8 @@ export const Academy: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-championship-backdrop.jpg"
@@ -350,7 +350,7 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-latte-art-pouring.jpg"
@@ -373,7 +373,7 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-championship-trophy.jpg"
@@ -396,7 +396,7 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-bracket-board.jpg"
@@ -419,7 +419,7 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-sensory-judging.jpg"
@@ -442,7 +442,7 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all group">
+          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-espresso-machine.jpg"
@@ -470,7 +470,7 @@ export const Academy: React.FC = () => {
       {/* 5. FAQS */}
       <section className="bg-[#f8f9fa] dark:bg-slate-900/60 py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-slate-800 transition-colors">
         <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center">
+          <div className="text-center reveal-on-scroll">
             <h2 className="section-title">
               {language === 'vi' ? 'CÂU HỎI THƯỜNG GẶP (FAQ)' : 'FREQUENTLY ASKED QUESTIONS (FAQ)'}
             </h2>
@@ -479,7 +479,7 @@ export const Academy: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 reveal-stagger">
             {faqs.map((faq, idx) => (
               <div key={idx} className="bg-white dark:bg-[#1e293b] p-5 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm space-y-2">
                 <h4 className="font-oswald text-base font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-2">

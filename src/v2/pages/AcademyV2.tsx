@@ -15,7 +15,7 @@ export const AcademyV2: React.FC = () => {
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Header Banner */}
-        <div className="text-center space-y-3 max-w-3xl mx-auto">
+        <div className="text-center space-y-3 max-w-3xl mx-auto reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1410] text-amber-300 font-serif-cormorant text-xs uppercase tracking-widest font-bold">
             <Sparkles size={13} />
             <span>Học Viện Nghề & Xưởng Đào Tạo Barista Thực Chiến</span>
@@ -31,7 +31,7 @@ export const AcademyV2: React.FC = () => {
         </div>
 
         {/* 4 Course Selection Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
           {coursesData.map((c, idx) => {
             const active = activeCourseId === c.id;
             const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
@@ -41,7 +41,7 @@ export const AcademyV2: React.FC = () => {
               <button
                 key={c.id}
                 onClick={() => setActiveCourseId(c.id)}
-                className={`p-5 rounded-2xl text-left transition-all flex flex-col justify-between min-h-[140px] border relative ${
+                className={`p-5 rounded-2xl text-left transition-all flex flex-col justify-between min-h-[140px] border relative hover-lift ${
                   active
                     ? 'bg-[#1A1410] text-white border-[#1A1410] dark:bg-[#251C15] dark:border-amber-400/50 shadow-xl ring-2 ring-amber-400/30'
                     : 'bg-white dark:bg-[#1A1410] text-[#3A2D23] dark:text-[#C5B7A9] border-[#E8DFC8] dark:border-[#2C2219] hover:border-[#2076bd]'
@@ -77,7 +77,7 @@ export const AcademyV2: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Main Info & Syllabus */}
-          <div className="lg:col-span-8 space-y-8 bg-white dark:bg-[#1A1410] p-6 sm:p-10 rounded-3xl border border-[#E8DFC8] dark:border-[#2B2018] shadow-sm text-left">
+          <div className="lg:col-span-8 space-y-8 bg-white dark:bg-[#1A1410] p-6 sm:p-10 rounded-3xl border border-[#E8DFC8] dark:border-[#2B2018] shadow-sm text-left reveal-left">
             <div>
               <span className="text-xs font-mono font-bold text-amber-500 uppercase">
                 {currentCourse.badge} • Thời lượng: {currentCourse.duration}
@@ -152,7 +152,7 @@ export const AcademyV2: React.FC = () => {
           </div>
 
           {/* Pricing & Deposit Card */}
-          <div className="lg:col-span-4 bg-white dark:bg-[#1A1410] p-6 rounded-3xl border border-[#E8DFC8] dark:border-[#2B2018] shadow-lg sticky top-24 space-y-6 text-left">
+          <div className="lg:col-span-4 bg-white dark:bg-[#1A1410] p-6 rounded-3xl border border-[#E8DFC8] dark:border-[#2B2018] shadow-lg sticky top-24 space-y-6 text-left reveal-right">
             <div className="border-b border-[#E8DFC8] dark:border-[#2B2018] pb-4 text-center">
               <span className="text-[11px] font-mono text-[#8C7A6B] uppercase tracking-wider block">Học Phí Toàn Khóa</span>
               <div className="font-serif-cormorant text-4xl font-bold text-[#2076bd] my-1">

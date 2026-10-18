@@ -36,7 +36,7 @@ export const KnowledgeHub: React.FC = () => {
     <div className="space-y-12 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* Header */}
-      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+      <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
             <Sparkles size={13} />
@@ -54,7 +54,7 @@ export const KnowledgeHub: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Controls */}
-        <div className="bg-white dark:bg-[#1e293b] p-4 sm:p-5 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="reveal-on-scroll bg-white dark:bg-[#1e293b] p-4 sm:p-5 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
@@ -84,7 +84,7 @@ export const KnowledgeHub: React.FC = () => {
         </div>
 
         {/* Articles List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
           {filtered.map((art) => {
             const articleTitle = language === 'en' ? (art.titleEn || art.title) : art.title;
             const articleCategory = language === 'en' ? (art.categoryEn || art.category) : art.category;
@@ -95,7 +95,7 @@ export const KnowledgeHub: React.FC = () => {
               <div
                 key={art.id}
                 id={art.id}
-                className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group cursor-pointer"
+                className="bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 overflow-hidden shadow-sm hover-lift hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all flex flex-col justify-between group cursor-pointer"
                 onClick={() => setSelectedArticle(art)}
               >
                 <div>

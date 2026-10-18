@@ -276,7 +276,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. BRAND MISSION & INTRO BANNER */}
-      <section className="bg-[#f0f8ff] dark:bg-slate-800/50 border-b border-gray-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
+      <section className="reveal-on-scroll bg-[#f0f8ff] dark:bg-slate-800/50 border-b border-gray-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
         <div className="max-w-4xl mx-auto space-y-4">
           <div className="flex items-center justify-center gap-2 text-[#FAEA28]">
             <Star size={16} fill="#FAEA28" />
@@ -290,7 +290,7 @@ export const Home: React.FC = () => {
             {t('home.slogan_quote')}
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-blue-100 dark:border-slate-700 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-blue-100 dark:border-slate-700 max-w-3xl mx-auto reveal-stagger">
             <div className="p-2">
               <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">13+</span>
               <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_years')}</span>
@@ -313,18 +313,18 @@ export const Home: React.FC = () => {
 
       {/* 3. SẢN PHẨM BÁN CHẠY */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 reveal-on-scroll">
           <h2 className="section-title">{t('home.bestsellers_title')}</h2>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
             {t('home.bestsellers_sub')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
           {bestSellers.map((product) => (
             <div
               key={product.id}
-              className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 flex flex-col group"
+              className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover-lift hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 flex flex-col group"
             >
               {/* Product Thumbnail */}
               <div className="relative aspect-square overflow-hidden bg-gray-50 dark:bg-slate-900">
@@ -385,10 +385,10 @@ export const Home: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 reveal-on-scroll reveal-delay-200">
           <Link
             to="/shop"
-            className="dolphy-btn dolphy-btn-outline px-8 py-3 rounded text-sm font-semibold inline-flex items-center gap-2 dark:border-[#3ba0e6] dark:text-[#3ba0e6] dark:hover:bg-[#3ba0e6] dark:hover:text-white"
+            className="dolphy-btn dolphy-btn-outline px-8 py-3 rounded text-sm font-semibold inline-flex items-center gap-2 dark:border-[#3ba0e6] dark:text-[#3ba0e6] dark:hover:bg-[#3ba0e6] dark:hover:text-white hover-lift"
           >
             <span>{t('home.view_all_products')}</span>
             <ArrowRight size={16} />
@@ -398,12 +398,12 @@ export const Home: React.FC = () => {
 
       {/* 4. MIDDLE BANNER */}
       <section 
-        className="relative py-20 sm:py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
+        className="reveal-on-scroll relative py-20 sm:py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d3b66]/95 via-[#165b94]/90 to-black/85" />
         <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-white">
-          <div className="space-y-4 max-w-xl text-center md:text-left">
+          <div className="space-y-4 max-w-xl text-center md:text-left reveal-left">
             <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block shadow">
               {t('home.delivery_tag')}
             </span>
@@ -415,19 +415,19 @@ export const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 reveal-right">
             <a
               href="https://dolphycoffee.cukcuk.vn/order-online/"
               target="_blank"
               rel="noreferrer"
-              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-lg flex items-center justify-center gap-2"
+              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-lg flex items-center justify-center gap-2 hover-lift"
             >
               <span>{t('home.order_cukcuk')}</span>
               <ExternalLink size={16} />
             </a>
             <Link
               to="/branches"
-              className="dolphy-btn px-8 py-3.5 rounded bg-white hover:bg-gray-100 text-[#222222] text-sm font-semibold shadow-lg"
+              className="dolphy-btn px-8 py-3.5 rounded bg-white hover:bg-gray-100 text-[#222222] text-sm font-semibold shadow-lg hover-lift"
             >
               {t('home.find_nearby')}
             </Link>
@@ -436,11 +436,11 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 5. STRATEGIC PILLAR: DOLPHY ACADEMY */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="reveal-on-scroll py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="bg-gradient-to-br from-[#165b94] via-[#2076bd] to-[#165b94] rounded-2xl text-white p-8 sm:p-12 overflow-hidden relative shadow-xl">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
-            <div className="space-y-5">
+            <div className="space-y-5 reveal-left">
               <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block shadow">
                 {t('home.academy_badge')}
               </span>
@@ -471,13 +471,13 @@ export const Home: React.FC = () => {
               <div className="pt-4 flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => setEnrollingCourse(coursesData[0])}
-                  className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold"
+                  className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold hover-lift"
                 >
                   {t('home.reserve_seat')}
                 </button>
                 <Link
                   to="/academy"
-                  className="dolphy-btn px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#2076bd] text-sm font-semibold transition-colors"
+                  className="dolphy-btn px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#2076bd] text-sm font-semibold transition-colors hover-lift"
                 >
                   {t('home.view_curriculum')}
                 </Link>
@@ -485,7 +485,7 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Course card preview */}
-            <div className="bg-white dark:bg-[#1e293b] rounded-xl p-6 text-[#222222] dark:text-white shadow-2xl space-y-4">
+            <div className="bg-white dark:bg-[#1e293b] rounded-xl p-6 text-[#222222] dark:text-white shadow-2xl space-y-4 reveal-right">
               <div className="flex items-center justify-between border-b border-gray-100 dark:border-slate-800 pb-3">
                 <span className="font-oswald text-xs uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6] font-bold">
                   {t('home.hero3_tag')}
@@ -536,20 +536,20 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 6. KHÁCH HÀNG NÓI VỀ CHÚNG TÔI */}
-      <section className="bg-[#f8f9fa] dark:bg-slate-900/60 py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200 dark:border-slate-800 transition-colors">
+      <section className="reveal-on-scroll bg-[#f8f9fa] dark:bg-slate-900/60 py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10 reveal-on-scroll">
             <h2 className="section-title">{t('home.testimonials_title')}</h2>
             <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
               {t('home.testimonials_sub')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
             {testimonials.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-[#1e293b] p-6 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between"
+                className="bg-white dark:bg-[#1e293b] p-6 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover-lift transition-all"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-1 text-[#FAEA28] text-xs mb-1">
@@ -582,7 +582,7 @@ export const Home: React.FC = () => {
 
       {/* 6.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC */}
       <section className="w-full bg-white dark:bg-slate-900 py-12 sm:py-16 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll">
           <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
             {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
           </h2>
@@ -591,7 +591,7 @@ export const Home: React.FC = () => {
 
         <div
           onClick={toggleHomeVideoMute}
-          className="w-full relative aspect-[2.4/1] sm:aspect-[2.5/1] overflow-hidden group cursor-pointer bg-black"
+          className="w-full relative aspect-[2.4/1] sm:aspect-[2.5/1] overflow-hidden group cursor-pointer bg-black reveal-scale"
           title={isHomeVideoMuted ? (language === 'vi' ? 'Chạm để bật tiếng' : 'Click to unmute') : (language === 'vi' ? 'Chạm để tắt tiếng' : 'Click to mute')}
         >
           <video
@@ -628,7 +628,7 @@ export const Home: React.FC = () => {
 
       {/* 7. KHOẢNH KHẮC DOLPHY / FANPAGE LIVE FEED */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-10 space-y-3">
+        <div className="text-center mb-10 space-y-3 reveal-on-scroll">
           <div>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] text-xs font-oswald uppercase tracking-widest font-bold">
               <Camera size={14} />
@@ -644,12 +644,12 @@ export const Home: React.FC = () => {
         </div>
 
         {/* 8-Photo Interactive Gallery Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 reveal-stagger">
           {communityGalleryData.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedPhoto(item)}
-              className="group relative aspect-square rounded-xl overflow-hidden shadow-sm hover:shadow-xl dark:hover:shadow-slate-900/60 cursor-pointer bg-gray-100 dark:bg-slate-800 transition-all duration-300"
+              className="group relative aspect-square rounded-xl overflow-hidden shadow-sm hover-lift hover:shadow-xl dark:hover:shadow-slate-900/60 cursor-pointer bg-gray-100 dark:bg-slate-800 transition-all duration-300"
             >
               <img
                 src={item.image}

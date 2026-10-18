@@ -163,7 +163,7 @@ export const About: React.FC = () => {
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. Page Hero Banner */}
-      <section className="bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+      <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/hero_slide_store.webp')" }} />
         <div className="relative max-w-4xl mx-auto space-y-4">
           <div>
@@ -182,10 +182,10 @@ export const About: React.FC = () => {
       </section>
 
       {/* 2. Brand Stats Ribbon */}
-      <section className="max-w-6xl mx-auto px-4 -mt-10 sm:-mt-12 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-white dark:bg-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-100 dark:border-slate-800">
+      <section className="reveal-on-scroll max-w-6xl mx-auto px-4 -mt-10 sm:-mt-12 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-white dark:bg-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-100 dark:border-slate-800 reveal-stagger">
           {stats.map((item, idx) => (
-            <div key={idx} className="text-center p-2 flex flex-col items-center justify-center">
+            <div key={idx} className="text-center p-2 flex flex-col items-center justify-center hover-lift">
               <span className="font-oswald text-3xl sm:text-4xl font-bold text-[#2076bd] dark:text-[#3ba0e6] block tracking-wide">
                 {item.value}
               </span>
@@ -199,7 +199,7 @@ export const About: React.FC = () => {
 
       {/* 2.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC */}
       <section className="w-full bg-white dark:bg-slate-900 py-12 sm:py-16 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll">
           <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
             {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
           </h2>
@@ -208,7 +208,7 @@ export const About: React.FC = () => {
 
         <div
           onClick={toggleMute}
-          className="w-full relative aspect-[2.4/1] sm:aspect-[2.5/1] overflow-hidden group cursor-pointer bg-black"
+          className="w-full relative aspect-[2.4/1] sm:aspect-[2.5/1] overflow-hidden group cursor-pointer bg-black reveal-scale"
           title={isMuted ? (language === 'vi' ? 'Chạm để bật tiếng' : 'Click to unmute') : (language === 'vi' ? 'Chạm để tắt tiếng' : 'Click to mute')}
         >
           <video
@@ -246,7 +246,7 @@ export const About: React.FC = () => {
       {/* 3. Chương 1: Hành Trình Khởi Nghiệp & Câu Chuyện Hạt Mộc */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 space-y-5 text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
+          <div className="lg:col-span-6 space-y-5 text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed reveal-left">
             <div className="space-y-1">
               <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
                 {language === 'vi' ? 'CHƯƠNG I: CÂU CHUYỆN KHỞI NGUỒN' : 'CHAPTER I: OUR ORIGIN'}
@@ -273,23 +273,23 @@ export const About: React.FC = () => {
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 to="/branches"
-                className="dolphy-btn dolphy-btn-primary px-5 py-2.5 rounded text-xs uppercase font-oswald flex items-center gap-1.5"
+                className="dolphy-btn dolphy-btn-primary px-5 py-2.5 rounded text-xs uppercase font-oswald flex items-center gap-1.5 hover-lift"
               >
                 <MapPin size={14} />
                 <span>{language === 'vi' ? 'Khám phá 10 chi nhánh' : 'Explore 10 Branches'}</span>
               </Link>
               <Link
                 to="/shop"
-                className="dolphy-btn dolphy-btn-outline px-5 py-2.5 rounded text-xs uppercase font-oswald dark:border-[#3ba0e6] dark:text-[#3ba0e6]"
+                className="dolphy-btn dolphy-btn-outline px-5 py-2.5 rounded text-xs uppercase font-oswald dark:border-[#3ba0e6] dark:text-[#3ba0e6] hover-lift"
               >
                 <span>{language === 'vi' ? 'Ghé thăm cửa hàng hạt' : 'Specialty Beans'}</span>
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4 reveal-right">
             <div className="space-y-3">
-              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64 bg-slate-900 relative group">
+              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64 bg-slate-900 relative group hover-lift">
                 <img
                   src="/images/fanpage/branch-28-thao-dien-facade-clean.jpg"
                   alt="Dolphy Thảo Điền Facade"
@@ -306,7 +306,7 @@ export const About: React.FC = () => {
             </div>
 
             <div className="space-y-3">
-              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64 bg-slate-900 relative group">
+              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-800 h-64 bg-slate-900 relative group hover-lift">
                 <img
                   src="/images/fanpage/academy-signature-rose-latte.jpg"
                   alt="Dolphy Barista Signature Latte"
@@ -327,7 +327,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* The Guide Award Highlight Banner */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-blue-200 dark:border-slate-700 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+        <div className="reveal-scale p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-blue-200 dark:border-slate-700 flex flex-col md:flex-row items-center gap-6 shadow-sm">
           <div className="w-16 h-16 rounded-2xl bg-[#FAEA28] text-slate-950 flex items-center justify-center shrink-0 shadow-lg">
             <Award size={36} />
           </div>
@@ -346,7 +346,7 @@ export const About: React.FC = () => {
 
         {/* 4. Chương 2: 4 Giá Trị Cốt Lõi (Happiness in a cup) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-10 reveal-on-scroll">
             <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
               {language === 'vi' ? 'CHƯƠNG II: TRIẾT LÝ PHỤC VỤ' : 'CHAPTER II: OUR PHILOSOPHY'}
             </span>
@@ -360,11 +360,11 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
             {pillars.map((item, pIdx) => (
               <div 
                 key={pIdx}
-                className="p-6 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-3 group"
+                className="p-6 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm hover-lift hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-3 group"
               >
                 <div className="space-y-3">
                   <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center group-hover:bg-[#2076bd] group-hover:text-white transition-colors shadow-sm">
@@ -384,7 +384,7 @@ export const About: React.FC = () => {
 
         {/* 5. Chương 3: Dấu Ấn Thời Gian (Milestone Timeline) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-10 reveal-on-scroll">
             <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
               {language === 'vi' ? 'CHƯƠNG III: DẤU ẤN THỜI GIAN' : 'CHAPTER III: OUR TIMELINE'}
             </span>
@@ -396,13 +396,13 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="relative border-l-2 border-blue-200 dark:border-slate-700 ml-4 sm:ml-10 md:ml-12 space-y-8 pl-6 sm:pl-8">
+          <div className="relative border-l-2 border-blue-200 dark:border-slate-700 ml-4 sm:ml-10 md:ml-12 space-y-8 pl-6 sm:pl-8 reveal-stagger">
             {milestones.map((m, mIdx) => (
               <div key={mIdx} className="relative group">
                 {/* Circle Marker centered on border line */}
                 <div className="absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full bg-[#FAEA28] border-4 border-[#2076bd] transition-colors shadow-xs" />
 
-                <div className="bg-white dark:bg-[#1e293b] p-5 sm:p-6 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-2.5 group-hover:shadow-md transition-shadow">
+                <div className="bg-white dark:bg-[#1e293b] p-5 sm:p-6 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-2.5 hover-lift hover:shadow-md transition-all">
                   <div className="flex flex-wrap items-center gap-2.5">
                     <span className="px-3.5 py-1 rounded-full bg-[#FAEA28] text-slate-950 font-oswald text-xs sm:text-sm font-extrabold tracking-wider inline-flex items-center gap-1.5 shrink-0 shadow-xs">
                       <Calendar size={13} className="text-slate-950" />
@@ -423,7 +423,7 @@ export const About: React.FC = () => {
 
         {/* 6. Chương 4: Thư Viện Hình Ảnh Cảm Xúc (Authentic Photo Stories) */}
         <div className="space-y-8 pt-8">
-          <div className="text-center max-w-2xl mx-auto mb-8">
+          <div className="text-center max-w-2xl mx-auto mb-8 reveal-on-scroll">
             <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1">
               {language === 'vi' ? 'CHƯƠNG IV: NHỮNG KHOẢNH KHẮC ĐỜI THƯỜNG' : 'CHAPTER IV: REAL-LIFE MOMENTS'}
             </span>
@@ -437,11 +437,11 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
             {photoStories.map((story, sIdx) => (
               <div 
                 key={sIdx}
-                className="bg-white dark:bg-[#1e293b] rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+                className="bg-white dark:bg-[#1e293b] rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover-lift hover:shadow-xl transition-all duration-300 flex flex-col group"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-slate-900 relative">
                   <img
@@ -470,8 +470,8 @@ export const About: React.FC = () => {
         </div>
 
         {/* 7. Sứ mệnh & Tầm nhìn Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 reveal-stagger">
+          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4 hover-lift">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center text-2xl font-bold">
                 ★
@@ -488,7 +488,7 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div className="p-8 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4 hover-lift">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-[#FAEA28] text-slate-950 flex items-center justify-center text-2xl font-bold shadow-sm">
                 ☀
@@ -507,7 +507,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* 8. Lời cam kết chân thành & Pháp lý doanh nghiệp */}
-        <div id="contact" className="p-8 sm:p-10 rounded-2xl bg-[#f0f8ff] dark:bg-[#1e293b] border border-blue-100 dark:border-slate-800 space-y-6">
+        <div id="contact" className="reveal-on-scroll p-8 sm:p-10 rounded-2xl bg-[#f0f8ff] dark:bg-[#1e293b] border border-blue-100 dark:border-slate-800 space-y-6">
           <div className="space-y-2">
             <span className="text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
               {language === 'vi' ? 'CAM KẾT CHẤT LƯỢNG' : 'OUR PLEDGE'}
