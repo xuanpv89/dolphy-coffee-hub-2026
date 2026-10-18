@@ -182,7 +182,7 @@ export const About: React.FC = () => {
       </section>
 
       {/* 2. Brand Stats Ribbon */}
-      <section className="reveal-on-scroll max-w-6xl mx-auto px-4 -mt-10 sm:-mt-12 relative z-10">
+      <section className="max-w-6xl mx-auto px-4 -mt-10 sm:-mt-12 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-white dark:bg-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-100 dark:border-slate-800 reveal-stagger">
           {stats.map((item, idx) => (
             <div key={idx} className="text-center p-2 flex flex-col items-center justify-center hover-lift">

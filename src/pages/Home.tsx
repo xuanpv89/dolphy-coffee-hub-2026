@@ -276,8 +276,8 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. BRAND MISSION & INTRO BANNER */}
-      <section className="reveal-on-scroll bg-[#f0f8ff] dark:bg-slate-800/50 border-b border-gray-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
-        <div className="max-w-4xl mx-auto space-y-4">
+      <section className="bg-[#f0f8ff] dark:bg-slate-800/50 border-b border-gray-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
+        <div className="max-w-4xl mx-auto space-y-4 reveal-on-scroll">
           <div className="flex items-center justify-center gap-2 text-[#FAEA28]">
             <Star size={16} fill="#FAEA28" />
             <span className="font-oswald text-xs uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
@@ -398,7 +398,7 @@ export const Home: React.FC = () => {
 
       {/* 4. MIDDLE BANNER */}
       <section 
-        className="reveal-on-scroll relative py-20 sm:py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
+        className="relative py-20 sm:py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d3b66]/95 via-[#165b94]/90 to-black/85" />
@@ -436,7 +436,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 5. STRATEGIC PILLAR: DOLPHY ACADEMY */}
-      <section className="reveal-on-scroll py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="bg-gradient-to-br from-[#165b94] via-[#2076bd] to-[#165b94] rounded-2xl text-white p-8 sm:p-12 overflow-hidden relative shadow-xl">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
@@ -536,7 +536,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 6. KHÁCH HÀNG NÓI VỀ CHÚNG TÔI */}
-      <section className="reveal-on-scroll bg-[#f8f9fa] dark:bg-slate-900/60 py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200 dark:border-slate-800 transition-colors">
+      <section className="bg-[#f8f9fa] dark:bg-slate-900/60 py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 reveal-on-scroll">
             <h2 className="section-title">{t('home.testimonials_title')}</h2>

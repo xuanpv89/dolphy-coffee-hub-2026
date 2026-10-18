@@ -93,7 +93,7 @@ export const Academy: React.FC = () => {
       </section>
 
       {/* 2. COURSE SELECTOR TABS & CARDS */}
-      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-3">
           <div className="flex items-center justify-between text-xs font-oswald uppercase tracking-wider px-1">
             <span className="font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-1.5">
@@ -309,8 +309,8 @@ export const Academy: React.FC = () => {
       </section>
 
       {/* 4. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
-      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center space-y-3">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center space-y-3 reveal-on-scroll">
           <div>
             <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
               {language === 'vi' ? 'HỌC VIỆN & SÂN CHƠI CHUYÊN NGHIỆP' : 'ACADEMY & CHAMPIONSHIP'}

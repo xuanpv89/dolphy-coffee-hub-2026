@@ -5,8 +5,8 @@ export const REVEAL_SELECTOR = '.reveal-on-scroll, .reveal-stagger, .reveal-left
 
 /**
  * High-performance global Scroll Reveal hook
- * Reveals elements with hardware-accelerated animations as they approach the viewport.
- * Features early threshold trigger, window scroll backup, and safe fallback timeout.
+ * Animates elements piece-by-piece as they scroll into view.
+ * Elements below the fold stay hidden until scrolled to, creating a vivid sequential entrance.
  */
 export function useScrollReveal() {
   const location = useLocation();
@@ -20,96 +20,79 @@ export function useScrollReveal() {
       return;
     }
 
-    const checkAndReveal = () => {
-      const elements = document.querySelectorAll(REVEAL_SELECTOR);
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-      elements.forEach((el) => {
-        if (!el.classList.contains('is-revealed')) {
-          const rect = el.getBoundingClientRect();
-          // Trigger when element top is within 100px of viewport bottom, or already past
-          if (rect.top <= windowHeight + 100 && rect.bottom >= -100) {
-            el.classList.add('is-revealed');
-          }
-        }
-      });
-    };
-
-    // IntersectionObserver with early margin for smooth entrance
-    let observer: IntersectionObserver | null = null;
-    if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              obs.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: '120px 0px 120px 0px', // trigger 120px before entering viewport
-          threshold: 0, // trigger immediately upon entering margin
-        }
-      );
-
-      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
-        if (!el.classList.contains('is-revealed')) {
-          observer?.observe(el);
-        }
-      });
-    }
-
-    // Run immediately on page load / route change
-    checkAndReveal();
-
-    // Check again after initial renders / image load
-    const t1 = setTimeout(checkAndReveal, 60);
-    const t2 = setTimeout(checkAndReveal, 200);
-    const t3 = setTimeout(checkAndReveal, 500);
-
-    // Guaranteed Safety Fallback: After 1.2s, reveal ALL remaining elements
-    // so no user EVER sees a blank/white section
-    const safetyFallback = setTimeout(() => {
-      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+    // 1. Reveal ONLY elements that are ALREADY in the initial viewport on page load
+    document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < windowHeight * 0.9 && rect.bottom > 0) {
         el.classList.add('is-revealed');
-      });
-    }, 1200);
-
-    // Backup scroll/resize listener
-    const handleScrollOrResize = () => {
-      requestAnimationFrame(checkAndReveal);
-    };
-
-    window.addEventListener('scroll', handleScrollOrResize, { passive: true });
-    window.addEventListener('resize', handleScrollOrResize, { passive: true });
-
-    // Mutation observer for dynamic content updates
-    const mutationObserver = new MutationObserver(() => {
-      checkAndReveal();
-      if (observer) {
-        document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
-          if (!el.classList.contains('is-revealed')) {
-            observer?.observe(el);
-          }
-        });
       }
     });
 
-    mutationObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
+    // 2. Observe all other elements as they scroll into view
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px 0px -40px 0px', // Trigger when element is 40px inside viewport so user sees the animation!
+        threshold: 0.08,
+      }
+    );
+
+    // Observe unrevealed elements
+    document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+      if (!el.classList.contains('is-revealed')) {
+        observer.observe(el);
+      }
     });
 
+    // 3. Fallback check on scroll for any browser quirks
+    const onScroll = () => {
+      const currentHeight = window.innerHeight || document.documentElement.clientHeight;
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+        if (!el.classList.contains('is-revealed')) {
+          const rect = el.getBoundingClientRect();
+          // When top of element enters viewport by 30px
+          if (rect.top <= currentHeight - 30 && rect.bottom >= 0) {
+            el.classList.add('is-revealed');
+            observer.unobserve(el);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    // 4. MutationObserver for dynamically rendered items (e.g. tabs, data loads)
+    const mutationObserver = new MutationObserver(() => {
+      const currentHeight = window.innerHeight || document.documentElement.clientHeight;
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+        if (!el.classList.contains('is-revealed')) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= currentHeight - 30 && rect.bottom >= 0) {
+            el.classList.add('is-revealed');
+          } else {
+            observer.observe(el);
+          }
+        }
+      });
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
     return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-      clearTimeout(safetyFallback);
-      window.removeEventListener('scroll', handleScrollOrResize);
-      window.removeEventListener('resize', handleScrollOrResize);
-      observer?.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      observer.disconnect();
       mutationObserver.disconnect();
     };
   }, [location.pathname, location.search]);

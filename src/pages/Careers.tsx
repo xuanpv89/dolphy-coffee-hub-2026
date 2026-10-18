@@ -67,8 +67,8 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Why Join Us */}
-      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-2 mb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-2 mb-10 reveal-on-scroll">
           <h2 className="section-title">{t('careers.why_title')}</h2>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
             {t('careers.why_sub')}
@@ -135,8 +135,8 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* DOLPHIERS CULTURE & SPORTS */}
-      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center space-y-3">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center space-y-3 reveal-on-scroll">
           <div>
             <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
               {language === 'vi' ? 'CON NGƯỜI & VĂN HÓA DOANH NGHIỆP' : 'PEOPLE & CULTURE'}
@@ -292,8 +292,8 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="reveal-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="space-y-1">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="space-y-1 reveal-on-scroll">
           <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
             {t('careers.open_positions')}
           </h2>

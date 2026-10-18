@@ -240,9 +240,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 /* Staggered Children Cascade: grids, card rows, feature columns */
 .reveal-stagger > * {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -251,18 +251,18 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   transform: translateY(0);
 }
 
-.reveal-stagger.is-revealed > *:nth-child(1) { transition-delay: 30ms; }
-.reveal-stagger.is-revealed > *:nth-child(2) { transition-delay: 70ms; }
-.reveal-stagger.is-revealed > *:nth-child(3) { transition-delay: 110ms; }
-.reveal-stagger.is-revealed > *:nth-child(4) { transition-delay: 150ms; }
-.reveal-stagger.is-revealed > *:nth-child(5) { transition-delay: 190ms; }
-.reveal-stagger.is-revealed > *:nth-child(6) { transition-delay: 230ms; }
-.reveal-stagger.is-revealed > *:nth-child(7) { transition-delay: 270ms; }
-.reveal-stagger.is-revealed > *:nth-child(8) { transition-delay: 310ms; }
-.reveal-stagger.is-revealed > *:nth-child(9) { transition-delay: 350ms; }
-.reveal-stagger.is-revealed > *:nth-child(10) { transition-delay: 390ms; }
-.reveal-stagger.is-revealed > *:nth-child(11) { transition-delay: 430ms; }
-.reveal-stagger.is-revealed > *:nth-child(12) { transition-delay: 470ms; }
+.reveal-stagger.is-revealed > *:nth-child(1) { transition-delay: 50ms; }
+.reveal-stagger.is-revealed > *:nth-child(2) { transition-delay: 130ms; }
+.reveal-stagger.is-revealed > *:nth-child(3) { transition-delay: 210ms; }
+.reveal-stagger.is-revealed > *:nth-child(4) { transition-delay: 290ms; }
+.reveal-stagger.is-revealed > *:nth-child(5) { transition-delay: 370ms; }
+.reveal-stagger.is-revealed > *:nth-child(6) { transition-delay: 450ms; }
+.reveal-stagger.is-revealed > *:nth-child(7) { transition-delay: 530ms; }
+.reveal-stagger.is-revealed > *:nth-child(8) { transition-delay: 610ms; }
+.reveal-stagger.is-revealed > *:nth-child(9) { transition-delay: 690ms; }
+.reveal-stagger.is-revealed > *:nth-child(10) { transition-delay: 770ms; }
+.reveal-stagger.is-revealed > *:nth-child(11) { transition-delay: 850ms; }
+.reveal-stagger.is-revealed > *:nth-child(12) { transition-delay: 930ms; }
 
 /* Micro-animations */
 @keyframes floatGentle {
