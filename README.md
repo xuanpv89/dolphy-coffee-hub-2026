@@ -56,7 +56,7 @@ Mọi thành phần giao diện trên website đều tuân thủ nghiêm ngặt 
 | **Vàng Đậm (Hover CTA)** | **Dolphy Dark Amber** | `#D4C618` | `rgb(212, 198, 24)` | Trạng thái di chuột (hover) trên các nút bấm màu vàng. |
 | **Màu Chữ Chính (Light Mode)** | **Dolphy Charcoal Dark** | `#222222` | `rgb(34, 34, 34)` | Văn bản chính, tiêu đề bài viết. Độ tương phản cao êm mắt, thay thế màu đen tuyền `#000000` chống mỏi mắt. |
 | **Màu Chữ Phụ / Mô Tả** | **Dolphy Neutral Gray** | `#666666` | `rgb(102, 102, 102)` | Mô tả chi tiết, ngày tháng đăng bài, số giờ học, thông tin phụ. |
-| **Nền Trang Tối (Dark Mode)** | **Deep Slate Dark** | `#0f172a` | `rgb(15, 23, 42)` | Màu nền toàn bộ website khi chuyển sang chế độ Dark Mode. |
+| **Nền Trang Tối & Chân Trang Footer** | **Deep Slate Dark** | #0f172a | gb(15, 23, 42) | Màu nền toàn bộ website khi ở chế độ Dark Mode, và màu nền chuẩn của Chân trang (Footer) giúp giao diện đồng bộ, tinh tế. |
 | **Khối Thẻ Tối (Dark Card)** | **Card Slate Dark** | `#1e293b` | `rgb(30, 41, 59)` | Hộp sản phẩm, khung chi nhánh, modal bài viết trong Dark Mode. |
 | **Xanh Quản Trị (Admin)** | **Admin Deep Navy** | `#0b1329` | `rgb(11, 19, 41)` | Nền trang quản trị CRM chuyên biệt. |
 | **Thành Công (Success)** | **Emerald Green** | `#16a34a` | `rgb(22, 163, 74)` | Trạng thái: "Đã cọc", "Đã thanh toán", "Đã tuyển", thông báo thành công. |

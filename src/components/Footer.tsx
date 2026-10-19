@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#0b1626] dark:bg-[#060e1a] text-white/90 border-t-2 border-[#2076bd] pt-14 pb-8 font-sans transition-colors">
+    <footer className="bg-[#0f172a] text-white/90 border-t-2 border-[#2076bd] pt-14 pb-8 font-sans transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Grid */}
@@ -27,19 +27,19 @@ export const Footer: React.FC = () => {
           
           {/* CỘT 1: NHẬN DIỆN THƯƠNG HIỆU & MẠNG XÃ HỘI (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-full bg-white p-1 flex items-center justify-center border-2 border-[#FAEA28] shadow-lg shrink-0">
-                <img src="/favicon.png" alt="Dolphy Café" className="w-full h-full object-contain rounded-full" />
+            <Link to="/" className="flex items-center gap-3.5 group">
+              <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center border-2 border-[#FAEA28] shadow-lg shrink-0 group-hover:scale-105 transition-transform">
+                <img src="/favicon.png" alt="Dolphy Café" className="w-full h-full object-contain rounded-lg" />
               </div>
               <div>
-                <span className="font-oswald text-xl font-bold tracking-wider text-white uppercase block leading-none">
+                <span className="font-oswald text-xl font-bold tracking-wider text-white uppercase block leading-none group-hover:text-[#FAEA28] transition-colors">
                   DOLPHY CAFÉ
                 </span>
                 <span className="text-[10px] tracking-widest text-[#FAEA28] font-bold uppercase block mt-1 font-oswald">
                   HAPPINESS IN A CUP • SINCE 2013
                 </span>
               </div>
-            </div>
+            </Link>
 
             <p className="text-xs text-white/80 leading-relaxed">
               {language === 'vi'
