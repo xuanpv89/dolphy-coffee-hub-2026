@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, GraduationCap, QrCode, Calendar, MapPin, Sparkles, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle2, GraduationCap, QrCode, Calendar, MapPin, ShieldCheck } from 'lucide-react';
 import { useDolphy } from '../context/DolphyContext';
 import { Course, StudentRegistration } from '../types';
 import { coursesData } from '../data/dolphyData';

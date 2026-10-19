@@ -11,7 +11,7 @@ import {
   CheckCircle2, 
   ExternalLink,
   Calendar,
-  Sparkles,
+  Gift,
   Heart,
   Camera,
   X,
@@ -520,7 +520,7 @@ export const Home: React.FC = () => {
               </div>
 
               <div className="p-3 rounded bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-200 flex items-center gap-2">
-                <Sparkles size={16} className="text-[#FAEA28] shrink-0" />
+                <Gift size={16} className="text-[#FAEA28] shrink-0" />
                 <span>{t('home.academy_gift')}</span>
               </div>
 

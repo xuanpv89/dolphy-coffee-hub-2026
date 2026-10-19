@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Clock, Search, ArrowRight, Calendar, X, Sparkles } from 'lucide-react';
+import { Clock, Search, ArrowRight, Calendar, X, BookOpen } from 'lucide-react';
 import { articlesData } from '../data/dolphyData';
 import { Article } from '../types';
 import { useDolphy } from '../context/DolphyContext';
@@ -56,7 +56,7 @@ export const KnowledgeHub: React.FC = () => {
       <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
-            <Sparkles size={13} />
+            <BookOpen size={14} />
             <span>{t('knowledge.hero_tag')}</span>
           </div>
           <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white leading-tight">

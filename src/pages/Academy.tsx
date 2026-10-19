@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, CheckCircle2, Clock, MapPin, Award, Users, Sparkles, ChevronDown, ChevronUp, QrCode } from 'lucide-react';
+import { GraduationCap, CheckCircle2, Clock, MapPin, Award, Users, Gift, ChevronDown, ChevronUp, QrCode } from 'lucide-react';
 import { coursesData, brandInfo } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 
@@ -51,7 +51,7 @@ export const Academy: React.FC = () => {
         <div className="max-w-5xl mx-auto space-y-5 relative z-10">
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
-            <Sparkles size={14} />
+            <GraduationCap size={15} />
             <span>{t('academy.hero_tag')}</span>
           </div>
 
@@ -284,8 +284,8 @@ export const Academy: React.FC = () => {
               </div>
 
               <div className="p-3 rounded bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-xs text-blue-900 dark:text-blue-200 space-y-1">
-                <p className="font-bold flex items-center gap-1 text-[#2076bd] dark:text-[#3ba0e6]">
-                  <Sparkles size={14} className="text-[#FAEA28]" />
+                <p className="font-bold flex items-center gap-1.5 text-[#2076bd] dark:text-[#3ba0e6]">
+                  <Gift size={14} className="text-[#2076bd] dark:text-[#38bdf8]" />
                   {language === 'vi' ? 'Ưu đãi đăng ký sớm:' : 'Early Bird Privilege:'}
                 </p>
                 <p>{language === 'vi' ? 'Tặng kèm 1 áo Barista Dolphy + 1kg hạt Specialty tự luyện tập.' : 'Includes 1 Barista apron + 1kg specialty coffee for home training.'}</p>

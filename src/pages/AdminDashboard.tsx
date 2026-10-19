@@ -23,7 +23,6 @@ import {
   ShieldCheck,
   ChevronRight,
   BookOpen,
-  Sparkles,
   AlertCircle,
   FileText,
   Globe,

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Search, ShoppingBag, Gift, Eye, X, Check, ExternalLink, ChevronLeft, ChevronRight, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Search, ShoppingBag, Gift, Eye, X, Check, ExternalLink, ChevronLeft, ChevronRight, SlidersHorizontal, Coffee } from 'lucide-react';
 import { productsData } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 import { CartItem, Product } from '../types';
@@ -92,7 +92,7 @@ export const Shop: React.FC = () => {
         <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }} />
         <div className="relative max-w-7xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
-            <Sparkles size={13} />
+            <Coffee size={14} />
             <span>{t('shop.hero_tag')}</span>
           </div>
           <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white leading-tight">

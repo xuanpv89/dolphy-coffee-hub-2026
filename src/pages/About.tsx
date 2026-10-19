@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Award, Heart, Sparkles, MapPin, Coffee, Users, Leaf, Smile, CheckCircle, ExternalLink, Calendar, Volume2, VolumeX } from 'lucide-react';
+import { Award, Heart, MapPin, Coffee, Users, Leaf, Smile, CheckCircle, ExternalLink, Calendar, Volume2, VolumeX } from 'lucide-react';
 import { brandInfo } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 import { Link } from 'react-router-dom';
@@ -168,7 +168,7 @@ export const About: React.FC = () => {
         <div className="relative max-w-4xl mx-auto space-y-4">
           <div>
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
-              <Sparkles size={13} />
+              <Coffee size={14} />
               <span>{t('about.tag')}</span>
             </span>
           </div>

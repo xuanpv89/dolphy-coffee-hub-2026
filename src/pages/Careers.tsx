@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, Sparkles } from 'lucide-react';
+import { Send, Briefcase } from 'lucide-react';
 import { jobsData, brandInfo } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 
@@ -32,7 +32,7 @@ export const Careers: React.FC = () => {
       <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold">
-            <Sparkles size={14} />
+            <Briefcase size={14} />
             <span>{t('careers.hero_tag')}</span>
           </div>
           <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
