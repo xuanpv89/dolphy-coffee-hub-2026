@@ -25,6 +25,7 @@
    - 7.7. Quy trình Cập nhật Website Tự động (GitHub ➔ Vercel Auto Deploy)
    - 7.8. Cấu hình Tài khoản Ngân hàng Chuyển khoản & Mã VietQR
    - 7.9. Hướng dẫn Khắc phục Sự cố Thường gặp (FAQ / Troubleshooting)
+   - 7.10. Hướng dẫn Sử dụng & Cài đặt Ứng dụng Progressive Web App (PWA)
 8. [Cài Đặt & Chạy Cục Bộ (Dành Cho Lập Trình Viên)](#8-cài-đặt--chạy-cục-bộ-dành-cho-lập-trình-viên)
 9. [Bản Quyền & Thông Tin Liên Hệ](#9-bản-quyền--thông-tin-liên-hệ)
 
@@ -129,14 +130,22 @@ Dự án sử dụng Google Fonts nhúng trực tiếp tại `index.html`, tối
 
 ```text
 DOLPHY WEBSITE/
-├── public/                     # Thư mục chứa hình ảnh tĩnh, logo, video, favicon
+├── public/                     # Thư mục tĩnh, logo, video, favicon & tài sản PWA
 │   ├── favicon.ico             # Icon hiển thị trên tab trình duyệt
 │   ├── favicon.png             # Icon độ phân giải cao cho điện thoại
+│   ├── manifest.webmanifest    # Cấu hình W3C Web App Manifest cho Progressive Web App
+│   ├── manifest.json           # Cấu hình tương thích Manifest chuẩn
+│   ├── sw.js                   # Service Worker xử lý bộ nhớ đệm Offline & tăng tốc tải trang
+│   ├── icons/                  # Bộ biểu tượng ứng dụng PWA (192x192, 512x512, maskable)
 │   ├── dolphy-hero-loop.mp4    # Video chạy nền trang chủ
 │   └── images/                 # Kho ảnh sản phẩm, chi nhánh, học viện
 ├── src/
 │   ├── components/             # Các khối giao diện dùng chung
-│   │   ├── Navbar.tsx          # Thanh điều hướng đầu trang (Logo, Menu, Đổi ngôn ngữ, Giỏ hàng)
+│   │   ├── pwa/                # Các thành phần Progressive Web App
+│   │   │   ├── PwaInstallPrompt.tsx    # Banner mời cài đặt App & hướng dẫn iOS Safari
+│   │   │   ├── OfflineIndicator.tsx    # Thanh thông báo trạng thái khi mất kết nối mạng
+│   │   │   └── PwaUpdateNotification.tsx # Hộp thông báo cập nhật phiên bản mới
+│   │   ├── Navbar.tsx          # Thanh điều hướng đầu trang (Logo, Menu, Nút Cài App, Giỏ hàng)
 │   │   ├── Footer.tsx          # Chân trang (Thông tin pháp lý, Địa chỉ chi nhánh, Mạng xã hội)
 │   │   ├── CartDrawer.tsx      # Ngăn kéo giỏ hàng trượt từ phải sang
 │   │   ├── CheckoutModal.tsx   # Cửa sổ thanh toán giỏ hàng kèm mã VietQR
@@ -145,7 +154,7 @@ DOLPHY WEBSITE/
 │   │   ├── BackToTop.tsx       # Nút cuộn nhanh lên đầu trang
 │   │   └── Toast.tsx           # Hộp thông báo nổi (Thêm giỏ hàng thành công, v.v.)
 │   ├── context/
-│   │   └── DolphyContext.tsx   # "Bộ não" lưu trữ trạng thái Giỏ hàng, Đơn hàng, Ngôn ngữ, Giao diện
+│   │   └── DolphyContext.tsx   # "Bộ não" lưu trữ trạng thái Giỏ hàng, Đơn hàng, Ngôn ngữ, PWA
 │   ├── data/
 │   │   └── dolphyData.ts       # ⭐ FILE DỮ LIỆU CHÍNH: Nơi sửa Menu, Giá tiền, Chi nhánh, Khóa học
 │   ├── hooks/
@@ -162,11 +171,13 @@ DOLPHY WEBSITE/
 │   │   ├── About.tsx           # Câu chuyện Thương hiệu & Tầm nhìn
 │   │   ├── Policies.tsx        # Chính sách Đổi trả, Bảo mật & Giao hàng
 │   │   └── AdminDashboard.tsx  # ⭐ TRANG QUẢN TRỊ NỘI BỘ (CRM NỘI BỘ)
+│   ├── pwa/
+│   │   └── pwaService.ts       # Quản lý sự kiện cài đặt PWA, Service Worker & trạng thái mạng
 │   ├── types/
 │   │   └── index.ts            # Định nghĩa cấu trúc dữ liệu chuẩn (TypeScript Interfaces)
-│   ├── App.tsx                 # Cấu hình đường dẫn URL và bố cục tổng thể
+│   ├── App.tsx                 # Cấu hình đường dẫn URL, bố cục tổng thể & PWA notifications
 │   ├── index.css               # Định nghĩa màu sắc, font chữ và hiệu ứng chuyển động
-│   └── main.tsx                # Điểm khởi đầu của ứng dụng React
+│   └── main.tsx                # Điểm khởi đầu của ứng dụng React & Đăng ký Service Worker
 ├── index.html                  # Khung HTML gốc, nhúng font chữ và thẻ SEO
 ├── package.json                # Danh sách thư viện và tập lệnh build
 └── README.md                   # ⭐ CẨM NANG HƯỚNG DẪN NÀY
@@ -346,6 +357,43 @@ Khi học viên đặt cọc khóa học hoặc khách đặt mua cà phê chọ
 
 #### Q3: Dữ liệu học viên đăng ký trên trang `/admin` có bị mất khi tắt máy không?
 * **Giải pháp**: Dữ liệu được lưu trữ an toàn trong bộ nhớ trình duyệt `localStorage` của máy bạn. Định kỳ mỗi tuần, bạn chỉ cần bấm nút **"Xuất Dữ Liệu" (Download CSV)** trên trang Admin để lưu một bản sao lưu (backup) an toàn vào máy tính hoặc Google Drive.
+
+---
+
+### 7.10. Hướng Dẫn Sử Dụng & Cài Đặt Ứng Dụng Progressive Web App (PWA)
+
+Website Dolphy Café & Academy đã được nâng cấp toàn diện thành một **Progressive Web App (PWA)** chuẩn quốc tế. Khách hàng và Quản lý cửa hàng có thể cài đặt trực tiếp website lên điện thoại hoặc máy tính như một ứng dụng native mà **không cần qua App Store hay Google Play**.
+
+#### 🌟 Các Tính Năng Nổi Bật Của PWA Dolphy:
+1. **Khởi chạy độc lập (Standalone)**: Chạy trong cửa sổ ứng dụng riêng biệt, toàn màn hình, không có thanh địa chỉ trình duyệt gây vướng víu.
+2. **Khởi động siêu tốc**: Nhờ công nghệ bộ nhớ đệm Service Worker, ứng dụng mở tức thì và lướt mượt mà như app tải về.
+3. **Hoạt động Ngoại tuyến (Offline Mode)**: Khi bị rớt mạng hoặc mạng chập chờn, ứng dụng vẫn hiển thị danh sách Menu, địa chỉ 10 Chi nhánh và cẩm nang kiến thức đã lưu trong bộ đệm. Giao diện tự động kích hoạt thanh cảnh báo màu hổ phách *"Đang ngoại tuyến"*.
+4. **Tự động Cập nhật Phiên bản Mới**: Khi Ban quản trị đưa tính năng hoặc menu mới lên mạng, ứng dụng sẽ hiển thị thanh thông báo nổi *"Có phiên bản mới! Bấm để cập nhật"*, giúp người dùng luôn trải nghiệm bản mới nhất chỉ với 1 cú chạm.
+5. **Tiết kiệm bộ nhớ**: Dung lượng cài đặt siêu nhẹ (chỉ khoảng 2MB - 3MB), không chiếm dụng bộ nhớ máy điện thoại.
+
+---
+
+#### 📱 Hướng Dẫn Cài Đặt Ứng Dụng Trên Từng Thiết Bị:
+
+##### 1. Cài đặt trên iPhone & iPad (Hệ điều hành iOS Safari):
+*Apple iOS không hỗ trợ cửa sổ cài đặt tự động mà yêu cầu thao tác thêm thủ công 2 bước đơn giản:*
+* **Bước 1**: Mở trình duyệt **Safari** trên iPhone/iPad và truy cập trang web Dolphy: `https://dolphycafe.vercel.app`
+* **Bước 2**: Nhìn xuống thanh công cụ dưới đáy màn hình, nhấn vào nút **Chia sẻ** (biểu tượng hình vuông có mũi tên hướng lên ⎋).
+* **Bước 3**: Vuốt lên trong danh sách menu hiện ra và chọn **"Thêm vào Màn hình chính"** (hoặc *"Add to Home Screen"* ➕).
+* **Bước 4**: Nhấn nút **"Thêm"** (Add) ở góc trên bên phải.  
+  👉 Biểu tượng logo Dolphy Café sẽ xuất hiện ngay trên màn hình chính của bạn. Nhấp vào để mở app toàn màn hình!
+
+##### 2. Cài đặt trên điện thoại Android (Google Chrome / Samsung Internet):
+* **Cách 1**: Khi truy cập web, một banner màu xanh dịu sẽ tự động trượt lên ở đáy màn hình mời *"Cài đặt Dolphy Hub"*. Bạn chỉ cần nhấn nút **"Cài App Ngay"**.
+* **Cách 2**: Nhấn vào nút **"Cài App"** có biểu tượng mũi tên tải xuống ở góc phải thanh Menu trên cùng.
+* **Cách 3**: Bấm vào nút dấu **3 chấm dọc** ⋮ ở góc trên bên phải của trình duyệt Chrome ➔ Chọn **"Cài đặt ứng dụng"** (Install app) hoặc **"Thêm vào màn hình chính"**.
+* Xác nhận bấm **"Cài đặt"** (Install). Ứng dụng sẽ được tự động tích hợp vào màn hình ứng dụng của Android.
+
+##### 3. Cài đặt trên Máy tính PC & Mac (Google Chrome / Microsoft Edge):
+* **Cách 1**: Nhấn nút **"Cài App"** trên thanh Menu chính của website.
+* **Cách 2**: Nhấp vào biểu tượng máy tính có mũi tên tải xuống (Install Dolphy Hub) nằm ở phía bên phải thanh gõ địa chỉ URL của Chrome/Edge.
+* **Cách 3**: Bấm nút **"Cài đặt"** trong hộp thoại xác nhận.  
+  👉 Ứng dụng sẽ mở trong một cửa sổ riêng biệt như phần mềm máy tính (Desktop App) và tạo lối tắt trên màn hình Desktop của bạn.
 
 ---
 

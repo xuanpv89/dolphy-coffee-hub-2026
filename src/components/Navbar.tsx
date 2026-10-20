@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck, Sun, Moon, Globe } from 'lucide-react';
+import { ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck, Sun, Moon, Globe, Download } from 'lucide-react';
 import { useDolphy } from '../context/DolphyContext';
 import { brandInfo } from '../data/dolphyData';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { cartCount, setIsCartOpen, language, toggleLanguage, theme, toggleTheme, t } = useDolphy();
+  const { cartCount, setIsCartOpen, language, toggleLanguage, theme, toggleTheme, t, isStandalone, installPwa } = useDolphy();
   const location = useLocation();
 
   const navLinks = [
@@ -92,6 +92,18 @@ export const Navbar: React.FC = () => {
             >
               {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
             </button>
+
+            {/* Install PWA Button (Desktop) */}
+            {!isStandalone && (
+              <button
+                onClick={() => installPwa()}
+                title={language === 'vi' ? 'Cài đặt ứng dụng Dolphy Café lên thiết bị' : 'Install Dolphy App'}
+                className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#2076bd]/10 hover:bg-[#2076bd] text-[#2076bd] hover:text-white dark:bg-[#3ba0e6]/10 dark:text-[#3ba0e6] dark:hover:bg-[#2076bd] dark:hover:text-white border border-[#2076bd]/30 text-xs font-oswald uppercase tracking-wider font-bold transition-all shadow-2xs"
+              >
+                <Download size={13} />
+                <span>{language === 'vi' ? 'Cài App' : 'Install'}</span>
+              </button>
+            )}
 
             {/* Admin Hub shortcut */}
             <Link
@@ -242,6 +254,20 @@ export const Navbar: React.FC = () => {
               )}
             </div>
           ))}
+
+          {/* Install PWA Button for Mobile */}
+          {!isStandalone && (
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                installPwa();
+              }}
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#2076bd] to-[#165b94] hover:from-[#165b94] hover:to-[#2076bd] text-white font-oswald text-xs uppercase font-bold tracking-wider shadow-sm transition-all active:scale-[0.99]"
+            >
+              <Download size={14} className="text-[#FAEA28]" />
+              <span>{language === 'vi' ? 'Cài Đặt Ứng Dụng Dolphy (PWA)' : 'Install Dolphy Mobile App'}</span>
+            </button>
+          )}
 
           <div className="pt-2 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
             <span>{t('nav.hotline')}: <strong className="text-[#2076bd] dark:text-[#3ba0e6]">{brandInfo.hotline}</strong></span>

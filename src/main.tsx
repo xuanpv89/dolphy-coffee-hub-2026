@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+import { pwaService } from './pwa/pwaService';
+
+// Initialize PWA Service Worker for offline capability & fast caching
+pwaService.registerServiceWorker();
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -13,3 +17,4 @@ ReactDOM.createRoot(rootElement).render(
     <App />
   </React.StrictMode>
 );
+

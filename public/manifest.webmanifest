@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "id": "/?source=pwa",
+  "name": "Dolphy Café & Academy - Cà Phê Mộc Sài Gòn",
+  "short_name": "Dolphy Café",
+  "description": "Hệ sinh thái Dolphy Café 2026: Cà phê mộc nguyên chất Thảo Điền từ 2013, Học viện Barista thực chiến và chuỗi 10 không gian mở Sài Gòn.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#0f172a",
+  "theme_color": "#2076bd",
+  "orientation": "portrait-primary",
+  "lang": "vi",
+  "dir": "ltr",
+  "categories": ["food", "drink", "shopping", "education", "lifestyle"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Cửa Hàng Cà Phê Mộc",
+      "short_name": "Menu & Shop",
+      "description": "Đặt mua cà phê hạt mộc rang mộc và đồ uống fresh",
+      "url": "/shop?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Học Viện Barista Thực Chiến",
+      "short_name": "Academy",
+      "description": "Xem khóa học Barista, Latte Art và lịch khai giảng 2026",
+      "url": "/academy?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Hệ Thống 10 Chi Nhánh",
+      "short_name": "10 Quán",
+      "description": "Tìm quán Dolphy gần nhất tại Thảo Điền, Q7, Bình Thạnh, Q3",
+      "url": "/branches?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Cổng Quản Trị Hệ Thống",
+      "short_name": "Admin Hub",
+      "description": "Quản lý đơn hàng, học viên và vận hành 10 quầy bar",
+      "url": "/admin?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

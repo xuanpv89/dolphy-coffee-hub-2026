@@ -9,6 +9,9 @@ import { CourseRegisterModal } from './components/CourseRegisterModal';
 import { ApplicationModal } from './components/ApplicationModal';
 import { Toast } from './components/Toast';
 import { BackToTop } from './components/BackToTop';
+import { PwaInstallPrompt } from './components/pwa/PwaInstallPrompt';
+import { OfflineIndicator } from './components/pwa/OfflineIndicator';
+import { PwaUpdateNotification } from './components/pwa/PwaUpdateNotification';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 // Pages
@@ -76,6 +79,11 @@ const AppLayout: React.FC = () => {
       <ApplicationModal />
       <Toast />
       {!isAdmin && <BackToTop />}
+
+      {/* Progressive Web App (PWA) Global Controls */}
+      <PwaInstallPrompt />
+      <OfflineIndicator />
+      <PwaUpdateNotification />
     </div>
   );
 };

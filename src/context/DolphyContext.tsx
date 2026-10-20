@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, ReactNode } from 'react';
 import { Product, Course, CartItem, Order, StudentRegistration, JobApplication, Job } from '../types';
 import { Language, Theme, translations } from '../i18n/translations';
+import { pwaService } from '../pwa/pwaService';
 
 interface DolphyContextType {
   // Localization & Theme
@@ -11,6 +12,15 @@ interface DolphyContextType {
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   t: (key: string) => string;
+
+  // PWA & Connectivity
+  isInstallable: boolean;
+  isStandalone: boolean;
+  isOnline: boolean;
+  hasPwaUpdate: boolean;
+  isIOS: boolean;
+  installPwa: () => Promise<boolean>;
+  applyPwaUpdate: () => void;
 
   // Cart
   cart: CartItem[];
@@ -94,6 +104,35 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  // PWA Connectivity & Installation State
+  const [isInstallable, setIsInstallable] = useState<boolean>(pwaService.getCanInstall());
+  const [isStandalone, setIsStandalone] = useState<boolean>(pwaService.getIsInstalled());
+  const [isOnline, setIsOnline] = useState<boolean>(pwaService.getIsOnline());
+  const [hasPwaUpdate, setHasPwaUpdate] = useState<boolean>(pwaService.getHasUpdate());
+  const isIOS = useMemo(() => pwaService.isIOS(), []);
+
+  useEffect(() => {
+    const unsubscribe = pwaService.subscribe(() => {
+      setIsInstallable(pwaService.getCanInstall());
+      setIsStandalone(pwaService.getIsInstalled());
+      setIsOnline(pwaService.getIsOnline());
+      setHasPwaUpdate(pwaService.getHasUpdate());
+    });
+    return unsubscribe;
+  }, []);
+
+  const installPwa = async () => {
+    const success = await pwaService.promptInstall();
+    if (success) {
+      showToast(language === 'vi' ? 'Đang cài đặt ứng dụng Dolphy Café!' : 'Installing Dolphy Café App!');
+    }
+    return success;
+  };
+
+  const applyPwaUpdate = () => {
+    pwaService.applyUpdate();
   };
 
   const t = (key: string): string => {
@@ -387,7 +426,14 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         updateRegistrationStatus,
         updateApplicationStatus,
         toast,
-        showToast
+        showToast,
+        isInstallable,
+        isStandalone,
+        isOnline,
+        hasPwaUpdate,
+        isIOS,
+        installPwa,
+        applyPwaUpdate
       }}
     >
       {children}
