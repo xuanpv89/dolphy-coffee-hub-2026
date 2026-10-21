@@ -80,30 +80,30 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 .dolphy-btn-primary {
-  background-color: #2076bd;
+  background-color: var(--dolphy-primary, #2076bd);
   color: #ffffff;
 }
 .dolphy-btn-primary:hover {
-  background-color: #FAEA28;
-  color: #1a1a1a;
+  background-color: var(--dolphy-primary-hover, #165b94);
+  color: #ffffff;
 }
 
 .dolphy-btn-amber {
-  background-color: #FAEA28;
-  color: #1a1a1a;
+  background-color: var(--dolphy-accent, #FAEA28);
+  color: var(--dolphy-accent-text, #1a1a1a);
   font-weight: 600;
 }
 .dolphy-btn-amber:hover {
-  background-color: #2076bd;
+  background-color: var(--dolphy-primary, #2076bd);
   color: #ffffff;
 }
 
 .dolphy-btn-outline {
-  border: 2px solid #2076bd;
-  color: #2076bd;
+  border: 2px solid var(--dolphy-primary, #2076bd);
+  color: var(--dolphy-primary, #2076bd);
 }
 .dolphy-btn-outline:hover {
-  background-color: #2076bd;
+  background-color: var(--dolphy-primary, #2076bd);
   color: #ffffff;
 }
 
@@ -306,15 +306,16 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 
 
 /* ==========================================================================
-   DOLPHY 5-THEME DESIGN ENGINE:
-   1. Ocean Heritage (Di Sản Biển Xanh - Original 2013)
-   2. Midnight Roastery (Xưởng Rang Đêm - Dark Cyber Lounge)
-   3. Botanical Courtyard (Vườn Cổ Điển Thảo Điền - French Bistro)
-   4. Nordic Minimalist (Tối Giản Bắc Âu - Minimal Studio Mono)
-   5. Sunset Saigon (Hoàng Hôn Sài Gòn - Warm Vibrant Horizon)
+   DOLPHY 6-THEME DESIGN ENGINE:
+   1. Ocean Heritage (Di Sản Biển Xanh - Original 2013 Light)
+   2. Classic Dark (Di Sản Đêm - Original Dark Mode with Slate & Amber)
+   3. Midnight Roastery (Xưởng Rang Đêm - Dark Cyber Lounge)
+   4. Botanical Courtyard (Vườn Cổ Điển Thảo Điền - French Bistro)
+   5. Nordic Minimalist (Tối Giản Bắc Âu - Minimal Studio Mono)
+   6. Sunset Saigon (Hoàng Hôn Sài Gòn - Warm Vibrant Horizon)
    ========================================================================== */
 
-/* 1. DOLPHY OCEAN (DEFAULT / 2013 HERITAGE) */
+/* 1. DOLPHY OCEAN (ORIGINAL 2013 LIGHT HERITAGE) */
 [data-theme="ocean"], :root:not([data-theme]) {
   --dolphy-primary: #2076bd;
   --dolphy-primary-hover: #165b94;
@@ -334,7 +335,77 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   --dolphy-shadow: 0 10px 25px -5px rgba(32, 118, 189, 0.08);
 }
 
-/* 2. MIDNIGHT ROASTERY (DARK SPECIALTY CYBER LOUNGE) */
+/* 2. DOLPHY CLASSIC DARK (DI SẢN ĐÊM - ORIGINAL DARK SLATE MODE) */
+[data-theme="dark"] {
+  --dolphy-primary: #2076bd;
+  --dolphy-primary-hover: #3ba0e6;
+  --dolphy-primary-light: #60a5fa;
+  --dolphy-accent: #FAEA28;
+  --dolphy-accent-dark: #D4C618;
+  --dolphy-accent-text: #0f172a;
+  --dolphy-bg-page: #0f172a;
+  --dolphy-bg-surface: #1e293b;
+  --dolphy-bg-subtle: #16243b;
+  --dolphy-text-main: #f8fafc;
+  --dolphy-text-muted: #94a3b8;
+  --dolphy-border: #334155;
+  --dolphy-card-radius: 12px;
+  --dolphy-btn-radius: 6px;
+  --dolphy-font-heading: 'Oswald', sans-serif;
+  --dolphy-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] #root,
+[data-theme="dark"] main {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .bg-\[\#f8fafc\],
+[data-theme="dark"] .bg-\[\#f1f5f9\],
+[data-theme="dark"] .bg-gray-50,
+[data-theme="dark"] .bg-slate-50 {
+  background-color: #0f172a !important;
+}
+
+[data-theme="dark"] .bg-\[\#f0f8ff\] {
+  background-color: #16243b !important;
+}
+
+[data-theme="dark"] .text-\[\#222222\] {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .border-gray-100,
+[data-theme="dark"] .border-gray-200 {
+  border-color: #334155 !important;
+}
+
+[data-theme="dark"] .section-title {
+  color: #3ba0e6 !important;
+}
+
+[data-theme="dark"] .section-title::after {
+  background-color: #FAEA28 !important;
+}
+
+[data-theme="dark"] header {
+  background-color: #0f172a !important;
+  border-bottom-color: #334155 !important;
+}
+
+[data-theme="dark"] footer {
+  background-color: #0a0f1d !important;
+  border-top-color: #2076bd !important;
+}
+
+/* 3. MIDNIGHT ROASTERY (DARK SPECIALTY CYBER LOUNGE) */
 [data-theme="roastery"] {
   --dolphy-primary: #0284c7;
   --dolphy-primary-hover: #38bdf8;
@@ -367,7 +438,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="roastery"] .bg-\[\#f8fafc\],
-[data-theme="roastery"] .bg-\[\#f1f5f9\] {
+[data-theme="roastery"] .bg-\[\#f1f5f9\],
+[data-theme="roastery"] .bg-gray-50,
+[data-theme="roastery"] .bg-slate-50 {
   background-color: #070a12 !important;
 }
 
@@ -405,7 +478,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   border-top-color: #0284c7 !important;
 }
 
-/* 3. BOTANICAL GARDEN (VƯỜN CỔ ĐIỂN THẢO ĐIỀN - FRENCH BISTRO) */
+/* 4. BOTANICAL GARDEN (VƯỜN CỔ ĐIỂN THẢO ĐIỀN - FRENCH BISTRO) */
 [data-theme="vintage"] {
   --dolphy-primary: #1b4d3e;
   --dolphy-primary-hover: #13382d;
@@ -433,7 +506,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="vintage"] .bg-\[\#f8fafc\],
-[data-theme="vintage"] .bg-\[\#f1f5f9\] {
+[data-theme="vintage"] .bg-\[\#f1f5f9\],
+[data-theme="vintage"] .bg-gray-50,
+[data-theme="vintage"] .bg-slate-50 {
   background-color: #faf6f0 !important;
 }
 
@@ -492,7 +567,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   border-top-color: #1b4d3e !important;
 }
 
-/* 4. NORDIC MINIMALIST (TỐI GIẢN BẮC ÂU - MINIMAL STUDIO MONO) */
+/* 5. NORDIC MINIMALIST (TỐI GIẢN BẮC ÂU - MINIMAL STUDIO MONO) */
 [data-theme="nordic"] {
   --dolphy-primary: #18181b;
   --dolphy-primary-hover: #3f3f46;
@@ -520,7 +595,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="nordic"] .bg-\[\#f8fafc\],
-[data-theme="nordic"] .bg-\[\#f1f5f9\] {
+[data-theme="nordic"] .bg-\[\#f1f5f9\],
+[data-theme="nordic"] .bg-gray-50,
+[data-theme="nordic"] .bg-slate-50 {
   background-color: #ffffff !important;
 }
 
@@ -580,7 +657,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   border-top-color: #27272a !important;
 }
 
-/* 5. SUNSET SAIGON (HOÀNG HÔN SÀI GÒN - WARM VIBRANT HORIZON) */
+/* 6. SUNSET SAIGON (HOÀNG HÔN SÀI GÒN - WARM VIBRANT HORIZON) */
 [data-theme="sunset"] {
   --dolphy-primary: #e11d48;
   --dolphy-primary-hover: #be123c;
@@ -608,7 +685,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="sunset"] .bg-\[\#f8fafc\],
-[data-theme="sunset"] .bg-\[\#f1f5f9\] {
+[data-theme="sunset"] .bg-\[\#f1f5f9\],
+[data-theme="sunset"] .bg-gray-50,
+[data-theme="sunset"] .bg-slate-50 {
   background-color: #fff8f5 !important;
 }
 
@@ -647,19 +726,6 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   border-radius: 9999px !important;
 }
 
-[data-theme="sunset"] .dolphy-btn-primary,
-[data-theme="sunset"] .bg-\[\#2076bd\] {
-  background: linear-gradient(135deg, #e11d48 0%, #f97316 100%) !important;
-  box-shadow: 0 8px 20px -4px rgba(225, 29, 72, 0.35) !important;
-}
-
-[data-theme="sunset"] .dolphy-btn-primary:hover,
-[data-theme="sunset"] .hover\:bg-\[\#165b94\]:hover,
-[data-theme="sunset"] .hover\:bg-\[\#2076bd\]:hover {
-  background: linear-gradient(135deg, #f97316 0%, #e11d48 100%) !important;
-  color: #ffffff !important;
-}
-
 [data-theme="sunset"] header {
   background-color: rgba(255, 248, 245, 0.95) !important;
   backdrop-filter: blur(12px) !important;
@@ -672,7 +738,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 /* ==========================================================================
-   GLOBAL THEME BRIDGE (Applies smoothly across all 5 themes)
+   GLOBAL THEME BRIDGE (Applies smoothly across all 6 themes)
    ========================================================================== */
 [data-theme] .bg-\[\#2076bd\] {
   background-color: var(--dolphy-primary) !important;
@@ -717,4 +783,123 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 
 [data-theme] .section-title::after {
   background-color: var(--dolphy-accent) !important;
+}
+
+/* --------------------------------------------------------------------------
+   THEME-SPECIFIC GRADIENT HERO BANNER & BADGE HARMONY
+   -------------------------------------------------------------------------- */
+[data-theme="vintage"] .bg-gradient-to-r.from-\[\#165b94\],
+[data-theme="vintage"] .bg-gradient-to-br.from-\[\#165b94\],
+[data-theme="vintage"] .bg-gradient-to-r.from-blue-50 {
+  background: linear-gradient(135deg, #13382d 0%, #1b4d3e 60%, #0d261e 100%) !important;
+  border-color: #2d6a4f !important;
+}
+
+[data-theme="vintage"] .bg-blue-50,
+[data-theme="vintage"] .bg-blue-100,
+[data-theme="vintage"] .bg-sky-50,
+[data-theme="vintage"] .bg-indigo-50 {
+  background-color: #f2ebe0 !important;
+  color: #1b4d3e !important;
+  border-color: #e6ded1 !important;
+}
+[data-theme="vintage"] .text-blue-600,
+[data-theme="vintage"] .text-blue-700,
+[data-theme="vintage"] .text-blue-900,
+[data-theme="vintage"] .text-indigo-600,
+[data-theme="vintage"] .text-\[\#3ba0e6\] {
+  color: #1b4d3e !important;
+}
+[data-theme="vintage"] .text-blue-100,
+[data-theme="vintage"] .text-blue-200 {
+  color: #f2ebe0 !important;
+}
+
+[data-theme="nordic"] .bg-gradient-to-r.from-\[\#165b94\],
+[data-theme="nordic"] .bg-gradient-to-br.from-\[\#165b94\],
+[data-theme="nordic"] .bg-gradient-to-r.from-blue-50 {
+  background: #18181b !important;
+  border: 1px solid #3f3f46 !important;
+}
+
+[data-theme="nordic"] .bg-blue-50,
+[data-theme="nordic"] .bg-blue-100,
+[data-theme="nordic"] .bg-sky-50,
+[data-theme="nordic"] .bg-indigo-50 {
+  background-color: #f4f4f5 !important;
+  color: #18181b !important;
+  border-color: #e4e4e7 !important;
+}
+[data-theme="nordic"] .text-blue-600,
+[data-theme="nordic"] .text-blue-700,
+[data-theme="nordic"] .text-blue-900,
+[data-theme="nordic"] .text-indigo-600,
+[data-theme="nordic"] .text-\[\#3ba0e6\] {
+  color: #18181b !important;
+}
+[data-theme="nordic"] .text-blue-100,
+[data-theme="nordic"] .text-blue-200 {
+  color: #e4e4e7 !important;
+}
+
+[data-theme="sunset"] .bg-gradient-to-r.from-\[\#165b94\],
+[data-theme="sunset"] .bg-gradient-to-br.from-\[\#165b94\],
+[data-theme="sunset"] .bg-gradient-to-r.from-blue-50 {
+  background: linear-gradient(135deg, #be123c 0%, #e11d48 50%, #f97316 100%) !important;
+  border-color: #fed7aa !important;
+}
+
+[data-theme="sunset"] .bg-blue-50,
+[data-theme="sunset"] .bg-blue-100,
+[data-theme="sunset"] .bg-sky-50,
+[data-theme="sunset"] .bg-indigo-50 {
+  background-color: #ffede6 !important;
+  color: #e11d48 !important;
+  border-color: #fed7aa !important;
+}
+[data-theme="sunset"] .text-blue-600,
+[data-theme="sunset"] .text-blue-700,
+[data-theme="sunset"] .text-blue-900,
+[data-theme="sunset"] .text-indigo-600,
+[data-theme="sunset"] .text-\[\#3ba0e6\] {
+  color: #e11d48 !important;
+}
+[data-theme="sunset"] .text-blue-100,
+[data-theme="sunset"] .text-blue-200 {
+  color: #fff1f2 !important;
+}
+
+[data-theme="roastery"] .bg-gradient-to-r.from-\[\#165b94\],
+[data-theme="roastery"] .bg-gradient-to-br.from-\[\#165b94\],
+[data-theme="roastery"] .bg-gradient-to-r.from-blue-50 {
+  background: linear-gradient(135deg, #070a12 0%, #0f172a 60%, #020617 100%) !important;
+  border: 1px solid rgba(2, 132, 199, 0.35) !important;
+  box-shadow: 0 0 25px rgba(2, 132, 199, 0.2) !important;
+}
+
+[data-theme="roastery"] .bg-blue-50,
+[data-theme="roastery"] .bg-blue-100,
+[data-theme="roastery"] .bg-sky-50,
+[data-theme="roastery"] .bg-indigo-50 {
+  background-color: #0b1324 !important;
+  color: #38bdf8 !important;
+  border-color: #1e293b !important;
+}
+[data-theme="roastery"] .text-blue-600,
+[data-theme="roastery"] .text-blue-700,
+[data-theme="roastery"] .text-blue-900,
+[data-theme="roastery"] .text-indigo-600,
+[data-theme="roastery"] .text-\[\#3ba0e6\] {
+  color: #38bdf8 !important;
+}
+[data-theme="roastery"] .text-blue-100,
+[data-theme="roastery"] .text-blue-200 {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .bg-gradient-to-r.from-\[\#165b94\],
+[data-theme="dark"] .bg-gradient-to-br.from-\[\#165b94\],
+[data-theme="dark"] .bg-gradient-to-r.from-blue-50 {
+  background: linear-gradient(135deg, #0b1324 0%, #16243b 50%, #0b1324 100%) !important;
+  border-color: #334155 !important;
 }

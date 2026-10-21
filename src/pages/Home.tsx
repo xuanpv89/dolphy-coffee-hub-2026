@@ -381,70 +381,336 @@ export const Home: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
-          {bestSellers.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover-lift hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 flex flex-col group"
-            >
-              {/* Product Thumbnail */}
-              <div className="relative aspect-square overflow-hidden bg-gray-50 dark:bg-slate-900">
-                <img
-                  src={product.image || product.images?.[0]}
-                  alt={product.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                />
-                {product.isBestSeller && (
-                  <span className="absolute top-2 left-2 bg-[#FAEA28] text-slate-950 text-[10px] font-oswald uppercase tracking-wider font-extrabold px-2 py-0.5 rounded shadow">
-                    {t('shop.badge_bestseller')}
-                  </span>
-                )}
-                {product.badge && (
-                  <span className="absolute top-2 right-2 bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
-                    {product.badge}
-                  </span>
-                )}
-              </div>
-
-              {/* Product Info */}
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-1 text-[#FAEA28] text-xs mb-1">
-                    {'★'.repeat(5)}
-                    <span className="text-gray-400 text-[11px] ml-1">({product.rating || 5.0})</span>
-                  </div>
-                  <h3 className="font-oswald text-base font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors leading-snug line-clamp-2">
-                    {language === 'en' && product.nameEn ? product.nameEn : product.name}
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
-                    {language === 'en' && product.descriptionEn ? product.descriptionEn : product.description}
-                  </p>
+        {/* Dynamic Multi-Theme Grid & Structural Layout Transformation */}
+        {theme === 'roastery' ? (
+          /* THEME: ROASTERY - Cyber Asymmetric Layout (Spotlight + 3 Satellite Cards) */
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 reveal-stagger">
+            {/* 1. Large Spotlight Card (Spans 7 cols) */}
+            {bestSellers[0] && (
+              <div className="lg:col-span-7 rounded-2xl bg-slate-900/90 border border-cyan-500/40 p-6 flex flex-col justify-between shadow-[0_0_25px_rgba(2,132,199,0.2)] group relative overflow-hidden">
+                <div className="absolute top-0 right-0 px-3 py-1 bg-cyan-950/80 border-b border-l border-cyan-500/30 text-[10px] font-mono text-cyan-300 rounded-bl-xl flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                  <span>SPOTLIGHT // NODE_ALPHA</span>
                 </div>
 
-                <div className="pt-4 border-t border-gray-100 dark:border-slate-800 mt-4 flex items-center justify-between">
+                <div className="space-y-4">
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 border border-cyan-500/20">
+                    <img
+                      src={bestSellers[0].image || bestSellers[0].images?.[0]}
+                      alt={bestSellers[0].name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-3 left-3 flex gap-2">
+                      <span className="bg-amber-400 text-slate-950 font-mono text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                        ★ {bestSellers[0].rating || 5.0} // TOP PICK
+                      </span>
+                      <span className="bg-slate-950/80 backdrop-blur border border-cyan-500/40 text-cyan-300 font-mono text-[10px] px-2 py-0.5 rounded">
+                        100% PURE ROAST
+                      </span>
+                    </div>
+                  </div>
+
                   <div>
-                    <span className="text-xs text-gray-400 dark:text-gray-500 block">{t('shop.unit_price')}</span>
-                    <span className="font-oswald text-lg font-bold text-[#2076bd] dark:text-[#3ba0e6]">
-                      {product.price.toLocaleString('vi-VN')}₫
+                    <h3 className="font-mono text-xl sm:text-2xl font-bold text-cyan-300 group-hover:text-cyan-200 transition-colors">
+                      {language === 'en' && bestSellers[0].nameEn ? bestSellers[0].nameEn : bestSellers[0].name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-400 mt-2 line-clamp-2 font-mono">
+                      {language === 'en' && bestSellers[0].descriptionEn ? bestSellers[0].descriptionEn : bestSellers[0].description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-cyan-500/20 mt-6 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">SYSTEM PRICING</span>
+                    <span className="font-mono text-2xl font-bold text-amber-400">
+                      {bestSellers[0].price.toLocaleString('vi-VN')}₫
                     </span>
                   </div>
 
                   <button
                     onClick={() => {
-                      addToCart(product, 1, language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)');
-                      const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
-                      showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
+                      addToCart(bestSellers[0], 1);
+                      const pName = language === 'en' && bestSellers[0].nameEn ? bestSellers[0].nameEn : bestSellers[0].name;
+                      showToast(language === 'vi' ? `Đã nạp "${pName}" vào giỏ hàng!` : `Loaded "${pName}" to cart!`);
                     }}
-                    className="p-2 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white transition-colors"
-                    title={t('shop.add_to_cart')}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all"
                   >
-                    <ShoppingBag size={16} />
+                    <ShoppingBag size={14} />
+                    <span>DISPATCH ORDER</span>
                   </button>
                 </div>
               </div>
+            )}
+
+            {/* 2. Stack of 3 Satellite HUD Cards (Spans 5 cols) */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              {bestSellers.slice(1, 4).map((product, idx) => (
+                <div
+                  key={product.id}
+                  className="rounded-xl bg-slate-900/80 border border-cyan-500/30 p-3.5 flex items-center gap-4 hover:border-cyan-400 transition-all shadow-sm hover:shadow-[0_0_15px_rgba(2,132,199,0.2)] group"
+                >
+                  <div className="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-slate-950 border border-cyan-500/20">
+                    <img
+                      src={product.image || product.images?.[0]}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-amber-400 mb-1">
+                      <span>#0{idx + 2}</span>
+                      <span>•</span>
+                      <span>★ {product.rating || 5.0}</span>
+                    </div>
+                    <h4 className="font-mono text-sm font-bold text-slate-200 truncate group-hover:text-cyan-300 transition-colors">
+                      {language === 'en' && product.nameEn ? product.nameEn : product.name}
+                    </h4>
+                    <span className="font-mono text-sm font-bold text-cyan-300 block mt-1">
+                      {product.price.toLocaleString('vi-VN')}₫
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      addToCart(product, 1);
+                      const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
+                      showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
+                    }}
+                    className="p-2.5 rounded-lg bg-cyan-950 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 transition-all shrink-0"
+                    title={t('shop.add_to_cart')}
+                  >
+                    <ShoppingBag size={15} />
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : theme === 'vintage' ? (
+          /* THEME: VINTAGE - 2-Column French Colonial Editorial Broadside */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-stagger">
+            {bestSellers.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white border border-[#e6ded1] rounded-lg p-5 sm:p-6 flex flex-col sm:flex-row gap-5 hover:border-[#1b4d3e] transition-all shadow-xs group"
+              >
+                <div className="w-full sm:w-44 aspect-square sm:aspect-auto sm:h-auto rounded overflow-hidden shrink-0 bg-[#faf6f0] border border-[#e6ded1]">
+                  <img
+                    src={product.image || product.images?.[0]}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="flex-1 flex flex-col justify-between space-y-3">
+                  <div>
+                    <span className="text-[10px] font-sans tracking-[0.2em] text-[#1b4d3e] uppercase font-bold block mb-1">
+                      — ÉDITION SPÉCIALE • EST. 2013 —
+                    </span>
+                    <h3 className="font-serif font-bold text-lg text-[#221e1a] group-hover:text-[#1b4d3e] transition-colors leading-snug">
+                      {language === 'en' && product.nameEn ? product.nameEn : product.name}
+                    </h3>
+                    <p className="text-xs text-[#6e655c] mt-2 font-serif italic line-clamp-2">
+                      "{language === 'en' && product.descriptionEn ? product.descriptionEn : product.description}"
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-[#e6ded1] flex items-center justify-between">
+                    <div>
+                      <span className="text-[10px] text-[#6e655c] uppercase block font-sans">Giá thủ công</span>
+                      <span className="font-serif text-lg font-bold text-[#1b4d3e]">
+                        {product.price.toLocaleString('vi-VN')}₫
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        addToCart(product, 1);
+                        const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
+                        showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
+                      }}
+                      className="px-3.5 py-1.5 rounded border border-[#1b4d3e] bg-[#1b4d3e] text-white hover:bg-[#c05621] hover:border-[#c05621] text-xs font-sans uppercase tracking-wider font-semibold transition-all flex items-center gap-1.5"
+                    >
+                      <ShoppingBag size={13} />
+                      <span>Thưởng thức</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : theme === 'nordic' ? (
+          /* THEME: NORDIC - Brutalist Architectural Directory Grid */
+          <div className="border-2 border-zinc-900 dark:border-zinc-300 divide-y sm:divide-y-0 sm:divide-x divide-zinc-900 dark:divide-zinc-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-none reveal-stagger">
+            {bestSellers.map((product, idx) => (
+              <div
+                key={product.id}
+                className="bg-white dark:bg-zinc-950 p-5 flex flex-col justify-between group hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-[11px] font-mono tracking-wider text-zinc-500 pb-2 border-b border-zinc-200 dark:border-zinc-800 mb-3">
+                    <span>[0{idx + 1} / 04]</span>
+                    <span className="uppercase text-black dark:text-white font-bold">{product.isBestSeller ? 'BESTSELLER' : 'ORIGIN'}</span>
+                  </div>
+
+                  <div className="aspect-square bg-zinc-100 dark:bg-zinc-900 overflow-hidden mb-4 border border-zinc-200 dark:border-zinc-800">
+                    <img
+                      src={product.image || product.images?.[0]}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <h3 className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white leading-tight">
+                    {language === 'en' && product.nameEn ? product.nameEn : product.name}
+                  </h3>
+                  <p className="text-xs text-zinc-500 mt-1 line-clamp-2 font-mono">
+                    {language === 'en' && product.descriptionEn ? product.descriptionEn : product.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-3">
+                  <div className="flex items-baseline justify-between font-mono">
+                    <span className="text-[10px] text-zinc-400 uppercase">PRICE</span>
+                    <span className="text-base font-bold text-black dark:text-white">
+                      {product.price.toLocaleString('vi-VN')}₫
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      addToCart(product, 1);
+                      const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
+                      showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
+                    }}
+                    className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
+                  >
+                    + ADD TO CART
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : theme === 'sunset' ? (
+          /* THEME: SUNSET - Organic Staggered 3-Column Pebble Curves */
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
+            {bestSellers.slice(0, 3).map((product, idx) => (
+              <div
+                key={product.id}
+                className={`rounded-3xl p-6 bg-white border border-rose-100 shadow-xl shadow-rose-500/5 hover-lift transition-all duration-300 flex flex-col justify-between group ${
+                  idx === 1 ? 'md:translate-y-6 md:border-rose-300 md:shadow-rose-500/15' : ''
+                }`}
+              >
+                <div>
+                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-rose-50/50 mb-4">
+                    <img
+                      src={product.image || product.images?.[0]}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-3 left-3 bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                      🌅 {product.isBestSeller ? 'Bán Chạy Nhất' : 'Hương Vị Sài Gòn'}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-1 text-orange-400 text-xs mb-1">
+                    {'★'.repeat(5)}
+                    <span className="text-rose-400 font-bold ml-1">({product.rating || 5.0})</span>
+                  </div>
+
+                  <h3 className="font-oswald text-lg font-bold text-[#271a17] group-hover:text-rose-600 transition-colors leading-snug">
+                    {language === 'en' && product.nameEn ? product.nameEn : product.name}
+                  </h3>
+                  <p className="text-xs text-[#7d6560] mt-1.5 line-clamp-2">
+                    {language === 'en' && product.descriptionEn ? product.descriptionEn : product.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-rose-100 mt-5 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] text-rose-400 uppercase font-semibold block">Giá Hoàng Hôn</span>
+                    <span className="font-oswald text-xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">
+                      {product.price.toLocaleString('vi-VN')}₫
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      addToCart(product, 1);
+                      const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
+                      showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
+                    }}
+                    className="p-3 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white shadow-lg shadow-rose-500/25 transition-transform hover:scale-105"
+                    title={t('shop.add_to_cart')}
+                  >
+                    <ShoppingBag size={18} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* THEME: OCEAN & CLASSIC DARK - Balanced 4-Column E-Commerce Grid */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
+            {bestSellers.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover-lift hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 flex flex-col group"
+              >
+                {/* Product Thumbnail */}
+                <div className="relative aspect-square overflow-hidden bg-gray-50 dark:bg-slate-900">
+                  <img
+                    src={product.image || product.images?.[0]}
+                    alt={product.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {product.isBestSeller && (
+                    <span className="absolute top-2 left-2 bg-[#FAEA28] text-slate-950 text-[10px] font-oswald uppercase tracking-wider font-extrabold px-2 py-0.5 rounded shadow">
+                      {t('shop.badge_bestseller')}
+                    </span>
+                  )}
+                  {product.badge && (
+                    <span className="absolute top-2 right-2 bg-[#2076bd] text-white text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
+                      {product.badge}
+                    </span>
+                  )}
+                </div>
+
+                {/* Product Info */}
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-1 text-[#FAEA28] text-xs mb-1">
+                      {'★'.repeat(5)}
+                      <span className="text-gray-400 text-[11px] ml-1">({product.rating || 5.0})</span>
+                    </div>
+                    <h3 className="font-oswald text-base font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors leading-snug line-clamp-2">
+                      {language === 'en' && product.nameEn ? product.nameEn : product.name}
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
+                      {language === 'en' && product.descriptionEn ? product.descriptionEn : product.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-100 dark:border-slate-800 mt-4 flex items-center justify-between">
+                    <div>
+                      <span className="text-xs text-gray-400 dark:text-gray-500 block">{t('shop.unit_price')}</span>
+                      <span className="font-oswald text-lg font-bold text-[#2076bd] dark:text-[#3ba0e6]">
+                        {product.price.toLocaleString('vi-VN')}₫
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        addToCart(product, 1, language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)');
+                        const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
+                        showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
+                      }}
+                      className="p-2 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white transition-colors"
+                      title={t('shop.add_to_cart')}
+                    >
+                      <ShoppingBag size={16} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className="text-center mt-10 reveal-on-scroll reveal-delay-200">
           <Link
@@ -496,104 +762,383 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. STRATEGIC PILLAR: DOLPHY ACADEMY */}
+      {/* 5. STRATEGIC PILLAR: DOLPHY ACADEMY (Theme-Adaptive Structure) */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-gradient-to-br from-[#165b94] via-[#2076bd] to-[#165b94] rounded-2xl text-white p-8 sm:p-12 overflow-hidden relative shadow-xl">
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            
-            <div className="space-y-5 reveal-left">
-              <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block shadow">
-                {t('home.academy_badge')}
-              </span>
-
-              <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wide leading-tight">
-                {t('home.academy_title')}
-              </h2>
-
-              <p className="text-sm text-blue-100 leading-relaxed">
-                {t('home.academy_desc')}
-              </p>
-
-              <div className="space-y-2.5 text-xs sm:text-sm">
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
-                  <span>{t('home.academy_feature1')}</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
-                  <span>{t('home.academy_feature2')}</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
-                  <span>{t('home.academy_feature3')}</span>
+        {theme === 'nordic' ? (
+          /* NORDIC BRUTALIST 3-COLUMN ARCHITECTURAL MODULES */
+          <div className="border-2 border-zinc-900 dark:border-zinc-300 rounded-none bg-white dark:bg-zinc-950 p-6 sm:p-10">
+            <div className="flex items-center justify-between pb-4 border-b-2 border-zinc-900 dark:border-zinc-300 mb-8 font-mono text-xs uppercase tracking-widest text-zinc-500">
+              <span className="text-black dark:text-white font-bold">// 05. DOLPHY ACADEMY // ARCHITECTURAL CURRICULUM</span>
+              <span>EST. 2026 // ADMISSION OPEN</span>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200 dark:divide-zinc-800">
+              {/* Box 1 */}
+              <div className="space-y-4 pr-0 lg:pr-6">
+                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">[MODULE 01] PROGRAM OVERVIEW</span>
+                <h3 className="font-oswald text-2xl font-bold uppercase text-black dark:text-white">
+                  {t('home.academy_title')}
+                </h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-mono leading-relaxed">
+                  {t('home.academy_desc')}
+                </p>
+                <div className="space-y-2 pt-2 text-xs font-mono">
+                  <div className="flex items-center gap-2 text-zinc-800 dark:text-zinc-200">
+                    <span>■</span>
+                    <span>{t('home.academy_feature1')}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-zinc-800 dark:text-zinc-200">
+                    <span>■</span>
+                    <span>{t('home.academy_feature2')}</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row gap-3">
+              {/* Box 2 */}
+              <div className="space-y-4 pt-6 lg:pt-0 px-0 lg:px-6">
+                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">[MODULE 02] SPECIFICATIONS</span>
+                <div className="space-y-3 font-mono text-xs">
+                  <div className="p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex justify-between">
+                    <span>TUITION:</span>
+                    <strong className="text-black dark:text-white font-bold">7.000.000₫</strong>
+                  </div>
+                  <div className="p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex justify-between">
+                    <span>DEPOSIT:</span>
+                    <strong className="text-black dark:text-white font-bold">2.000.000₫</strong>
+                  </div>
+                  <div className="p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex justify-between">
+                    <span>LOCATION:</span>
+                    <span className="text-black dark:text-white">THAO DIEN, D2</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Box 3 */}
+              <div className="space-y-4 pt-6 lg:pt-0 pl-0 lg:pl-6 flex flex-col justify-between">
+                <div>
+                  <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">[MODULE 03] ENROLLMENT</span>
+                  <p className="text-xs font-mono text-zinc-500 mt-2">
+                    Lớp giới hạn 4 học viên/khóa để đảm bảo 100% thời lượng thực hành máy pha chuyên nghiệp.
+                  </p>
+                </div>
+                <div className="space-y-2 pt-4">
+                  <button
+                    onClick={() => setEnrollingCourse(coursesData[0])}
+                    className="w-full py-3 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
+                  >
+                    + REGISTER RESERVATION
+                  </button>
+                  <Link
+                    to="/academy"
+                    className="block w-full py-2.5 text-center border border-zinc-900 dark:border-zinc-400 font-mono text-xs uppercase tracking-wider hover:bg-zinc-100 dark:hover:bg-zinc-900 text-black dark:text-white transition-colors rounded-none"
+                  >
+                    VIEW CURRICULUM DOCS
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : theme === 'roastery' ? (
+          /* ROASTERY CYBER HUD CONSOLE */
+          <div className="bg-slate-950/95 border border-cyan-500/40 rounded-2xl p-8 sm:p-12 shadow-[0_0_35px_rgba(2,132,199,0.2)] text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 px-4 py-1.5 bg-cyan-950/90 border-b border-l border-cyan-500/30 font-mono text-[11px] text-cyan-300 rounded-bl-xl flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <span>TERMINAL: DOLPHY_ACADEMY_2026</span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-5">
+                <span className="bg-amber-400 text-slate-950 font-mono text-xs font-bold px-3 py-1 rounded shadow">
+                  // {t('home.academy_badge')}
+                </span>
+                <h2 className="font-mono text-2xl sm:text-4xl font-bold uppercase tracking-wider text-cyan-300">
+                  {t('home.academy_title')}
+                </h2>
+                <p className="text-sm text-slate-300 font-mono leading-relaxed">
+                  {t('home.academy_desc')}
+                </p>
+                <div className="space-y-2 text-xs font-mono text-slate-300">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-cyan-400" />
+                    <span>{t('home.academy_feature1')}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-cyan-400" />
+                    <span>{t('home.academy_feature2')}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-cyan-400" />
+                    <span>{t('home.academy_feature3')}</span>
+                  </div>
+                </div>
+                <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => setEnrollingCourse(coursesData[0])}
+                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]"
+                  >
+                    {t('home.reserve_seat')}
+                  </button>
+                  <Link
+                    to="/academy"
+                    className="px-6 py-3 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 font-mono text-xs uppercase tracking-wider font-semibold hover:bg-slate-800 text-center"
+                  >
+                    {t('home.view_curriculum')}
+                  </Link>
+                </div>
+              </div>
+
+              <div className="bg-slate-900/90 border border-cyan-500/30 rounded-xl p-6 font-mono text-slate-200 shadow-xl space-y-4">
+                <div className="flex justify-between border-b border-cyan-500/20 pb-3 text-xs">
+                  <span className="text-cyan-400 font-bold">COURSE MATRIX</span>
+                  <span className="text-amber-400 font-bold">{t('home.academy_seats')}</span>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between py-1.5 border-b border-slate-800">
+                    <span className="text-slate-400">TUITION FEE:</span>
+                    <strong className="text-cyan-300 font-bold text-sm">7.000.000₫</strong>
+                  </div>
+                  <div className="flex justify-between py-1.5 border-b border-slate-800">
+                    <span className="text-slate-400">DEPOSIT:</span>
+                    <strong className="text-amber-400 font-bold text-sm">2.000.000₫</strong>
+                  </div>
+                </div>
                 <button
                   onClick={() => setEnrollingCourse(coursesData[0])}
-                  className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold hover-lift"
+                  className="w-full py-3 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-mono text-xs font-bold uppercase tracking-wider shadow"
                 >
-                  {t('home.reserve_seat')}
+                  {t('home.academy_btn')}
                 </button>
-                <Link
-                  to="/academy"
-                  className="dolphy-btn px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#2076bd] text-sm font-semibold transition-colors hover-lift"
-                >
-                  {t('home.view_curriculum')}
-                </Link>
               </div>
             </div>
-
-            {/* Course card preview */}
-            <div className="bg-white dark:bg-[#1e293b] rounded-xl p-6 text-[#222222] dark:text-white shadow-2xl space-y-4 reveal-right">
-              <div className="flex items-center justify-between border-b border-gray-100 dark:border-slate-800 pb-3">
-                <span className="font-oswald text-xs uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6] font-bold">
-                  {t('home.hero3_tag')}
-                </span>
-                <span className="bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 font-oswald text-xs font-bold px-2 py-0.5 rounded">
-                  {t('home.academy_seats')}
-                </span>
-              </div>
-
-              <h3 className="font-oswald text-xl font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase">
-                {t('home.academy_card_title')}
-              </h3>
-
-              <div className="space-y-2 text-xs text-gray-600 dark:text-gray-300">
-                <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
-                  <span>{t('home.academy_tuition')}</span>
-                  <strong className="text-base text-[#2076bd] dark:text-[#3ba0e6] font-oswald">7.000.000₫</strong>
-                </div>
-                <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
-                  <span>{t('home.academy_deposit')}</span>
-                  <strong className="text-base text-[#2076bd] dark:text-[#3ba0e6] font-oswald font-bold">2.000.000₫</strong>
-                </div>
-                <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
-                  <span>{t('home.academy_location_lbl')}</span>
-                  <span className="font-medium text-gray-800 dark:text-gray-200">{t('home.academy_location_val')}</span>
-                </div>
-                <div className="flex justify-between py-1">
-                  <span>{t('home.academy_cert_lbl')}</span>
-                  <span className="text-green-600 dark:text-green-400 font-semibold">{t('home.academy_cert_val')}</span>
-                </div>
-              </div>
-
-              <div className="p-3 rounded bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-200 flex items-center gap-2">
-                <Gift size={16} className="text-[#FAEA28] shrink-0" />
-                <span>{t('home.academy_gift')}</span>
-              </div>
-
-              <button
-                onClick={() => setEnrollingCourse(coursesData[0])}
-                className="w-full py-3 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-sm font-semibold uppercase tracking-wider transition-colors shadow"
-              >
-                {t('home.academy_btn')}
-              </button>
-            </div>
-
           </div>
-        </div>
+        ) : theme === 'vintage' ? (
+          /* VINTAGE FRENCH BOTANICAL ATELIER */
+          <div className="bg-[#ffffff] border border-[#e6ded1] rounded-lg p-8 sm:p-12 shadow-sm font-serif">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-4">
+                <span className="text-xs font-sans tracking-[0.2em] text-[#1b4d3e] uppercase font-bold block">
+                  — ATELIER DE FORMATION BARISTA • 2026 —
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#1b4d3e] italic leading-tight">
+                  {t('home.academy_title')}
+                </h2>
+                <p className="text-sm text-[#6e655c] italic leading-relaxed">
+                  "{t('home.academy_desc')}"
+                </p>
+                <div className="space-y-2 text-xs font-sans text-[#221e1a]">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#1b4d3e]">✓</span>
+                    <span>{t('home.academy_feature1')}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#1b4d3e]">✓</span>
+                    <span>{t('home.academy_feature2')}</span>
+                  </div>
+                </div>
+                <div className="pt-4 flex gap-3">
+                  <button
+                    onClick={() => setEnrollingCourse(coursesData[0])}
+                    className="px-6 py-3 rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-sans text-xs uppercase tracking-wider font-semibold transition-all shadow-xs"
+                  >
+                    {t('home.reserve_seat')}
+                  </button>
+                  <Link
+                    to="/academy"
+                    className="px-6 py-3 rounded border border-[#1b4d3e] text-[#1b4d3e] hover:bg-[#faf6f0] font-sans text-xs uppercase tracking-wider font-semibold transition-all"
+                  >
+                    {t('home.view_curriculum')}
+                  </Link>
+                </div>
+              </div>
+
+              <div className="bg-[#faf6f0] border border-[#e6ded1] rounded-lg p-6 space-y-4">
+                <span className="text-xs font-sans font-bold text-[#1b4d3e] uppercase tracking-wider block border-b border-[#e6ded1] pb-2">
+                  Chi Tiết Khóa Học Barista Thực Chiến
+                </span>
+                <div className="space-y-2 text-xs font-sans">
+                  <div className="flex justify-between py-1 border-b border-[#e6ded1]">
+                    <span className="text-[#6e655c]">Học phí trọn gói:</span>
+                    <strong className="text-[#1b4d3e] font-serif text-base">7.000.000₫</strong>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-[#e6ded1]">
+                    <span className="text-[#6e655c]">Đặt cọc giữ chỗ:</span>
+                    <strong className="text-[#c05621] font-serif text-base">2.000.000₫</strong>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setEnrollingCourse(coursesData[0])}
+                  className="w-full py-3 rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all"
+                >
+                  {t('home.academy_btn')}
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : theme === 'sunset' ? (
+          /* SUNSET SAIGON CORAL PEBBLE CARD */
+          <div className="bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 rounded-3xl p-8 sm:p-12 text-white shadow-2xl shadow-rose-500/25 relative overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-5">
+                <span className="bg-white/20 text-white font-oswald text-xs uppercase tracking-widest px-4 py-1.5 rounded-full inline-block backdrop-blur font-bold">
+                  🌅 {t('home.academy_badge')}
+                </span>
+                <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wide leading-tight">
+                  {t('home.academy_title')}
+                </h2>
+                <p className="text-sm text-rose-100 leading-relaxed">
+                  {t('home.academy_desc')}
+                </p>
+                <div className="space-y-2.5 text-xs sm:text-sm">
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 size={18} className="text-yellow-300 shrink-0" />
+                    <span>{t('home.academy_feature1')}</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 size={18} className="text-yellow-300 shrink-0" />
+                    <span>{t('home.academy_feature2')}</span>
+                  </div>
+                </div>
+                <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => setEnrollingCourse(coursesData[0])}
+                    className="px-8 py-3 rounded-full bg-white text-rose-600 font-oswald text-xs uppercase tracking-wider font-bold shadow-lg hover:bg-rose-50 transition-all hover:scale-105"
+                  >
+                    {t('home.reserve_seat')}
+                  </button>
+                  <Link
+                    to="/academy"
+                    className="px-8 py-3 rounded-full bg-white/20 hover:bg-white/30 text-white font-oswald text-xs uppercase tracking-wider font-semibold backdrop-blur transition-all text-center"
+                  >
+                    {t('home.view_curriculum')}
+                  </Link>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-3xl p-6 sm:p-8 text-[#271a17] shadow-xl space-y-4">
+                <div className="flex justify-between items-center border-b border-rose-100 pb-3">
+                  <span className="font-oswald text-xs uppercase tracking-wider text-rose-600 font-bold">
+                    HỌC PHÍ & LỊCH KHAI GIẢNG
+                  </span>
+                  <span className="bg-rose-100 text-rose-600 text-xs font-bold px-2.5 py-0.5 rounded-full">
+                    {t('home.academy_seats')}
+                  </span>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between py-1.5 border-b border-rose-50">
+                    <span className="text-gray-500">Học phí trọn khóa:</span>
+                    <strong className="text-rose-600 font-oswald text-lg">7.000.000₫</strong>
+                  </div>
+                  <div className="flex justify-between py-1.5 border-b border-rose-50">
+                    <span className="text-gray-500">Đặt cọc giữ chỗ:</span>
+                    <strong className="text-orange-500 font-oswald text-lg">2.000.000₫</strong>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setEnrollingCourse(coursesData[0])}
+                  className="w-full py-3.5 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald text-xs font-bold uppercase tracking-wider shadow-lg shadow-rose-500/25 transition-all"
+                >
+                  {t('home.academy_btn')}
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          /* OCEAN & CLASSIC DARK - CLASSIC CORPORATE 2-TIER BANNER */
+          <div className="bg-gradient-to-br from-[#165b94] via-[#2076bd] to-[#165b94] rounded-2xl text-white p-8 sm:p-12 overflow-hidden relative shadow-xl">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-5 reveal-left">
+                <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block shadow">
+                  {t('home.academy_badge')}
+                </span>
+
+                <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wide leading-tight">
+                  {t('home.academy_title')}
+                </h2>
+
+                <p className="text-sm text-blue-100 leading-relaxed">
+                  {t('home.academy_desc')}
+                </p>
+
+                <div className="space-y-2.5 text-xs sm:text-sm">
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
+                    <span>{t('home.academy_feature1')}</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
+                    <span>{t('home.academy_feature2')}</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
+                    <span>{t('home.academy_feature3')}</span>
+                  </div>
+                </div>
+
+                <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => setEnrollingCourse(coursesData[0])}
+                    className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold hover-lift"
+                  >
+                    {t('home.reserve_seat')}
+                  </button>
+                  <Link
+                    to="/academy"
+                    className="dolphy-btn px-6 py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#2076bd] text-sm font-semibold transition-colors hover-lift"
+                  >
+                    {t('home.view_curriculum')}
+                  </Link>
+                </div>
+              </div>
+
+              {/* Course card preview */}
+              <div className="bg-white dark:bg-[#1e293b] rounded-xl p-6 text-[#222222] dark:text-white shadow-2xl space-y-4 reveal-right">
+                <div className="flex items-center justify-between border-b border-gray-100 dark:border-slate-800 pb-3">
+                  <span className="font-oswald text-xs uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6] font-bold">
+                    {t('home.hero3_tag')}
+                  </span>
+                  <span className="bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 font-oswald text-xs font-bold px-2 py-0.5 rounded">
+                    {t('home.academy_seats')}
+                  </span>
+                </div>
+
+                <h3 className="font-oswald text-xl font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase">
+                  {t('home.academy_card_title')}
+                </h3>
+
+                <div className="space-y-2 text-xs text-gray-600 dark:text-gray-300">
+                  <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
+                    <span>{t('home.academy_tuition')}</span>
+                    <strong className="text-base text-[#2076bd] dark:text-[#3ba0e6] font-oswald">7.000.000₫</strong>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
+                    <span>{t('home.academy_deposit')}</span>
+                    <strong className="text-base text-[#2076bd] dark:text-[#3ba0e6] font-oswald font-bold">2.000.000₫</strong>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-gray-50 dark:border-slate-800">
+                    <span>{t('home.academy_location_lbl')}</span>
+                    <span className="font-medium text-gray-800 dark:text-gray-200">{t('home.academy_location_val')}</span>
+                  </div>
+                  <div className="flex justify-between py-1">
+                    <span>{t('home.academy_cert_lbl')}</span>
+                    <span className="text-green-600 dark:text-green-400 font-semibold">{t('home.academy_cert_val')}</span>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-200 flex items-center gap-2">
+                  <Gift size={16} className="text-[#FAEA28] shrink-0" />
+                  <span>{t('home.academy_gift')}</span>
+                </div>
+
+                <button
+                  onClick={() => setEnrollingCourse(coursesData[0])}
+                  className="w-full py-3 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-sm font-semibold uppercase tracking-wider transition-colors shadow"
+                >
+                  {t('home.academy_btn')}
+                </button>
+              </div>
+
+            </div>
+          </div>
+        )}
       </section>
 
       {/* 6. KHÁCH HÀNG NÓI VỀ CHÚNG TÔI */}

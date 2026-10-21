@@ -1,4 +1,4 @@
-export type Theme = 'ocean' | 'roastery' | 'vintage' | 'nordic' | 'sunset';
+export type Theme = 'ocean' | 'dark' | 'roastery' | 'vintage' | 'nordic' | 'sunset';
 
 export interface ThemeConfig {
   id: Theme;
@@ -10,7 +10,7 @@ export interface ThemeConfig {
   taglineEn: string;
   descVi: string;
   descEn: string;
-  iconName: 'Waves' | 'Moon' | 'Leaf' | 'Square' | 'Sunrise';
+  iconName: 'Waves' | 'Moon' | 'Flame' | 'Leaf' | 'Square' | 'Sunrise';
   primaryHex: string;
   accentHex: string;
   bgHex: string;
@@ -20,7 +20,7 @@ export interface ThemeConfig {
   aesthetic: string;
 }
 
-export const THEME_ORDER: Theme[] = ['ocean', 'roastery', 'vintage', 'nordic', 'sunset'];
+export const THEME_ORDER: Theme[] = ['ocean', 'dark', 'roastery', 'vintage', 'nordic', 'sunset'];
 
 export const DOLPHY_THEMES: Record<Theme, ThemeConfig> = {
   ocean: {
@@ -42,6 +42,25 @@ export const DOLPHY_THEMES: Record<Theme, ThemeConfig> = {
     isDark: false,
     aesthetic: 'Clean Coastal Modern'
   },
+  dark: {
+    id: 'dark',
+    nameVi: 'Di Sản Đêm',
+    nameEn: 'Classic Dark',
+    badgeVi: 'Tối Nguyên Bản',
+    badgeEn: 'Original Dark',
+    taglineVi: 'Giao diện nền tối kinh điển của Dolphy Café với sắc xanh & vàng',
+    taglineEn: 'Original classic dark mode with signature blue & golden amber',
+    descVi: 'Phiên bản nền tối chuẩn mực nguyên bản: Nền xám đen Slate #0f172a êm mắt, giữ trọn sắc xanh Dolphy Blue #2076bd và huy hiệu vàng Sunshine #FAEA28.',
+    descEn: 'The authentic classic dark theme: Deep slate #0f172a background, dark cards #1e293b, signature Dolphy blue and golden amber badges.',
+    iconName: 'Moon',
+    primaryHex: '#2076bd',
+    accentHex: '#FAEA28',
+    bgHex: '#0f172a',
+    surfaceHex: '#1e293b',
+    borderHex: '#334155',
+    isDark: true,
+    aesthetic: 'Classic Slate Dark'
+  },
   roastery: {
     id: 'roastery',
     nameVi: 'Xưởng Rang Đêm',
@@ -52,7 +71,7 @@ export const DOLPHY_THEMES: Record<Theme, ThemeConfig> = {
     taglineEn: 'Obsidian noir, frosted glass & roasting flame',
     descVi: 'Không gian Cyber Lounge huyền bí cho tín đồ specialty coffee: Nền đen obsidian, viền neon cyan và ánh lửa rang hổ phách.',
     descEn: 'Luxury dark lounge aesthetic with frosted glassmorphism, electric cyan borders, and warm golden amber glow.',
-    iconName: 'Moon',
+    iconName: 'Flame',
     primaryHex: '#0284c7',
     accentHex: '#f59e0b',
     bgHex: '#070a12',

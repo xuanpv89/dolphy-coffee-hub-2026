@@ -80,10 +80,10 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       if (saved && THEME_ORDER.includes(saved as Theme)) {
         return saved as Theme;
       }
-      if (saved === 'dark') return 'roastery';
+      if (saved === 'dark') return 'dark';
       if (saved === 'light') return 'ocean';
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'roastery';
+        return 'dark';
       }
     } catch {}
     return 'ocean';
@@ -101,7 +101,7 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     try {
       localStorage.setItem('dolphy_theme', theme);
       document.documentElement.setAttribute('data-theme', theme);
-      if (theme === 'roastery') {
+      if (theme === 'roastery' || theme === 'dark') {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');

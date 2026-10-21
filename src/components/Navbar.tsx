@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { 
   ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck, 
   Sun, Moon, Globe, Download, Waves, Leaf, Square, Sunrise, Palette,
-  Sparkles, Coffee, Compass
+  Sparkles, Coffee, Compass, Flame
 } from 'lucide-react';
 import { Theme } from '../types/theme';
 import { useDolphy } from '../context/DolphyContext';
@@ -22,8 +22,10 @@ export const Navbar: React.FC = () => {
     switch (id) {
       case 'ocean':
         return <Waves size={size} className="text-[#2076bd]" />;
+      case 'dark':
+        return <Moon size={size} className="text-[#FAEA28]" />;
       case 'roastery':
-        return <Moon size={size} className="text-amber-400" />;
+        return <Flame size={size} className="text-amber-400" />;
       case 'vintage':
         return <Leaf size={size} className="text-emerald-600" />;
       case 'nordic':
@@ -78,7 +80,7 @@ export const Navbar: React.FC = () => {
       <div className="hidden group-hover:block absolute right-0 top-full pt-1.5 z-50">
         <div className="p-2 rounded-xl shadow-xl backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border border-gray-200 dark:border-slate-700 w-52 space-y-1 text-xs">
           <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between">
-            <span>5 Themes Thiết Kế</span>
+            <span>6 Themes Thiết Kế</span>
             <span className="text-[9px] text-[#2076bd]">Click để đổi</span>
           </div>
           {allThemes?.map(tItem => (
@@ -152,7 +154,7 @@ export const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile 5-Theme Quick Chips */}
+        {/* Mobile 6-Theme Quick Chips */}
         <div className="flex items-center justify-between gap-1 pt-1 pb-2 border-b border-gray-100 dark:border-slate-800">
           {allThemes?.map(tItem => (
             <button
@@ -572,7 +574,7 @@ export const Navbar: React.FC = () => {
               <span className={language === 'en' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>EN</span>
             </button>
 
-            {/* 5-Theme Cycle Button with Hover Quick-Picker */}
+            {/* 6-Theme Cycle Button with Hover Quick-Picker */}
             {renderThemeButton()}
 
             {/* Install PWA Button (Desktop) */}

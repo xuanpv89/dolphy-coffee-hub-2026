@@ -1,5 +1,5 @@
 export type Language = 'vi' | 'en';
-export type Theme = 'ocean' | 'roastery' | 'vintage' | 'nordic' | 'sunset';
+export type Theme = 'ocean' | 'dark' | 'roastery' | 'vintage' | 'nordic' | 'sunset';
 
 export const translations = {
   vi: {
@@ -19,13 +19,13 @@ export const translations = {
     'nav.cart': 'GIỎ HÀNG',
     'nav.admin': 'Admin CRM',
     'nav.theme_light': 'Chế độ Sáng',
-    'nav.theme_dark': 'Chế độ Tối',
+    'nav.theme_dark': 'Di Sản Đêm (Classic Dark)',
     'nav.theme_ocean': 'Di Sản Biển Xanh',
     'nav.theme_roastery': 'Xưởng Rang Đêm',
     'nav.theme_vintage': 'Vườn Cổ Điển Thảo Điền',
     'nav.theme_nordic': 'Tối Giản Bắc Âu',
     'nav.theme_sunset': 'Hoàng Hôn Sài Gòn',
-    'nav.theme_toggle_tip': 'Đổi giao diện thiết kế (5 Themes)',
+    'nav.theme_toggle_tip': 'Đổi giao diện thiết kế (6 Themes)',
     'nav.theme_switched': 'Đã chuyển phong cách',
     'nav.lang_vi': 'Tiếng Việt',
     'nav.lang_en': 'English',
@@ -320,13 +320,13 @@ export const translations = {
     'nav.cart': 'CART',
     'nav.admin': 'Admin CRM',
     'nav.theme_light': 'Light Mode',
-    'nav.theme_dark': 'Dark Mode',
+    'nav.theme_dark': 'Classic Dark Heritage',
     'nav.theme_ocean': 'Ocean Heritage',
     'nav.theme_roastery': 'Midnight Roastery',
     'nav.theme_vintage': 'Botanical Courtyard',
     'nav.theme_nordic': 'Nordic Minimalist',
     'nav.theme_sunset': 'Sunset Saigon',
-    'nav.theme_toggle_tip': 'Switch design theme (5 Themes)',
+    'nav.theme_toggle_tip': 'Switch design theme (6 Themes)',
     'nav.theme_switched': 'Theme switched to',
     'nav.lang_vi': 'Tiếng Việt',
     'nav.lang_en': 'English',

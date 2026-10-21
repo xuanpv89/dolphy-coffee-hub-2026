@@ -6,7 +6,7 @@ import { useDolphy } from '../context/DolphyContext';
 import { CartItem, Product } from '../types';
 
 export const Shop: React.FC = () => {
-  const { addToCart, showToast, t, language } = useDolphy();
+  const { addToCart, showToast, t, language, theme } = useDolphy();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [priceRange, setPriceRange] = useState<string>('all');
@@ -186,19 +186,57 @@ export const Shop: React.FC = () => {
           </div>
         </div>
 
-        {/* Promo Gift Banner */}
-        <div className="reveal-scale p-4 rounded-xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-white dark:from-slate-800/90 dark:via-slate-800/60 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-800 dark:text-slate-200 shadow-sm">
+        {/* Promo Gift Banner (Theme-Adaptive) */}
+        <div className={`reveal-scale p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm shadow-sm transition-all ${
+          theme === 'nordic'
+            ? 'rounded-none bg-zinc-100 dark:bg-zinc-900 border border-zinc-900 dark:border-zinc-300 text-black dark:text-white font-mono'
+            : theme === 'vintage'
+            ? 'rounded-lg bg-[#f2ebe0] border border-[#e6ded1] text-[#221e1a] font-serif'
+            : theme === 'sunset'
+            ? 'rounded-3xl bg-rose-50/80 border border-rose-200 text-[#271a17]'
+            : theme === 'roastery'
+            ? 'rounded-xl bg-slate-900/90 border border-cyan-500/30 text-slate-200 font-mono'
+            : 'rounded-xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-white dark:from-slate-800/90 dark:via-slate-800/60 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 text-slate-800 dark:text-slate-200'
+        }`}>
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#2076bd] text-white flex items-center justify-center shrink-0 shadow-xs">
+            <div className={`w-9 h-9 flex items-center justify-center shrink-0 shadow-xs ${
+              theme === 'nordic'
+                ? 'rounded-none bg-black text-white dark:bg-white dark:text-black'
+                : theme === 'vintage'
+                ? 'rounded bg-[#1b4d3e] text-white'
+                : theme === 'sunset'
+                ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white'
+                : theme === 'roastery'
+                ? 'rounded-lg bg-cyan-950 border border-cyan-500/40 text-cyan-300'
+                : 'rounded-full bg-[#2076bd] text-white'
+            }`}>
               <Gift size={18} />
             </div>
             <span>
-              <strong className="text-[#2076bd] dark:text-[#3ba0e6] font-semibold">{language === 'vi' ? 'Ưu đãi độc quyền Dolphy:' : 'Dolphy Exclusive Privilege:'}</strong> {t('shop.promo_text')}
+              <strong className={
+                theme === 'nordic' ? 'font-bold uppercase tracking-wider' :
+                theme === 'vintage' ? 'text-[#1b4d3e] font-bold font-sans' :
+                theme === 'sunset' ? 'text-rose-600 font-bold' :
+                theme === 'roastery' ? 'text-cyan-300 font-bold' :
+                'text-[#2076bd] dark:text-[#3ba0e6] font-semibold'
+              }>
+                {language === 'vi' ? 'Ưu đãi độc quyền Dolphy:' : 'Dolphy Exclusive Privilege:'}
+              </strong> {t('shop.promo_text')}
             </span>
           </div>
           <button 
             onClick={() => setSelectedCategory('combo')}
-            className="dolphy-btn dolphy-btn-primary px-3.5 py-1.5 rounded text-xs font-oswald uppercase tracking-wider shrink-0 hover-lift"
+            className={`px-3.5 py-1.5 text-xs uppercase tracking-wider shrink-0 transition-all ${
+              theme === 'nordic'
+                ? 'rounded-none bg-black dark:bg-white text-white dark:text-black font-mono font-bold hover:bg-amber-600'
+                : theme === 'vintage'
+                ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-sans font-semibold'
+                : theme === 'sunset'
+                ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald font-bold shadow-md shadow-rose-500/20'
+                : theme === 'roastery'
+                ? 'rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-mono font-bold shadow'
+                : 'rounded dolphy-btn dolphy-btn-primary font-oswald hover-lift'
+            }`}
           >
             {t('shop.promo_link')}
           </button>
@@ -236,7 +274,195 @@ export const Shop: React.FC = () => {
               {language === 'vi' ? 'Xem lại tất cả' : 'Reset Filters'}
             </button>
           </div>
+        ) : theme === 'vintage' ? (
+          /* THEME: VINTAGE - 3-Column French Botanical Boutique Spread */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
+            {paginatedProducts.map((product) => {
+              const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
+              const selectedGrind = grindOptions[product.id] || defaultGrind;
+              const pName = language === 'en' ? (product.nameEn || product.name) : product.name;
+              const pDesc = language === 'en' ? (product.descriptionEn || product.description) : product.description;
+              const pCatName = language === 'en' ? (product.categoryNameEn || product.categoryName) : product.categoryName;
+
+              return (
+                <div
+                  key={product.id}
+                  className="bg-white border border-[#e6ded1] rounded-lg p-5 flex flex-col justify-between hover:border-[#1b4d3e] transition-all shadow-xs group font-serif"
+                >
+                  <div>
+                    <div className="relative aspect-[4/3] rounded overflow-hidden bg-[#faf6f0] border border-[#e6ded1] mb-4 cursor-pointer" onClick={() => openQuickView(product)}>
+                      <img
+                        src={product.image || product.images?.[0]}
+                        alt={pName}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-2.5 left-2.5 bg-[#1b4d3e] text-white font-sans text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded">
+                        {pCatName}
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <span className="text-[10px] font-sans tracking-[0.2em] text-[#1b4d3e] uppercase font-bold block">
+                        EST. 2013 • THẢO ĐIỀN
+                      </span>
+                      <h3
+                        onClick={() => openQuickView(product)}
+                        className="font-serif font-bold text-base text-[#221e1a] group-hover:text-[#1b4d3e] transition-colors leading-snug cursor-pointer"
+                      >
+                        {pName}
+                      </h3>
+                      <p className="text-xs text-[#6e655c] italic line-clamp-2 leading-relaxed">
+                        "{pDesc}"
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-[#e6ded1] flex items-center justify-between font-sans">
+                    <div>
+                      <span className="text-[10px] text-[#6e655c] uppercase block">Giá tuyển chọn</span>
+                      <span className="font-serif text-lg font-bold text-[#1b4d3e]">
+                        {product.price.toLocaleString('vi-VN')}₫
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        addToCart(product, 1, selectedGrind);
+                        showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
+                      }}
+                      className="px-3.5 py-1.5 rounded border border-[#1b4d3e] bg-[#1b4d3e] text-white hover:bg-[#c05621] text-xs uppercase tracking-wider font-semibold transition-all flex items-center gap-1.5"
+                    >
+                      <ShoppingBag size={13} />
+                      <span>Thưởng thức</span>
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : theme === 'nordic' ? (
+          /* THEME: NORDIC - Brutalist Architectural 4-Box Directory Grid */
+          <div className="border-2 border-zinc-900 dark:border-zinc-300 divide-y sm:divide-y-0 sm:divide-x divide-zinc-900 dark:divide-zinc-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-none reveal-stagger">
+            {paginatedProducts.map((product, idx) => {
+              const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
+              const selectedGrind = grindOptions[product.id] || defaultGrind;
+              const pName = language === 'en' ? (product.nameEn || product.name) : product.name;
+              const pDesc = language === 'en' ? (product.descriptionEn || product.description) : product.description;
+
+              return (
+                <div
+                  key={product.id}
+                  className="bg-white dark:bg-zinc-950 p-5 flex flex-col justify-between group hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+                >
+                  <div>
+                    <div className="flex items-center justify-between text-[11px] font-mono tracking-wider text-zinc-500 pb-2 border-b border-zinc-200 dark:border-zinc-800 mb-3">
+                      <span>[0{idx + 1} // ITEM]</span>
+                      <span className="uppercase text-black dark:text-white font-bold">{product.category}</span>
+                    </div>
+
+                    <div className="aspect-square bg-zinc-100 dark:bg-zinc-900 overflow-hidden mb-4 border border-zinc-200 dark:border-zinc-800 cursor-pointer" onClick={() => openQuickView(product)}>
+                      <img
+                        src={product.image || product.images?.[0]}
+                        alt={pName}
+                        className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    <h3
+                      onClick={() => openQuickView(product)}
+                      className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white leading-tight cursor-pointer"
+                    >
+                      {pName}
+                    </h3>
+                    <p className="text-xs text-zinc-500 mt-1 line-clamp-2 font-mono">
+                      {pDesc}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-3 font-mono">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-[10px] text-zinc-400 uppercase">PRICE</span>
+                      <span className="text-base font-bold text-black dark:text-white">
+                        {product.price.toLocaleString('vi-VN')}₫
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        addToCart(product, 1, selectedGrind);
+                        showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
+                      }}
+                      className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
+                    >
+                      + ADD TO CART
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : theme === 'sunset' ? (
+          /* THEME: SUNSET - 3-Column Organic Pebble Curves */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
+            {paginatedProducts.map((product) => {
+              const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
+              const selectedGrind = grindOptions[product.id] || defaultGrind;
+              const pName = language === 'en' ? (product.nameEn || product.name) : product.name;
+              const pDesc = language === 'en' ? (product.descriptionEn || product.description) : product.description;
+
+              return (
+                <div
+                  key={product.id}
+                  className="rounded-3xl p-6 bg-white border border-rose-100 shadow-xl shadow-rose-500/5 hover-lift transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="relative aspect-square rounded-2xl overflow-hidden bg-rose-50/50 mb-4 cursor-pointer" onClick={() => openQuickView(product)}>
+                      <img
+                        src={product.image || product.images?.[0]}
+                        alt={pName}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-3 left-3 bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                        🌅 {product.isBestSeller ? 'Bán Chạy' : 'Đặc Sản'}
+                      </span>
+                    </div>
+
+                    <h3
+                      onClick={() => openQuickView(product)}
+                      className="font-oswald text-lg font-bold text-[#271a17] group-hover:text-rose-600 transition-colors leading-snug cursor-pointer"
+                    >
+                      {pName}
+                    </h3>
+                    <p className="text-xs text-[#7d6560] mt-1.5 line-clamp-2">
+                      {pDesc}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-rose-100 mt-5 flex items-center justify-between">
+                    <div>
+                      <span className="text-[10px] text-rose-400 uppercase font-semibold block">Giá Hoàng Hôn</span>
+                      <span className="font-oswald text-xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">
+                        {product.price.toLocaleString('vi-VN')}₫
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        addToCart(product, 1, selectedGrind);
+                        showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
+                      }}
+                      className="p-3 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white shadow-lg shadow-rose-500/25 transition-transform hover:scale-105"
+                      title={t('shop.add_to_cart')}
+                    >
+                      <ShoppingBag size={18} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         ) : (
+          /* THEME: OCEAN & CLASSIC DARK - Classic 4-Column Balanced Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
             {paginatedProducts.map((product) => {
               const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
