@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck, Sun, Moon, Globe, Download, Waves, Leaf, Square, Sunrise, Palette } from 'lucide-react';
+import { 
+  ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck, 
+  Sun, Moon, Globe, Download, Waves, Leaf, Square, Sunrise, Palette,
+  Sparkles, Coffee, Compass
+} from 'lucide-react';
 import { Theme } from '../types/theme';
 import { useDolphy } from '../context/DolphyContext';
 import { brandInfo } from '../data/dolphyData';
@@ -8,7 +12,10 @@ import { brandInfo } from '../data/dolphyData';
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { cartCount, setIsCartOpen, language, toggleLanguage, theme, toggleTheme, setTheme, themeConfig, allThemes, t, isStandalone, installPwa } = useDolphy();
+  const { 
+    cartCount, setIsCartOpen, language, toggleLanguage, theme, 
+    toggleTheme, setTheme, themeConfig, allThemes, t, isStandalone, installPwa 
+  } = useDolphy();
   const location = useLocation();
 
   const renderThemeIcon = (id: Theme, size = 14) => {
@@ -47,6 +54,469 @@ export const Navbar: React.FC = () => {
     return false;
   };
 
+  // Reusable Theme Switcher Button with Hover Dropdown
+  const renderThemeButton = (compact = false) => (
+    <div className="relative group">
+      <button
+        onClick={toggleTheme}
+        className={`flex items-center gap-1.5 p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-200 hover:border-[#2076bd] transition-all hover:scale-105 ${
+          theme === 'nordic' ? 'rounded-none border-zinc-900 dark:border-zinc-400' : ''
+        } ${
+          theme === 'roastery' ? 'border-cyan-500/40 shadow-[0_0_12px_rgba(2,132,199,0.3)]' : ''
+        }`}
+        title={language === 'vi' ? `Giao diện: ${themeConfig?.nameVi || ''} (Nhấn để chuyển sang theme tiếp theo)` : `Theme: ${themeConfig?.nameEn || ''} (Click to cycle themes)`}
+      >
+        {renderThemeIcon(theme, 13)}
+        {!compact && (
+          <span className="hidden xl:inline text-[11px] font-bold font-oswald uppercase tracking-wider text-gray-700 dark:text-gray-200">
+            {language === 'vi' ? themeConfig?.badgeVi : themeConfig?.badgeEn}
+          </span>
+        )}
+      </button>
+
+      {/* Quick Theme Selector Dropdown on Hover */}
+      <div className="hidden group-hover:block absolute right-0 top-full pt-1.5 z-50">
+        <div className="p-2 rounded-xl shadow-xl backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border border-gray-200 dark:border-slate-700 w-52 space-y-1 text-xs">
+          <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between">
+            <span>5 Themes Thiết Kế</span>
+            <span className="text-[9px] text-[#2076bd]">Click để đổi</span>
+          </div>
+          {allThemes?.map(tItem => (
+            <button
+              key={tItem.id}
+              onClick={(e) => {
+                e.stopPropagation();
+                setTheme(tItem.id);
+              }}
+              className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-left transition-all ${
+                theme === tItem.id
+                  ? 'bg-[#2076bd]/10 text-[#2076bd] font-bold dark:bg-slate-800'
+                  : 'hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
+                  style={{ backgroundColor: tItem.primaryHex }}
+                />
+                <span className="truncate">{language === 'vi' ? tItem.nameVi : tItem.nameEn}</span>
+              </div>
+              {renderThemeIcon(tItem.id, 12)}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  // Common Mobile Drawer
+  const renderMobileDrawer = () => (
+    mobileMenuOpen && (
+      <div className={`lg:hidden border-b px-4 pt-2 pb-4 space-y-2 shadow-lg transition-all ${
+        theme === 'roastery'
+          ? 'bg-slate-950/95 border-slate-800 text-slate-100'
+          : theme === 'vintage'
+          ? 'bg-[#faf6f0] border-[#e6ded1] text-[#221e1a]'
+          : theme === 'nordic'
+          ? 'bg-white border-black text-black'
+          : theme === 'sunset'
+          ? 'bg-[#fff8f5] border-rose-200 text-[#271a17]'
+          : 'bg-white dark:bg-[#1e293b] border-gray-200 dark:border-slate-800 text-[#222222] dark:text-[#f1f5f9]'
+      }`}>
+        <div className="pb-2 border-b border-gray-100 dark:border-slate-800">
+          <input
+            type="text"
+            placeholder={t('nav.search_placeholder')}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:border-[#2076bd]"
+          />
+        </div>
+
+        <div className="flex items-center justify-between py-1 px-1 border-b border-gray-100 dark:border-slate-800 text-xs">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold"
+          >
+            <Globe size={13} className="text-[#2076bd]" />
+            <span>{language === 'vi' ? 'Tiếng Việt (VI)' : 'English (EN)'}</span>
+          </button>
+
+          <button
+            onClick={toggleTheme}
+            className="flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold"
+            title={language === 'vi' ? 'Nhấn để chuyển theme tiếp theo' : 'Click to cycle themes'}
+          >
+            {renderThemeIcon(theme, 13)}
+            <span>{language === 'vi' ? themeConfig?.nameVi : themeConfig?.nameEn}</span>
+          </button>
+        </div>
+
+        {/* Mobile 5-Theme Quick Chips */}
+        <div className="flex items-center justify-between gap-1 pt-1 pb-2 border-b border-gray-100 dark:border-slate-800">
+          {allThemes?.map(tItem => (
+            <button
+              key={tItem.id}
+              onClick={() => setTheme(tItem.id)}
+              className={`flex-1 py-1 px-0.5 rounded text-[10px] font-medium border text-center transition-all ${
+                theme === tItem.id
+                  ? 'font-bold ring-2 ring-offset-1 shadow-xs'
+                  : 'opacity-70 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300'
+              }`}
+              style={{
+                borderColor: theme === tItem.id ? tItem.primaryHex : undefined,
+                backgroundColor: theme === tItem.id ? tItem.primaryHex : 'transparent',
+                color: theme === tItem.id ? '#ffffff' : undefined
+              }}
+            >
+              {tItem.nameVi.split(' ')[0]}
+            </button>
+          ))}
+        </div>
+
+        {navLinks.map((link) => (
+          <div key={link.name}>
+            {link.external ? (
+              <a
+                href={link.path}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between py-2 px-3 text-sm font-oswald text-gray-700 dark:text-gray-200 hover:text-[#2076bd] hover:bg-gray-50 dark:hover:bg-slate-800 rounded"
+              >
+                <span>{link.name}</span>
+                <ExternalLink size={14} />
+              </a>
+            ) : (
+              <Link
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center justify-between py-2 px-3 text-sm font-oswald rounded ${
+                  isActive(link.path)
+                    ? 'text-[#2076bd] font-semibold bg-blue-50/50 dark:bg-slate-800'
+                    : 'text-gray-700 dark:text-gray-200 hover:text-[#2076bd] hover:bg-gray-50 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span>{link.name}</span>
+                {link.badge && (
+                  <span className="bg-[#FAEA28] text-slate-950 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase">
+                    {link.badge}
+                  </span>
+                )}
+              </Link>
+            )}
+          </div>
+        ))}
+
+        {!isStandalone && (
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              installPwa();
+            }}
+            className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#2076bd] text-white text-xs font-oswald uppercase tracking-wider font-bold transition-all shadow-sm"
+          >
+            <Download size={14} />
+            <span>{language === 'vi' ? 'Cài Đặt Ứng Dụng Dolphy' : 'Install Dolphy App'}</span>
+          </button>
+        )}
+      </div>
+    )
+  );
+
+  // ==========================================================================
+  // 1. THEME: ROASTERY (Cyberpunk Floating Island Header)
+  // ==========================================================================
+  if (theme === 'roastery') {
+    return (
+      <>
+        <header className="fixed top-2 sm:top-3 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-40 rounded-2xl backdrop-blur-2xl bg-slate-950/85 border border-cyan-500/35 shadow-[0_0_30px_rgba(2,132,199,0.25)] px-3 sm:px-6 py-2 transition-all">
+          <div className="flex items-center justify-between gap-2">
+            
+            {/* Left: Cyber Logo & Live Status */}
+            <div className="flex items-center gap-3">
+              <Link to="/" className="flex items-center shrink-0">
+                <img 
+                  src="/images/dolphy-logo-dark.png" 
+                  alt="Dolphy Cyber" 
+                  className="h-8 sm:h-10 w-auto object-contain"
+                />
+              </Link>
+              <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[10px] font-mono text-cyan-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                <span>ONLINE 2026 // NODE 01</span>
+              </div>
+            </div>
+
+            {/* Center: Streamlined Cyber Menu Links */}
+            <nav className="hidden lg:flex items-center gap-1 text-xs font-mono tracking-wider">
+              {navLinks.slice(0, 6).map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-2.5 py-1.5 rounded-lg transition-all ${
+                    isActive(link.path)
+                      ? 'bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/40 shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+                      : 'text-slate-300 hover:text-cyan-300 hover:bg-slate-900/60'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Right: Controls & Cart */}
+            <div className="flex items-center gap-1.5 sm:gap-2.5">
+              {renderThemeButton(true)}
+
+              <button
+                onClick={toggleLanguage}
+                className="hidden sm:flex items-center px-2 py-1 rounded-full border border-cyan-500/30 bg-slate-900 text-cyan-300 text-[11px] font-mono"
+              >
+                {language.toUpperCase()}
+              </button>
+
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-mono shadow-[0_0_15px_rgba(6,182,212,0.4)]"
+              >
+                <ShoppingBag size={13} />
+                <span className="hidden xs:inline">CART</span>
+                <span className="bg-amber-400 text-slate-950 font-bold px-1.5 py-0.2 rounded-full text-[10px]">
+                  {cartCount}
+                </span>
+              </button>
+
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-1.5 rounded-lg bg-slate-900 text-cyan-300 border border-cyan-500/30"
+              >
+                {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              </button>
+            </div>
+          </div>
+          {renderMobileDrawer()}
+        </header>
+        {/* Spacer for fixed floating header */}
+        <div className="h-16 sm:h-20" />
+      </>
+    );
+  }
+
+  // ==========================================================================
+  // 2. THEME: VINTAGE (French Colonial Centered Editorial Masthead)
+  // ==========================================================================
+  if (theme === 'vintage') {
+    return (
+      <header className="w-full bg-[#faf6f0] text-[#221e1a] border-b border-[#e6ded1] transition-colors shadow-2xs font-serif">
+        {/* Top Heritage Gazette Ribbon */}
+        <div className="border-b border-[#e6ded1] py-1.5 px-4 text-xs text-[#6e655c] flex items-center justify-between max-w-7xl mx-auto">
+          <div className="flex items-center gap-2 text-[11px] font-sans">
+            <span className="text-[#1b4d3e] font-bold">EST. 2013</span>
+            <span>•</span>
+            <span>THẢO ĐIỀN, SAIGON</span>
+            <span className="hidden sm:inline">•</span>
+            <span className="hidden sm:inline">HOTLINE: <strong>{brandInfo.hotline}</strong></span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="px-2 py-0.5 rounded border border-[#e6ded1] text-[11px] font-sans hover:border-[#1b4d3e]"
+            >
+              {language === 'vi' ? 'Tiếng Việt' : 'English'}
+            </button>
+            {renderThemeButton(true)}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="flex items-center gap-1 px-2.5 py-0.5 rounded border border-[#1b4d3e] bg-[#1b4d3e] text-white text-[11px] font-sans shadow-2xs"
+            >
+              <ShoppingBag size={11} />
+              <span>{t('nav.cart')} ({cartCount})</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Middle: Prominent Centered Brand Masthead */}
+        <div className="py-4 text-center max-w-3xl mx-auto px-4">
+          <Link to="/" className="inline-block group">
+            <img 
+              src="/images/dolphy-logo.png" 
+              alt="Dolphy Café" 
+              className="h-10 sm:h-14 mx-auto object-contain group-hover:scale-105 transition-transform"
+            />
+            <p className="text-[11px] tracking-[0.25em] text-[#1b4d3e] uppercase mt-1 font-serif italic">
+              — Maison de Café & Académie Barista —
+            </p>
+          </Link>
+        </div>
+
+        {/* Bottom: Centered Symmetrical Navigation Bar with Divider Dots */}
+        <nav className="border-y border-[#e6ded1] bg-[#f5efe4]/70 hidden lg:block">
+          <div className="max-w-7xl mx-auto px-4">
+            <ul className="flex items-center justify-center gap-1 py-2 text-xs tracking-wide">
+              {navLinks.map((link, idx) => (
+                <React.Fragment key={link.path}>
+                  <li>
+                    <Link
+                      to={link.path}
+                      className={`px-3 py-1 rounded transition-colors ${
+                        isActive(link.path)
+                          ? 'text-[#1b4d3e] font-bold bg-[#1b4d3e]/10 italic'
+                          : 'text-[#4a4239] hover:text-[#1b4d3e]'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                  {idx < navLinks.length - 1 && (
+                    <li className="text-[#c05621] opacity-60 select-none text-[10px]">❦</li>
+                  )}
+                </React.Fragment>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+        {/* Mobile Toggle on Vintage */}
+        <div className="lg:hidden flex items-center justify-between px-4 py-2 border-t border-[#e6ded1]">
+          <span className="text-xs font-serif italic text-[#1b4d3e]">Danh Mục Cổ Điển</span>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-1.5 rounded border border-[#e6ded1] text-[#1b4d3e]"
+          >
+            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+        {renderMobileDrawer()}
+      </header>
+    );
+  }
+
+  // ==========================================================================
+  // 3. THEME: NORDIC (Ultra-Slim Architectural Mono Strip Header)
+  // ==========================================================================
+  if (theme === 'nordic') {
+    return (
+      <header className="w-full bg-white text-black border-b border-black transition-colors sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+          
+          {/* Left: Stark Minimalist Logo */}
+          <Link to="/" className="flex items-center gap-2">
+            <span className="font-oswald text-xl font-bold tracking-[0.15em] uppercase">
+              DOLPHY
+            </span>
+            <span className="text-[10px] font-mono text-zinc-400">/ 2013</span>
+          </Link>
+
+          {/* Center: Slash-separated Minimalist Links */}
+          <nav className="hidden lg:flex items-center gap-2 text-xs font-oswald uppercase tracking-[0.12em]">
+            {navLinks.slice(0, 7).map((link, idx) => (
+              <React.Fragment key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`py-1 px-1 transition-all ${
+                    isActive(link.path)
+                      ? 'font-bold underline decoration-2 underline-offset-4 text-black'
+                      : 'text-zinc-600 hover:text-black'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+                {idx < 6 && <span className="text-zinc-300 font-mono">/</span>}
+              </React.Fragment>
+            ))}
+          </nav>
+
+          {/* Right: Stark 0px Rectangular Buttons */}
+          <div className="flex items-center gap-2">
+            {renderThemeButton(true)}
+
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="flex items-center gap-1.5 px-3 py-1 bg-black hover:bg-zinc-800 text-white text-xs font-mono uppercase tracking-wider"
+            >
+              <span>CART [{cartCount}]</span>
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-1.5 border border-black text-black"
+            >
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+        </div>
+        {renderMobileDrawer()}
+      </header>
+    );
+  }
+
+  // ==========================================================================
+  // 4. THEME: SUNSET (Floating Coral Island Header with Rounded Pills)
+  // ==========================================================================
+  if (theme === 'sunset') {
+    return (
+      <header className="sticky top-2 sm:top-2.5 z-40 mx-auto max-w-7xl w-[96%] rounded-full backdrop-blur-xl bg-white/85 border border-rose-200/90 shadow-[0_12px_30px_rgba(225,29,72,0.12)] px-4 sm:px-6 py-2 transition-all">
+        <div className="flex items-center justify-between gap-3">
+          
+          {/* Left: Sunset Logo */}
+          <Link to="/" className="flex items-center shrink-0">
+            <img 
+              src="/images/dolphy-logo.png" 
+              alt="Dolphy Sunset" 
+              className="h-8 sm:h-11 w-auto object-contain"
+            />
+          </Link>
+
+          {/* Center: Soft Rounded-Full Pill Links */}
+          <nav className="hidden lg:flex items-center gap-1 text-xs font-oswald tracking-wide">
+            {navLinks.slice(0, 6).map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`px-3 py-1.5 rounded-full transition-all ${
+                  isActive(link.path)
+                    ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white font-bold shadow-md shadow-rose-500/20'
+                    : 'text-zinc-700 hover:text-rose-600 hover:bg-rose-50'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right: Coral Bubble Cart & Controls */}
+          <div className="flex items-center gap-2">
+            {renderThemeButton()}
+
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white text-xs font-oswald uppercase tracking-wider font-bold shadow-md shadow-rose-500/25"
+            >
+              <ShoppingBag size={13} />
+              <span className="hidden xs:inline">GIỎ HÀNG</span>
+              <span className="bg-white text-rose-600 font-bold px-1.5 py-0.2 rounded-full text-[10px]">
+                {cartCount}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-1.5 rounded-full bg-rose-50 text-rose-600 border border-rose-200"
+            >
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+        </div>
+        {renderMobileDrawer()}
+      </header>
+    );
+  }
+
+  // ==========================================================================
+  // 5. THEME: OCEAN (Classic 2-Tier Heritage Corporate Header)
+  // ==========================================================================
   return (
     <header className="w-full bg-white dark:bg-[#1e293b] text-[#222222] dark:text-[#f1f5f9] transition-colors border-b border-gray-100 dark:border-slate-800 shadow-xs">
       {/* 1. TOP INTRO HEADER */}
@@ -103,51 +573,7 @@ export const Navbar: React.FC = () => {
             </button>
 
             {/* 5-Theme Cycle Button with Hover Quick-Picker */}
-            <div className="relative group">
-              <button
-                onClick={toggleTheme}
-                className="flex items-center gap-1.5 p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-200 hover:border-[#2076bd] transition-all hover:scale-105"
-                title={language === 'vi' ? `Giao diện: ${themeConfig?.nameVi || ''} (Nhấn để chuyển sang theme tiếp theo)` : `Theme: ${themeConfig?.nameEn || ''} (Click to cycle themes)`}
-              >
-                {renderThemeIcon(theme, 13)}
-                <span className="hidden xl:inline text-[11px] font-bold font-oswald uppercase tracking-wider text-gray-700 dark:text-gray-200">
-                  {language === 'vi' ? themeConfig?.badgeVi : themeConfig?.badgeEn}
-                </span>
-              </button>
-
-              {/* Quick Theme Selector Dropdown on Hover */}
-              <div className="hidden group-hover:block absolute right-0 top-full pt-1.5 z-50">
-                <div className="p-2 rounded-xl shadow-xl backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border border-gray-200 dark:border-slate-700 w-52 space-y-1 text-xs">
-                  <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between">
-                    <span>5 Themes Thiết Kế</span>
-                    <span className="text-[9px] text-[#2076bd]">Click để đổi</span>
-                  </div>
-                  {allThemes?.map(tItem => (
-                    <button
-                      key={tItem.id}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setTheme(tItem.id);
-                      }}
-                      className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-left transition-all ${
-                        theme === tItem.id
-                          ? 'bg-[#2076bd]/10 text-[#2076bd] font-bold dark:bg-slate-800'
-                          : 'hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
-                          style={{ backgroundColor: tItem.primaryHex }}
-                        />
-                        <span className="truncate">{language === 'vi' ? tItem.nameVi : tItem.nameEn}</span>
-                      </div>
-                      {renderThemeIcon(tItem.id, 12)}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
+            {renderThemeButton()}
 
             {/* Install PWA Button (Desktop) */}
             {!isStandalone && (
@@ -246,116 +672,8 @@ export const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-[#1e293b] border-b border-gray-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 shadow-lg transition-colors">
-          <div className="pb-2 border-b border-gray-100 dark:border-slate-800">
-            <input
-              type="text"
-              placeholder={t('nav.search_placeholder')}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:border-[#2076bd]"
-            />
-          </div>
-
-          <div className="flex items-center justify-between py-1 px-1 border-b border-gray-100 dark:border-slate-800 text-xs">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold"
-            >
-              <Globe size={13} className="text-[#2076bd]" />
-              <span>{language === 'vi' ? 'Tiếng Việt (VI)' : 'English (EN)'}</span>
-            </button>
-
-            <button
-              onClick={toggleTheme}
-              className="flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold"
-              title={language === 'vi' ? 'Nhấn để chuyển theme tiếp theo' : 'Click to cycle themes'}
-            >
-              {renderThemeIcon(theme, 13)}
-              <span>{language === 'vi' ? themeConfig?.nameVi : themeConfig?.nameEn}</span>
-            </button>
-          </div>
-
-          {/* Mobile 5-Theme Quick Chips */}
-          <div className="flex items-center justify-between gap-1 pt-1 pb-2 border-b border-gray-100 dark:border-slate-800">
-            {allThemes?.map(tItem => (
-              <button
-                key={tItem.id}
-                onClick={() => setTheme(tItem.id)}
-                className={`flex-1 py-1 px-0.5 rounded text-[10px] font-medium border text-center transition-all ${
-                  theme === tItem.id
-                    ? 'font-bold ring-2 ring-offset-1 shadow-xs'
-                    : 'opacity-70 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300'
-                }`}
-                style={{
-                  borderColor: theme === tItem.id ? tItem.primaryHex : undefined,
-                  backgroundColor: theme === tItem.id ? tItem.primaryHex : 'transparent',
-                  color: theme === tItem.id ? '#ffffff' : undefined
-                }}
-              >
-                {tItem.nameVi.split(' ')[0]}
-              </button>
-            ))}
-          </div>
-
-          {navLinks.map((link) => (
-            <div key={link.name}>
-              {link.external ? (
-                <a
-                  href={link.path}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-2 px-3 text-sm font-oswald text-gray-700 dark:text-gray-200 hover:text-[#2076bd] hover:bg-gray-50 dark:hover:bg-slate-800 rounded"
-                >
-                  <span>{link.name}</span>
-                  <ExternalLink size={14} />
-                </a>
-              ) : (
-                <Link
-                  to={link.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between py-2 px-3 text-sm font-oswald rounded ${
-                    isActive(link.path)
-                      ? 'text-[#2076bd] dark:text-[#3ba0e6] bg-[#f0f8ff] dark:bg-slate-800 font-semibold'
-                      : 'text-gray-700 dark:text-gray-200 hover:text-[#2076bd] hover:bg-gray-50 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  <span>{link.name}</span>
-                  {link.badge && (
-                    <span className="bg-[#FAEA28] text-slate-950 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-xs">
-                      {link.badge}
-                    </span>
-                  )}
-                </Link>
-              )}
-            </div>
-          ))}
-
-          {/* Install PWA Button for Mobile */}
-          {!isStandalone && (
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                installPwa();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#2076bd] to-[#165b94] hover:from-[#165b94] hover:to-[#2076bd] text-white font-oswald text-xs uppercase font-bold tracking-wider shadow-sm transition-all active:scale-[0.99]"
-            >
-              <Download size={14} className="text-[#FAEA28]" />
-              <span>{language === 'vi' ? 'Cài Đặt Ứng Dụng Dolphy (PWA)' : 'Install Dolphy Mobile App'}</span>
-            </button>
-          )}
-
-          <div className="pt-2 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-            <span>{t('nav.hotline')}: <strong className="text-[#2076bd] dark:text-[#3ba0e6]">{brandInfo.hotline}</strong></span>
-            <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="text-[#2076bd] dark:text-[#3ba0e6] underline font-medium">
-              {t('nav.admin')}
-            </Link>
-          </div>
-        </div>
-      )}
+      {/* Mobile Drawer */}
+      {renderMobileDrawer()}
     </header>
   );
 };

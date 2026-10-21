@@ -22,7 +22,7 @@ import { coursesData, productsData, articlesData, communityGalleryData, Communit
 import { useDolphy } from '../context/DolphyContext';
 
 export const Home: React.FC = () => {
-  const { setEnrollingCourse, addToCart, showToast, t, language } = useDolphy();
+  const { setEnrollingCourse, addToCart, showToast, t, language, theme } = useDolphy();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedPhoto, setSelectedPhoto] = useState<CommunityPhoto | null>(null);
 
@@ -202,31 +202,81 @@ export const Home: React.FC = () => {
             {/* Slide Content Overlay */}
             <div className="absolute inset-0 flex items-center justify-center text-center px-5 sm:px-12 lg:px-16">
               <div className="max-w-3xl space-y-3 sm:space-y-6">
-                <span className="inline-block bg-[#FAEA28] text-slate-950 font-bold text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded shadow">
-                  {slide.badge}
-                </span>
+                
+                {/* Theme-Adaptive Badge */}
+                <div>
+                  {theme === 'roastery' ? (
+                    <span className="inline-flex items-center gap-2 bg-slate-950/80 border border-cyan-500/50 text-cyan-300 font-mono text-[11px] sm:text-xs px-3.5 py-1 rounded shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      <span>{slide.badge}</span>
+                    </span>
+                  ) : theme === 'vintage' ? (
+                    <span className="inline-block bg-[#c05621] text-white font-serif italic text-xs sm:text-sm px-4 py-1 rounded border border-amber-900/30 shadow">
+                      ❦ {slide.badge} ❦
+                    </span>
+                  ) : theme === 'nordic' ? (
+                    <span className="inline-block bg-black text-white font-mono uppercase tracking-[0.2em] text-[10px] sm:text-xs px-3 py-1 border border-zinc-600">
+                      [{slide.badge}]
+                    </span>
+                  ) : theme === 'sunset' ? (
+                    <span className="inline-block bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald uppercase tracking-widest text-[11px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg shadow-rose-500/30 font-bold">
+                      🌅 {slide.badge}
+                    </span>
+                  ) : (
+                    <span className="inline-block bg-[#FAEA28] text-slate-950 font-bold text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded shadow">
+                      {slide.badge}
+                    </span>
+                  )}
+                </div>
 
-                <h1 className="font-oswald text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white tracking-wider leading-tight drop-shadow-md">
+                {/* Theme-Adaptive Title */}
+                <h1 className={`text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white tracking-wider leading-tight drop-shadow-md ${
+                  theme === 'vintage' ? 'font-serif italic' : theme === 'nordic' ? 'font-oswald tracking-[0.12em]' : 'font-oswald'
+                }`}>
                   {slide.title}
                 </h1>
 
-                <p className="text-white/90 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto drop-shadow px-2">
+                <p className={`text-white/90 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto drop-shadow px-2 ${
+                  theme === 'vintage' ? 'font-serif italic text-white/95' : ''
+                }`}>
                   {slide.subtitle}
                 </p>
 
+                {/* Theme-Adaptive CTAs */}
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
                   <Link
                     to={slide.ctaLink}
-                    className="w-full sm:w-auto px-6 py-2.5 sm:py-3 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg"
+                    className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg ${
+                      theme === 'roastery'
+                        ? 'rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-[0_0_20px_rgba(6,182,212,0.4)]'
+                        : theme === 'vintage'
+                        ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] border border-emerald-900/40 font-serif'
+                        : theme === 'nordic'
+                        ? 'rounded-none bg-white text-black hover:bg-zinc-200 uppercase tracking-[0.15em] font-mono font-bold'
+                        : theme === 'sunset'
+                        ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 shadow-xl shadow-rose-500/30'
+                        : 'rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950'
+                    }`}
                   >
                     {slide.ctaText}
                   </Link>
+
                   {slide.secondaryLink.startsWith('http') ? (
                     <a
                       href={slide.secondaryLink}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full sm:w-auto px-6 py-2.5 sm:py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all flex items-center justify-center gap-1.5"
+                      className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all flex items-center justify-center gap-1.5 ${
+                        theme === 'roastery'
+                          ? 'rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-cyan-500/30 text-cyan-200'
+                          : theme === 'vintage'
+                          ? 'rounded bg-black/25 hover:bg-white hover:text-slate-950 font-serif border border-white/20'
+                          : theme === 'nordic'
+                          ? 'rounded-none bg-black/50 hover:bg-white hover:text-black border border-white font-mono uppercase tracking-[0.12em]'
+                          : theme === 'sunset'
+                          ? 'rounded-full bg-white/20 hover:bg-white text-white hover:text-rose-600 border border-white/30'
+                          : 'rounded bg-white/20 hover:bg-white hover:text-[#222222]'
+                      }`}
                     >
                       <span>{slide.secondaryText}</span>
                       <ExternalLink size={14} />
@@ -234,7 +284,17 @@ export const Home: React.FC = () => {
                   ) : (
                     <Link
                       to={slide.secondaryLink}
-                      className="w-full sm:w-auto px-6 py-2.5 sm:py-3 rounded bg-white/20 hover:bg-white text-white hover:text-[#222222] font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all"
+                      className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all ${
+                        theme === 'roastery'
+                          ? 'rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-cyan-500/30 text-cyan-200'
+                          : theme === 'vintage'
+                          ? 'rounded bg-black/25 hover:bg-white hover:text-slate-950 font-serif border border-white/20'
+                          : theme === 'nordic'
+                          ? 'rounded-none bg-black/50 hover:bg-white hover:text-black border border-white font-mono uppercase tracking-[0.12em]'
+                          : theme === 'sunset'
+                          ? 'rounded-full bg-white/20 hover:bg-white text-white hover:text-rose-600 border border-white/30'
+                          : 'rounded bg-white/20 hover:bg-white hover:text-[#222222]'
+                      }`}
                     >
                       {slide.secondaryText}
                     </Link>
