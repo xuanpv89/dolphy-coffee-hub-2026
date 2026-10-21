@@ -388,11 +388,11 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="dark"] .section-title {
-  color: #3ba0e6 !important;
+  color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .section-title::after {
-  background-color: #FAEA28 !important;
+  background-color: #38bdf8 !important;
 }
 
 [data-theme="dark"] header {
@@ -623,7 +623,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="nordic"] .section-title::after {
-  background-color: #ff3b00 !important;
+  background-color: #ef4444 !important;
   height: 2px !important;
   width: 40px !important;
 }

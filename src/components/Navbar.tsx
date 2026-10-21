@@ -710,11 +710,11 @@ export const Navbar: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={`w-44 lg:w-60 pl-3 pr-8 py-1.5 text-xs rounded-full border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 focus:outline-none transition-colors ${
-                  theme === 'dark' ? 'focus:border-[#fbbf24]' : 'focus:border-[#2076bd] dark:focus:border-[#3ba0e6]'
+                  theme === 'dark' ? 'focus:border-[#38bdf8]' : 'focus:border-[#2076bd] dark:focus:border-[#3ba0e6]'
                 }`}
               />
               <button className={`absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 ${
-                theme === 'dark' ? 'hover:text-[#fbbf24]' : 'hover:text-[#2076bd]'
+                theme === 'dark' ? 'hover:text-[#38bdf8]' : 'hover:text-[#2076bd]'
               }`}>
                 <Search size={14} />
               </button>
@@ -722,22 +722,22 @@ export const Navbar: React.FC = () => {
 
             {/* Hotline */}
             <div className="hidden xl:flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-300">
-              <PhoneCall size={13} className={theme === 'dark' ? 'text-[#fbbf24]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
-              <span>{t('nav.hotline')}: <strong className={theme === 'dark' ? 'text-[#fbbf24]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}>{brandInfo.hotline}</strong></span>
+              <PhoneCall size={13} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
+              <span>{t('nav.hotline')}: <strong className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}>{brandInfo.hotline}</strong></span>
             </div>
 
             {/* Language Switcher Button (VI / EN) */}
             <button
               onClick={toggleLanguage}
               className={`flex items-center gap-1 px-2 py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-200 transition-colors text-[11px] sm:text-xs font-bold font-oswald tracking-wider ${
-                theme === 'dark' ? 'hover:border-[#fbbf24]' : 'hover:border-[#2076bd]'
+                theme === 'dark' ? 'hover:border-[#38bdf8]' : 'hover:border-[#2076bd]'
               }`}
               title={language === 'vi' ? 'Chuyển sang Tiếng Anh (Switch to English)' : 'Switch to Vietnamese (Chuyển sang Tiếng Việt)'}
             >
-              <Globe size={12} className={theme === 'dark' ? 'text-[#fbbf24]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
-              <span className={language === 'vi' ? (theme === 'dark' ? 'text-[#fbbf24]' : 'text-[#2076bd] dark:text-[#3ba0e6]') : 'text-gray-400 dark:text-gray-500'}>VI</span>
+              <Globe size={12} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
+              <span className={language === 'vi' ? (theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd] dark:text-[#3ba0e6]') : 'text-gray-400 dark:text-gray-500'}>VI</span>
               <span className="text-gray-300 dark:text-gray-600">/</span>
-              <span className={language === 'en' ? (theme === 'dark' ? 'text-[#fbbf24]' : 'text-[#2076bd] dark:text-[#3ba0e6]') : 'text-gray-400 dark:text-gray-500'}>EN</span>
+              <span className={language === 'en' ? (theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd] dark:text-[#3ba0e6]') : 'text-gray-400 dark:text-gray-500'}>EN</span>
             </button>
 
             {/* 6-Theme Cycle Button with Hover Quick-Picker */}
@@ -750,7 +750,7 @@ export const Navbar: React.FC = () => {
                 title={language === 'vi' ? 'Cài đặt ứng dụng Dolphy Café lên thiết bị' : 'Install Dolphy App'}
                 className={`hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-oswald uppercase tracking-wider font-bold transition-all shadow-2xs whitespace-nowrap shrink-0 ${
                   theme === 'dark'
-                    ? 'bg-[#fbbf24]/10 hover:bg-[#fbbf24] text-[#fbbf24] hover:text-slate-950 border border-[#fbbf24]/30'
+                    ? 'bg-[#38bdf8]/10 hover:bg-[#38bdf8] text-[#38bdf8] hover:text-slate-950 border border-[#38bdf8]/30'
                     : 'bg-[#2076bd]/10 hover:bg-[#2076bd] text-[#2076bd] hover:text-white dark:bg-[#3ba0e6]/10 dark:text-[#3ba0e6] dark:hover:bg-[#2076bd] dark:hover:text-white border border-[#2076bd]/30'
                 }`}
               >
@@ -764,27 +764,21 @@ export const Navbar: React.FC = () => {
               to="/admin"
               title="Cổng Quản Trị Hệ Thống CRM / Admin"
               className={`hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-50 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-600 dark:text-gray-200 border border-gray-200 dark:border-slate-700 text-xs font-medium transition-colors whitespace-nowrap shrink-0 ${
-                theme === 'dark' ? 'hover:text-[#fbbf24]' : 'hover:text-[#2076bd]'
+                theme === 'dark' ? 'hover:text-[#38bdf8]' : 'hover:text-[#2076bd]'
               }`}
             >
-              <ShieldCheck size={14} className={theme === 'dark' ? 'text-[#fbbf24]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
+              <ShieldCheck size={14} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
               <span>{t('nav.admin')}</span>
             </Link>
 
             {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className={`flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0 whitespace-nowrap ${
-                theme === 'dark'
-                  ? 'bg-[#fbbf24] hover:bg-amber-400 text-slate-950 font-bold'
-                  : 'bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white'
-              }`}
+              className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0 whitespace-nowrap bg-[#2076bd] hover:bg-[#165b94] dark:bg-[#2076bd] dark:hover:bg-[#165b94] text-white"
             >
               <ShoppingBag size={14} />
               <span className="hidden xs:inline">{t('nav.cart')}</span>
-              <span className={`font-bold px-1.5 py-0.2 rounded-full text-[10px] sm:text-[11px] min-w-[16px] text-center ${
-                theme === 'dark' ? 'bg-slate-950 text-[#fbbf24]' : 'bg-white text-[#2076bd]'
-              }`}>
+              <span className="font-bold px-1.5 py-0.2 rounded-full text-[10px] sm:text-[11px] min-w-[16px] text-center bg-white dark:bg-white text-[#2076bd]">
                 {cartCount}
               </span>
             </button>
@@ -837,21 +831,19 @@ export const Navbar: React.FC = () => {
                     to={link.path}
                     className={`py-3 px-3 flex items-center gap-1.5 transition-all relative whitespace-nowrap ${
                       active
-                        ? (theme === 'dark' ? 'text-[#fbbf24] font-bold' : 'text-[#2076bd] dark:text-[#3ba0e6] font-semibold')
-                        : (theme === 'dark' ? 'text-slate-200 hover:text-[#fbbf24]' : 'text-[#222222] dark:text-slate-200 hover:text-[#2076bd] dark:hover:text-[#3ba0e6]')
+                        ? (theme === 'dark' ? 'text-[#38bdf8] font-bold' : 'text-[#2076bd] dark:text-[#3ba0e6] font-semibold')
+                        : (theme === 'dark' ? 'text-slate-200 hover:text-[#38bdf8]' : 'text-[#222222] dark:text-slate-200 hover:text-[#2076bd] dark:hover:text-[#3ba0e6]')
                     }`}
                   >
                     <span>{link.name}</span>
                     {link.badge && (
-                      <span className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded-full uppercase tracking-tighter shadow-xs ${
-                        theme === 'dark' ? 'bg-[#fbbf24] text-slate-950' : 'bg-[#FAEA28] text-slate-950'
-                      }`}>
+                      <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded-full uppercase tracking-tighter shadow-xs bg-[#fbbf24] text-slate-950">
                         {link.badge}
                       </span>
                     )}
                     {active && (
                       <span className={`absolute bottom-0 left-0 right-0 h-[2.5px] ${
-                        theme === 'dark' ? 'bg-[#fbbf24]' : 'bg-[#2076bd] dark:bg-[#3ba0e6]'
+                        theme === 'dark' ? 'bg-[#38bdf8]' : 'bg-[#2076bd] dark:bg-[#3ba0e6]'
                       }`} />
                     )}
                   </Link>

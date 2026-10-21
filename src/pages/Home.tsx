@@ -708,7 +708,11 @@ export const Home: React.FC = () => {
               <div className="absolute inset-0 flex items-center justify-center text-center px-5 sm:px-12 lg:px-16">
                 <div className="max-w-3xl space-y-3 sm:space-y-6">
                   <div>
-                    <span className="inline-block bg-[#FAEA28] text-slate-950 font-bold text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded shadow">
+                    <span className={`inline-block font-bold text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded shadow ${
+                      theme === 'dark'
+                        ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30'
+                        : 'bg-[#FAEA28] text-slate-950'
+                    }`}>
                       {slide.badge}
                     </span>
                   </div>
@@ -724,7 +728,7 @@ export const Home: React.FC = () => {
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
                     <Link
                       to={slide.ctaLink}
-                      className="w-full sm:w-auto px-6 py-2.5 sm:py-3 font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg rounded bg-[#2076bd] text-white hover:bg-[#FAEA28] hover:text-slate-950"
+                      className="w-full sm:w-auto px-6 py-2.5 sm:py-3 font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg rounded bg-[#2076bd] text-white hover:bg-[#165b94]"
                     >
                       {slide.ctaText}
                     </Link>
@@ -1464,7 +1468,9 @@ export const Home: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0d3b66]/95 via-[#165b94]/90 to-black/85" />
           <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-white">
             <div className="space-y-4 max-w-xl text-center md:text-left reveal-left">
-              <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block shadow">
+              <span className={`font-extrabold text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block shadow ${
+                theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30' : 'bg-[#FAEA28] text-slate-950'
+              }`}>
                 {t('home.delivery_tag')}
               </span>
               <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wider">
@@ -1780,7 +1786,9 @@ export const Home: React.FC = () => {
           <div className="bg-gradient-to-br from-[#165b94] via-[#2076bd] to-[#165b94] rounded-2xl text-white p-8 sm:p-12 overflow-hidden relative shadow-xl">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="space-y-5 reveal-left">
-                <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block shadow">
+                <span className={`font-extrabold text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded inline-block shadow ${
+                  theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30' : 'bg-white/95 text-[#2076bd]'
+                }`}>
                   {t('home.academy_badge')}
                 </span>
 
@@ -1794,15 +1802,15 @@ export const Home: React.FC = () => {
 
                 <div className="space-y-2.5 text-xs sm:text-sm">
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
+                    <CheckCircle2 size={18} className="text-[#38bdf8] shrink-0" />
                     <span>{t('home.academy_feature1')}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
+                    <CheckCircle2 size={18} className="text-[#38bdf8] shrink-0" />
                     <span>{t('home.academy_feature2')}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 size={18} className="text-[#FAEA28] shrink-0" />
+                    <CheckCircle2 size={18} className="text-[#38bdf8] shrink-0" />
                     <span>{t('home.academy_feature3')}</span>
                   </div>
                 </div>
@@ -2110,7 +2118,7 @@ export const Home: React.FC = () => {
             <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
               {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
             </h2>
-            <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
+            <div className={`w-16 sm:w-20 h-1 mx-auto mt-4 rounded-full ${theme === 'dark' ? 'bg-[#38bdf8]' : 'bg-[#2076bd] dark:bg-[#3ba0e6]'}`}></div>
           </div>
         )}
 
@@ -2141,9 +2149,9 @@ export const Home: React.FC = () => {
           {homeSoundFeedback && (
             <div className="absolute top-4 right-4 z-20 px-3.5 py-1.5 rounded-full bg-black/80 text-white text-xs font-semibold backdrop-blur-md border border-white/20 flex items-center gap-1.5 shadow-xl transition-all pointer-events-none">
               {isHomeVideoMuted ? (
-                <VolumeX className="w-3.5 h-3.5 text-[#FAEA28]" />
+                <VolumeX className="w-3.5 h-3.5 text-white" />
               ) : (
-                <Volume2 className="w-3.5 h-3.5 text-[#FAEA28]" />
+                <Volume2 className="w-3.5 h-3.5 text-white" />
               )}
               <span>{homeSoundFeedback}</span>
             </div>
@@ -2160,7 +2168,7 @@ export const Home: React.FC = () => {
               theme === 'vintage' ? 'rounded bg-[#1b4d3e] text-white font-serif' :
               theme === 'roastery' ? 'rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-500/40 font-mono shadow-[0_0_12px_rgba(6,182,212,0.3)]' :
               theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald shadow-md' :
-              theme === 'dark' ? 'rounded bg-[#FAEA28] text-slate-950 font-oswald' :
+              theme === 'dark' ? 'rounded bg-blue-950/70 text-[#38bdf8] border border-blue-500/30 font-oswald' :
               'rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] font-oswald'
             }`}>
               <Camera size={14} />

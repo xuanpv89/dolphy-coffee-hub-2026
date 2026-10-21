@@ -15,7 +15,7 @@ export const About: React.FC = () => {
     theme === 'sunset' ? 'text-rose-600' :
     theme === 'roastery' ? 'text-cyan-400' :
     theme === 'nordic' ? 'text-black dark:text-white' :
-    theme === 'dark' ? 'text-[#FAEA28]' :
+    theme === 'dark' ? 'text-[#38bdf8]' :
     'text-[#2076bd] dark:text-[#3ba0e6]';
 
   useEffect(() => {
@@ -301,8 +301,12 @@ export const About: React.FC = () => {
           <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/hero_slide_store.webp')" }} />
           <div className="relative max-w-4xl mx-auto space-y-4">
             <div>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow rounded bg-[#FAEA28] text-slate-950 font-oswald">
-                <Coffee size={14} />
+              <span className={`inline-flex items-center gap-1.5 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow rounded font-oswald ${
+                theme === 'dark'
+                  ? 'bg-blue-950/70 text-[#38bdf8] border border-[#38bdf8]/40 shadow-[0_0_15px_rgba(56,189,248,0.2)]'
+                  : 'bg-white/95 text-[#2076bd] border border-blue-200'
+              }`}>
+                <Coffee size={14} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd]'} />
                 <span>{t('about.tag')}</span>
               </span>
             </div>
@@ -380,7 +384,7 @@ export const About: React.FC = () => {
             {stats.map((item, idx) => (
               <div key={idx} className="text-center p-2 flex flex-col items-center justify-center hover-lift">
                 <span className={`font-oswald text-3xl sm:text-4xl font-bold block tracking-wide ${
-                  theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                  theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
                 }`}>
                   {item.value}
                 </span>
@@ -403,7 +407,7 @@ export const About: React.FC = () => {
           }`}>
             {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
           </h2>
-          <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
+          <div className={`w-16 sm:w-20 h-1 mx-auto mt-4 rounded-full ${theme === 'dark' ? 'bg-[#38bdf8]' : 'bg-[#2076bd] dark:bg-[#3ba0e6]'}`}></div>
         </div>
 
         <div
@@ -536,7 +540,9 @@ export const About: React.FC = () => {
                   alt="Dolphy Barista Signature Latte"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#FAEA28] text-slate-950 font-oswald text-[10px] uppercase font-extrabold tracking-wider shadow">
+                <span className={`absolute top-3 left-3 px-2.5 py-1 rounded font-oswald text-[10px] uppercase font-extrabold tracking-wider shadow ${
+                  theme === 'dark' ? 'bg-slate-900/90 text-[#38bdf8] border border-slate-700' : 'bg-[#FAEA28] text-slate-950'
+                }`}>
                   Espresso & Latte
                 </span>
               </div>
@@ -562,7 +568,9 @@ export const About: React.FC = () => {
           theme === 'roastery' ? 'rounded-xl bg-[#0b1324] border border-cyan-500/40 shadow-[0_0_20px_rgba(2,132,199,0.25)]' :
           'rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-blue-200 dark:border-slate-700'
         }`}>
-          <div className="w-16 h-16 rounded-2xl bg-[#FAEA28] text-slate-950 flex items-center justify-center shrink-0 shadow-lg">
+          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 shadow-lg ${
+            theme === 'dark' ? 'bg-[#2076bd] text-white shadow-blue-500/20' : 'bg-[#FAEA28] text-slate-950'
+          }`}>
             <Award size={36} />
           </div>
           <div className="space-y-1 text-center md:text-left flex-1">
@@ -806,17 +814,19 @@ export const About: React.FC = () => {
             <div className="relative border-l-2 border-blue-200 dark:border-slate-700 ml-4 sm:ml-10 md:ml-12 space-y-8 pl-6 sm:pl-8 reveal-stagger">
               {milestones.map((m, mIdx) => (
                 <div key={mIdx} className="relative group">
-                  <div className={`absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full bg-[#FAEA28] border-4 transition-colors shadow-xs ${
-                    theme === 'dark' ? 'border-amber-400' : 'border-[#2076bd]'
+                  <div className={`absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full border-4 transition-colors shadow-xs ${
+                    theme === 'dark' ? 'bg-[#38bdf8] border-slate-900' : 'bg-[#FAEA28] border-[#2076bd]'
                   }`} />
                   <div className="bg-white dark:bg-[#1e293b] p-5 sm:p-6 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-2.5 hover-lift hover:shadow-md transition-all">
                     <div className="flex flex-wrap items-center gap-2.5">
-                      <span className="px-3.5 py-1 rounded-full bg-[#FAEA28] text-slate-950 font-oswald text-xs sm:text-sm font-extrabold tracking-wider inline-flex items-center gap-1.5 shrink-0 shadow-xs">
-                        <Calendar size={13} className="text-slate-950" />
+                      <span className={`px-3.5 py-1 rounded-full font-oswald text-xs sm:text-sm font-extrabold tracking-wider inline-flex items-center gap-1.5 shrink-0 shadow-xs ${
+                        theme === 'dark' ? 'bg-[#2076bd] text-white' : 'bg-[#FAEA28] text-slate-950'
+                      }`}>
+                        <Calendar size={13} className={theme === 'dark' ? 'text-white' : 'text-slate-950'} />
                         <span>{m.year}</span>
                       </span>
                       <h3 className={`font-oswald text-base sm:text-lg font-bold uppercase ${
-                        theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                        theme === 'dark' ? 'text-white' : 'text-[#2076bd] dark:text-[#3ba0e6]'
                       }`}>
                         {m.title}
                       </h3>
