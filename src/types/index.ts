@@ -20,6 +20,9 @@ export interface Product {
   images: string[];
   inStock: boolean;
   isBestSeller?: boolean;
+  rating?: number;
+  badge?: string;
+  badgeEn?: string;
 }
 
 export interface SyllabusItem {
@@ -54,6 +57,7 @@ export interface Course {
   usps: string[];
   uspsEn?: string[];
   syllabus: SyllabusItem[];
+  syllabusEn?: SyllabusItem[];
   outcomes: string[];
   outcomesEn?: string[];
   trainerInfo: string;
@@ -133,7 +137,7 @@ export interface Testimonial {
 export interface CartItem {
   product: Product;
   quantity: number;
-  grindOption: 'Hạt nguyên chất (Whole Bean)' | 'Xay pha Phin (Medium)' | 'Xay Cold Brew (Coarse)' | 'Xay máy Espresso (Fine)';
+  grindOption?: 'Hạt nguyên chất (Whole Bean)' | 'Xay pha Phin (Medium)' | 'Xay Cold Brew (Coarse)' | 'Xay máy Espresso (Fine)' | 'Nguyên hạt (Espresso)' | 'Whole Bean (Espresso)' | string;
 }
 
 export interface Order {
@@ -158,6 +162,7 @@ export interface StudentRegistration {
   courseId: string;
   courseTitle: string;
   branchPreference: string;
+  preferredLocation?: string;
   preferredSchedule: string;
   paymentOption: 'deposit' | 'full';
   amount: number;
@@ -172,6 +177,7 @@ export interface JobApplication {
   phone: string;
   email: string;
   position: string;
+  jobId?: string;
   branchPreference: string;
   shiftPreference: string;
   experienceNotes: string;

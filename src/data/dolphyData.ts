@@ -9,6 +9,7 @@ export const brandInfo = {
   hotline: '0938 084 985',
   email: 'contact@dolphycafe.com',
   recruitmentEmail: 'trangnguyen.dolphy@gmail.com',
+  mainAddress: '28 Thảo Điền, P. Thảo Điền, TP. Thủ Đức, TP.HCM',
   orderOnlineUrl: 'https://dolphycoffee.cukcuk.vn/order-online/',
   facebook: 'https://www.facebook.com/dolphycafe',
   instagram: 'https://www.instagram.com/dolphycafe/',

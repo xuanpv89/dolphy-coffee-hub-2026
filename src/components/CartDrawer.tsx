@@ -154,7 +154,7 @@ export const CartDrawer: React.FC = () => {
                         'rounded border-gray-200 dark:border-slate-700'
                       }`}>
                         <button
-                          onClick={() => updateQuantity(item.product.id, item.quantity - 1, item.grindOption)}
+                          onClick={() => updateQuantity(item.product.id, item.grindOption || '', item.quantity - 1)}
                           className="text-gray-400 hover:text-black dark:hover:text-white"
                         >
                           <Minus size={11} />
@@ -163,7 +163,7 @@ export const CartDrawer: React.FC = () => {
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() => updateQuantity(item.product.id, item.quantity + 1, item.grindOption)}
+                          onClick={() => updateQuantity(item.product.id, item.grindOption || '', item.quantity + 1)}
                           className="text-gray-400 hover:text-black dark:hover:text-white"
                         >
                           <Plus size={11} />

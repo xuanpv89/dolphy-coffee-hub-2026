@@ -144,7 +144,7 @@ export const Home: React.FC = () => {
   };
 
   // Best seller products from dolphycafe.com
-  const bestSellers = productsData.filter(p => p.isBestSeller || p.category === 'beans').slice(0, 4);
+  const bestSellers = productsData.filter(p => p.isBestSeller || (p.category as string) === 'beans' || p.category === 'coffee-bag').slice(0, 4);
 
   // Testimonials
   const testimonials = [

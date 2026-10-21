@@ -149,7 +149,9 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       setIsOnline(pwaService.getIsOnline());
       setHasPwaUpdate(pwaService.getHasUpdate());
     });
-    return unsubscribe;
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const installPwa = async () => {
