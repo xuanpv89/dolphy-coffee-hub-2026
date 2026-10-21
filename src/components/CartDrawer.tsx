@@ -28,6 +28,7 @@ export const CartDrawer: React.FC = () => {
             theme === 'vintage' ? 'bg-[#1b4d3e] border-b-2 border-[#2d6a4f] text-[#faf6f0] font-serif' :
             theme === 'roastery' ? 'bg-[#0b1324] border-b border-cyan-500/40 text-cyan-300 font-mono shadow-[0_0_20px_rgba(2,132,199,0.2)]' :
             theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 text-white font-oswald' :
+            theme === 'dark' ? 'bg-[#0F172A] border-b border-slate-700 text-[#FAEA28] font-oswald' :
             'bg-[#2076bd] border-b border-gray-100 dark:border-slate-800 text-white font-oswald'
           }`}>
             <div className="flex items-center gap-2.5">
@@ -43,6 +44,7 @@ export const CartDrawer: React.FC = () => {
                 theme === 'nordic' ? 'rounded-none bg-white text-black' :
                 theme === 'vintage' ? 'rounded bg-[#c05621] text-white' :
                 theme === 'roastery' ? 'rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-500/40' :
+                theme === 'dark' ? 'rounded-md bg-slate-800 text-[#FAEA28]' :
                 'rounded-full bg-white/20'
               }`}>
                 {cart.length} {t('cart.items_count')}
@@ -66,6 +68,7 @@ export const CartDrawer: React.FC = () => {
                   theme === 'vintage' ? 'rounded-lg bg-[#f2ebe0] text-[#1b4d3e] border border-[#e6ded1]' :
                   theme === 'roastery' ? 'rounded-xl bg-slate-900 text-cyan-400 border border-cyan-500/30' :
                   theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600' :
+                  theme === 'dark' ? 'rounded-xl bg-slate-800 text-[#FAEA28]' :
                   'rounded-full bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
                 }`}>
                   ☕
@@ -81,6 +84,7 @@ export const CartDrawer: React.FC = () => {
                     theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
                     theme === 'roastery' ? 'rounded-lg bg-cyan-600 hover:bg-cyan-500 text-black font-mono font-bold' :
                     theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald font-bold shadow-md' :
+                    theme === 'dark' ? 'rounded bg-[#FAEA28] hover:bg-amber-300 text-slate-950 font-oswald font-bold' :
                     'rounded bg-[#2076bd] text-white font-oswald hover:bg-[#FAEA28] hover:text-slate-950'
                   }`}
                 >
@@ -97,6 +101,7 @@ export const CartDrawer: React.FC = () => {
                     theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] hover:border-[#1b4d3e] font-serif' :
                     theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] hover:border-cyan-400 font-mono' :
                     theme === 'sunset' ? 'rounded-2xl border border-rose-100 bg-white hover:border-rose-300' :
+                    theme === 'dark' ? 'rounded-lg border border-slate-700 bg-slate-900/80 hover:border-[#FAEA28]' :
                     'rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 hover:border-[#2076bd]'
                   }`}
                 >
@@ -132,6 +137,7 @@ export const CartDrawer: React.FC = () => {
                           theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] font-sans' :
                           theme === 'roastery' ? 'rounded bg-cyan-950 text-cyan-400 border border-cyan-500/30' :
                           theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600' :
+                          theme === 'dark' ? 'rounded bg-slate-800 text-[#FAEA28]' :
                           'rounded bg-blue-50 dark:bg-slate-900 text-[#2076bd] dark:text-[#3ba0e6]'
                         }`}>
                           {item.grindOption}
@@ -169,6 +175,7 @@ export const CartDrawer: React.FC = () => {
                         theme === 'vintage' ? 'text-[#1b4d3e] font-serif' :
                         theme === 'roastery' ? 'text-cyan-400 font-mono drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]' :
                         theme === 'sunset' ? 'text-rose-600 font-oswald' :
+                        theme === 'dark' ? 'text-[#FAEA28] font-oswald' :
                         'text-[#2076bd] dark:text-[#3ba0e6] font-oswald'
                       }`}>
                         {(item.product.price * item.quantity).toLocaleString('vi-VN')}₫
@@ -187,6 +194,7 @@ export const CartDrawer: React.FC = () => {
               theme === 'vintage' ? 'border-t-2 border-[#e6ded1] bg-[#f2ebe0] font-serif' :
               theme === 'roastery' ? 'border-t border-cyan-500/30 bg-[#0b1324] font-mono' :
               theme === 'sunset' ? 'border-t border-rose-100 bg-rose-50/50' :
+              theme === 'dark' ? 'border-t border-slate-700 bg-slate-900' :
               'border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900'
             }`}>
               <div className="space-y-1.5 text-xs">
@@ -205,6 +213,7 @@ export const CartDrawer: React.FC = () => {
                     theme === 'vintage' ? 'text-[#1b4d3e] font-serif' :
                     theme === 'roastery' ? 'text-cyan-400 font-mono' :
                     theme === 'sunset' ? 'text-rose-600 font-oswald' :
+                    theme === 'dark' ? 'text-[#FAEA28] font-oswald' :
                     'text-[#2076bd] dark:text-[#3ba0e6] font-oswald'
                   }`}>
                     {cartTotal.toLocaleString('vi-VN')}₫
@@ -222,6 +231,7 @@ export const CartDrawer: React.FC = () => {
                   theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
                   theme === 'roastery' ? 'rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)]' :
                   theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald font-bold shadow-lg shadow-rose-500/25' :
+                  theme === 'dark' ? 'rounded bg-[#FAEA28] hover:bg-amber-300 text-slate-950 font-oswald font-bold' :
                   'rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald'
                 }`}
               >

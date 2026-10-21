@@ -10,6 +10,14 @@ export const About: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [soundFeedback, setSoundFeedback] = useState<string | null>(null);
 
+  const themeAccentText = 
+    theme === 'vintage' ? 'text-[#1b4d3e]' :
+    theme === 'sunset' ? 'text-rose-600' :
+    theme === 'roastery' ? 'text-cyan-400' :
+    theme === 'nordic' ? 'text-black dark:text-white' :
+    theme === 'dark' ? 'text-[#FAEA28]' :
+    'text-[#2076bd] dark:text-[#3ba0e6]';
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -268,7 +276,9 @@ export const About: React.FC = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-white dark:bg-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-100 dark:border-slate-800 reveal-stagger">
             {stats.map((item, idx) => (
               <div key={idx} className="text-center p-2 flex flex-col items-center justify-center hover-lift">
-                <span className="font-oswald text-3xl sm:text-4xl font-bold text-[#2076bd] dark:text-[#3ba0e6] block tracking-wide">
+                <span className={`font-oswald text-3xl sm:text-4xl font-bold block tracking-wide ${
+                  theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                }`}>
                   {item.value}
                 </span>
                 <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300 min-h-[38px] flex items-center justify-center text-center leading-snug">
@@ -283,7 +293,11 @@ export const About: React.FC = () => {
       {/* 2.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC */}
       <section className="w-full bg-white dark:bg-slate-900 py-12 sm:py-16 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll">
-          <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest leading-tight ${themeAccentText} ${
+            theme === 'vintage' ? 'font-serif' :
+            theme === 'nordic' ? 'font-mono' :
+            'font-oswald'
+          }`}>
             {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
@@ -337,10 +351,12 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-5 text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed reveal-left">
             <div className="space-y-1">
-              <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
+              <span className={`block text-xs uppercase tracking-widest font-bold mb-1.5 ${themeAccentText} ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'vi' ? 'CHƯƠNG I: CÂU CHUYỆN KHỞI NGUỒN' : 'CHAPTER I: OUR ORIGIN'}
               </span>
-              <h2 className={`text-2xl sm:text-3xl lg:text-[34px] font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] leading-tight ${
+              <h2 className={`text-2xl sm:text-3xl lg:text-[34px] font-bold uppercase leading-tight ${themeAccentText} ${
                 theme === 'vintage' ? 'font-serif' : 'font-oswald'
               }`}>
                 {language === 'vi' ? (
@@ -400,7 +416,7 @@ export const About: React.FC = () => {
                 theme === 'vintage' ? 'rounded-lg bg-[#f2ebe0] border border-[#e6ded1] font-serif' :
                 'rounded-xl bg-blue-50/80 dark:bg-slate-800/80'
               }`}>
-                <p className="font-oswald font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase text-sm mb-0.5">28 THẢO ĐIỀN</p>
+                <p className={`font-bold uppercase text-sm mb-0.5 ${themeAccentText} ${theme === 'vintage' ? 'font-serif' : 'font-oswald'}`}>28 THẢO ĐIỀN</p>
                 <p className="leading-relaxed">{language === 'vi' ? 'Biểu tượng gắn liền với nhịp sống cư dân từ những ngày đầu.' : 'Iconic spot cherished by expats since 2013.'}</p>
               </div>
             </div>
@@ -426,7 +442,7 @@ export const About: React.FC = () => {
                 theme === 'vintage' ? 'rounded-lg bg-[#f2ebe0] border border-[#e6ded1] font-serif' :
                 'rounded-xl bg-blue-50/80 dark:bg-slate-800/80'
               }`}>
-                <p className="font-oswald font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase text-sm mb-0.5">
+                <p className={`font-bold uppercase text-sm mb-0.5 ${themeAccentText} ${theme === 'vintage' ? 'font-serif' : 'font-oswald'}`}>
                   {language === 'vi' ? 'HẠT MỘC NGUYÊN BẢN' : 'PURE SPECIALTY BEANS'}
                 </p>
                 <p className="leading-relaxed">{language === 'vi' ? 'Rang mộc mỗi tuần, đóng túi van 1 chiều đạt chuẩn.' : 'Freshly roasted weekly with zero butter or flavoring.'}</p>
@@ -447,10 +463,10 @@ export const About: React.FC = () => {
             <Award size={36} />
           </div>
           <div className="space-y-1 text-center md:text-left flex-1">
-            <span className="text-[10px] font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
+            <span className={`text-[10px] uppercase tracking-widest font-bold ${themeAccentText} ${theme === 'vintage' ? 'font-serif' : 'font-oswald'}`}>
               {language === 'vi' ? 'VINH DANH DANH GIÁ' : 'PRESTIGIOUS RECOGNITION'}
             </span>
-            <h3 className={`text-xl sm:text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
+            <h3 className={`text-xl sm:text-2xl font-bold uppercase ${themeAccentText} ${
               theme === 'vintage' ? 'font-serif' : 'font-oswald'
             }`}>
               {t('about.awards_title')}
@@ -464,7 +480,9 @@ export const About: React.FC = () => {
         {/* 4. Chương 2: 4 Giá Trị Cốt Lõi - Layout Transformation per Theme */}
         <div className="space-y-8 pt-8">
           <div className="text-center max-w-3xl mx-auto mb-10 reveal-on-scroll">
-            <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
+            <span className={`block text-xs uppercase tracking-widest font-bold mb-1.5 ${themeAccentText} ${
+              theme === 'vintage' ? 'font-serif' : 'font-oswald'
+            }`}>
               {language === 'vi' ? 'CHƯƠNG II: TRIẾT LÝ PHỤC VỤ' : 'CHAPTER II: OUR PHILOSOPHY'}
             </span>
             <h2 className="section-title block mx-auto">
@@ -565,7 +583,11 @@ export const About: React.FC = () => {
                   className="p-6 rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm hover-lift hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-3 group"
                 >
                   <div className="space-y-3">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center group-hover:bg-[#2076bd] group-hover:text-white transition-colors shadow-sm">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors shadow-sm ${
+                      theme === 'dark'
+                        ? 'bg-slate-800 text-[#FAEA28] group-hover:bg-[#FAEA28] group-hover:text-slate-950'
+                        : 'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] group-hover:bg-[#2076bd] group-hover:text-white'
+                    }`}>
                       {item.icon}
                     </div>
                     <h3 className="font-oswald text-base sm:text-lg font-bold uppercase text-[#222222] dark:text-white min-h-[48px] flex items-center">
@@ -584,7 +606,9 @@ export const About: React.FC = () => {
         {/* 5. Chương 3: Dấu Ấn Thời Gian (Milestones Timeline) - Layout Shifts per Theme */}
         <div className="space-y-8 pt-8">
           <div className="text-center max-w-3xl mx-auto mb-10 reveal-on-scroll">
-            <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1.5">
+            <span className={`block text-xs uppercase tracking-widest font-bold mb-1.5 ${themeAccentText} ${
+              theme === 'vintage' ? 'font-serif' : 'font-oswald'
+            }`}>
               {language === 'vi' ? 'CHƯƠNG III: DẤU ẤN THỜI GIAN' : 'CHAPTER III: OUR TIMELINE'}
             </span>
             <h2 className="section-title block mx-auto">
@@ -679,14 +703,18 @@ export const About: React.FC = () => {
             <div className="relative border-l-2 border-blue-200 dark:border-slate-700 ml-4 sm:ml-10 md:ml-12 space-y-8 pl-6 sm:pl-8 reveal-stagger">
               {milestones.map((m, mIdx) => (
                 <div key={mIdx} className="relative group">
-                  <div className="absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full bg-[#FAEA28] border-4 border-[#2076bd] transition-colors shadow-xs" />
+                  <div className={`absolute -left-[31px] sm:-left-[39px] top-4 w-4 h-4 rounded-full bg-[#FAEA28] border-4 transition-colors shadow-xs ${
+                    theme === 'dark' ? 'border-amber-400' : 'border-[#2076bd]'
+                  }`} />
                   <div className="bg-white dark:bg-[#1e293b] p-5 sm:p-6 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-2.5 hover-lift hover:shadow-md transition-all">
                     <div className="flex flex-wrap items-center gap-2.5">
                       <span className="px-3.5 py-1 rounded-full bg-[#FAEA28] text-slate-950 font-oswald text-xs sm:text-sm font-extrabold tracking-wider inline-flex items-center gap-1.5 shrink-0 shadow-xs">
                         <Calendar size={13} className="text-slate-950" />
                         <span>{m.year}</span>
                       </span>
-                      <h3 className="font-oswald text-base sm:text-lg font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+                      <h3 className={`font-oswald text-base sm:text-lg font-bold uppercase ${
+                        theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                      }`}>
                         {m.title}
                       </h3>
                     </div>
@@ -703,7 +731,9 @@ export const About: React.FC = () => {
         {/* 6. Chương 4: Thư Viện Hình Ảnh Cảm Xúc (Authentic Photo Stories) */}
         <div className="space-y-8 pt-8">
           <div className="text-center max-w-2xl mx-auto mb-8 reveal-on-scroll">
-            <span className="block text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold mb-1">
+            <span className={`block text-xs uppercase tracking-widest font-bold mb-1 ${themeAccentText} ${
+              theme === 'vintage' ? 'font-serif' : 'font-oswald'
+            }`}>
               {language === 'vi' ? 'CHƯƠNG IV: NHỮNG KHOẢNH KHẮC ĐỜI THƯỜNG' : 'CHAPTER IV: REAL-LIFE MOMENTS'}
             </span>
             <h2 className="section-title">
@@ -777,14 +807,22 @@ export const About: React.FC = () => {
             theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
             theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
             theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            theme === 'dark' ? 'rounded-2xl bg-[#0F172A] border border-slate-700 shadow-lg' :
             'rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm'
           }`}>
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center text-2xl font-bold">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold ${
+                theme === 'nordic' ? 'bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white rounded-none border border-black dark:border-white' :
+                theme === 'vintage' ? 'bg-[#1b4d3e]/10 text-[#1b4d3e]' :
+                theme === 'sunset' ? 'bg-rose-100 text-rose-600 rounded-2xl' :
+                theme === 'roastery' ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-500/30' :
+                theme === 'dark' ? 'bg-slate-800 text-[#FAEA28]' :
+                'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
                 ★
               </div>
-              <h3 className={`text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
-                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              <h3 className={`text-2xl font-bold uppercase ${themeAccentText} ${
+                theme === 'vintage' ? 'font-serif' : theme === 'nordic' ? 'font-mono' : 'font-oswald'
               }`}>
                 {t('about.mission_title')}
               </h3>
@@ -802,18 +840,33 @@ export const About: React.FC = () => {
             theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
             theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
             theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            theme === 'dark' ? 'rounded-2xl bg-[#0F172A] border border-slate-700 shadow-lg' :
             'rounded-2xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm'
           }`}>
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#FAEA28] text-slate-950 flex items-center justify-center text-2xl font-bold shadow-sm">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold shadow-sm ${
+                theme === 'nordic' ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 rounded-none' :
+                theme === 'vintage' ? 'bg-[#c05621] text-white' :
+                theme === 'sunset' ? 'bg-gradient-to-br from-rose-500 to-orange-500 text-white rounded-2xl' :
+                theme === 'roastery' ? 'bg-cyan-500 text-black shadow-[0_0_15px_rgba(2,132,199,0.5)]' :
+                theme === 'dark' ? 'bg-[#FAEA28] text-slate-950' :
+                'bg-[#FAEA28] text-slate-950'
+              }`}>
                 ☀
               </div>
-              <h3 className={`text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
-                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              <h3 className={`text-2xl font-bold uppercase ${themeAccentText} ${
+                theme === 'vintage' ? 'font-serif' : theme === 'nordic' ? 'font-mono' : 'font-oswald'
               }`}>
                 {t('about.vision_title')}
               </h3>
-              <p className="text-sm text-[#2076bd] dark:text-blue-300 leading-relaxed font-semibold">
+              <p className={`text-sm leading-relaxed font-semibold ${
+                theme === 'nordic' ? 'text-zinc-700 dark:text-zinc-300' :
+                theme === 'vintage' ? 'text-[#1b4d3e]' :
+                theme === 'sunset' ? 'text-rose-700' :
+                theme === 'roastery' ? 'text-cyan-300' :
+                theme === 'dark' ? 'text-[#FAEA28]' :
+                'text-[#2076bd] dark:text-blue-300'
+              }`}>
                 {t('about.vision_desc')}
               </p>
             </div>
@@ -829,14 +882,22 @@ export const About: React.FC = () => {
           theme === 'sunset' ? 'rounded-3xl bg-gradient-to-r from-rose-50 to-orange-50 border border-rose-200 shadow-md' :
           theme === 'vintage' ? 'rounded-lg bg-[#f2ebe0] border-2 border-[#e6ded1] font-serif' :
           theme === 'roastery' ? 'rounded-xl bg-[#0b1324] border border-cyan-500/40 shadow-[0_0_20px_rgba(2,132,199,0.2)]' :
+          theme === 'dark' ? 'rounded-2xl bg-[#0F172A] border border-slate-700 shadow-lg' :
           'rounded-2xl bg-[#f0f8ff] dark:bg-[#1e293b] border border-blue-100 dark:border-slate-800'
         }`}>
           <div className="space-y-2">
-            <span className="text-xs font-oswald uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
+            <span className={`text-xs uppercase tracking-widest font-bold ${
+              theme === 'nordic' ? 'font-mono text-zinc-600 dark:text-zinc-400' :
+              theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+              theme === 'sunset' ? 'font-sans text-rose-600' :
+              theme === 'roastery' ? 'font-mono text-cyan-400' :
+              theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+              'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+            }`}>
               {language === 'vi' ? 'CAM KẾT CHẤT LƯỢNG' : 'OUR PLEDGE'}
             </span>
-            <h3 className={`text-2xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
-              theme === 'vintage' ? 'font-serif' : 'font-oswald'
+            <h3 className={`text-2xl font-bold uppercase ${themeAccentText} ${
+              theme === 'vintage' ? 'font-serif' : theme === 'nordic' ? 'font-mono' : 'font-oswald'
             }`}>
               {t('about.contact_title')}
             </h3>
@@ -847,12 +908,19 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-gray-700 dark:text-gray-300 pt-2 border-t border-blue-200 dark:border-slate-700">
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-gray-700 dark:text-gray-300 pt-2 border-t ${
+            theme === 'nordic' ? 'border-zinc-300 dark:border-zinc-700' :
+            theme === 'vintage' ? 'border-[#e6ded1]' :
+            theme === 'sunset' ? 'border-rose-200' :
+            theme === 'roastery' ? 'border-cyan-500/20' :
+            theme === 'dark' ? 'border-slate-700' :
+            'border-blue-200 dark:border-slate-700'
+          }`}>
             <div className="space-y-2.5">
               <p><strong>{language === 'vi' ? 'Đơn vị chủ quản:' : 'Operating Company:'}</strong> {t('footer.company_name')}</p>
               <p><strong>{language === 'vi' ? 'Mã số doanh nghiệp (MST):' : 'Tax / Business Registration:'}</strong> 0313865203</p>
-              <p><strong>{language === 'vi' ? 'Hotline Chăm Sóc Khách Hàng:' : 'Customer Care Hotline:'}</strong> <a href="tel:0938084985" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">{brandInfo.hotline}</a></p>
-              <p><strong>{language === 'vi' ? 'Email chính thức:' : 'Official Email:'}</strong> <a href={`mailto:${brandInfo.email}`} className="text-[#2076bd] dark:text-[#3ba0e6] hover:underline">{brandInfo.email}</a></p>
+              <p><strong>{language === 'vi' ? 'Hotline Chăm Sóc Khách Hàng:' : 'Customer Care Hotline:'}</strong> <a href="tel:0938084985" className={`${themeAccentText} font-bold hover:underline`}>{brandInfo.hotline}</a></p>
+              <p><strong>{language === 'vi' ? 'Email chính thức:' : 'Official Email:'}</strong> <a href={`mailto:${brandInfo.email}`} className={`${themeAccentText} hover:underline`}>{brandInfo.email}</a></p>
             </div>
             <div className="space-y-2.5">
               <p><strong>{language === 'vi' ? 'Trụ sở điều hành Dolphy Hub:' : 'Headquarters & Training Hub:'}</strong> {brandInfo.mainAddress}</p>
@@ -860,9 +928,9 @@ export const About: React.FC = () => {
               <p><strong>{language === 'vi' ? 'Giờ mở cửa toàn chuỗi:' : 'Operating Hours:'}</strong> 06:30 - 22:30 hàng ngày</p>
               <p><strong>{language === 'vi' ? 'Kênh mạng xã hội:' : 'Social Channels:'}</strong> 
                 <span className="inline-flex items-center gap-2 ml-2">
-                  <a href={brandInfo.facebook} target="_blank" rel="noreferrer" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">Facebook</a> •
-                  <a href={brandInfo.instagram} target="_blank" rel="noreferrer" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">Instagram</a> •
-                  <a href={brandInfo.tiktok} target="_blank" rel="noreferrer" className="text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline">TikTok</a>
+                  <a href={brandInfo.facebook} target="_blank" rel="noreferrer" className={`${themeAccentText} font-bold hover:underline`}>Facebook</a> •
+                  <a href={brandInfo.instagram} target="_blank" rel="noreferrer" className={`${themeAccentText} font-bold hover:underline`}>Instagram</a> •
+                  <a href={brandInfo.tiktok} target="_blank" rel="noreferrer" className={`${themeAccentText} font-bold hover:underline`}>TikTok</a>
                 </span>
               </p>
             </div>

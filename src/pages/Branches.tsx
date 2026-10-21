@@ -23,13 +23,30 @@ export const Branches: React.FC = () => {
     <div className="space-y-12 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* Header */}
-      <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+      <section className={`reveal-on-scroll border-b text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden ${
+        theme === 'vintage' ? 'bg-[#1b4d3e] border-[#2d6a4f]' :
+        theme === 'nordic' ? 'bg-zinc-950 border-zinc-800' :
+        theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 border-rose-300' :
+        theme === 'roastery' ? 'bg-[#070a12] border-cyan-500/30' :
+        theme === 'dark' ? 'bg-[#0f172a] border-slate-800' :
+        'bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800'
+      }`}>
         <div className="max-w-7xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
+          <div className={`inline-flex items-center gap-1.5 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow ${
+            theme === 'nordic' ? 'rounded-none bg-white text-black font-mono border border-black' :
+            theme === 'sunset' ? 'rounded-full bg-white text-rose-600 font-oswald shadow-md' :
+            theme === 'vintage' ? 'rounded-md bg-[#c05621] text-white font-serif' :
+            theme === 'roastery' ? 'rounded-md bg-cyan-950 text-cyan-400 font-mono border border-cyan-500/40' :
+            'rounded bg-[#FAEA28] text-slate-950 font-oswald'
+          }`}>
             <MapPin size={13} />
             <span>{language === 'vi' ? 'HỆ THỐNG CHUỖI CỬA HÀNG DOLPHY CAFÉ' : 'DOLPHY CAFÉ STORE NETWORK'}</span>
           </div>
-          <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white leading-tight">
+          <h1 className={`text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white leading-tight ${
+            theme === 'vintage' ? 'font-serif' :
+            theme === 'nordic' ? 'font-oswald tracking-widest' :
+            'font-oswald'
+          }`}>
             {t('branches.hero_title')}
           </h1>
           <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto leading-relaxed">
@@ -48,9 +65,22 @@ export const Branches: React.FC = () => {
           theme === 'roastery' ? 'rounded-xl border-cyan-500/40 shadow-[0_0_25px_rgba(2,132,199,0.2)]' :
           'rounded-lg border-gray-200 dark:border-slate-800'
         }`}>
-          <div className="p-4 bg-[#2076bd] text-white flex items-center justify-between">
+          <div className={`p-4 text-white flex items-center justify-between ${
+            theme === 'vintage' ? 'bg-[#1b4d3e]' :
+            theme === 'roastery' ? 'bg-[#0b1324] border-b border-cyan-500/30 text-cyan-300' :
+            theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500' :
+            theme === 'nordic' ? 'bg-black text-white font-mono' :
+            theme === 'dark' ? 'bg-[#0f172a] text-amber-400 border-b border-slate-800' :
+            'bg-[#2076bd]'
+          }`}>
             <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-[#FAEA28]" />
+              <MapPin size={18} className={
+                theme === 'vintage' ? 'text-[#c05621]' :
+                theme === 'roastery' ? 'text-cyan-400' :
+                theme === 'sunset' ? 'text-white' :
+                theme === 'nordic' ? 'text-amber-500' :
+                'text-[#FAEA28]'
+              } />
               <span className="font-oswald text-sm font-bold uppercase tracking-wide">
                 {t('branches.map_box_title')}
               </span>
@@ -96,7 +126,12 @@ export const Branches: React.FC = () => {
                   'rounded font-oswald'
                 } ${
                   selectedArea === area.id
-                    ? 'bg-[#2076bd] text-white shadow'
+                    ? (theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black shadow' :
+                       theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md' :
+                       theme === 'vintage' ? 'bg-[#1b4d3e] text-white shadow' :
+                       theme === 'roastery' ? 'bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
+                       theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 shadow' :
+                       'bg-[#2076bd] text-white shadow')
                     : 'text-gray-600 dark:text-gray-300 hover:text-[#222222] dark:hover:text-white'
                 }`}
               >
@@ -372,27 +407,39 @@ export const Branches: React.FC = () => {
                         alt={branch.name}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
-                      <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white shadow">
+                      <span className={`absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow ${
+                        theme === 'dark' ? 'bg-[#FAEA28] text-slate-950' : 'bg-[#2076bd] text-white'
+                      }`}>
                         {areaLabel}
                       </span>
                     </div>
 
                     <div className="p-5 space-y-3">
-                      <h3 className="font-oswald text-lg font-bold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors uppercase leading-snug">
+                      <h3 className={`font-oswald text-lg font-bold uppercase leading-snug transition-colors ${
+                        theme === 'dark' 
+                          ? 'text-white group-hover:text-[#FAEA28]' 
+                          : 'text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6]'
+                      }`}>
                         {branch.name}
                       </h3>
 
                       <div className="space-y-2 text-xs text-gray-600 dark:text-gray-300">
                         <div className="flex items-start gap-2">
-                          <MapPin size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0 mt-0.5" />
+                          <MapPin size={15} className={`shrink-0 mt-0.5 ${
+                            theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                          }`} />
                           <span>{branch.address}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Clock size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
+                          <Clock size={15} className={`shrink-0 ${
+                            theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                          }`} />
                           <span>{hoursLabel}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Phone size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
+                          <Phone size={15} className={`shrink-0 ${
+                            theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                          }`} />
                           <span>{branch.phone}</span>
                         </div>
                       </div>
@@ -416,7 +463,11 @@ export const Branches: React.FC = () => {
                       href={`https://maps.google.com/?q=${encodeURIComponent(branch.address + ', TP. Hồ Chí Minh')}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full py-2.5 rounded bg-gray-50 dark:bg-slate-800 hover:bg-[#2076bd] dark:hover:bg-[#2076bd] text-[#2076bd] dark:text-[#3ba0e6] hover:text-white dark:hover:text-white border border-gray-200 dark:border-slate-700 text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5"
+                      className={`w-full py-2.5 rounded border text-xs font-oswald font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 ${
+                        theme === 'dark'
+                          ? 'bg-slate-800 hover:bg-[#FAEA28] text-amber-400 hover:text-slate-950 border-slate-700'
+                          : 'bg-gray-50 dark:bg-slate-800 hover:bg-[#2076bd] dark:hover:bg-[#2076bd] text-[#2076bd] dark:text-[#3ba0e6] hover:text-white dark:hover:text-white border-gray-200 dark:border-slate-700'
+                      }`}
                     >
                       <Navigation size={13} />
                       <span>{t('branches.get_directions')}</span>

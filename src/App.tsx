@@ -39,14 +39,23 @@ const ScrollToTop: React.FC = () => {
 
 const AppLayout: React.FC = () => {
   const location = useLocation();
+  const { theme } = useDolphy();
   const isAdmin = location.pathname.startsWith('/admin');
 
   // Activate hardware-accelerated scroll reveal & view transitions
   useScrollReveal();
 
+  const themeSelectionClass = 
+    theme === 'vintage' ? 'selection:bg-[#1b4d3e] selection:text-white' :
+    theme === 'roastery' ? 'selection:bg-cyan-500 selection:text-black' :
+    theme === 'sunset' ? 'selection:bg-rose-500 selection:text-white' :
+    theme === 'nordic' ? 'selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black' :
+    theme === 'dark' ? 'selection:bg-[#FAEA28] selection:text-slate-950' :
+    'selection:bg-[#2076bd] selection:text-white';
+
   const bgClasses = isAdmin
-    ? 'bg-[#f1f5f9] dark:bg-[#0b1329] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white'
-    : 'bg-[#f8fafc] dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] selection:bg-[#2076bd] selection:text-white';
+    ? `bg-[#f1f5f9] dark:bg-[#0b1329] text-[#222222] dark:text-[#f1f5f9] ${themeSelectionClass}`
+    : `bg-[#f8fafc] dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] ${themeSelectionClass}`;
 
   return (
     <div className={`min-h-screen flex flex-col ${bgClasses} transition-colors duration-200`}>

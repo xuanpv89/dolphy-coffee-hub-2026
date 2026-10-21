@@ -10,6 +10,14 @@ export const Academy: React.FC = () => {
 
   const currentCourse = coursesData.find(c => c.id === activeCourseId) || coursesData[0];
 
+  const themeAccentText = 
+    theme === 'vintage' ? 'text-[#1b4d3e]' :
+    theme === 'sunset' ? 'text-rose-600' :
+    theme === 'roastery' ? 'text-cyan-400' :
+    theme === 'nordic' ? 'text-black dark:text-white' :
+    theme === 'dark' ? 'text-[#FAEA28]' :
+    'text-[#2076bd] dark:text-[#3ba0e6]';
+
   const faqs = [
     {
       q: language === 'vi' ? 'Tôi chưa biết gì về cà phê hay pha chế thì có học được không?' : 'Can I take the course if I have zero prior coffee or barista knowledge?',
@@ -117,7 +125,14 @@ export const Academy: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs font-oswald uppercase tracking-wider px-1">
-            <span className="font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-1.5">
+            <span className={`font-bold flex items-center gap-1.5 ${
+              theme === 'vintage' ? 'text-[#1b4d3e]' :
+              theme === 'sunset' ? 'text-rose-600' :
+              theme === 'roastery' ? 'text-cyan-400' :
+              theme === 'nordic' ? 'text-black dark:text-white font-mono' :
+              theme === 'dark' ? 'text-[#FAEA28]' :
+              'text-[#2076bd] dark:text-[#3ba0e6]'
+            }`}>
               <GraduationCap size={16} />
               <span>{language === 'vi' ? '4 CHƯƠNG TRÌNH ĐÀO TẠO THỰC CHIẾN' : '4 DOLPHY TRAINING PROGRAMS'}</span>
             </span>
@@ -346,8 +361,13 @@ export const Academy: React.FC = () => {
                   {t('academy.duration')}: {language === 'en' && currentCourse.durationEn ? currentCourse.durationEn : currentCourse.duration}
                 </span>
               </div>
-              <h2 className={`text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
-                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              <h2 className={`text-2xl sm:text-3xl font-bold uppercase ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-oswald text-cyan-300' :
+                theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'en' && currentCourse.titleEn ? currentCourse.titleEn : currentCourse.title}
               </h2>
@@ -366,15 +386,27 @@ export const Academy: React.FC = () => {
               theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] shadow-[0_0_20px_rgba(2,132,199,0.2)] font-mono' :
               'bg-blue-50 dark:bg-slate-800/70 border border-blue-200 dark:border-slate-700 rounded-lg'
             }`}>
-              <h3 className={`text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
-                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              <h3 className={`text-base font-bold uppercase ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-300' :
+                theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {t('academy.benefits_title')}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-700 dark:text-gray-200">
                 {((language === 'en' && currentCourse.uspsEn) ? currentCourse.uspsEn : (currentCourse.usps || currentCourse.outcomes || [])).map((h, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <CheckCircle2 size={15} className="text-[#2076bd] dark:text-[#3ba0e6] shrink-0" />
+                    <CheckCircle2 size={15} className={`shrink-0 ${
+                      theme === 'vintage' ? 'text-[#1b4d3e]' :
+                      theme === 'sunset' ? 'text-rose-600' :
+                      theme === 'roastery' ? 'text-cyan-400' :
+                      theme === 'nordic' ? 'text-black dark:text-white' :
+                      theme === 'dark' ? 'text-[#FAEA28]' :
+                      'text-[#2076bd] dark:text-[#3ba0e6]'
+                    }`} />
                     <span>{h}</span>
                   </div>
                 ))}
@@ -471,26 +503,26 @@ export const Academy: React.FC = () => {
                 }`}>
                   {(currentCourse.discountPrice || currentCourse.price).toLocaleString('vi-VN')}₫
                 </div>
-                <div className="text-xs text-[#2076bd] dark:text-[#3ba0e6] font-bold font-oswald uppercase">
+                <div className={`text-xs font-bold font-oswald uppercase ${themeAccentText}`}>
                   {t('academy.deposit_amount')}: {(currentCourse.depositAmount || 2000000).toLocaleString('vi-VN')}₫
                 </div>
               </div>
 
               <div className="space-y-3 text-xs text-gray-600 dark:text-gray-300">
                 <div className="flex items-center gap-2">
-                  <Clock size={15} className="text-[#2076bd] dark:text-[#3ba0e6]" />
+                  <Clock size={15} className={themeAccentText} />
                   <span>{t('academy.duration')}: <strong>{language === 'en' && currentCourse.durationEn ? currentCourse.durationEn : currentCourse.duration}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users size={15} className="text-[#2076bd] dark:text-[#3ba0e6]" />
+                  <Users size={15} className={themeAccentText} />
                   <span>{language === 'vi' ? 'Quy mô:' : 'Cohort size:'} <strong>{language === 'vi' ? 'Tối đa 4 - 6 học viên/lớp' : 'Max 4 - 6 students/class'}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin size={15} className="text-[#2076bd] dark:text-[#3ba0e6]" />
+                  <MapPin size={15} className={themeAccentText} />
                   <span>{language === 'vi' ? 'Địa điểm:' : 'Location:'} <strong>{language === 'vi' ? 'Quầy bar Dolphy Thảo Điền' : 'Dolphy Thao Dien Live Bar'}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award size={15} className="text-[#2076bd] dark:text-[#3ba0e6]" />
+                  <Award size={15} className={themeAccentText} />
                   <span>{language === 'vi' ? 'Chứng chỉ:' : 'Certificate:'} <strong>Dolphy Academy Barista Certificate</strong></span>
                 </div>
               </div>
@@ -502,8 +534,8 @@ export const Academy: React.FC = () => {
                 theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 border border-cyan-500/30' :
                 'rounded bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-blue-900 dark:text-blue-200'
               }`}>
-                <p className="font-bold flex items-center gap-1.5 text-[#2076bd] dark:text-[#3ba0e6]">
-                  <Gift size={14} className="text-[#2076bd] dark:text-[#38bdf8]" />
+                <p className={`font-bold flex items-center gap-1.5 ${themeAccentText}`}>
+                  <Gift size={14} className={themeAccentText} />
                   {language === 'vi' ? 'Ưu đãi đăng ký sớm:' : 'Early Bird Privilege:'}
                 </p>
                 <p>{language === 'vi' ? 'Tặng kèm 1 áo Barista Dolphy + 1kg hạt Specialty tự luyện tập.' : 'Includes 1 Barista apron + 1kg specialty coffee for home training.'}</p>
@@ -524,7 +556,7 @@ export const Academy: React.FC = () => {
               </button>
 
               <div className="text-center text-[11px] text-gray-400 dark:text-gray-500">
-                {language === 'vi' ? 'Hỗ trợ tư vấn trực tiếp:' : 'Direct Consultation Hotline:'} <a href="tel:0938084985" className="text-[#2076bd] dark:text-[#3ba0e6] font-semibold">{brandInfo.hotline}</a>
+                {language === 'vi' ? 'Hỗ trợ tư vấn trực tiếp:' : 'Direct Consultation Hotline:'} <a href="tel:0938084985" className={`font-semibold ${themeAccentText}`}>{brandInfo.hotline}</a>
               </div>
             </div>
           </div>
@@ -536,7 +568,14 @@ export const Academy: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-3 reveal-on-scroll">
           <div>
-            <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+            <span className={`inline-block text-xs uppercase tracking-widest font-bold ${
+              theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+              theme === 'sunset' ? 'font-oswald text-rose-600' :
+              theme === 'roastery' ? 'font-mono text-cyan-400' :
+              theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+              theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+              'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+            }`}>
               {language === 'vi' ? 'HỌC VIỆN & SÂN CHƠI CHUYÊN NGHIỆP' : 'ACADEMY & CHAMPIONSHIP'}
             </span>
           </div>
@@ -566,7 +605,14 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+              <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-zinc-500' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
                 {language === 'vi' ? 'Sân Chơi Thường Niên' : 'Annual Championship'}
               </span>
               <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
@@ -597,7 +643,14 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+              <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-zinc-500' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
                 {language === 'vi' ? 'Kỹ Năng Đỉnh Cao' : 'Masterful Skills'}
               </span>
               <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
@@ -628,7 +681,14 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+              <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-zinc-500' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
                 {language === 'vi' ? 'Vinh Danh Tài Năng' : 'Trophy Ceremony'}
               </span>
               <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
@@ -659,7 +719,14 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+              <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-zinc-500' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
                 {language === 'vi' ? 'Quy Trình Chuẩn Hóa' : 'Standardized Bracket'}
               </span>
               <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
@@ -690,7 +757,14 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+              <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-zinc-500' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
                 {language === 'vi' ? 'Cảm Quan Hương Vị' : 'Sensory Evaluation'}
               </span>
               <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
@@ -721,7 +795,14 @@ export const Academy: React.FC = () => {
               />
             </div>
             <div className="p-4 space-y-1">
-              <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+              <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-zinc-500' :
+                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
                 {language === 'vi' ? 'Thực Hành Trực Tiếp' : 'Live Station Practice'}
               </span>
               <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
@@ -766,8 +847,13 @@ export const Academy: React.FC = () => {
                 theme === 'roastery' ? 'rounded-xl border border-cyan-500/30 bg-[#0b1324] font-mono' :
                 'bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm'
               }`}>
-                <h4 className={`text-base font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-2 ${
-                  theme === 'vintage' ? 'font-serif' : 'font-oswald'
+                <h4 className={`text-base font-bold flex items-center gap-2 ${
+                  theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                  theme === 'sunset' ? 'font-oswald text-rose-600' :
+                  theme === 'roastery' ? 'font-mono text-cyan-300' :
+                  theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                  theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                  'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
                 }`}>
                   <span>Q{idx + 1}:</span> {faq.q}
                 </h4>

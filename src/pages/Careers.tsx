@@ -8,6 +8,14 @@ export const Careers: React.FC = () => {
   const [selectedDept, setSelectedDept] = React.useState<string>('all');
   const [searchJob, setSearchJob] = React.useState<string>('');
 
+  const themeAccentText = 
+    theme === 'vintage' ? 'text-[#1b4d3e]' :
+    theme === 'sunset' ? 'text-rose-600' :
+    theme === 'roastery' ? 'text-cyan-400' :
+    theme === 'nordic' ? 'text-black dark:text-white' :
+    theme === 'dark' ? 'text-[#FAEA28]' :
+    'text-[#2076bd] dark:text-[#3ba0e6]';
+
   const departments = [
     { id: 'all', name: language === 'vi' ? 'Tất cả vị trí' : 'All Roles', count: jobsData.length },
     { id: 'Khối Cửa Hàng', name: language === 'vi' ? 'Khối Cửa Hàng' : 'Store Ops', count: jobsData.filter(j => j.department.includes('Cửa Hàng')).length },
@@ -212,10 +220,14 @@ export const Careers: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 reveal-stagger">
             {perks.map((p, idx) => (
               <div key={idx} className="p-6 rounded-lg bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 shadow-sm text-center space-y-3 hover-lift">
-                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] flex items-center justify-center mx-auto text-2xl font-bold">
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto text-2xl font-bold ${
+                  theme === 'dark' ? 'bg-slate-800 text-[#FAEA28]' : 'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
+                }`}>
                   {p.icon}
                 </div>
-                <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+                <h3 className={`font-oswald text-base font-bold uppercase ${
+                  theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                }`}>
                   {p.title}
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -231,7 +243,11 @@ export const Careers: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-3 reveal-on-scroll">
           <div>
-            <span className="inline-block text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+            <span className={`inline-block text-xs uppercase tracking-widest font-bold ${themeAccentText} ${
+              theme === 'vintage' ? 'font-serif' :
+              theme === 'nordic' ? 'font-mono' :
+              'font-oswald'
+            }`}>
               {language === 'vi' ? 'CON NGƯỜI & VĂN HÓA DOANH NGHIỆP' : 'PEOPLE & CULTURE'}
             </span>
           </div>
@@ -333,7 +349,7 @@ export const Careers: React.FC = () => {
       {/* Open Positions - Layout Shifts per Theme */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="space-y-1 reveal-on-scroll">
-          <h2 className={`text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
+          <h2 className={`text-2xl sm:text-3xl font-bold uppercase ${themeAccentText} ${
             theme === 'vintage' ? 'font-serif' : 'font-oswald'
           }`}>
             {t('careers.open_positions')}
@@ -745,7 +761,9 @@ export const Careers: React.FC = () => {
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-100 dark:border-slate-800">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-[#2076bd] dark:text-[#3ba0e6]">
+                          <span className={`text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                            theme === 'dark' ? 'bg-slate-800 text-[#FAEA28]' : 'bg-blue-50 dark:bg-blue-950/40 text-[#2076bd] dark:text-[#3ba0e6]'
+                          }`}>
                             {jType}
                           </span>
                           <span className="text-[10px] font-oswald font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAEA28] text-slate-950 shadow-xs">
@@ -759,7 +777,9 @@ export const Careers: React.FC = () => {
 
                       <div className="text-right">
                         <span className="text-xs text-gray-400 dark:text-gray-500 block font-oswald">{t('careers.income')}</span>
-                        <span className="font-oswald text-lg font-bold text-[#2076bd] dark:text-[#3ba0e6]">
+                        <span className={`font-oswald text-lg font-bold ${
+                          theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                        }`}>
                           {jSalary}
                         </span>
                       </div>
@@ -772,7 +792,9 @@ export const Careers: React.FC = () => {
                         
                         {jBenefits && jBenefits.length > 0 && (
                           <div className="pt-2">
-                            <h5 className="font-oswald text-xs font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] mb-1">{t('careers.job_benefits')}</h5>
+                            <h5 className={`font-oswald text-xs font-bold uppercase mb-1 ${
+                              theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                            }`}>{t('careers.job_benefits')}</h5>
                             <ul className="list-disc list-inside space-y-1 pl-1">
                               {jBenefits.map((b, i) => (
                                 <li key={i}>{b}</li>
@@ -799,7 +821,11 @@ export const Careers: React.FC = () => {
 
                       <button
                         onClick={() => setApplyingJob(job)}
-                        className="w-full sm:w-auto px-6 py-2.5 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs font-semibold uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-2 cursor-pointer"
+                        className={`w-full sm:w-auto px-6 py-2.5 rounded font-oswald text-xs font-semibold uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-2 cursor-pointer ${
+                          theme === 'dark'
+                            ? 'bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950 font-bold'
+                            : 'bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white'
+                        }`}
                       >
                         <Send size={14} />
                         <span>{t('careers.apply_now')}</span>

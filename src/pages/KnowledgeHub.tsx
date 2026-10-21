@@ -111,6 +111,7 @@ export const KnowledgeHub: React.FC = () => {
                        theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md' :
                        theme === 'vintage' ? 'bg-[#1b4d3e] text-white shadow' :
                        theme === 'roastery' ? 'bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
+                       theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 font-bold shadow' :
                        'bg-[#2076bd] text-white shadow')
                     : 'bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'
                 }`}
@@ -131,6 +132,7 @@ export const KnowledgeHub: React.FC = () => {
                 theme === 'sunset' ? 'rounded-full border-rose-200 bg-white text-gray-800' :
                 theme === 'vintage' ? 'rounded border-[#e6ded1] bg-[#faf6f0] text-[#221e1a] font-serif' :
                 theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
+                theme === 'dark' ? 'rounded border-slate-700 bg-slate-900 text-white focus:border-[#FAEA28]' :
                 'rounded border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-800 dark:text-white focus:border-[#2076bd]'
               }`}
             />
@@ -375,7 +377,9 @@ export const KnowledgeHub: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <span className="absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2076bd] text-white shadow">
+                      <span className={`absolute top-3 left-3 text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow ${
+                        theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 font-extrabold' : 'bg-[#2076bd] text-white'
+                      }`}>
                         {articleCategory}
                       </span>
                     </div>
@@ -387,7 +391,9 @@ export const KnowledgeHub: React.FC = () => {
                         <span className="flex items-center gap-1"><Clock size={12} /> {articleReadTime}</span>
                       </div>
 
-                      <h3 className="font-oswald text-lg font-bold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors leading-snug line-clamp-2 uppercase">
+                      <h3 className={`font-oswald text-lg font-bold text-[#222222] dark:text-white transition-colors leading-snug line-clamp-2 uppercase ${
+                        theme === 'dark' ? 'group-hover:text-[#FAEA28]' : 'group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6]'
+                      }`}>
                         {articleTitle}
                       </h3>
 
@@ -399,7 +405,9 @@ export const KnowledgeHub: React.FC = () => {
 
                   <div className="p-5 pt-0 border-t border-gray-100 dark:border-slate-800 mt-2 flex items-center justify-between text-xs text-gray-400 dark:text-gray-500">
                     <span>{art.author}</span>
-                    <span className="font-oswald text-[#2076bd] dark:text-[#3ba0e6] font-semibold group-hover:underline flex items-center gap-1">
+                    <span className={`font-oswald font-semibold group-hover:underline flex items-center gap-1 ${
+                      theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'
+                    }`}>
                       <span>{t('knowledge.read_more')}</span>
                       <ArrowRight size={13} />
                     </span>
@@ -432,6 +440,7 @@ export const KnowledgeHub: React.FC = () => {
                   theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-white text-[#271a17]' :
                   theme === 'vintage' ? 'rounded-lg border-2 border-[#1b4d3e] bg-[#faf6f0] font-serif text-[#221e1a]' :
                   theme === 'roastery' ? 'rounded-xl border border-cyan-500/50 bg-[#0b1324] font-mono text-white shadow-[0_0_30px_rgba(2,132,199,0.3)]' :
+                  theme === 'dark' ? 'rounded-2xl border border-slate-700 bg-[#0F172A] text-white shadow-2xl' :
                   'bg-white dark:bg-[#1e293b] rounded-2xl border border-gray-100 dark:border-slate-700/60 text-[#222222] dark:text-white'
                 }`}
               >
@@ -449,6 +458,7 @@ export const KnowledgeHub: React.FC = () => {
                     theme === 'sunset' ? 'rounded-full bg-rose-500 text-white font-oswald' :
                     theme === 'vintage' ? 'rounded bg-[#1b4d3e] text-white font-serif' :
                     theme === 'roastery' ? 'rounded bg-cyan-950 text-cyan-400 border border-cyan-500/40' :
+                    theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 font-oswald rounded font-bold' :
                     'bg-[#2076bd] text-white font-oswald rounded'
                   }`}>
                     {modalCategory}
@@ -457,6 +467,8 @@ export const KnowledgeHub: React.FC = () => {
                     theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
                     theme === 'sunset' ? 'font-oswald text-[#e11d48]' :
                     theme === 'roastery' ? 'font-oswald text-[#38bdf8]' :
+                    theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                    theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
                     'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
                   }`}>
                     {modalTitle}

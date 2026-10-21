@@ -63,6 +63,7 @@ export const CheckoutModal: React.FC = () => {
           theme === 'vintage' ? 'bg-[#1b4d3e] border-b-2 border-[#2d6a4f] text-[#faf6f0] font-serif' :
           theme === 'roastery' ? 'bg-[#0b1324] border-b border-cyan-500/40 text-cyan-300 font-mono shadow-[0_0_20px_rgba(2,132,199,0.2)]' :
           theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 to-orange-500 font-oswald' :
+          theme === 'dark' ? 'bg-[#0F172A] border-b border-slate-700 text-[#FAEA28] font-oswald' :
           'bg-[#2076bd] font-oswald'
         }`}>
           <div className="flex items-center gap-2">
@@ -90,6 +91,7 @@ export const CheckoutModal: React.FC = () => {
                 theme === 'vintage' ? 'bg-[#f2ebe0] text-[#1b4d3e]' :
                 theme === 'roastery' ? 'bg-cyan-950 text-cyan-400 border border-cyan-500/30' :
                 theme === 'sunset' ? 'bg-rose-50 text-rose-600' :
+                theme === 'dark' ? 'bg-slate-800 text-[#FAEA28]' :
                 'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 <CheckCircle2 size={36} />
@@ -100,6 +102,7 @@ export const CheckoutModal: React.FC = () => {
                   theme === 'roastery' ? 'font-oswald text-cyan-300' :
                   theme === 'sunset' ? 'font-oswald text-rose-600' :
                   theme === 'nordic' ? 'font-oswald text-black dark:text-white' :
+                  theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
                   'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
                 }`}>
                   {t('checkout.success_title')}
@@ -112,6 +115,7 @@ export const CheckoutModal: React.FC = () => {
                   theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] border-[#e6ded1]' :
                   theme === 'roastery' ? 'rounded-lg bg-cyan-950 text-cyan-400 border-cyan-500/40' :
                   theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 border-rose-200' :
+                  theme === 'dark' ? 'rounded-md bg-slate-800 text-[#FAEA28] border-slate-700' :
                   'rounded-full bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] border-blue-200 dark:border-slate-700'
                 }`}>
                   {t('checkout.order_id_lbl')} {createdOrder.id}
@@ -124,6 +128,7 @@ export const CheckoutModal: React.FC = () => {
                   theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-white font-serif' :
                   theme === 'roastery' ? 'rounded-xl border border-cyan-500/30 bg-[#0b1324] font-mono' :
                   theme === 'sunset' ? 'rounded-2xl border border-rose-100 bg-white' :
+                  theme === 'dark' ? 'rounded-xl bg-slate-900 border border-slate-700' :
                   'rounded-xl bg-white dark:bg-slate-900 border border-blue-100 dark:border-slate-700'
                 }`}>
                   <div className={`flex items-center justify-center gap-2 font-bold text-sm ${
@@ -131,6 +136,7 @@ export const CheckoutModal: React.FC = () => {
                     theme === 'roastery' ? 'text-cyan-400' :
                     theme === 'sunset' ? 'text-rose-600' :
                     theme === 'nordic' ? 'text-black dark:text-white' :
+                    theme === 'dark' ? 'text-[#FAEA28]' :
                     'text-[#2076bd] dark:text-[#3ba0e6]'
                   }`}>
                     <QrCode size={18} />
@@ -238,6 +244,7 @@ export const CheckoutModal: React.FC = () => {
                   theme === 'roastery' ? 'text-cyan-400 font-mono' :
                   theme === 'sunset' ? 'text-rose-600 font-oswald' :
                   theme === 'nordic' ? 'text-black dark:text-white font-mono' :
+                  theme === 'dark' ? 'text-[#FAEA28] font-oswald' :
                   'text-[#2076bd] dark:text-[#3ba0e6] font-oswald'
                 }`}>
                   <span>{t('checkout.customer_header')}</span>
@@ -258,6 +265,7 @@ export const CheckoutModal: React.FC = () => {
                         theme === 'vintage' ? 'rounded border-[#e6ded1] bg-white text-[#221e1a] font-serif' :
                         theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
                         theme === 'sunset' ? 'rounded-2xl border-rose-200 bg-white text-[#271a17] focus:border-rose-400' :
+                        theme === 'dark' ? 'rounded-lg border-slate-700 bg-slate-900 text-white focus:border-[#FAEA28]' :
                         'rounded-xl border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:border-[#2076bd]'
                       }`}
                     />
@@ -277,6 +285,7 @@ export const CheckoutModal: React.FC = () => {
                         theme === 'vintage' ? 'rounded border-[#e6ded1] bg-white text-[#221e1a] font-serif' :
                         theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
                         theme === 'sunset' ? 'rounded-2xl border-rose-200 bg-white text-[#271a17] focus:border-rose-400' :
+                        theme === 'dark' ? 'rounded-lg border-slate-700 bg-slate-900 text-white focus:border-[#FAEA28]' :
                         'rounded-xl border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:border-[#2076bd]'
                       }`}
                     />
@@ -297,6 +306,7 @@ export const CheckoutModal: React.FC = () => {
                       theme === 'vintage' ? 'rounded border-[#e6ded1] bg-white text-[#221e1a] font-serif' :
                       theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
                       theme === 'sunset' ? 'rounded-2xl border-rose-200 bg-white text-[#271a17] focus:border-rose-400' :
+                      theme === 'dark' ? 'rounded-lg border-slate-700 bg-slate-900 text-white focus:border-[#FAEA28]' :
                       'rounded-xl border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:border-[#2076bd]'
                     }`}
                   />
@@ -317,6 +327,7 @@ export const CheckoutModal: React.FC = () => {
                       theme === 'vintage' ? 'rounded border-[#e6ded1] bg-white text-[#221e1a] font-serif' :
                       theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
                       theme === 'sunset' ? 'rounded-2xl border-rose-200 bg-white text-[#271a17] focus:border-rose-400' :
+                      theme === 'dark' ? 'rounded-lg border-slate-700 bg-slate-900 text-white focus:border-[#FAEA28]' :
                       'rounded-xl border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:border-[#2076bd]'
                     }`}
                   />
@@ -336,6 +347,7 @@ export const CheckoutModal: React.FC = () => {
                       theme === 'vintage' ? 'rounded border-[#e6ded1] bg-white text-[#221e1a] font-serif' :
                       theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
                       theme === 'sunset' ? 'rounded-2xl border-rose-200 bg-white text-[#271a17] focus:border-rose-400' :
+                      theme === 'dark' ? 'rounded-lg border-slate-700 bg-slate-900 text-white focus:border-[#FAEA28]' :
                       'rounded-xl border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:border-[#2076bd]'
                     }`}
                   />
@@ -349,6 +361,7 @@ export const CheckoutModal: React.FC = () => {
                   theme === 'roastery' ? 'text-cyan-400 font-mono' :
                   theme === 'sunset' ? 'text-rose-600 font-oswald' :
                   theme === 'nordic' ? 'text-black dark:text-white font-mono' :
+                  theme === 'dark' ? 'text-[#FAEA28] font-oswald' :
                   'text-[#2076bd] dark:text-[#3ba0e6] font-oswald'
                 }`}>
                   {t('checkout.payment_header')}
@@ -367,6 +380,7 @@ export const CheckoutModal: React.FC = () => {
                            theme === 'vintage' ? 'border-[#1b4d3e] ring-2 ring-[#1b4d3e] bg-[#f2ebe0]' :
                            theme === 'roastery' ? 'border-cyan-400 ring-2 ring-cyan-400 bg-slate-900' :
                            theme === 'sunset' ? 'border-rose-500 ring-2 ring-rose-500 bg-rose-50' :
+                           theme === 'dark' ? 'border-[#FAEA28] bg-slate-800 ring-2 ring-[#FAEA28]' :
                            'border-[#2076bd] bg-blue-50/50 dark:bg-slate-800 ring-2 ring-[#2076bd]')
                         : 'border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-gray-50'
                     }`}
@@ -376,7 +390,7 @@ export const CheckoutModal: React.FC = () => {
                       name="payment"
                       checked={paymentMethod === 'vietqr'}
                       onChange={() => setPaymentMethod('vietqr')}
-                      className="accent-[#2076bd]"
+                      className={theme === 'dark' ? 'accent-[#FAEA28]' : 'accent-[#2076bd]'}
                     />
                     <div>
                       <div className="font-bold text-xs flex items-center gap-1.5">
@@ -384,6 +398,7 @@ export const CheckoutModal: React.FC = () => {
                           theme === 'vintage' ? 'text-[#1b4d3e]' :
                           theme === 'roastery' ? 'text-cyan-400' :
                           theme === 'sunset' ? 'text-rose-600' :
+                          theme === 'dark' ? 'text-[#FAEA28]' :
                           'text-[#2076bd] dark:text-[#3ba0e6]'
                         } />
                         <span>{t('checkout.pay_vietqr')}</span>
@@ -405,6 +420,7 @@ export const CheckoutModal: React.FC = () => {
                            theme === 'vintage' ? 'border-[#1b4d3e] ring-2 ring-[#1b4d3e] bg-[#f2ebe0]' :
                            theme === 'roastery' ? 'border-cyan-400 ring-2 ring-cyan-400 bg-slate-900' :
                            theme === 'sunset' ? 'border-rose-500 ring-2 ring-rose-500 bg-rose-50' :
+                           theme === 'dark' ? 'border-[#FAEA28] bg-slate-800 ring-2 ring-[#FAEA28]' :
                            'border-[#2076bd] bg-blue-50/50 dark:bg-slate-800 ring-2 ring-[#2076bd]')
                         : 'border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-gray-50'
                     }`}
@@ -414,7 +430,7 @@ export const CheckoutModal: React.FC = () => {
                       name="payment"
                       checked={paymentMethod === 'cod'}
                       onChange={() => setPaymentMethod('cod')}
-                      className="accent-[#2076bd]"
+                      className={theme === 'dark' ? 'accent-[#FAEA28]' : 'accent-[#2076bd]'}
                     />
                     <div>
                       <div className="font-bold text-xs flex items-center gap-1.5">
@@ -422,6 +438,7 @@ export const CheckoutModal: React.FC = () => {
                           theme === 'vintage' ? 'text-[#1b4d3e]' :
                           theme === 'roastery' ? 'text-cyan-400' :
                           theme === 'sunset' ? 'text-rose-600' :
+                          theme === 'dark' ? 'text-[#FAEA28]' :
                           'text-[#2076bd] dark:text-[#3ba0e6]'
                         } />
                         <span>{t('checkout.pay_cod')}</span>
@@ -441,6 +458,7 @@ export const CheckoutModal: React.FC = () => {
                     theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
                     theme === 'roastery' ? 'rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)]' :
                     theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald shadow-lg shadow-rose-500/25' :
+                    theme === 'dark' ? 'rounded-lg bg-[#FAEA28] hover:bg-amber-300 text-slate-950 font-oswald font-bold' :
                     'rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald'
                   }`}
                 >

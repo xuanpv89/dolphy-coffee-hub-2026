@@ -116,37 +116,81 @@ export const Navbar: React.FC = () => {
     mobileMenuOpen && (
       <div className={`lg:hidden border-b px-4 pt-2 pb-4 space-y-2 shadow-lg transition-all ${
         theme === 'roastery'
-          ? 'bg-slate-950/95 border-slate-800 text-slate-100'
+          ? 'bg-slate-950/95 border-slate-800 text-slate-100 font-mono'
           : theme === 'vintage'
-          ? 'bg-[#faf6f0] border-[#e6ded1] text-[#221e1a]'
+          ? 'bg-[#faf6f0] border-[#e6ded1] text-[#221e1a] font-serif'
           : theme === 'nordic'
-          ? 'bg-white border-black text-black'
+          ? 'bg-white border-black text-black font-mono'
           : theme === 'sunset'
           ? 'bg-[#fff8f5] border-rose-200 text-[#271a17]'
+          : theme === 'dark'
+          ? 'bg-[#0F172A] border-slate-800 text-slate-100'
           : 'bg-white dark:bg-[#1e293b] border-gray-200 dark:border-slate-800 text-[#222222] dark:text-[#f1f5f9]'
       }`}>
-        <div className="pb-2 border-b border-gray-100 dark:border-slate-800">
+        <div className={`pb-2 border-b ${
+          theme === 'roastery' ? 'border-cyan-500/20' :
+          theme === 'vintage' ? 'border-[#e6ded1]' :
+          theme === 'nordic' ? 'border-zinc-300' :
+          theme === 'sunset' ? 'border-rose-100' :
+          theme === 'dark' ? 'border-slate-800' :
+          'border-gray-100 dark:border-slate-800'
+        }`}>
           <input
             type="text"
             placeholder={t('nav.search_placeholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:border-[#2076bd]"
+            className={`w-full px-3 py-2 text-xs focus:outline-none transition-colors ${
+              theme === 'roastery' ? 'rounded-lg border border-cyan-500/30 bg-slate-900 text-cyan-200 focus:border-cyan-400 font-mono' :
+              theme === 'vintage' ? 'rounded border border-[#e6ded1] bg-[#f5efe4] text-[#221e1a] focus:border-[#1b4d3e] font-serif' :
+              theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 bg-white text-black focus:border-black font-mono' :
+              theme === 'sunset' ? 'rounded-full border border-rose-200 bg-white text-[#271a17] focus:border-rose-500' :
+              theme === 'dark' ? 'rounded-lg border border-slate-700 bg-slate-900 text-slate-100 focus:border-[#FAEA28]' :
+              'rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 focus:border-[#2076bd]'
+            }`}
           />
         </div>
 
-        <div className="flex items-center justify-between py-1 px-1 border-b border-gray-100 dark:border-slate-800 text-xs">
+        <div className={`flex items-center justify-between py-1 px-1 border-b text-xs ${
+          theme === 'roastery' ? 'border-cyan-500/20' :
+          theme === 'vintage' ? 'border-[#e6ded1]' :
+          theme === 'nordic' ? 'border-zinc-300' :
+          theme === 'sunset' ? 'border-rose-100' :
+          theme === 'dark' ? 'border-slate-800' :
+          'border-gray-100 dark:border-slate-800'
+        }`}>
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold"
+            className={`flex items-center gap-1.5 py-1 px-2.5 font-semibold transition-colors ${
+              theme === 'roastery' ? 'rounded-lg bg-slate-900 text-cyan-300 border border-cyan-500/30 font-mono' :
+              theme === 'vintage' ? 'rounded bg-[#f5efe4] text-[#1b4d3e] border border-[#e6ded1] font-serif' :
+              theme === 'nordic' ? 'rounded-none bg-zinc-100 text-black border border-black font-mono' :
+              theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-700 border border-rose-200' :
+              theme === 'dark' ? 'rounded-md bg-slate-800 text-[#FAEA28] border border-slate-700 font-oswald' :
+              'rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200'
+            }`}
           >
-            <Globe size={13} className="text-[#2076bd]" />
+            <Globe size={13} className={
+              theme === 'roastery' ? 'text-cyan-400' :
+              theme === 'vintage' ? 'text-[#1b4d3e]' :
+              theme === 'nordic' ? 'text-black' :
+              theme === 'sunset' ? 'text-rose-500' :
+              theme === 'dark' ? 'text-[#FAEA28]' :
+              'text-[#2076bd]'
+            } />
             <span>{language === 'vi' ? 'Tiếng Việt (VI)' : 'English (EN)'}</span>
           </button>
 
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold"
+            className={`flex items-center gap-1.5 py-1 px-2.5 font-semibold transition-colors ${
+              theme === 'roastery' ? 'rounded-lg bg-slate-900 text-cyan-300 border border-cyan-500/30 font-mono' :
+              theme === 'vintage' ? 'rounded bg-[#f5efe4] text-[#1b4d3e] border border-[#e6ded1] font-serif' :
+              theme === 'nordic' ? 'rounded-none bg-zinc-100 text-black border border-black font-mono' :
+              theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-700 border border-rose-200' :
+              theme === 'dark' ? 'rounded-md bg-slate-800 text-[#FAEA28] border border-slate-700 font-oswald' :
+              'rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200'
+            }`}
             title={language === 'vi' ? 'Nhấn để chuyển theme tiếp theo' : 'Click to cycle themes'}
           >
             {renderThemeIcon(theme, 13)}
@@ -176,39 +220,56 @@ export const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {navLinks.map((link) => (
-          <div key={link.name}>
-            {link.external ? (
-              <a
-                href={link.path}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2 px-3 text-sm font-oswald text-gray-700 dark:text-gray-200 hover:text-[#2076bd] hover:bg-gray-50 dark:hover:bg-slate-800 rounded"
-              >
-                <span>{link.name}</span>
-                <ExternalLink size={14} />
-              </a>
-            ) : (
-              <Link
-                to={link.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between py-2 px-3 text-sm font-oswald rounded ${
-                  isActive(link.path)
-                    ? 'text-[#2076bd] font-semibold bg-blue-50/50 dark:bg-slate-800'
-                    : 'text-gray-700 dark:text-gray-200 hover:text-[#2076bd] hover:bg-gray-50 dark:hover:bg-slate-800'
-                }`}
-              >
-                <span>{link.name}</span>
-                {link.badge && (
-                  <span className="bg-[#FAEA28] text-slate-950 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase">
-                    {link.badge}
-                  </span>
-                )}
-              </Link>
-            )}
-          </div>
-        ))}
+        {navLinks.map((link) => {
+          const active = isActive(link.path);
+          const activeClasses = 
+            theme === 'roastery' ? 'bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/40 shadow-[0_0_10px_rgba(6,182,212,0.3)]' :
+            theme === 'vintage' ? 'text-[#1b4d3e] font-bold bg-[#1b4d3e]/10 italic border-l-2 border-[#1b4d3e]' :
+            theme === 'nordic' ? 'font-bold bg-zinc-100 text-black border-l-2 border-black underline' :
+            theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white font-bold shadow-md shadow-rose-500/20 rounded-full' :
+            theme === 'dark' ? 'text-[#FAEA28] font-bold bg-slate-800 border-l-2 border-[#FAEA28]' :
+            'text-[#2076bd] font-semibold bg-blue-50/50 dark:bg-slate-800';
+
+          const inactiveClasses =
+            theme === 'roastery' ? 'text-slate-300 hover:text-cyan-300 hover:bg-slate-900/60 font-mono' :
+            theme === 'vintage' ? 'text-[#4a4239] hover:text-[#1b4d3e] hover:bg-[#f5efe4] font-serif' :
+            theme === 'nordic' ? 'text-zinc-600 hover:text-black hover:bg-zinc-100 font-mono' :
+            theme === 'sunset' ? 'text-zinc-700 hover:text-rose-600 hover:bg-rose-50' :
+            theme === 'dark' ? 'text-slate-300 hover:text-[#FAEA28] hover:bg-slate-800' :
+            'text-gray-700 dark:text-gray-200 hover:text-[#2076bd] hover:bg-gray-50 dark:hover:bg-slate-800';
+
+          return (
+            <div key={link.name}>
+              {link.external ? (
+                <a
+                  href={link.path}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center justify-between py-2 px-3 text-sm font-oswald rounded transition-colors ${inactiveClasses}`}
+                >
+                  <span>{link.name}</span>
+                  <ExternalLink size={14} />
+                </a>
+              ) : (
+                <Link
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center justify-between py-2 px-3 text-sm font-oswald rounded transition-colors ${
+                    active ? activeClasses : inactiveClasses
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {link.badge && (
+                    <span className="bg-[#FAEA28] text-slate-950 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase">
+                      {link.badge}
+                    </span>
+                  )}
+                </Link>
+              )}
+            </div>
+          );
+        })}
 
         {!isStandalone && (
           <button
@@ -216,7 +277,14 @@ export const Navbar: React.FC = () => {
               setMobileMenuOpen(false);
               installPwa();
             }}
-            className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#2076bd] text-white text-xs font-oswald uppercase tracking-wider font-bold transition-all shadow-sm"
+            className={`w-full flex items-center justify-center gap-2 py-2.5 px-3 text-xs uppercase tracking-wider font-bold transition-all shadow-sm ${
+              theme === 'roastery' ? 'rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
+              theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#143d31] text-white font-serif' :
+              theme === 'nordic' ? 'rounded-none bg-black hover:bg-zinc-800 text-white font-mono' :
+              theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-sans shadow-md shadow-rose-500/25' :
+              theme === 'dark' ? 'rounded-lg bg-[#FAEA28] hover:bg-amber-300 text-slate-950 font-oswald' :
+              'rounded-lg bg-[#2076bd] hover:bg-[#18629e] text-white font-oswald'
+            }`}
           >
             <Download size={14} />
             <span>{language === 'vi' ? 'Cài Đặt Ứng Dụng Dolphy' : 'Install Dolphy App'}</span>
@@ -542,29 +610,35 @@ export const Navbar: React.FC = () => {
                 placeholder={t('nav.search_placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-44 lg:w-60 pl-3 pr-8 py-1.5 text-xs rounded-full border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:border-[#2076bd] dark:focus:border-[#3ba0e6] transition-colors"
+                className={`w-44 lg:w-60 pl-3 pr-8 py-1.5 text-xs rounded-full border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 focus:outline-none transition-colors ${
+                  theme === 'dark' ? 'focus:border-[#FAEA28]' : 'focus:border-[#2076bd] dark:focus:border-[#3ba0e6]'
+                }`}
               />
-              <button className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#2076bd]">
+              <button className={`absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 ${
+                theme === 'dark' ? 'hover:text-[#FAEA28]' : 'hover:text-[#2076bd]'
+              }`}>
                 <Search size={14} />
               </button>
             </div>
 
             {/* Hotline */}
             <div className="hidden xl:flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-300">
-              <PhoneCall size={13} className="text-[#2076bd] dark:text-[#3ba0e6]" />
-              <span>{t('nav.hotline')}: <strong className="text-[#2076bd] dark:text-[#3ba0e6]">{brandInfo.hotline}</strong></span>
+              <PhoneCall size={13} className={theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
+              <span>{t('nav.hotline')}: <strong className={theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}>{brandInfo.hotline}</strong></span>
             </div>
 
             {/* Language Switcher Button (VI / EN) */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1 px-2 py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 hover:border-[#2076bd] text-gray-700 dark:text-gray-200 transition-colors text-[11px] sm:text-xs font-bold font-oswald tracking-wider"
+              className={`flex items-center gap-1 px-2 py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-200 transition-colors text-[11px] sm:text-xs font-bold font-oswald tracking-wider ${
+                theme === 'dark' ? 'hover:border-[#FAEA28]' : 'hover:border-[#2076bd]'
+              }`}
               title={language === 'vi' ? 'Chuyển sang Tiếng Anh (Switch to English)' : 'Switch to Vietnamese (Chuyển sang Tiếng Việt)'}
             >
-              <Globe size={12} className="text-[#2076bd] dark:text-[#3ba0e6]" />
-              <span className={language === 'vi' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>VI</span>
+              <Globe size={12} className={theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
+              <span className={language === 'vi' ? (theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]') : 'text-gray-400 dark:text-gray-500'}>VI</span>
               <span className="text-gray-300 dark:text-gray-600">/</span>
-              <span className={language === 'en' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>EN</span>
+              <span className={language === 'en' ? (theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]') : 'text-gray-400 dark:text-gray-500'}>EN</span>
             </button>
 
             {/* 6-Theme Cycle Button with Hover Quick-Picker */}
@@ -575,7 +649,11 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={() => installPwa()}
                 title={language === 'vi' ? 'Cài đặt ứng dụng Dolphy Café lên thiết bị' : 'Install Dolphy App'}
-                className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#2076bd]/10 hover:bg-[#2076bd] text-[#2076bd] hover:text-white dark:bg-[#3ba0e6]/10 dark:text-[#3ba0e6] dark:hover:bg-[#2076bd] dark:hover:text-white border border-[#2076bd]/30 text-xs font-oswald uppercase tracking-wider font-bold transition-all shadow-2xs"
+                className={`hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-oswald uppercase tracking-wider font-bold transition-all shadow-2xs ${
+                  theme === 'dark'
+                    ? 'bg-[#FAEA28]/10 hover:bg-[#FAEA28] text-[#FAEA28] hover:text-slate-950 border border-[#FAEA28]/30'
+                    : 'bg-[#2076bd]/10 hover:bg-[#2076bd] text-[#2076bd] hover:text-white dark:bg-[#3ba0e6]/10 dark:text-[#3ba0e6] dark:hover:bg-[#2076bd] dark:hover:text-white border border-[#2076bd]/30'
+                }`}
               >
                 <Download size={13} />
                 <span>{language === 'vi' ? 'Cài App' : 'Install'}</span>
@@ -586,20 +664,28 @@ export const Navbar: React.FC = () => {
             <Link
               to="/admin"
               title="Cổng Quản Trị Hệ Thống CRM / Admin"
-              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-50 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-600 dark:text-gray-200 hover:text-[#2076bd] border border-gray-200 dark:border-slate-700 text-xs font-medium transition-colors"
+              className={`hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-50 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-600 dark:text-gray-200 border border-gray-200 dark:border-slate-700 text-xs font-medium transition-colors ${
+                theme === 'dark' ? 'hover:text-[#FAEA28]' : 'hover:text-[#2076bd]'
+              }`}
             >
-              <ShieldCheck size={14} className="text-[#2076bd] dark:text-[#3ba0e6]" />
+              <ShieldCheck size={14} className={theme === 'dark' ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'} />
               <span>{t('nav.admin')}</span>
             </Link>
 
             {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-1.5 bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0"
+              className={`flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-oswald tracking-wider transition-colors shadow-sm shrink-0 ${
+                theme === 'dark'
+                  ? 'bg-[#FAEA28] hover:bg-amber-300 text-slate-950 font-bold'
+                  : 'bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white'
+              }`}
             >
               <ShoppingBag size={14} />
               <span className="hidden xs:inline">{t('nav.cart')}</span>
-              <span className="bg-white text-[#2076bd] font-bold px-1.5 py-0.2 rounded-full text-[10px] sm:text-[11px] min-w-[16px] text-center">
+              <span className={`font-bold px-1.5 py-0.2 rounded-full text-[10px] sm:text-[11px] min-w-[16px] text-center ${
+                theme === 'dark' ? 'bg-slate-950 text-[#FAEA28]' : 'bg-white text-[#2076bd]'
+              }`}>
                 {cartCount}
               </span>
             </button>
@@ -607,7 +693,9 @@ export const Navbar: React.FC = () => {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-9 h-9 xs:w-10 xs:h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-gray-800 dark:text-gray-100 hover:text-[#2076bd] dark:hover:text-[#3ba0e6] border border-gray-200 dark:border-slate-700 transition-all shadow-xs active:scale-95 shrink-0"
+              className={`lg:hidden w-9 h-9 xs:w-10 xs:h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-slate-700 transition-all shadow-xs active:scale-95 shrink-0 ${
+                theme === 'dark' ? 'hover:text-[#FAEA28]' : 'hover:text-[#2076bd] dark:hover:text-[#3ba0e6]'
+              }`}
               aria-label="Toggle menu"
               title="Menu"
             >
@@ -631,7 +719,11 @@ export const Navbar: React.FC = () => {
                       href={link.path}
                       target="_blank"
                       rel="noreferrer"
-                      className="py-3 px-3 text-[#222222] dark:text-slate-200 hover:text-[#2076bd] dark:hover:text-[#3ba0e6] flex items-center gap-1 transition-colors group"
+                      className={`py-3 px-3 flex items-center gap-1 transition-colors group ${
+                        theme === 'dark'
+                          ? 'text-slate-200 hover:text-[#FAEA28]'
+                          : 'text-[#222222] dark:text-slate-200 hover:text-[#2076bd] dark:hover:text-[#3ba0e6]'
+                      }`}
                     >
                       <span>{link.name}</span>
                       <ExternalLink size={12} className="opacity-60 group-hover:opacity-100" />
@@ -646,8 +738,8 @@ export const Navbar: React.FC = () => {
                     to={link.path}
                     className={`py-3 px-3 flex items-center gap-1.5 transition-all relative ${
                       active
-                        ? 'text-[#2076bd] dark:text-[#3ba0e6] font-semibold'
-                        : 'text-[#222222] dark:text-slate-200 hover:text-[#2076bd] dark:hover:text-[#3ba0e6]'
+                        ? (theme === 'dark' ? 'text-[#FAEA28] font-bold' : 'text-[#2076bd] dark:text-[#3ba0e6] font-semibold')
+                        : (theme === 'dark' ? 'text-slate-200 hover:text-[#FAEA28]' : 'text-[#222222] dark:text-slate-200 hover:text-[#2076bd] dark:hover:text-[#3ba0e6]')
                     }`}
                   >
                     <span>{link.name}</span>
@@ -657,7 +749,9 @@ export const Navbar: React.FC = () => {
                       </span>
                     )}
                     {active && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#2076bd] dark:bg-[#3ba0e6]" />
+                      <span className={`absolute bottom-0 left-0 right-0 h-[2.5px] ${
+                        theme === 'dark' ? 'bg-[#FAEA28]' : 'bg-[#2076bd] dark:bg-[#3ba0e6]'
+                      }`} />
                     )}
                   </Link>
                 </li>

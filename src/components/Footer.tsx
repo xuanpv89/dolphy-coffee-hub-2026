@@ -558,8 +558,11 @@ export const Footer: React.FC = () => {
   // ==========================================================================
   // 5. THEME: OCEAN & CLASSIC DARK (Classic Corporate 4-Column Footer)
   // ==========================================================================
+  const isDarkTheme = theme === 'dark';
   return (
-    <footer className="bg-[#0f172a] text-white/90 border-t-2 border-[#2076bd] pt-14 pb-8 font-sans transition-colors">
+    <footer className={`bg-[#0f172a] text-white/90 border-t-2 pt-14 pb-8 font-sans transition-colors ${
+      isDarkTheme ? 'border-[#FAEA28]' : 'border-[#2076bd]'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Grid */}
@@ -634,7 +637,9 @@ export const Footer: React.FC = () => {
 
           {/* CỘT 2: HỆ THỐNG 10 CHI NHÁNH (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="font-oswald text-sm uppercase tracking-wider text-white font-bold block border-l-2 border-[#2076bd] pl-2.5">
+            <span className={`font-oswald text-sm uppercase tracking-wider text-white font-bold block border-l-2 pl-2.5 ${
+              isDarkTheme ? 'border-[#FAEA28]' : 'border-[#2076bd]'
+            }`}>
               10 CHI NHÁNH TP.HCM
             </span>
             <ul className="space-y-1.5 text-xs text-white/75">
@@ -649,7 +654,9 @@ export const Footer: React.FC = () => {
 
           {/* CỘT 3: HỌC VIỆN & CỬA HÀNG (lg:col-span-2) */}
           <div className="lg:col-span-2 space-y-3">
-            <span className="font-oswald text-sm uppercase tracking-wider text-white font-bold block border-l-2 border-[#2076bd] pl-2.5">
+            <span className={`font-oswald text-sm uppercase tracking-wider text-white font-bold block border-l-2 pl-2.5 ${
+              isDarkTheme ? 'border-[#FAEA28]' : 'border-[#2076bd]'
+            }`}>
               HỆ SINH THÁI
             </span>
             <ul className="space-y-2 text-xs text-white/75">
@@ -665,7 +672,9 @@ export const Footer: React.FC = () => {
 
           {/* CỘT 4: ĐĂNG KÝ BẢN TIN & HOTLINE (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="font-oswald text-sm uppercase tracking-wider text-white font-bold block border-l-2 border-[#2076bd] pl-2.5">
+            <span className={`font-oswald text-sm uppercase tracking-wider text-white font-bold block border-l-2 pl-2.5 ${
+              isDarkTheme ? 'border-[#FAEA28]' : 'border-[#2076bd]'
+            }`}>
               KẾT NỐI VỚI DOLPHY
             </span>
             <p className="text-xs text-white/75">
@@ -683,7 +692,11 @@ export const Footer: React.FC = () => {
               />
               <button
                 type="submit"
-                className="w-full py-2 px-4 rounded-lg bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs uppercase tracking-wider transition-all font-bold flex items-center justify-center gap-1.5 shadow cursor-pointer"
+                className={`w-full py-2 px-4 rounded-lg font-oswald text-xs uppercase tracking-wider transition-all font-bold flex items-center justify-center gap-1.5 shadow cursor-pointer ${
+                  isDarkTheme
+                    ? 'bg-[#FAEA28] text-slate-950 hover:bg-amber-300'
+                    : 'bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white'
+                }`}
               >
                 <Send size={13} />
                 <span>{language === 'vi' ? 'ĐĂNG KÝ NHẬN TIN' : 'SUBSCRIBE'}</span>

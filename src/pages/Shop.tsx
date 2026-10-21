@@ -88,14 +88,31 @@ export const Shop: React.FC = () => {
     <div className="space-y-12 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. Header Banner */}
-      <section className="reveal-on-scroll bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+      <section className={`reveal-on-scroll border-b text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden ${
+        theme === 'vintage' ? 'bg-[#1b4d3e] border-[#2d6a4f]' :
+        theme === 'nordic' ? 'bg-zinc-950 border-zinc-800' :
+        theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 border-rose-300' :
+        theme === 'roastery' ? 'bg-[#070a12] border-cyan-500/30' :
+        theme === 'dark' ? 'bg-[#0f172a] border-slate-800' :
+        'bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800'
+      }`}>
         <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }} />
         <div className="relative max-w-7xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
+          <div className={`inline-flex items-center gap-1.5 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow ${
+            theme === 'nordic' ? 'rounded-none bg-white text-black font-mono border border-black' :
+            theme === 'sunset' ? 'rounded-full bg-white text-rose-600 font-oswald shadow-md' :
+            theme === 'vintage' ? 'rounded-md bg-[#c05621] text-white font-serif' :
+            theme === 'roastery' ? 'rounded-md bg-cyan-950 text-cyan-400 font-mono border border-cyan-500/40' :
+            'rounded bg-[#FAEA28] text-slate-950 font-oswald'
+          }`}>
             <Coffee size={14} />
             <span>{t('shop.hero_tag')}</span>
           </div>
-          <h1 className="font-oswald text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white leading-tight">
+          <h1 className={`text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white leading-tight ${
+            theme === 'vintage' ? 'font-serif' :
+            theme === 'nordic' ? 'font-mono' :
+            'font-oswald'
+          }`}>
             {t('shop.hero_title')}
           </h1>
           <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto leading-relaxed">
@@ -107,7 +124,13 @@ export const Shop: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* 2. Filter & Search Control Panel */}
-        <div className="reveal-on-scroll bg-white dark:bg-[#1e293b] p-4 sm:p-5 rounded-xl border border-gray-200 dark:border-slate-800 shadow-sm space-y-4">
+        <div className={`reveal-on-scroll p-4 sm:p-5 shadow-sm space-y-4 ${
+          theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+          theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-white shadow-md' :
+          theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+          theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+          'bg-white dark:bg-[#1e293b] rounded-xl border border-gray-200 dark:border-slate-800'
+        }`}>
           
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-2">
@@ -118,9 +141,20 @@ export const Shop: React.FC = () => {
                   setSelectedCategory(cat.id);
                   setCurrentPage(1);
                 }}
-                className={`px-3.5 py-2 rounded-lg text-xs font-oswald tracking-wider font-semibold transition-all uppercase flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 text-xs tracking-wider font-semibold transition-all uppercase flex items-center gap-1.5 cursor-pointer ${
+                  theme === 'nordic' ? 'rounded-none font-mono' :
+                  theme === 'sunset' ? 'rounded-full font-oswald' :
+                  theme === 'vintage' ? 'rounded font-sans' :
+                  theme === 'roastery' ? 'rounded-lg font-mono' :
+                  'rounded-lg font-oswald'
+                } ${
                   selectedCategory === cat.id
-                    ? 'bg-[#2076bd] text-white shadow-md'
+                    ? (theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black shadow' :
+                       theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md' :
+                       theme === 'vintage' ? 'bg-[#1b4d3e] text-white shadow' :
+                       theme === 'roastery' ? 'bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
+                       theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 shadow' :
+                       'bg-[#2076bd] text-white shadow-md')
                     : 'bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'
                 }`}
               >
@@ -146,7 +180,13 @@ export const Shop: React.FC = () => {
                   setSearchQuery(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="w-full pl-9 pr-3.5 py-2.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-gray-800 dark:text-white focus:outline-none focus:border-[#2076bd]"
+                className={`w-full pl-9 pr-3.5 py-2.5 text-xs focus:outline-none ${
+                  theme === 'nordic' ? 'rounded-none border border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 text-black dark:text-white font-mono focus:border-amber-600' :
+                  theme === 'sunset' ? 'rounded-full border border-rose-200 bg-white text-gray-800 focus:border-rose-400' :
+                  theme === 'vintage' ? 'rounded border border-[#e6ded1] bg-[#faf6f0] text-[#221e1a] font-serif focus:border-[#1b4d3e]' :
+                  theme === 'roastery' ? 'rounded-lg border border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
+                  'rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-800 dark:text-white focus:border-[#2076bd]'
+                }`}
               />
               <Search size={15} className="absolute left-3 top-3 text-gray-400" />
             </div>
@@ -160,7 +200,13 @@ export const Shop: React.FC = () => {
                   setPriceRange(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="w-full px-3 py-2.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-gray-700 dark:text-gray-200 focus:outline-none focus:border-[#2076bd] font-oswald"
+                className={`w-full px-3 py-2.5 text-xs focus:outline-none ${
+                  theme === 'nordic' ? 'rounded-none border border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 text-black dark:text-white font-mono' :
+                  theme === 'sunset' ? 'rounded-full border border-rose-200 bg-white text-gray-800 font-oswald' :
+                  theme === 'vintage' ? 'rounded border border-[#e6ded1] bg-[#faf6f0] text-[#221e1a] font-serif' :
+                  theme === 'roastery' ? 'rounded-lg border border-cyan-500/40 bg-slate-900 text-white font-mono' :
+                  'rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-200 focus:border-[#2076bd] font-oswald'
+                }`}
               >
                 <option value="all">{language === 'vi' ? 'Mức giá: Tất cả mức giá' : 'Price: All Ranges'}</option>
                 <option value="under-100k">{language === 'vi' ? 'Dưới 100.000đ (Bánh & Đồ uống)' : 'Under 100k (Drinks & Bakery)'}</option>
@@ -175,7 +221,13 @@ export const Shop: React.FC = () => {
               <select
                 value={sortBy}
                 onChange={(e: any) => setSortBy(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-gray-700 dark:text-gray-200 focus:outline-none focus:border-[#2076bd] font-oswald"
+                className={`w-full px-3 py-2.5 text-xs focus:outline-none ${
+                  theme === 'nordic' ? 'rounded-none border border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 text-black dark:text-white font-mono' :
+                  theme === 'sunset' ? 'rounded-full border border-rose-200 bg-white text-gray-800 font-oswald' :
+                  theme === 'vintage' ? 'rounded border border-[#e6ded1] bg-[#faf6f0] text-[#221e1a] font-serif' :
+                  theme === 'roastery' ? 'rounded-lg border border-cyan-500/40 bg-slate-900 text-white font-mono' :
+                  'rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-200 focus:border-[#2076bd] font-oswald'
+                }`}
               >
                 <option value="default">{t('shop.sort_default')}</option>
                 <option value="bestseller">{t('shop.sort_bestseller')}</option>
@@ -665,7 +717,13 @@ export const Shop: React.FC = () => {
             <button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-slate-700"
+              className={`p-2 border disabled:opacity-40 disabled:cursor-not-allowed transition-all ${
+                theme === 'nordic' ? 'rounded-none border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-900 text-black dark:text-white font-mono' :
+                theme === 'sunset' ? 'rounded-full border-rose-200 bg-white text-rose-600 hover:bg-rose-50 shadow-sm' :
+                theme === 'vintage' ? 'rounded border-[#e6ded1] bg-[#faf6f0] text-[#1b4d3e] font-serif hover:border-[#1b4d3e]' :
+                theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-cyan-300 font-mono hover:bg-slate-800' :
+                'rounded-lg border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200'
+              }`}
             >
               <ChevronLeft size={16} />
             </button>
@@ -674,10 +732,25 @@ export const Shop: React.FC = () => {
               <button
                 key={idx}
                 onClick={() => setCurrentPage(idx + 1)}
-                className={`w-9 h-9 rounded-lg font-oswald text-xs font-bold transition-all ${
+                className={`w-9 h-9 text-xs font-bold transition-all cursor-pointer ${
+                  theme === 'nordic' ? 'rounded-none font-mono' :
+                  theme === 'sunset' ? 'rounded-full font-oswald' :
+                  theme === 'vintage' ? 'rounded font-serif' :
+                  theme === 'roastery' ? 'rounded-lg font-mono' :
+                  'rounded-lg font-oswald'
+                } ${
                   currentPage === idx + 1
-                    ? 'bg-[#2076bd] text-white shadow'
-                    : 'bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100'
+                    ? (theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black shadow' :
+                       theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md' :
+                       theme === 'vintage' ? 'bg-[#1b4d3e] text-white shadow' :
+                       theme === 'roastery' ? 'bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
+                       theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 shadow' :
+                       'bg-[#2076bd] text-white shadow')
+                    : (theme === 'nordic' ? 'bg-white dark:bg-zinc-900 border border-zinc-900 dark:border-zinc-700 text-black dark:text-white' :
+                       theme === 'vintage' ? 'bg-[#faf6f0] border border-[#e6ded1] text-[#221e1a] hover:border-[#1b4d3e]' :
+                       theme === 'roastery' ? 'bg-slate-900 border border-cyan-500/30 text-slate-300 hover:border-cyan-400' :
+                       theme === 'sunset' ? 'bg-white border border-rose-200 text-[#271a17] hover:bg-rose-50' :
+                       'bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100')
                 }`}
               >
                 {idx + 1}
@@ -687,7 +760,13 @@ export const Shop: React.FC = () => {
             <button
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-slate-700"
+              className={`p-2 border disabled:opacity-40 disabled:cursor-not-allowed transition-all ${
+                theme === 'nordic' ? 'rounded-none border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-900 text-black dark:text-white font-mono' :
+                theme === 'sunset' ? 'rounded-full border-rose-200 bg-white text-rose-600 hover:bg-rose-50 shadow-sm' :
+                theme === 'vintage' ? 'rounded border-[#e6ded1] bg-[#faf6f0] text-[#1b4d3e] font-serif hover:border-[#1b4d3e]' :
+                theme === 'roastery' ? 'rounded-lg border-cyan-500/40 bg-slate-900 text-cyan-300 font-mono hover:bg-slate-800' :
+                'rounded-lg border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200'
+              }`}
             >
               <ChevronRight size={16} />
             </button>
@@ -697,10 +776,19 @@ export const Shop: React.FC = () => {
         {/* 4. Retail Experience & B2B Catering Showcase */}
         <div className="mt-16 pt-12 border-t border-gray-200 dark:border-slate-800 space-y-10">
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-            <p className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+            <p className={`text-xs uppercase tracking-widest font-bold ${
+              theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+              theme === 'sunset' ? 'font-oswald text-rose-600' :
+              theme === 'roastery' ? 'font-mono text-cyan-400' :
+              theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+              theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+              'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+            }`}>
               {language === 'vi' ? 'TRẢI NGHIỆM ĐỘC QUYỀN TẠI QUẦY DOLPHY' : 'EXCLUSIVE IN-STORE & CATERING'}
             </p>
-            <h2 className="section-title block mx-auto">
+            <h2 className={`text-2xl sm:text-3xl font-bold uppercase ${
+              theme === 'vintage' ? 'font-serif' : 'font-oswald'
+            }`}>
               {language === 'vi' ? 'CÀ PHÊ HẠT MỘC & DỊCH VỤ DOANH NGHIỆP B2B' : 'SPECIALTY COFFEE & CORPORATE CATERING'}
             </h2>
             <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
@@ -712,7 +800,13 @@ export const Shop: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Card 1: Retail Shelf & Bakery */}
-            <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all flex flex-col group">
+            <div className={`overflow-hidden transition-all flex flex-col group ${
+              theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+              theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5 hover-lift' :
+              theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif hover:border-[#1b4d3e]' :
+              theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+              'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg'
+            }`}>
               <div className="aspect-[16/10] overflow-hidden bg-slate-900">
                 <img
                   src="/images/fanpage/retail-beans-bakery-display.jpg"
@@ -722,19 +816,40 @@ export const Shop: React.FC = () => {
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                  <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                    theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                    theme === 'sunset' ? 'font-oswald text-rose-600' :
+                    theme === 'roastery' ? 'font-mono text-cyan-400' :
+                    theme === 'nordic' ? 'font-mono text-zinc-500' :
+                    theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                    'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                  }`}>
                     {language === 'vi' ? 'Quầy Trưng Bày Thực Tế' : 'In-Store Retail Display'}
                   </span>
-                  <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">
+                  <h3 className={`text-xl font-bold uppercase ${
+                    theme === 'vintage' ? 'font-serif text-[#221e1a]' :
+                    theme === 'sunset' ? 'font-oswald text-[#271a17]' :
+                    'font-oswald text-[#222222] dark:text-white'
+                  }`}>
                     {language === 'vi' ? 'Kệ Cà Phê Hạt Mộc & Dolphy Bakery' : 'Pure Specialty Beans & Fresh Pastries'}
                   </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className={`text-xs leading-relaxed ${
+                    theme === 'vintage' ? 'text-[#6e655c]' :
+                    theme === 'sunset' ? 'text-[#7d6560]' :
+                    theme === 'roastery' ? 'text-slate-300' :
+                    'text-gray-600 dark:text-gray-300'
+                  }`}>
                     {language === 'vi'
                       ? '100% hạt Arabica Cầu Đất và Robusta Bảo Lộc mộc nguyên chất, đóng gói túi van 1 chiều đạt chuẩn. Đi kèm tủ bánh ngọt nướng tươi nóng giòn mỗi sáng tại các chi nhánh.'
                       : '100% pure Cau Dat Arabica and Bao Loc Robusta in degas-valve bags, paired with warm artisan French pastries baked daily.'}
                   </p>
                 </div>
-                <div className="pt-2 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                <div className={`pt-2 border-t flex items-center justify-between text-xs ${
+                  theme === 'vintage' ? 'border-[#e6ded1]' :
+                  theme === 'roastery' ? 'border-cyan-500/20' :
+                  theme === 'sunset' ? 'border-rose-100' :
+                  'border-gray-100 dark:border-slate-800'
+                }`}>
                   <span className="text-gray-500 dark:text-gray-400 font-oswald">
                     {language === 'vi' ? 'Có sẵn tại 10 chi nhánh' : 'Available across 10 stores'}
                   </span>
@@ -742,7 +857,14 @@ export const Shop: React.FC = () => {
                     href="https://dolphycoffee.cukcuk.vn/order-online/"
                     target="_blank"
                     rel="noreferrer"
-                    className="font-oswald uppercase text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline flex items-center gap-1"
+                    className={`uppercase font-bold hover:underline flex items-center gap-1 ${
+                      theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                      theme === 'sunset' ? 'font-oswald text-rose-600' :
+                      theme === 'roastery' ? 'font-mono text-cyan-300' :
+                      theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                      theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                      'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                    }`}
                   >
                     <span>{language === 'vi' ? 'Giao hàng tận nơi' : 'Online Delivery'}</span>
                     <ExternalLink size={13} />
@@ -752,7 +874,13 @@ export const Shop: React.FC = () => {
             </div>
 
             {/* Card 2: Teabreak & Event Catering */}
-            <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg transition-all flex flex-col group">
+            <div className={`overflow-hidden transition-all flex flex-col group ${
+              theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+              theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5 hover-lift' :
+              theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif hover:border-[#1b4d3e]' :
+              theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+              'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-lg'
+            }`}>
               <div className="aspect-[16/10] overflow-hidden bg-slate-900">
                 <img
                   src="/images/fanpage/retail-teabreak-catering.jpg"
@@ -762,25 +890,53 @@ export const Shop: React.FC = () => {
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
+                  <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                    theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                    theme === 'sunset' ? 'font-oswald text-rose-600' :
+                    theme === 'roastery' ? 'font-mono text-cyan-400' :
+                    theme === 'nordic' ? 'font-mono text-zinc-500' :
+                    theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                    'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                  }`}>
                     {language === 'vi' ? 'Dịch Vụ Doanh Nghiệp' : 'B2B Corporate Service'}
                   </span>
-                  <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">
+                  <h3 className={`text-xl font-bold uppercase ${
+                    theme === 'vintage' ? 'font-serif text-[#221e1a]' :
+                    theme === 'sunset' ? 'font-oswald text-[#271a17]' :
+                    'font-oswald text-[#222222] dark:text-white'
+                  }`}>
                     {language === 'vi' ? 'Setup Tiệc Teabreak & Cà Phê Sự Kiện' : 'Corporate Teabreak & Event Station'}
                   </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className={`text-xs leading-relaxed ${
+                    theme === 'vintage' ? 'text-[#6e655c]' :
+                    theme === 'sunset' ? 'text-[#7d6560]' :
+                    theme === 'roastery' ? 'text-slate-300' :
+                    'text-gray-600 dark:text-gray-300'
+                  }`}>
                     {language === 'vi'
                       ? 'Giải pháp đồ uống trọn gói cho hội nghị, sự kiện ra mắt, tiếp sức làm việc cho đối tác doanh nghiệp lớn (Prudential Tower, giải thể thao Spartan, các trường quốc tế).'
                       : 'End-to-end beverage setup for conferences, company town halls, and sports events with live barista stations.'}
                   </p>
                 </div>
-                <div className="pt-2 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                <div className={`pt-2 border-t flex items-center justify-between text-xs ${
+                  theme === 'vintage' ? 'border-[#e6ded1]' :
+                  theme === 'roastery' ? 'border-cyan-500/20' :
+                  theme === 'sunset' ? 'border-rose-100' :
+                  'border-gray-100 dark:border-slate-800'
+                }`}>
                   <span className="text-gray-500 dark:text-gray-400 font-oswald">
                     Hotline B2B: <strong>0938 084 985</strong>
                   </span>
                   <a
                     href="mailto:contact@dolphycafe.com"
-                    className="font-oswald uppercase text-[#2076bd] dark:text-[#3ba0e6] font-bold hover:underline"
+                    className={`uppercase font-bold hover:underline ${
+                      theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                      theme === 'sunset' ? 'font-oswald text-rose-600' :
+                      theme === 'roastery' ? 'font-mono text-cyan-300' :
+                      theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                      theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                      'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                    }`}
                   >
                     {language === 'vi' ? 'Nhận báo giá sự kiện →' : 'Request Event Quote →'}
                   </a>
