@@ -176,165 +176,614 @@ export const Home: React.FC = () => {
   return (
     <div className="bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
-      {/* 1. TOP SLIDER CAROUSEL */}
-      <section
-        className="relative w-full h-[460px] sm:h-[550px] lg:h-[650px] overflow-hidden bg-black select-none"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
-            }`}
-          >
-            {/* Background image */}
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25" />
+      {/* 1. TOP SLIDER CAROUSEL (Theme-Adaptive Architecture) */}
+      {theme === 'nordic' ? (
+        /* NORDIC: Swiss Minimalist Brutalist Split-Screen Architectural Studio Hero */
+        <section
+          className="relative w-full bg-white dark:bg-zinc-950 text-black dark:text-white border-b-2 border-zinc-900 dark:border-zinc-300 select-none overflow-hidden"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* Top Technical Metadata Header */}
+          <div className="border-b-2 border-zinc-900 dark:border-zinc-300 bg-zinc-50 dark:bg-zinc-900/80 px-4 sm:px-8 py-2.5 flex items-center justify-between text-[11px] font-mono tracking-wider">
+            <span className="font-bold">// DOLPHY ARCHITECTURAL ARCHIVE • EST. 2013</span>
+            <span className="text-zinc-500 dark:text-zinc-400">[GPS: 10.8031° N, 106.7314° E // THẢO ĐIỀN]</span>
+          </div>
 
-            {/* Slide Content Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center text-center px-5 sm:px-12 lg:px-16">
-              <div className="max-w-3xl space-y-3 sm:space-y-6">
-                
-                {/* Theme-Adaptive Badge */}
-                <div>
-                  {theme === 'roastery' ? (
-                    <span className="inline-flex items-center gap-2 bg-slate-950/80 border border-cyan-500/50 text-cyan-300 font-mono text-[11px] sm:text-xs px-3.5 py-1 rounded shadow-[0_0_15px_rgba(6,182,212,0.4)]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                      <span>{slide.badge}</span>
-                    </span>
-                  ) : theme === 'vintage' ? (
-                    <span className="inline-block bg-[#c05621] text-white font-serif italic text-xs sm:text-sm px-4 py-1 rounded border border-amber-900/30 shadow">
-                      {slide.badge}
-                    </span>
-                  ) : theme === 'nordic' ? (
-                    <span className="inline-block bg-black text-white font-mono uppercase tracking-[0.2em] text-[10px] sm:text-xs px-3 py-1 border border-zinc-600">
-                      {slide.badge}
-                    </span>
-                  ) : theme === 'sunset' ? (
-                    <span className="inline-block bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald uppercase tracking-widest text-[11px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg shadow-rose-500/30 font-bold">
-                      {slide.badge}
-                    </span>
-                  ) : (
-                    <span className="inline-block bg-[#FAEA28] text-slate-950 font-bold text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded shadow">
-                      {slide.badge}
-                    </span>
-                  )}
+          {/* Main 2-Column Split Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 min-h-[460px] sm:min-h-[520px] lg:min-h-[580px]">
+            {/* Left Technical Placard (7 cols on desktop) */}
+            <div className="md:col-span-7 p-6 sm:p-10 lg:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-r-2 border-zinc-900 dark:border-zinc-300 relative bg-white dark:bg-zinc-950">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="inline-block bg-black dark:bg-white text-white dark:text-black font-mono font-bold uppercase tracking-[0.2em] text-[10px] sm:text-xs px-3 py-1">
+                    [0{currentSlide + 1} // {slides[currentSlide].badge}]
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#ff3b00] animate-pulse" />
                 </div>
 
-                {/* Theme-Adaptive Title */}
-                <h1 className={`text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white tracking-wider leading-tight drop-shadow-md ${
-                  theme === 'vintage' ? 'font-serif italic' : theme === 'nordic' ? 'font-oswald tracking-[0.12em]' : 'font-oswald'
-                }`}>
-                  {slide.title}
+                <div className="w-12 h-1 bg-[#ff3b00]" />
+
+                <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.06em] text-black dark:text-white leading-[1.05]">
+                  {slides[currentSlide].title}
                 </h1>
 
-                <p className={`text-white/90 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto drop-shadow px-2 ${
-                  theme === 'vintage' ? 'font-serif italic text-white/95' : ''
-                }`}>
-                  {slide.subtitle}
+                <p className="font-mono text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+                  {slides[currentSlide].subtitle}
                 </p>
+              </div>
 
-                {/* Theme-Adaptive CTAs */}
-                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
-                  <Link
-                    to={slide.ctaLink}
-                    className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg ${
-                      theme === 'roastery'
-                        ? 'rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-pink-600 hover:from-cyan-500 hover:to-pink-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)]'
-                        : theme === 'vintage'
-                        ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white border border-emerald-900/40 font-serif'
-                        : theme === 'nordic'
-                        ? 'rounded-none bg-white text-black hover:bg-zinc-200 uppercase tracking-[0.15em] font-mono font-bold'
-                        : theme === 'sunset'
-                        ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white shadow-xl shadow-rose-500/30'
-                        : 'rounded bg-[#2076bd] text-white hover:bg-[#FAEA28] hover:text-slate-950'
-                    }`}
+              {/* CTAs */}
+              <div className="pt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <Link
+                  to={slides[currentSlide].ctaLink}
+                  className="px-7 py-3.5 bg-black dark:bg-white text-white dark:text-black hover:bg-[#ff3b00] hover:text-white dark:hover:bg-[#ff3b00] dark:hover:text-white font-mono text-xs uppercase tracking-[0.15em] font-bold rounded-none transition-colors text-center"
+                >
+                  {slides[currentSlide].ctaText}
+                </Link>
+
+                {slides[currentSlide].secondaryLink.startsWith('http') ? (
+                  <a
+                    href={slides[currentSlide].secondaryLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-7 py-3.5 border-2 border-zinc-900 dark:border-zinc-300 text-black dark:text-white hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-200 dark:hover:text-black font-mono text-xs uppercase tracking-[0.15em] font-bold rounded-none transition-colors flex items-center justify-center gap-2 text-center"
                   >
-                    {slide.ctaText}
+                    <span>{slides[currentSlide].secondaryText}</span>
+                    <ExternalLink size={14} />
+                  </a>
+                ) : (
+                  <Link
+                    to={slides[currentSlide].secondaryLink}
+                    className="px-7 py-3.5 border-2 border-zinc-900 dark:border-zinc-300 text-black dark:text-white hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-200 dark:hover:text-black font-mono text-xs uppercase tracking-[0.15em] font-bold rounded-none transition-colors text-center"
+                  >
+                    {slides[currentSlide].secondaryText}
                   </Link>
+                )}
+              </div>
+            </div>
 
-                  {slide.secondaryLink.startsWith('http') ? (
-                    <a
-                      href={slide.secondaryLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all flex items-center justify-center gap-1.5 ${
-                        theme === 'roastery'
-                          ? 'rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-cyan-500/30 text-cyan-200'
-                          : theme === 'vintage'
-                          ? 'rounded bg-black/25 hover:bg-white hover:text-slate-950 font-serif border border-white/20'
-                          : theme === 'nordic'
-                          ? 'rounded-none bg-black/50 hover:bg-white hover:text-black border border-white font-mono uppercase tracking-[0.12em]'
-                          : theme === 'sunset'
-                          ? 'rounded-full bg-white/20 hover:bg-white text-white hover:text-rose-600 border border-white/30'
-                          : 'rounded bg-white/20 hover:bg-white hover:text-[#222222]'
-                      }`}
-                    >
-                      <span>{slide.secondaryText}</span>
-                      <ExternalLink size={14} />
-                    </a>
-                  ) : (
-                    <Link
-                      to={slide.secondaryLink}
-                      className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all ${
-                        theme === 'roastery'
-                          ? 'rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-cyan-500/30 text-cyan-200'
-                          : theme === 'vintage'
-                          ? 'rounded bg-black/25 hover:bg-white hover:text-slate-950 font-serif border border-white/20'
-                          : theme === 'nordic'
-                          ? 'rounded-none bg-black/50 hover:bg-white hover:text-black border border-white font-mono uppercase tracking-[0.12em]'
-                          : theme === 'sunset'
-                          ? 'rounded-full bg-white/20 hover:bg-white text-white hover:text-rose-600 border border-white/30'
-                          : 'rounded bg-white/20 hover:bg-white hover:text-[#222222]'
-                      }`}
-                    >
-                      {slide.secondaryText}
-                    </Link>
-                  )}
+            {/* Right Architectural Viewport (5 cols on desktop) */}
+            <div className="md:col-span-5 relative bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center p-4 sm:p-8 overflow-hidden group">
+              {/* Corner crosshairs */}
+              <span className="absolute top-2 left-2 font-mono text-xs text-[#ff3b00] font-bold z-10">+</span>
+              <span className="absolute top-2 right-2 font-mono text-xs text-[#ff3b00] font-bold z-10">+</span>
+              <span className="absolute bottom-2 left-2 font-mono text-xs text-[#ff3b00] font-bold z-10">+</span>
+              <span className="absolute bottom-2 right-2 font-mono text-xs text-[#ff3b00] font-bold z-10">+</span>
+
+              <div className="w-full h-full max-h-[420px] aspect-[4/3] md:aspect-auto overflow-hidden border-2 border-zinc-900 dark:border-zinc-300 relative bg-black">
+                <img
+                  key={currentSlide}
+                  src={slides[currentSlide].image}
+                  alt={slides[currentSlide].title}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute bottom-2 left-2 z-10 bg-black/80 text-white font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 border border-zinc-700">
+                  FRAME_0{currentSlide + 1} // RATIO 4:3
                 </div>
               </div>
             </div>
           </div>
-        ))}
 
-        {/* Carousel Prev/Next Buttons (Hidden on mobile to never overlap centered hero text) */}
-        <button
-          onClick={prevSlide}
-          className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white items-center justify-center transition-colors shadow-lg"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white items-center justify-center transition-colors shadow-lg"
-          aria-label="Next slide"
-        >
-          <ChevronRight size={24} />
-        </button>
+          {/* Bottom Technical Control Bar */}
+          <div className="border-t-2 border-zinc-900 dark:border-zinc-300 bg-zinc-50 dark:bg-zinc-900/80 px-4 sm:px-8 py-3 flex items-center justify-between font-mono text-xs">
+            <div className="flex items-center gap-3">
+              <span className="font-bold text-black dark:text-white">[0{currentSlide + 1} / 0{slides.length}]</span>
+              <div className="flex gap-1.5">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentSlide(i)}
+                    className={`px-2.5 py-0.5 border text-[10px] font-bold transition-all ${
+                      i === currentSlide
+                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
+                        : 'bg-transparent text-zinc-500 border-zinc-300 dark:border-zinc-700 hover:border-black dark:hover:border-white'
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  >
+                    0{i + 1}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentSlide(i)}
-              className={`h-2.5 sm:h-3 rounded-full transition-all ${
-                i === currentSlide ? 'bg-[#FAEA28] w-7 sm:w-8 shadow' : 'bg-white/60 hover:bg-white w-2.5 sm:w-3'
+            <div className="flex items-center gap-2">
+              <button
+                onClick={prevSlide}
+                className="px-3 py-1.5 border border-zinc-900 dark:border-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black font-bold uppercase transition-colors"
+                aria-label="Previous slide"
+              >
+                [← PREV]
+              </button>
+              <button
+                onClick={nextSlide}
+                className="px-3 py-1.5 border border-zinc-900 dark:border-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black font-bold uppercase transition-colors"
+                aria-label="Next slide"
+              >
+                [NEXT →]
+              </button>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'vintage' ? (
+        /* VINTAGE: French-Indochine Thảo Điền Broadsheet Gazette / Salon Spread */
+        <section
+          className="relative w-full bg-[#faf6f0] text-[#221e1a] border-b-2 border-[#e6ded1] select-none overflow-hidden p-3 sm:p-6 lg:p-8"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* Inner Antique Double Hairline Bordered Broadsheet */}
+          <div className="max-w-7xl mx-auto bg-[#fffdfa] border-2 border-[#e6ded1] rounded-lg p-5 sm:p-8 lg:p-12 shadow-xs relative">
+            
+            {/* Top Masthead Header */}
+            <div className="text-center border-b-2 border-[#e6ded1] pb-3.5 mb-6 font-serif">
+              <div className="text-[#c05621] text-xs sm:text-sm tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-3">
+                <span className="text-sm">❦</span>
+                <span>— N° 2013 • ÉDITION THẢO ĐIỀN, SAIGON • MAISON FONDÉE EN 2013 —</span>
+                <span className="text-sm">❦</span>
+              </div>
+            </div>
+
+            {/* 2-Column Editorial Salon Composition */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Left Column (7 cols) */}
+              <div className="md:col-span-7 space-y-5">
+                <div>
+                  <span className="inline-block bg-[#c05621] text-white font-serif italic text-xs sm:text-sm px-4 py-1 rounded shadow-xs border border-amber-950/20">
+                    ❦ {slides[currentSlide].badge} ❦
+                  </span>
+                </div>
+
+                <h1 className="font-serif italic font-bold text-3xl sm:text-5xl lg:text-6xl text-[#1b4d3e] leading-[1.1]">
+                  {slides[currentSlide].title}
+                </h1>
+
+                <p className="font-serif italic text-sm sm:text-base lg:text-lg text-[#5a5045] leading-relaxed max-w-xl">
+                  "{slides[currentSlide].subtitle}"
+                </p>
+
+                {/* Artisanal CTAs */}
+                <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <Link
+                    to={slides[currentSlide].ctaLink}
+                    className="px-7 py-3 rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-sm border border-[#1b4d3e] text-center"
+                  >
+                    {slides[currentSlide].ctaText}
+                  </Link>
+
+                  {slides[currentSlide].secondaryLink.startsWith('http') ? (
+                    <a
+                      href={slides[currentSlide].secondaryLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-7 py-3 rounded border border-[#1b4d3e] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white font-serif text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-2 text-center"
+                    >
+                      <span>{slides[currentSlide].secondaryText}</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  ) : (
+                    <Link
+                      to={slides[currentSlide].secondaryLink}
+                      className="px-7 py-3 rounded border border-[#1b4d3e] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white font-serif text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all text-center"
+                    >
+                      {slides[currentSlide].secondaryText}
+                    </Link>
+                  )}
+                </div>
+              </div>
+
+              {/* Right Column: Botanical Arch Photo Frame (5 cols) */}
+              <div className="md:col-span-5 flex justify-center">
+                <div className="w-full max-w-[360px] aspect-[3/4] rounded-t-[120px] rounded-b-xl overflow-hidden border-2 border-[#d4af37]/60 shadow-md p-2 bg-[#f5ede1] relative group">
+                  <div className="w-full h-full rounded-t-[112px] rounded-b-lg overflow-hidden relative bg-amber-950">
+                    <img
+                      key={currentSlide}
+                      src={slides[currentSlide].image}
+                      alt={slides[currentSlide].title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-2 inset-x-0 text-center font-serif text-[10px] text-amber-200 uppercase tracking-widest italic">
+                      Dolphy Thảo Điền • Saigon
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Controls: Roman Numeral Indicators */}
+            <div className="pt-6 mt-6 border-t border-[#e6ded1] flex items-center justify-between font-serif">
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-[#6e655c] italic">Feuilleton:</span>
+                <div className="flex gap-2">
+                  {slides.map((_, i) => {
+                    const romanNumerals = ['I', 'II', 'III', 'IV'];
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentSlide(i)}
+                        className={`w-7 h-7 rounded font-serif text-xs font-bold transition-all border ${
+                          i === currentSlide
+                            ? 'bg-[#1b4d3e] text-white border-[#1b4d3e] shadow-xs'
+                            : 'bg-[#faf6f0] text-[#6e655c] border-[#e6ded1] hover:border-[#1b4d3e]'
+                        }`}
+                        aria-label={`Go to slide ${i + 1}`}
+                      >
+                        {romanNumerals[i] || i + 1}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prevSlide}
+                  className="px-3.5 py-1.5 rounded border border-[#e6ded1] hover:border-[#1b4d3e] text-[#1b4d3e] font-serif text-xs transition-colors flex items-center gap-1"
+                  aria-label="Previous slide"
+                >
+                  ‹ {language === 'vi' ? 'Trước' : 'Prev'}
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="px-3.5 py-1.5 rounded border border-[#e6ded1] hover:border-[#1b4d3e] text-[#1b4d3e] font-serif text-xs transition-colors flex items-center gap-1"
+                  aria-label="Next slide"
+                >
+                  {language === 'vi' ? 'Tiếp' : 'Next'} ›
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      ) : theme === 'roastery' ? (
+        /* ROASTERY: Cyber Holographic Terminal HUD Hero */
+        <section
+          className="relative w-full bg-[#050811] text-white border-b border-cyan-500/40 select-none overflow-hidden"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* Top Telemetry Header Bar */}
+          <div className="bg-[#080d1a] border-b border-cyan-500/30 px-4 sm:px-8 py-2 flex items-center justify-between text-[11px] font-mono text-cyan-300">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <span>SYS.STATUS: ONLINE // TEMP: 204°C // SENSORS: 100% // BEAN: CATIMOR</span>
+            </div>
+            <span className="hidden sm:inline font-bold">FEED_0{currentSlide + 1} // 0{slides.length}</span>
+          </div>
+
+          {/* Main Cyber Grid Viewport */}
+          <div className="max-w-7xl mx-auto p-4 sm:p-8 lg:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[460px] sm:min-h-[520px] lg:min-h-[580px]">
+            {/* Left Console Terminal (7 cols) */}
+            <div className="md:col-span-7 space-y-5 relative">
+              <div>
+                <span className="inline-flex items-center gap-2 bg-slate-950/90 border border-cyan-500/50 text-cyan-300 font-mono text-[11px] sm:text-xs px-3.5 py-1.5 rounded shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span>// TELEMETRY: {slides[currentSlide].badge}</span>
+                </span>
+              </div>
+
+              <h1 className="font-mono text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-cyan-300 drop-shadow-[0_0_20px_rgba(6,182,212,0.6)] leading-tight tracking-wider">
+                {slides[currentSlide].title}
+              </h1>
+
+              <p className="font-mono text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl border-l-2 border-cyan-500/40 pl-4">
+                {slides[currentSlide].subtitle}
+              </p>
+
+              {/* Cyber CTAs */}
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <Link
+                  to={slides[currentSlide].ctaLink}
+                  className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-pink-600 hover:from-cyan-500 hover:to-pink-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all text-center"
+                >
+                  {slides[currentSlide].ctaText}
+                </Link>
+
+                {slides[currentSlide].secondaryLink.startsWith('http') ? (
+                  <a
+                    href={slides[currentSlide].secondaryLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-7 py-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/50 text-cyan-200 hover:bg-cyan-950 font-mono text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-2 text-center"
+                  >
+                    <span>{slides[currentSlide].secondaryText}</span>
+                    <ExternalLink size={14} />
+                  </a>
+                ) : (
+                  <Link
+                    to={slides[currentSlide].secondaryLink}
+                    className="px-7 py-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/50 text-cyan-200 hover:bg-cyan-950 font-mono text-xs uppercase tracking-wider font-semibold transition-all text-center"
+                  >
+                    {slides[currentSlide].secondaryText}
+                  </Link>
+                )}
+              </div>
+            </div>
+
+            {/* Right Holographic Viewport (5 cols) */}
+            <div className="md:col-span-5 relative flex justify-center">
+              <div className="w-full max-w-[460px] aspect-[4/3] rounded-2xl bg-slate-950 border border-cyan-500/50 p-2 shadow-[0_0_30px_rgba(6,182,212,0.25)] relative overflow-hidden group">
+                {/* HUD Corner Reticles */}
+                <div className="absolute top-1 left-1 text-cyan-400 font-mono text-xs pointer-events-none">┌</div>
+                <div className="absolute top-1 right-1 text-cyan-400 font-mono text-xs pointer-events-none">┐</div>
+                <div className="absolute bottom-1 left-1 text-cyan-400 font-mono text-xs pointer-events-none">└</div>
+                <div className="absolute bottom-1 right-1 text-cyan-400 font-mono text-xs pointer-events-none">┘</div>
+
+                <div className="w-full h-full rounded-xl overflow-hidden relative">
+                  <img
+                    key={currentSlide}
+                    src={slides[currentSlide].image}
+                    alt={slides[currentSlide].title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute top-2 right-2 bg-slate-950/80 border border-cyan-500/40 text-[9px] font-mono text-cyan-300 px-2 py-0.5 rounded">
+                    [TARGET_LOCK: 100%]
+                  </div>
+                  <div className="absolute bottom-2 left-2 bg-slate-950/80 border border-cyan-500/40 text-[9px] font-mono text-pink-400 px-2 py-0.5 rounded">
+                    λ = 480nm // LASER
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom HUD Controller Bar */}
+          <div className="border-t border-cyan-500/30 bg-[#080d1a] px-4 sm:px-8 py-3 flex items-center justify-between font-mono text-xs">
+            <div className="flex items-center gap-3">
+              <span className="text-cyan-400 font-bold">[CH_0{currentSlide + 1}]</span>
+              <div className="flex gap-2">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentSlide(i)}
+                    className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition-all border ${
+                      i === currentSlide
+                        ? 'bg-cyan-500 text-slate-950 border-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.6)]'
+                        : 'bg-slate-900 text-cyan-400 border-cyan-500/30 hover:border-cyan-400'
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  >
+                    FEED_0{i + 1}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={prevSlide}
+                className="px-3.5 py-1.5 rounded-lg border border-cyan-500/40 text-cyan-300 hover:bg-cyan-950 font-bold text-xs transition-colors"
+                aria-label="Previous slide"
+              >
+                &lt; PREV_FEED
+              </button>
+              <button
+                onClick={nextSlide}
+                className="px-3.5 py-1.5 rounded-lg border border-cyan-500/40 text-cyan-300 hover:bg-cyan-950 font-bold text-xs transition-colors"
+                aria-label="Next slide"
+              >
+                NEXT_FEED &gt;
+              </button>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'sunset' ? (
+        /* SUNSET: Floating Organic Pebble Composition Hero */
+        <section
+          className="relative w-full bg-gradient-to-br from-[#fff1f2] via-[#fff7ed] to-[#fed7aa]/30 border-b border-rose-200 py-8 sm:py-14 px-4 sm:px-8 select-none overflow-hidden"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* Floating Organic Pebble Glass Container */}
+          <div className="max-w-6xl mx-auto rounded-[36px] sm:rounded-[56px] bg-white/90 backdrop-blur-xl border border-rose-200/90 shadow-2xl shadow-rose-500/10 p-6 sm:p-12 relative overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Left Content (7 cols) */}
+              <div className="md:col-span-7 space-y-5">
+                <div>
+                  <span className="inline-block bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald uppercase tracking-widest text-xs px-4 py-1.5 rounded-full shadow-lg shadow-rose-500/30 font-bold">
+                    {slides[currentSlide].badge}
+                  </span>
+                </div>
+
+                <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-[#271a17] leading-tight">
+                  {slides[currentSlide].title}
+                </h1>
+
+                <p className="text-[#7d6560] text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl">
+                  {slides[currentSlide].subtitle}
+                </p>
+
+                {/* Pill CTAs */}
+                <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <Link
+                    to={slides[currentSlide].ctaLink}
+                    className="px-8 py-3.5 rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-bold shadow-xl shadow-rose-500/30 transition-all hover:scale-105 text-center"
+                  >
+                    {slides[currentSlide].ctaText}
+                  </Link>
+
+                  {slides[currentSlide].secondaryLink.startsWith('http') ? (
+                    <a
+                      href={slides[currentSlide].secondaryLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-8 py-3.5 rounded-full bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold shadow-sm transition-all flex items-center justify-center gap-2 text-center"
+                    >
+                      <span>{slides[currentSlide].secondaryText}</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  ) : (
+                    <Link
+                      to={slides[currentSlide].secondaryLink}
+                      className="px-8 py-3.5 rounded-full bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold shadow-sm transition-all text-center"
+                    >
+                      {slides[currentSlide].secondaryText}
+                    </Link>
+                  )}
+                </div>
+              </div>
+
+              {/* Right Organic Pebble Photo (5 cols) */}
+              <div className="md:col-span-5 flex justify-center">
+                <div className="w-full max-w-[420px] aspect-[4/3] sm:aspect-square rounded-[36px] sm:rounded-[48px] overflow-hidden shadow-2xl shadow-rose-500/15 border-4 border-white relative group">
+                  <img
+                    key={currentSlide}
+                    src={slides[currentSlide].image}
+                    alt={slides[currentSlide].title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-oswald font-bold text-rose-600 shadow-md">
+                    ★ 5.0 • Thảo Điền Riverside
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Floating Pill Controls */}
+            <div className="pt-6 mt-6 border-t border-rose-100 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentSlide(i)}
+                    className={`h-2.5 rounded-full transition-all ${
+                      i === currentSlide
+                        ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] w-8 shadow-md'
+                        : 'bg-rose-200 hover:bg-rose-300 w-2.5'
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prevSlide}
+                  className="w-9 h-9 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 flex items-center justify-center transition-all shadow-xs"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="w-9 h-9 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 flex items-center justify-center transition-all shadow-xs"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        /* OCEAN & DARK: Classic Full-Width Cinematic Hero Carousel */
+        <section
+          className="relative w-full h-[460px] sm:h-[550px] lg:h-[650px] overflow-hidden bg-black select-none"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
+            >
+              {/* Background image */}
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25" />
+
+              {/* Slide Content Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center text-center px-5 sm:px-12 lg:px-16">
+                <div className="max-w-3xl space-y-3 sm:space-y-6">
+                  <div>
+                    <span className="inline-block bg-[#FAEA28] text-slate-950 font-bold text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded shadow">
+                      {slide.badge}
+                    </span>
+                  </div>
+
+                  <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white tracking-wider leading-tight drop-shadow-md font-oswald">
+                    {slide.title}
+                  </h1>
+
+                  <p className="text-white/90 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto drop-shadow px-2">
+                    {slide.subtitle}
+                  </p>
+
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
+                    <Link
+                      to={slide.ctaLink}
+                      className="w-full sm:w-auto px-6 py-2.5 sm:py-3 font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg rounded bg-[#2076bd] text-white hover:bg-[#FAEA28] hover:text-slate-950"
+                    >
+                      {slide.ctaText}
+                    </Link>
+
+                    {slide.secondaryLink.startsWith('http') ? (
+                      <a
+                        href={slide.secondaryLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all flex items-center justify-center gap-1.5 rounded bg-white/20 hover:bg-white hover:text-[#222222]"
+                      >
+                        <span>{slide.secondaryText}</span>
+                        <ExternalLink size={14} />
+                      </a>
+                    ) : (
+                      <Link
+                        to={slide.secondaryLink}
+                        className="w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-medium backdrop-blur transition-all rounded bg-white/20 hover:bg-white hover:text-[#222222]"
+                      >
+                        {slide.secondaryText}
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </div>
-      </section>
+
+          {/* Carousel Prev/Next Buttons (Hidden on mobile to never overlap centered hero text) */}
+          <button
+            onClick={prevSlide}
+            className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white items-center justify-center transition-colors shadow-lg"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-[#2076bd] text-white items-center justify-center transition-colors shadow-lg"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          {/* Carousel Indicators */}
+          <div className="absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentSlide(i)}
+                className={`h-2.5 sm:h-3 rounded-full transition-all ${
+                  i === currentSlide ? 'bg-[#FAEA28] w-7 sm:w-8 shadow' : 'bg-white/60 hover:bg-white w-2.5 sm:w-3'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* 2. BRAND MISSION & INTRO BANNER (Theme-Adaptive Architecture) */}
       {theme === 'nordic' ? (

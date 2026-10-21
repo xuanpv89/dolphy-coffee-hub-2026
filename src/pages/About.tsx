@@ -178,40 +178,143 @@ export const About: React.FC = () => {
   return (
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
-      {/* 1. Page Hero Banner - Themed */}
-      <section className={`reveal-on-scroll border-b text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden ${
-        theme === 'vintage' ? 'bg-[#1b4d3e] border-[#2d6a4f]' :
-        theme === 'nordic' ? 'bg-zinc-950 border-zinc-800' :
-        theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 border-rose-300' :
-        theme === 'roastery' ? 'bg-[#070a12] border-cyan-500/30' :
-        'bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800'
-      }`}>
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/hero_slide_store.webp')" }} />
-        <div className="relative max-w-4xl mx-auto space-y-4">
-          <div>
-            <span className={`inline-flex items-center gap-1.5 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow ${
-              theme === 'nordic' ? 'rounded-none bg-white text-black font-mono border border-black' :
-              theme === 'sunset' ? 'rounded-full bg-white text-rose-600 font-oswald shadow-md' :
-              theme === 'vintage' ? 'rounded-md bg-[#c05621] text-white font-serif' :
-              theme === 'roastery' ? 'rounded-md bg-cyan-950 text-cyan-400 font-mono border border-cyan-500/40' :
-              'rounded bg-[#FAEA28] text-slate-950 font-oswald'
-            }`}>
-              <Coffee size={14} />
-              <span>{t('about.tag')}</span>
-            </span>
+      {/* 1. Page Hero Banner (Theme-Adaptive Architecture) */}
+      {theme === 'nordic' ? (
+        /* NORDIC: Swiss Minimalist Brutalist Architectural Placard */
+        <section className="bg-white dark:bg-zinc-950 text-black dark:text-white border-b-2 border-zinc-900 dark:border-zinc-200 select-none">
+          <div className="border-b-2 border-zinc-900 dark:border-zinc-200 bg-zinc-50 dark:bg-zinc-900/80 px-4 sm:px-8 py-2 flex items-center justify-between text-[11px] font-mono tracking-wider">
+            <span className="font-bold">// DOLPHY BRAND ARCHIVE • EST. 2013</span>
+            <span className="text-zinc-500 dark:text-zinc-400">[GPS: 10.8031° N, 106.7314° E // THẢO ĐIỀN]</span>
           </div>
-          <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight ${
-            theme === 'vintage' ? 'font-serif' :
-            theme === 'nordic' ? 'font-oswald tracking-widest' :
-            'font-oswald'
-          }`}>
-            {t('about.title')}
-          </h1>
-          <p className="text-base sm:text-xl text-blue-100 max-w-2xl mx-auto italic font-serif leading-relaxed">
-            {t('about.quote')}
-          </p>
-        </div>
-      </section>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 sm:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7 space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="inline-block bg-black dark:bg-white text-white dark:text-black font-mono font-bold uppercase tracking-[0.2em] text-[10px] sm:text-xs px-3 py-1">
+                  [INDEX: 01 // {t('about.tag')}]
+                </span>
+                <span className="w-2 h-2 rounded-full bg-[#ff3b00] animate-pulse" />
+              </div>
+
+              <div className="w-14 h-1 bg-[#ff3b00]" />
+
+              <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.06em] text-black dark:text-white leading-[1.05]">
+                {t('about.title')}
+              </h1>
+            </div>
+
+            <div className="md:col-span-5 relative p-6 bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-900 dark:border-zinc-200 font-mono">
+              <span className="absolute top-1.5 left-1.5 text-xs text-[#ff3b00] font-bold">+</span>
+              <span className="absolute top-1.5 right-1.5 text-xs text-[#ff3b00] font-bold">+</span>
+              <span className="absolute bottom-1.5 left-1.5 text-xs text-[#ff3b00] font-bold">+</span>
+              <span className="absolute bottom-1.5 right-1.5 text-xs text-[#ff3b00] font-bold">+</span>
+
+              <span className="text-[10px] text-zinc-400 uppercase tracking-widest block mb-2">// MISSION STATEMENT</span>
+              <p className="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans italic">
+                "{t('about.quote')}"
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'vintage' ? (
+        /* VINTAGE: French-Indochine Thảo Điền Salon Broadsheet Header */
+        <section className="bg-[#faf6f0] text-[#221e1a] border-b-2 border-[#e6ded1] p-4 sm:p-8 select-none">
+          <div className="max-w-6xl mx-auto bg-[#fffdfa] border-2 border-[#e6ded1] rounded-lg p-6 sm:p-10 shadow-xs text-center font-serif relative">
+            <div className="text-[#c05621] text-xs sm:text-sm tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-3 border-b-2 border-[#e6ded1] pb-3 mb-6">
+              <span className="text-sm">❦</span>
+              <span>— CHRONIQUE DE LA MAISON DOLPHY • DEPUIS 2013 —</span>
+              <span className="text-sm">❦</span>
+            </div>
+
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <span className="inline-block bg-[#c05621] text-white font-serif italic text-xs sm:text-sm px-4 py-1 rounded shadow-xs border border-amber-950/20">
+                ❦ {t('about.tag')} ❦
+              </span>
+
+              <h1 className="font-serif italic font-bold text-3xl sm:text-5xl lg:text-6xl text-[#1b4d3e] leading-tight">
+                {t('about.title')}
+              </h1>
+
+              <div className="w-16 h-0.5 bg-[#c05621]/40 mx-auto my-3" />
+
+              <p className="text-sm sm:text-lg text-[#5a5045] italic leading-relaxed">
+                "{t('about.quote')}"
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'roastery' ? (
+        /* ROASTERY: Cyber Holographic Mission Terminal */
+        <section className="bg-[#050811] text-white border-b border-cyan-500/40 select-none relative overflow-hidden">
+          <div className="bg-[#080d1a] border-b border-cyan-500/30 px-4 sm:px-8 py-2 flex items-center justify-between text-[11px] font-mono text-cyan-300">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <span>SYS.ORIGIN // TIME_ELAPSED: 13_YEARS // DOLPHY_CORE</span>
+            </div>
+            <span className="font-bold">STATUS: ARCHIVED_HERITAGE</span>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 py-14 sm:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7 space-y-4">
+              <span className="inline-flex items-center gap-2 bg-slate-950/90 border border-cyan-500/50 text-cyan-300 font-mono text-[11px] sm:text-xs px-3.5 py-1.5 rounded shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                <Coffee size={14} className="text-cyan-400" />
+                <span>// MISSION_PROTOCOL: {t('about.tag')}</span>
+              </span>
+
+              <h1 className="font-mono text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-cyan-300 drop-shadow-[0_0_20px_rgba(6,182,212,0.6)] leading-tight tracking-wider">
+                {t('about.title')}
+              </h1>
+            </div>
+
+            <div className="md:col-span-5 p-6 rounded-xl bg-slate-900/90 border border-cyan-500/40 font-mono text-slate-300 shadow-[0_0_25px_rgba(2,132,199,0.2)]">
+              <span className="text-[10px] text-pink-400 uppercase tracking-widest block mb-2">// PHILOSOPHY_LOG</span>
+              <p className="text-xs sm:text-sm leading-relaxed font-sans italic text-slate-200">
+                "{t('about.quote')}"
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'sunset' ? (
+        /* SUNSET: Floating Organic Pebble Hero Header */
+        <section className="bg-gradient-to-br from-[#fff1f2] via-[#fff7ed] to-[#fed7aa]/30 border-b border-rose-200 py-10 sm:py-16 px-4 sm:px-8 select-none">
+          <div className="max-w-5xl mx-auto rounded-[36px] sm:rounded-[48px] bg-white/90 backdrop-blur-xl border border-rose-200/90 shadow-xl shadow-rose-500/10 p-8 sm:p-14 text-center space-y-5">
+            <div>
+              <span className="inline-block bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald uppercase tracking-widest text-xs px-4 py-1.5 rounded-full shadow-lg shadow-rose-500/30 font-bold">
+                {t('about.tag')}
+              </span>
+            </div>
+
+            <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-[#271a17] leading-tight">
+              {t('about.title')}
+            </h1>
+
+            <p className="text-[#7d6560] text-sm sm:text-lg italic leading-relaxed max-w-2xl mx-auto">
+              "{t('about.quote')}"
+            </p>
+          </div>
+        </section>
+      ) : (
+        /* OCEAN & DARK: Classic Cinematic Gradient Banner */
+        <section className={`reveal-on-scroll border-b text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden ${
+          'bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800'
+        }`}>
+          <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/hero_slide_store.webp')" }} />
+          <div className="relative max-w-4xl mx-auto space-y-4">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow rounded bg-[#FAEA28] text-slate-950 font-oswald">
+                <Coffee size={14} />
+                <span>{t('about.tag')}</span>
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight font-oswald">
+              {t('about.title')}
+            </h1>
+            <p className="text-base sm:text-xl text-blue-100 max-w-2xl mx-auto italic font-serif leading-relaxed">
+              {t('about.quote')}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* 2. Brand Stats Ribbon - Layout Shifts per Theme */}
       <section className="max-w-6xl mx-auto px-4 -mt-10 sm:-mt-12 relative z-10">
