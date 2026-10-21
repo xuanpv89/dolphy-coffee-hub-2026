@@ -2064,14 +2064,55 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 6.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC */}
+      {/* 6.5 CÂU CHUYỆN DOLPHY - FULL WIDTH CINEMATIC (Theme-Adaptive Architecture) */}
       <section className="w-full bg-white dark:bg-slate-900 py-12 sm:py-16 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll">
-          <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
-            {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
-          </h2>
-          <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
-        </div>
+        {theme === 'nordic' ? (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll font-mono">
+            <span className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-bold block mb-2">// DOLPHY ARCHITECTURAL CINEMA • EST. 2013</span>
+            <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] text-black dark:text-white leading-tight">
+              {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
+            </h2>
+            <div className="w-14 h-1 bg-[#ff3b00] mx-auto mt-4 rounded-none"></div>
+          </div>
+        ) : theme === 'vintage' ? (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll font-serif">
+            <div className="flex items-center justify-center gap-2 text-[#c05621] mb-2">
+              <span className="text-sm">❦</span>
+              <span className="text-xs uppercase tracking-[0.25em] font-serif font-bold text-[#1b4d3e]">Édition Cinéma Thảo Điền • Saigon 2013</span>
+              <span className="text-sm">❦</span>
+            </div>
+            <h2 className="font-serif italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1b4d3e] leading-tight">
+              {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
+            </h2>
+            <div className="w-16 sm:w-20 h-0.5 bg-[#c05621] mx-auto mt-4 rounded-full"></div>
+          </div>
+        ) : theme === 'roastery' ? (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll font-mono">
+            <div className="inline-flex items-center gap-2 text-cyan-400 text-xs tracking-wider mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+              <span>SYS.STREAM // SENSORY_CINEMA_FEED</span>
+            </div>
+            <h2 className="font-mono text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-wider text-cyan-300 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)] leading-tight">
+              {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.8)] mx-auto mt-4 rounded-full"></div>
+          </div>
+        ) : theme === 'sunset' ? (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll">
+            <span className="font-oswald text-xs uppercase tracking-widest text-rose-500 font-bold block mb-2">DOLPHY CINEMA • SAIGON RIVERSIDE</span>
+            <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-wide bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 bg-clip-text text-transparent leading-tight">
+              {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-rose-500 to-orange-500 mx-auto mt-4 rounded-full"></div>
+          </div>
+        ) : (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 reveal-on-scroll">
+            <h2 className="font-oswald text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] leading-tight">
+              {language === 'vi' ? 'CÂU CHUYỆN DOLPHY' : "DOLPHY'S STORY"}
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-[#FAEA28] mx-auto mt-4 rounded-full"></div>
+          </div>
+        )}
 
         <div
           onClick={toggleHomeVideoMute}
@@ -2114,7 +2155,14 @@ export const Home: React.FC = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-10 space-y-3 reveal-on-scroll">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] text-xs font-oswald uppercase tracking-widest font-bold">
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs uppercase tracking-widest font-bold shadow-xs ${
+              theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono border border-black' :
+              theme === 'vintage' ? 'rounded bg-[#1b4d3e] text-white font-serif' :
+              theme === 'roastery' ? 'rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-500/40 font-mono shadow-[0_0_12px_rgba(6,182,212,0.3)]' :
+              theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald shadow-md' :
+              theme === 'dark' ? 'rounded bg-[#FAEA28] text-slate-950 font-oswald' :
+              'rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] font-oswald'
+            }`}>
               <Camera size={14} />
               <span>{t('home.community_badge')}</span>
             </span>

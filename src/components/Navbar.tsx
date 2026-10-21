@@ -25,11 +25,11 @@ export const Navbar: React.FC = () => {
       case 'dark':
         return <Moon size={size} className="text-[#FAEA28]" />;
       case 'roastery':
-        return <Flame size={size} className="text-amber-400" />;
+        return <Flame size={size} className="text-cyan-400" />;
       case 'vintage':
         return <Leaf size={size} className="text-emerald-600" />;
       case 'nordic':
-        return <Square size={size} className="text-zinc-900 dark:text-zinc-100" />;
+        return <Square size={size} className="text-[#ff3b00]" />;
       case 'sunset':
         return <Sunrise size={size} className="text-rose-500" />;
       default:
@@ -78,10 +78,10 @@ export const Navbar: React.FC = () => {
 
       {/* Quick Theme Selector Dropdown on Hover */}
       <div className="hidden group-hover:block absolute right-0 top-full pt-1.5 z-50">
-        <div className="p-2 rounded-xl shadow-xl backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border border-gray-200 dark:border-slate-700 w-52 space-y-1 text-xs">
+        <div className="p-2.5 rounded-2xl shadow-2xl backdrop-blur-2xl bg-white/95 dark:bg-slate-900/95 border border-gray-200 dark:border-slate-700 w-64 space-y-1 text-xs">
           <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between">
             <span>6 Themes Thiết Kế</span>
-            <span className="text-[9px] text-[#2076bd]">Click để đổi</span>
+            <span className="text-[9px] text-[#2076bd] font-mono">Chọn giao diện</span>
           </div>
           {allThemes?.map(tItem => (
             <button
@@ -90,20 +90,31 @@ export const Navbar: React.FC = () => {
                 e.stopPropagation();
                 setTheme(tItem.id);
               }}
-              className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-left transition-all ${
+              className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-left transition-all ${
                 theme === tItem.id
                   ? 'bg-[#2076bd]/10 text-[#2076bd] font-bold dark:bg-slate-800'
                   : 'hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300'
               }`}
             >
-              <div className="flex items-center gap-2">
-                <span
-                  className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
-                  style={{ backgroundColor: tItem.primaryHex }}
-                />
-                <span className="truncate">{language === 'vi' ? tItem.nameVi : tItem.nameEn}</span>
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="flex -space-x-1 shrink-0">
+                  <span
+                    className="w-3 h-3 rounded-full border border-black/10 z-10 shadow-2xs"
+                    style={{ backgroundColor: tItem.primaryHex }}
+                  />
+                  <span
+                    className="w-3 h-3 rounded-full border border-black/10 shadow-2xs"
+                    style={{ backgroundColor: tItem.accentHex }}
+                  />
+                </span>
+                <span className="truncate font-medium">{language === 'vi' ? tItem.nameVi : tItem.nameEn}</span>
               </div>
-              {renderThemeIcon(tItem.id, 12)}
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="text-[9px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-400 font-mono">
+                  {language === 'vi' ? tItem.badgeVi : tItem.badgeEn}
+                </span>
+                {renderThemeIcon(tItem.id, 12)}
+              </div>
             </button>
           ))}
         </div>
