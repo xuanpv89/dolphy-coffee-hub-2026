@@ -48,7 +48,7 @@ export const ThemeToast: React.FC = () => {
               className="text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded font-oswald"
               style={{
                 backgroundColor: themeConfig.accentHex,
-                color: themeConfig.id === 'roastery' || themeConfig.id === 'ocean' ? '#0f172a' : '#ffffff'
+                color: themeConfig.id === 'ocean' || themeConfig.id === 'dark' ? '#0f172a' : '#ffffff'
               }}
             >
               Theme Active
