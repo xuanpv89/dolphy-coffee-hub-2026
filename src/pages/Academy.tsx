@@ -4,7 +4,7 @@ import { coursesData, brandInfo } from '../data/dolphyData';
 import { useDolphy } from '../context/DolphyContext';
 
 export const Academy: React.FC = () => {
-  const { setEnrollingCourse, t, language } = useDolphy();
+  const { setEnrollingCourse, t, language, theme } = useDolphy();
   const [activeCourseId, setActiveCourseId] = useState<string>('barista-thuc-chien');
   const [openSyllabusSession, setOpenSyllabusSession] = useState<number | null>(1);
 
@@ -47,15 +47,31 @@ export const Academy: React.FC = () => {
     <div className="space-y-16 pb-20 bg-white dark:bg-[#0f172a] text-[#222222] dark:text-[#f1f5f9] transition-colors">
       
       {/* 1. HERO BANNER */}
-      <section className="reveal-on-scroll relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-b border-transparent dark:border-slate-800 text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
+      <section className={`reveal-on-scroll border-b text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center relative ${
+        theme === 'vintage' ? 'bg-[#1b4d3e] border-[#2d6a4f]' :
+        theme === 'nordic' ? 'bg-zinc-950 border-zinc-800' :
+        theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 border-rose-300' :
+        theme === 'roastery' ? 'bg-[#070a12] border-cyan-500/30' :
+        'bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800'
+      }`}>
         <div className="max-w-5xl mx-auto space-y-5 relative z-10">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded bg-[#FAEA28] text-slate-950 text-xs font-oswald uppercase tracking-widest font-extrabold shadow">
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow ${
+            theme === 'nordic' ? 'rounded-none bg-white text-black font-mono border border-black' :
+            theme === 'sunset' ? 'rounded-full bg-white text-rose-600 font-oswald shadow-md' :
+            theme === 'vintage' ? 'rounded-md bg-[#c05621] text-white font-serif' :
+            theme === 'roastery' ? 'rounded-md bg-cyan-950 text-cyan-400 font-mono border border-cyan-500/40' :
+            'rounded bg-[#FAEA28] text-slate-950 font-oswald'
+          }`}>
             <GraduationCap size={15} />
             <span>{t('academy.hero_tag')}</span>
           </div>
 
-          <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight">
+          <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight ${
+            theme === 'vintage' ? 'font-serif' :
+            theme === 'nordic' ? 'font-oswald tracking-widest' :
+            'font-oswald'
+          }`}>
             {t('academy.hero_title')}
           </h1>
 
@@ -82,7 +98,12 @@ export const Academy: React.FC = () => {
           <div className="pt-4">
             <button
               onClick={() => setEnrollingCourse(currentCourse)}
-              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-xl hover-lift"
+              className={`dolphy-btn dolphy-btn-amber px-8 py-3.5 text-sm font-semibold shadow-xl hover-lift ${
+                theme === 'nordic' ? 'rounded-none font-mono border-2 border-black' :
+                theme === 'sunset' ? 'rounded-full font-oswald' :
+                theme === 'vintage' ? 'rounded-md font-serif' :
+                'rounded'
+              }`}
             >
               <GraduationCap size={18} className="mr-2" />
               <span>{t('academy.reserve_cta')}</span>
@@ -92,9 +113,9 @@ export const Academy: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. COURSE SELECTOR TABS & CARDS */}
+      {/* 2. COURSE SELECTOR TABS & CARDS - Dynamic Layout Transformation */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-3">
+        <div className="space-y-4">
           <div className="flex items-center justify-between text-xs font-oswald uppercase tracking-wider px-1">
             <span className="font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-1.5">
               <GraduationCap size={16} />
@@ -105,56 +126,203 @@ export const Academy: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 reveal-stagger">
-            {coursesData.map((c, idx) => {
-              const active = activeCourseId === c.id;
-              const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
-              const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
-              const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+          {theme === 'nordic' ? (
+            /* NORDIC: Architectural Tabular Curriculum Matrix */
+            <div className="border-2 border-zinc-900 dark:border-zinc-200 divide-y sm:divide-y-0 sm:divide-x divide-zinc-900 dark:divide-zinc-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 font-mono reveal-stagger">
+              {coursesData.map((c, idx) => {
+                const active = activeCourseId === c.id;
+                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
 
-              return (
-                <button
-                  key={c.id}
-                  onClick={() => setActiveCourseId(c.id)}
-                  className={`p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 flex flex-col justify-between min-h-[110px] sm:min-h-[125px] border-2 relative cursor-pointer group ${
-                    active
-                      ? 'bg-[#2076bd] text-white border-[#2076bd] shadow-xl ring-4 ring-[#2076bd]/25 scale-[1.01]'
-                      : 'bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-slate-800 hover:border-[#2076bd]/60 hover:shadow-md'
-                  }`}
-                >
-                  <div className="w-full">
-                    <div className="flex items-center justify-between w-full mb-2">
-                      <span className={`text-[10px] font-oswald font-extrabold px-2 py-0.5 rounded uppercase tracking-wider ${
-                        active 
-                          ? 'bg-white/20 text-white' 
-                          : 'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setActiveCourseId(c.id)}
+                    className={`p-5 text-left transition-colors flex flex-col justify-between min-h-[140px] cursor-pointer ${
+                      active
+                        ? 'bg-black text-white dark:bg-white dark:text-black'
+                        : 'bg-white dark:bg-zinc-950 text-black dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] border-b pb-2 mb-3 border-current/20">
+                        <span>[0{idx + 1} // PROGRAM]</span>
+                        <span className="font-bold">{price}₫</span>
+                      </div>
+                      <h3 className="font-oswald text-base font-bold uppercase tracking-wider leading-snug">
+                        {title}
+                      </h3>
+                    </div>
+                    <div className="pt-3 border-t border-current/20 flex items-center justify-between text-[10px] tracking-wider uppercase mt-4">
+                      <span>{duration}</span>
+                      <span className="font-bold">{active ? '● SELECTED' : 'VIEW →'}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : theme === 'vintage' ? (
+            /* VINTAGE: French Culinary Atelier Curriculum Board */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-serif reveal-stagger">
+              {coursesData.map((c, idx) => {
+                const active = activeCourseId === c.id;
+                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setActiveCourseId(c.id)}
+                    className={`p-5 rounded-lg text-left transition-all flex flex-col justify-between min-h-[140px] border-2 cursor-pointer shadow-xs ${
+                      active
+                        ? 'bg-[#1b4d3e] text-white border-[#1b4d3e] shadow-lg scale-[1.02]'
+                        : 'bg-[#faf6f0] text-[#221e1a] border-[#e6ded1] hover:border-[#1b4d3e]'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-xs pb-2 border-b border-current/20 mb-2">
+                        <span className="italic">Lớp số {idx + 1}</span>
+                        <span className="font-bold">{price}₫</span>
+                      </div>
+                      <h3 className="font-serif text-base font-bold leading-snug">
+                        {title}
+                      </h3>
+                    </div>
+                    <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
+                      <span className="italic">{duration}</span>
+                      <span className="font-sans font-bold text-[10px] uppercase tracking-wider">{active ? 'Đang chọn' : 'Chi tiết →'}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : theme === 'roastery' ? (
+            /* ROASTERY: Cyber Holo Console Program Pods */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono reveal-stagger">
+              {coursesData.map((c, idx) => {
+                const active = activeCourseId === c.id;
+                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setActiveCourseId(c.id)}
+                    className={`p-5 rounded-xl text-left transition-all flex flex-col justify-between min-h-[140px] border cursor-pointer ${
+                      active
+                        ? 'bg-[#0f172a] text-cyan-400 border-cyan-400 shadow-[0_0_25px_rgba(56,189,248,0.35)] scale-[1.02]'
+                        : 'bg-[#0b1324] text-slate-300 border-cyan-500/20 hover:border-cyan-500/50'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-[10px] text-cyan-400 pb-2 border-b border-cyan-500/20 mb-2">
+                        <span>[TRACK_0{idx + 1}]</span>
+                        <span className="font-bold text-amber-400">{price}₫</span>
+                      </div>
+                      <h3 className="font-oswald text-sm font-bold uppercase tracking-wider leading-snug text-white">
+                        {title}
+                      </h3>
+                    </div>
+                    <div className="pt-2 border-t border-cyan-500/20 flex items-center justify-between text-[11px] mt-3">
+                      <span>{duration}</span>
+                      <span className="font-bold uppercase tracking-wider text-cyan-400">{active ? '● ACTIVE' : 'OPEN →'}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : theme === 'sunset' ? (
+            /* SUNSET: Organic 4-Pebble Program Buttons */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
+              {coursesData.map((c, idx) => {
+                const active = activeCourseId === c.id;
+                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setActiveCourseId(c.id)}
+                    className={`p-5 rounded-3xl text-left transition-all flex flex-col justify-between min-h-[140px] border cursor-pointer ${
+                      active
+                        ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white border-transparent shadow-xl shadow-rose-500/25 scale-[1.02]'
+                        : 'bg-white text-[#271a17] border-rose-100 hover:border-rose-300 shadow-md shadow-rose-500/5'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-xs pb-2 border-b border-current/20 mb-2">
+                        <span className="font-oswald uppercase text-[10px] tracking-wider font-bold">Khóa 0{idx + 1}</span>
+                        <span className="font-oswald font-bold">{price}₫</span>
+                      </div>
+                      <h3 className="font-oswald text-base font-bold uppercase leading-snug">
+                        {title}
+                      </h3>
+                    </div>
+                    <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
+                      <span className="text-[11px]">{duration}</span>
+                      <span className="font-oswald font-bold uppercase text-[10px] tracking-wider">{active ? 'Đang chọn' : 'Xem →'}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            /* OCEAN & CLASSIC DARK: Original Balanced 4-Col Grid */
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 reveal-stagger">
+              {coursesData.map((c, idx) => {
+                const active = activeCourseId === c.id;
+                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setActiveCourseId(c.id)}
+                    className={`p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 flex flex-col justify-between min-h-[110px] sm:min-h-[125px] border-2 relative cursor-pointer group ${
+                      active
+                        ? 'bg-[#2076bd] text-white border-[#2076bd] shadow-xl ring-4 ring-[#2076bd]/25 scale-[1.01]'
+                        : 'bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-slate-800 hover:border-[#2076bd]/60 hover:shadow-md'
+                    }`}
+                  >
+                    <div className="w-full">
+                      <div className="flex items-center justify-between w-full mb-2">
+                        <span className={`text-[10px] font-oswald font-extrabold px-2 py-0.5 rounded uppercase tracking-wider ${
+                          active 
+                            ? 'bg-white/20 text-white' 
+                            : 'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
+                        }`}>
+                          #{idx + 1} • {c.badge || 'Khoá'}
+                        </span>
+                        <span className={`text-xs sm:text-sm font-oswald font-bold ${active ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
+                          {price}₫
+                        </span>
+                      </div>
+
+                      <h3 className={`font-oswald text-xs sm:text-sm font-bold uppercase tracking-wide leading-snug line-clamp-2 ${
+                        active ? 'text-white' : 'text-gray-900 dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6]'
                       }`}>
-                        #{idx + 1} • {c.badge || 'Khoá'}
-                      </span>
-                      <span className={`text-xs sm:text-sm font-oswald font-bold ${active ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
-                        {price}₫
-                      </span>
+                        {title}
+                      </h3>
                     </div>
 
-                    <h3 className={`font-oswald text-xs sm:text-sm font-bold uppercase tracking-wide leading-snug line-clamp-2 ${
-                      active ? 'text-white' : 'text-gray-900 dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6]'
+                    <div className={`pt-2 sm:pt-2.5 mt-2 border-t flex items-center justify-between text-[11px] font-oswald w-full ${
+                      active ? 'border-white/20 text-blue-100' : 'border-gray-100 dark:border-slate-800 text-gray-500 dark:text-gray-400'
                     }`}>
-                      {title}
-                    </h3>
-                  </div>
-
-                  <div className={`pt-2 sm:pt-2.5 mt-2 border-t flex items-center justify-between text-[11px] font-oswald w-full ${
-                    active ? 'border-white/20 text-blue-100' : 'border-gray-100 dark:border-slate-800 text-gray-500 dark:text-gray-400'
-                  }`}>
-                    <span>{duration}</span>
-                    <span className={`font-bold uppercase tracking-wider text-[10px] sm:text-[11px] ${active ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
-                      {active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+                      <span>{duration}</span>
+                      <span className={`font-bold uppercase tracking-wider text-[10px] sm:text-[11px] ${active ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
+                        {active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -166,24 +334,41 @@ export const Academy: React.FC = () => {
           <div className="lg:col-span-8 space-y-8 reveal-left">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-[10px] font-oswald uppercase tracking-wider px-2 py-0.5 rounded shadow">
+                <span className={`font-extrabold text-[10px] uppercase tracking-wider px-2 py-0.5 shadow ${
+                  theme === 'nordic' ? 'rounded-none bg-black text-white font-mono' :
+                  theme === 'sunset' ? 'rounded-full bg-rose-500 text-white font-oswald' :
+                  theme === 'vintage' ? 'rounded-md bg-[#1b4d3e] text-white font-serif' :
+                  'rounded bg-[#FAEA28] text-slate-950 font-oswald'
+                }`}>
                   {language === 'en' && currentCourse.badgeEn ? currentCourse.badgeEn : currentCourse.badge}
                 </span>
                 <span className="text-xs text-gray-500 dark:text-gray-400 font-oswald">
                   {t('academy.duration')}: {language === 'en' && currentCourse.durationEn ? currentCourse.durationEn : currentCourse.duration}
                 </span>
               </div>
-              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+              <h2 className={`text-2xl sm:text-3xl font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'en' && currentCourse.titleEn ? currentCourse.titleEn : currentCourse.title}
               </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+              <p className={`text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed ${
+                theme === 'vintage' ? 'font-serif italic' : ''
+              }`}>
                 {language === 'en' && currentCourse.subtitleEn ? currentCourse.subtitleEn : currentCourse.subtitle}
               </p>
             </div>
 
             {/* Highlights */}
-            <div className="bg-blue-50 dark:bg-slate-800/70 border border-blue-200 dark:border-slate-700 p-6 rounded-lg space-y-3">
-              <h3 className="font-oswald text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6]">
+            <div className={`p-6 space-y-3 ${
+              theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+              theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-gradient-to-r from-rose-50 to-orange-50' :
+              theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#f2ebe0] font-serif' :
+              theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] shadow-[0_0_20px_rgba(2,132,199,0.2)] font-mono' :
+              'bg-blue-50 dark:bg-slate-800/70 border border-blue-200 dark:border-slate-700 rounded-lg'
+            }`}>
+              <h3 className={`text-base font-bold uppercase text-[#2076bd] dark:text-[#3ba0e6] ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {t('academy.benefits_title')}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-700 dark:text-gray-200">
@@ -198,7 +383,9 @@ export const Academy: React.FC = () => {
 
             {/* Syllabus breakdown */}
             <div className="space-y-4">
-              <h3 className="font-oswald text-xl font-bold uppercase text-[#222222] dark:text-white">
+              <h3 className={`text-xl font-bold uppercase text-[#222222] dark:text-white ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {t('academy.curriculum')}
               </h3>
               
@@ -213,18 +400,32 @@ export const Academy: React.FC = () => {
                   return (
                     <div
                       key={session.session}
-                      className="border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden bg-white dark:bg-[#1e293b] shadow-sm hover-lift"
+                      className={`overflow-hidden shadow-sm transition-all ${
+                        theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+                        theme === 'sunset' ? 'rounded-2xl border border-rose-100 bg-white shadow-md' :
+                        theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+                        theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono' :
+                        'border border-gray-200 dark:border-slate-800 rounded-lg bg-white dark:bg-[#1e293b]'
+                      }`}
                     >
                       <button
                         onClick={() => setOpenSyllabusSession(isOpen ? null : session.session)}
                         className="w-full p-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="w-8 h-8 rounded bg-[#2076bd] text-white text-xs font-oswald font-bold flex items-center justify-center">
+                          <span className={`w-8 h-8 text-xs font-bold flex items-center justify-center ${
+                            theme === 'nordic' ? 'rounded-none bg-black text-white font-mono' :
+                            theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white' :
+                            theme === 'vintage' ? 'rounded bg-[#1b4d3e] text-white font-serif' :
+                            theme === 'roastery' ? 'rounded-md bg-cyan-950 text-cyan-400 border border-cyan-500/40' :
+                            'rounded bg-[#2076bd] text-white font-oswald'
+                          }`}>
                             #{session.session}
                           </span>
                           <div>
-                            <h4 className="font-oswald text-sm font-bold text-[#222222] dark:text-white uppercase">
+                            <h4 className={`text-sm font-bold uppercase text-[#222222] dark:text-white ${
+                              theme === 'vintage' ? 'font-serif' : 'font-oswald'
+                            }`}>
                               {title}
                             </h4>
                             <span className="text-[11px] text-gray-400 dark:text-gray-500 font-oswald">{currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'}</span>
@@ -252,11 +453,22 @@ export const Academy: React.FC = () => {
 
           {/* Pricing & Deposit Card (Sidebar) */}
           <div className="lg:col-span-4 reveal-right">
-            <div className="bg-white dark:bg-[#1e293b] border-2 border-[#2076bd] dark:border-[#3ba0e6] rounded-xl p-6 shadow-xl sticky top-24 space-y-6">
+            <div className={`p-6 shadow-xl sticky top-24 space-y-6 ${
+              theme === 'nordic' ? 'rounded-none border-2 border-black dark:border-white bg-white dark:bg-zinc-950 font-mono' :
+              theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-white shadow-rose-500/10' :
+              theme === 'vintage' ? 'rounded-lg border-2 border-[#1b4d3e] bg-[#faf6f0] font-serif' :
+              theme === 'roastery' ? 'rounded-xl border border-cyan-500/50 bg-[#0b1324] shadow-[0_0_30px_rgba(2,132,199,0.25)] font-mono' :
+              'bg-white dark:bg-[#1e293b] border-2 border-[#2076bd] dark:border-[#3ba0e6] rounded-xl'
+            }`}>
               
               <div className="text-center border-b border-gray-100 dark:border-slate-800 pb-4">
                 <span className="text-xs text-gray-400 dark:text-gray-500 uppercase font-oswald">{t('academy.tuition_full')}</span>
-                <div className="font-oswald text-3xl font-bold text-[#2076bd] dark:text-[#3ba0e6] my-1">
+                <div className={`text-3xl font-bold my-1 ${
+                  theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                  theme === 'sunset' ? 'font-oswald bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent' :
+                  theme === 'roastery' ? 'font-oswald text-[#38bdf8] drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]' :
+                  'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                }`}>
                   {(currentCourse.discountPrice || currentCourse.price).toLocaleString('vi-VN')}₫
                 </div>
                 <div className="text-xs text-[#2076bd] dark:text-[#3ba0e6] font-bold font-oswald uppercase">
@@ -283,7 +495,13 @@ export const Academy: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-3 rounded bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-xs text-blue-900 dark:text-blue-200 space-y-1">
+              <div className={`p-3 text-xs space-y-1 ${
+                theme === 'nordic' ? 'rounded-none bg-zinc-100 dark:bg-zinc-900 border border-zinc-900' :
+                theme === 'sunset' ? 'rounded-2xl bg-rose-50 border border-rose-200' :
+                theme === 'vintage' ? 'rounded bg-[#f2ebe0] border border-[#e6ded1]' :
+                theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 border border-cyan-500/30' :
+                'rounded bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-blue-900 dark:text-blue-200'
+              }`}>
                 <p className="font-bold flex items-center gap-1.5 text-[#2076bd] dark:text-[#3ba0e6]">
                   <Gift size={14} className="text-[#2076bd] dark:text-[#38bdf8]" />
                   {language === 'vi' ? 'Ưu đãi đăng ký sớm:' : 'Early Bird Privilege:'}
@@ -293,7 +511,13 @@ export const Academy: React.FC = () => {
 
               <button
                 onClick={() => setEnrollingCourse(currentCourse)}
-                className="w-full py-3.5 rounded bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow flex items-center justify-center gap-2 hover-lift"
+                className={`w-full py-3.5 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow flex items-center justify-center gap-2 hover-lift ${
+                  theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-amber-600' :
+                  theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white shadow-rose-500/25' :
+                  theme === 'vintage' ? 'rounded-md bg-[#c05621] text-white hover:bg-[#a04618]' :
+                  theme === 'roastery' ? 'rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_20px_rgba(6,182,212,0.5)]' :
+                  'rounded bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950'
+                }`}
               >
                 <QrCode size={16} />
                 <span>{language === 'vi' ? 'ĐĂNG KÝ & TẠO MÃ VIETQR CỌC' : 'RESERVE & GENERATE VIETQR'}</span>
@@ -327,7 +551,13 @@ export const Academy: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
+          <div className={`overflow-hidden shadow-sm hover-lift hover:shadow-lg transition-all group ${
+            theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+            theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+            theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+            theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            'rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b]'
+          }`}>
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-championship-backdrop.jpg"
@@ -339,7 +569,9 @@ export const Academy: React.FC = () => {
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Sân Chơi Thường Niên' : 'Annual Championship'}
               </span>
-              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+              <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'vi' ? 'Junior Barista Championship 2024' : 'Junior Barista Championship 2024'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -350,7 +582,13 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
+          <div className={`overflow-hidden shadow-sm hover-lift hover:shadow-lg transition-all group ${
+            theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+            theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+            theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+            theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            'rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b]'
+          }`}>
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-latte-art-pouring.jpg"
@@ -362,7 +600,9 @@ export const Academy: React.FC = () => {
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Kỹ Năng Đỉnh Cao' : 'Masterful Skills'}
               </span>
-              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+              <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'vi' ? 'Nghệ Thuật Đánh Sữa & Latte Art' : 'Milk Steaming & Silky Pouring'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -373,7 +613,13 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
+          <div className={`overflow-hidden shadow-sm hover-lift hover:shadow-lg transition-all group ${
+            theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+            theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+            theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+            theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            'rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b]'
+          }`}>
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-championship-trophy.jpg"
@@ -385,7 +631,9 @@ export const Academy: React.FC = () => {
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Vinh Danh Tài Năng' : 'Trophy Ceremony'}
               </span>
-              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+              <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'vi' ? 'Trao Cúp Vô Địch & Chứng Chỉ' : 'Championship Trophy & Certs'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -396,7 +644,13 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
+          <div className={`overflow-hidden shadow-sm hover-lift hover:shadow-lg transition-all group ${
+            theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+            theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+            theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+            theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            'rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b]'
+          }`}>
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-bracket-board.jpg"
@@ -408,7 +662,9 @@ export const Academy: React.FC = () => {
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Quy Trình Chuẩn Hóa' : 'Standardized Bracket'}
               </span>
-              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+              <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'vi' ? 'Bảng Đấu Trực Tiếp & Đánh Giá' : 'Direct Tournament Bracket'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -419,7 +675,13 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
+          <div className={`overflow-hidden shadow-sm hover-lift hover:shadow-lg transition-all group ${
+            theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+            theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+            theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+            theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            'rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b]'
+          }`}>
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-sensory-judging.jpg"
@@ -431,7 +693,9 @@ export const Academy: React.FC = () => {
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Cảm Quan Hương Vị' : 'Sensory Evaluation'}
               </span>
-              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+              <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'vi' ? 'Hội Đồng Giám Khảo Chấm Điểm' : 'Professional SCA Judging'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -442,7 +706,13 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover-lift hover:shadow-lg transition-all group">
+          <div className={`overflow-hidden shadow-sm hover-lift hover:shadow-lg transition-all group ${
+            theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+            theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+            theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+            theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+            'rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b]'
+          }`}>
             <div className="aspect-[4/3] overflow-hidden bg-slate-900">
               <img
                 src="/images/fanpage/academy-espresso-machine.jpg"
@@ -454,7 +724,9 @@ export const Academy: React.FC = () => {
               <span className="text-[10px] font-oswald font-bold uppercase tracking-wider text-[#2076bd] dark:text-[#3ba0e6]">
                 {language === 'vi' ? 'Thực Hành Trực Tiếp' : 'Live Station Practice'}
               </span>
-              <h4 className="font-oswald text-base font-bold text-[#222222] dark:text-white uppercase">
+              <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white ${
+                theme === 'vintage' ? 'font-serif' : 'font-oswald'
+              }`}>
                 {language === 'vi' ? 'Hiệu Chỉnh Máy Pha Espresso' : 'Commercial Espresso Station'}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -468,7 +740,13 @@ export const Academy: React.FC = () => {
       </section>
 
       {/* 5. FAQS */}
-      <section className="bg-[#f8f9fa] dark:bg-slate-900/60 py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-slate-800 transition-colors">
+      <section className={`py-14 px-4 sm:px-6 lg:px-8 border-t transition-colors ${
+        theme === 'nordic' ? 'bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 font-mono' :
+        theme === 'sunset' ? 'bg-rose-50/50 border-rose-200' :
+        theme === 'vintage' ? 'bg-[#faf6f0] border-[#e6ded1] font-serif' :
+        theme === 'roastery' ? 'bg-[#070a12] border-cyan-500/20 font-mono' :
+        'bg-[#f8f9fa] dark:bg-slate-900/60 border-gray-200 dark:border-slate-800'
+      }`}>
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center reveal-on-scroll">
             <h2 className="section-title">
@@ -481,8 +759,16 @@ export const Academy: React.FC = () => {
 
           <div className="space-y-4 reveal-stagger">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-white dark:bg-[#1e293b] p-5 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm space-y-2">
-                <h4 className="font-oswald text-base font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-2">
+              <div key={idx} className={`p-5 space-y-2 ${
+                theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-900 font-mono' :
+                theme === 'sunset' ? 'rounded-2xl border border-rose-100 bg-white shadow-sm' :
+                theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+                theme === 'roastery' ? 'rounded-xl border border-cyan-500/30 bg-[#0b1324] font-mono' :
+                'bg-white dark:bg-[#1e293b] rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm'
+              }`}>
+                <h4 className={`text-base font-bold text-[#2076bd] dark:text-[#3ba0e6] flex items-center gap-2 ${
+                  theme === 'vintage' ? 'font-serif' : 'font-oswald'
+                }`}>
                   <span>Q{idx + 1}:</span> {faq.q}
                 </h4>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed pl-6">

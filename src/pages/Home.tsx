@@ -212,15 +212,15 @@ export const Home: React.FC = () => {
                     </span>
                   ) : theme === 'vintage' ? (
                     <span className="inline-block bg-[#c05621] text-white font-serif italic text-xs sm:text-sm px-4 py-1 rounded border border-amber-900/30 shadow">
-                      ❦ {slide.badge} ❦
+                      {slide.badge}
                     </span>
                   ) : theme === 'nordic' ? (
                     <span className="inline-block bg-black text-white font-mono uppercase tracking-[0.2em] text-[10px] sm:text-xs px-3 py-1 border border-zinc-600">
-                      [{slide.badge}]
+                      {slide.badge}
                     </span>
                   ) : theme === 'sunset' ? (
                     <span className="inline-block bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald uppercase tracking-widest text-[11px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg shadow-rose-500/30 font-bold">
-                      🌅 {slide.badge}
+                      {slide.badge}
                     </span>
                   ) : (
                     <span className="inline-block bg-[#FAEA28] text-slate-950 font-bold text-[11px] sm:text-sm font-oswald uppercase tracking-widest px-3 py-1 rounded shadow">
@@ -605,7 +605,7 @@ export const Home: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute top-3 left-3 bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-                      🌅 {product.isBestSeller ? 'Bán Chạy Nhất' : 'Hương Vị Sài Gòn'}
+                      {product.isBestSeller ? t('shop.badge_bestseller') : (product.badge || '')}
                     </span>
                   </div>
 
@@ -624,7 +624,7 @@ export const Home: React.FC = () => {
 
                 <div className="pt-4 border-t border-rose-100 mt-5 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] text-rose-400 uppercase font-semibold block">Giá Hoàng Hôn</span>
+                    <span className="text-[10px] text-rose-400 uppercase font-semibold block">{t('shop.unit_price')}</span>
                     <span className="font-oswald text-xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">
                       {product.price.toLocaleString('vi-VN')}₫
                     </span>
@@ -979,7 +979,7 @@ export const Home: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="space-y-5">
                 <span className="bg-white/20 text-white font-oswald text-xs uppercase tracking-widest px-4 py-1.5 rounded-full inline-block backdrop-blur font-bold">
-                  🌅 {t('home.academy_badge')}
+                  {t('home.academy_badge')}
                 </span>
                 <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wide leading-tight">
                   {t('home.academy_title')}

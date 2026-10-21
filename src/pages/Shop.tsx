@@ -287,10 +287,10 @@ export const Shop: React.FC = () => {
               return (
                 <div
                   key={product.id}
-                  className="bg-white border border-[#e6ded1] rounded-lg p-5 flex flex-col justify-between hover:border-[#1b4d3e] transition-all shadow-xs group font-serif"
+                  className="bg-[#faf6f0] border-2 border-[#e6ded1] rounded-lg p-5 flex flex-col justify-between hover:border-[#1b4d3e] transition-all shadow-xs group font-serif"
                 >
                   <div>
-                    <div className="relative aspect-[4/3] rounded overflow-hidden bg-[#faf6f0] border border-[#e6ded1] mb-4 cursor-pointer" onClick={() => openQuickView(product)}>
+                    <div className="relative aspect-[4/3] rounded overflow-hidden bg-white border border-[#e6ded1] mb-4 cursor-pointer" onClick={() => openQuickView(product)}>
                       <img
                         src={product.image || product.images?.[0]}
                         alt={pName}
@@ -300,12 +300,14 @@ export const Shop: React.FC = () => {
                       <span className="absolute top-2.5 left-2.5 bg-[#1b4d3e] text-white font-sans text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded">
                         {pCatName}
                       </span>
+                      {product.isBestSeller && (
+                        <span className="absolute top-2.5 right-2.5 bg-[#c05621] text-white font-sans text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded shadow">
+                          {t('shop.badge_bestseller')}
+                        </span>
+                      )}
                     </div>
 
                     <div className="space-y-2">
-                      <span className="text-[10px] font-sans tracking-[0.2em] text-[#1b4d3e] uppercase font-bold block">
-                        EST. 2013 • THẢO ĐIỀN
-                      </span>
                       <h3
                         onClick={() => openQuickView(product)}
                         className="font-serif font-bold text-base text-[#221e1a] group-hover:text-[#1b4d3e] transition-colors leading-snug cursor-pointer"
@@ -320,7 +322,6 @@ export const Shop: React.FC = () => {
 
                   <div className="pt-4 mt-4 border-t border-[#e6ded1] flex items-center justify-between font-sans">
                     <div>
-                      <span className="text-[10px] text-[#6e655c] uppercase block">Giá tuyển chọn</span>
                       <span className="font-serif text-lg font-bold text-[#1b4d3e]">
                         {product.price.toLocaleString('vi-VN')}₫
                       </span>
@@ -330,10 +331,10 @@ export const Shop: React.FC = () => {
                         addToCart(product, 1, selectedGrind);
                         showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
                       }}
-                      className="px-3.5 py-1.5 rounded border border-[#1b4d3e] bg-[#1b4d3e] text-white hover:bg-[#c05621] text-xs uppercase tracking-wider font-semibold transition-all flex items-center gap-1.5"
+                      className="px-3.5 py-1.5 rounded border border-[#1b4d3e] bg-[#1b4d3e] text-white hover:bg-[#c05621] text-xs uppercase tracking-wider font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
                     >
                       <ShoppingBag size={13} />
-                      <span>Thưởng thức</span>
+                      <span>{t('shop.add_to_cart')}</span>
                     </button>
                   </div>
                 </div>
@@ -342,7 +343,7 @@ export const Shop: React.FC = () => {
           </div>
         ) : theme === 'nordic' ? (
           /* THEME: NORDIC - Brutalist Architectural 4-Box Directory Grid */
-          <div className="border-2 border-zinc-900 dark:border-zinc-300 divide-y sm:divide-y-0 sm:divide-x divide-zinc-900 dark:divide-zinc-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-none reveal-stagger">
+          <div className="border-2 border-zinc-900 dark:border-zinc-200 divide-y sm:divide-y-0 sm:divide-x divide-zinc-900 dark:divide-zinc-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-none reveal-stagger font-mono">
             {paginatedProducts.map((product, idx) => {
               const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
               const selectedGrind = grindOptions[product.id] || defaultGrind;
@@ -382,7 +383,6 @@ export const Shop: React.FC = () => {
 
                   <div className="pt-4 mt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-3 font-mono">
                     <div className="flex items-baseline justify-between">
-                      <span className="text-[10px] text-zinc-400 uppercase">PRICE</span>
                       <span className="text-base font-bold text-black dark:text-white">
                         {product.price.toLocaleString('vi-VN')}₫
                       </span>
@@ -392,9 +392,74 @@ export const Shop: React.FC = () => {
                         addToCart(product, 1, selectedGrind);
                         showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
                       }}
-                      className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
+                      className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none cursor-pointer"
                     >
-                      + ADD TO CART
+                      + {t('shop.add_to_cart')}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : theme === 'roastery' ? (
+          /* THEME: ROASTERY - Cyber Station Node HUD Grid */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-mono reveal-stagger">
+            {paginatedProducts.map((product, idx) => {
+              const defaultGrind = language === 'vi' ? 'Nguyên hạt (Espresso)' : 'Whole Bean (Espresso)';
+              const selectedGrind = grindOptions[product.id] || defaultGrind;
+              const pName = language === 'en' ? (product.nameEn || product.name) : product.name;
+              const pDesc = language === 'en' ? (product.descriptionEn || product.description) : product.description;
+              const pCatName = language === 'en' ? (product.categoryNameEn || product.categoryName) : product.categoryName;
+
+              return (
+                <div
+                  key={product.id}
+                  className="bg-[#0b1324] border border-cyan-500/40 rounded-xl p-5 flex flex-col justify-between hover:border-cyan-400 transition-all shadow-[0_0_20px_rgba(2,132,199,0.15)] group"
+                >
+                  <div>
+                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-950 border border-cyan-500/20 mb-4 cursor-pointer" onClick={() => openQuickView(product)}>
+                      <img
+                        src={product.image || product.images?.[0]}
+                        alt={pName}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-2.5 left-2.5 bg-cyan-950 text-cyan-400 border border-cyan-500/40 text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded">
+                        {pCatName}
+                      </span>
+                      {product.isBestSeller && (
+                        <span className="absolute top-2.5 right-2.5 bg-amber-500 text-black text-[9px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded shadow">
+                          {t('shop.badge_bestseller')}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <h3
+                        onClick={() => openQuickView(product)}
+                        className="font-oswald text-base font-bold uppercase text-white group-hover:text-cyan-400 transition-colors leading-snug cursor-pointer"
+                      >
+                        {pName}
+                      </h3>
+                      <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed font-sans">
+                        {pDesc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-cyan-500/20 flex items-center justify-between">
+                    <span className="font-oswald text-lg font-bold text-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">
+                      {product.price.toLocaleString('vi-VN')}₫
+                    </span>
+                    <button
+                      onClick={() => {
+                        addToCart(product, 1, selectedGrind);
+                        showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
+                      }}
+                      className="px-3.5 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black text-xs uppercase font-oswald tracking-wider font-bold transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <ShoppingBag size={13} />
+                      <span>{t('shop.add_to_cart')}</span>
                     </button>
                   </div>
                 </div>
@@ -409,6 +474,7 @@ export const Shop: React.FC = () => {
               const selectedGrind = grindOptions[product.id] || defaultGrind;
               const pName = language === 'en' ? (product.nameEn || product.name) : product.name;
               const pDesc = language === 'en' ? (product.descriptionEn || product.description) : product.description;
+              const pCatName = language === 'en' ? (product.categoryNameEn || product.categoryName) : product.categoryName;
 
               return (
                 <div
@@ -424,7 +490,7 @@ export const Shop: React.FC = () => {
                         loading="lazy"
                       />
                       <span className="absolute top-3 left-3 bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-                        🌅 {product.isBestSeller ? 'Bán Chạy' : 'Đặc Sản'}
+                        {product.isBestSeller ? t('shop.badge_bestseller') : pCatName}
                       </span>
                     </div>
 
@@ -441,7 +507,6 @@ export const Shop: React.FC = () => {
 
                   <div className="pt-4 border-t border-rose-100 mt-5 flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] text-rose-400 uppercase font-semibold block">Giá Hoàng Hôn</span>
                       <span className="font-oswald text-xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">
                         {product.price.toLocaleString('vi-VN')}₫
                       </span>
@@ -451,7 +516,7 @@ export const Shop: React.FC = () => {
                         addToCart(product, 1, selectedGrind);
                         showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
                       }}
-                      className="p-3 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white shadow-lg shadow-rose-500/25 transition-transform hover:scale-105"
+                      className="p-3 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white shadow-lg shadow-rose-500/25 transition-transform hover:scale-105 cursor-pointer"
                       title={t('shop.add_to_cart')}
                     >
                       <ShoppingBag size={18} />
