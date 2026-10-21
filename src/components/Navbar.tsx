@@ -244,10 +244,6 @@ export const Navbar: React.FC = () => {
                   className="h-8 sm:h-10 w-auto object-contain"
                 />
               </Link>
-              <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[10px] font-mono text-cyan-300">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span>ONLINE 2026 // NODE 01</span>
-              </div>
             </div>
 
             {/* Center: Streamlined Cyber Menu Links */}
@@ -283,7 +279,7 @@ export const Navbar: React.FC = () => {
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-mono shadow-[0_0_15px_rgba(6,182,212,0.4)]"
               >
                 <ShoppingBag size={13} />
-                <span className="hidden xs:inline">CART</span>
+                <span className="hidden xs:inline">{t('nav.cart')}</span>
                 <span className="bg-amber-400 text-slate-950 font-bold px-1.5 py-0.2 rounded-full text-[10px]">
                   {cartCount}
                 </span>
@@ -347,9 +343,6 @@ export const Navbar: React.FC = () => {
               alt="Dolphy Café" 
               className="h-10 sm:h-14 mx-auto object-contain group-hover:scale-105 transition-transform"
             />
-            <p className="text-[11px] tracking-[0.25em] text-[#1b4d3e] uppercase mt-1 font-serif italic">
-              — Maison de Café & Académie Barista —
-            </p>
           </Link>
         </div>
 
@@ -382,7 +375,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Toggle on Vintage */}
         <div className="lg:hidden flex items-center justify-between px-4 py-2 border-t border-[#e6ded1]">
-          <span className="text-xs font-serif italic text-[#1b4d3e]">Danh Mục Cổ Điển</span>
+          <span className="text-xs font-serif italic text-[#1b4d3e]">Dolphy Café</span>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-1.5 rounded border border-[#e6ded1] text-[#1b4d3e]"
@@ -438,7 +431,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setIsCartOpen(true)}
               className="flex items-center gap-1.5 px-3 py-1 bg-black hover:bg-zinc-800 text-white text-xs font-mono uppercase tracking-wider"
             >
-              <span>CART [{cartCount}]</span>
+              <span>{t('nav.cart')} [{cartCount}]</span>
             </button>
 
             <button
@@ -497,7 +490,7 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white text-xs font-oswald uppercase tracking-wider font-bold shadow-md shadow-rose-500/25"
             >
               <ShoppingBag size={13} />
-              <span className="hidden xs:inline">GIỎ HÀNG</span>
+              <span className="hidden xs:inline">{t('nav.cart')}</span>
               <span className="bg-white text-rose-600 font-bold px-1.5 py-0.2 rounded-full text-[10px]">
                 {cartCount}
               </span>

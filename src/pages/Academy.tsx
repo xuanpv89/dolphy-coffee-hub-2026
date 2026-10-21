@@ -156,7 +156,7 @@ export const Academy: React.FC = () => {
                     </div>
                     <div className="pt-3 border-t border-current/20 flex items-center justify-between text-[10px] tracking-wider uppercase mt-4">
                       <span>{duration}</span>
-                      <span className="font-bold">{active ? '● SELECTED' : 'VIEW →'}</span>
+                      <span className="font-bold">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
                     </div>
                   </button>
                 );
@@ -192,7 +192,7 @@ export const Academy: React.FC = () => {
                     </div>
                     <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
                       <span className="italic">{duration}</span>
-                      <span className="font-sans font-bold text-[10px] uppercase tracking-wider">{active ? 'Đang chọn' : 'Chi tiết →'}</span>
+                      <span className="font-sans font-bold text-[10px] uppercase tracking-wider">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
                     </div>
                   </button>
                 );
@@ -228,7 +228,7 @@ export const Academy: React.FC = () => {
                     </div>
                     <div className="pt-2 border-t border-cyan-500/20 flex items-center justify-between text-[11px] mt-3">
                       <span>{duration}</span>
-                      <span className="font-bold uppercase tracking-wider text-cyan-400">{active ? '● ACTIVE' : 'OPEN →'}</span>
+                      <span className="font-bold uppercase tracking-wider text-cyan-400">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
                     </div>
                   </button>
                 );
@@ -264,7 +264,7 @@ export const Academy: React.FC = () => {
                     </div>
                     <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
                       <span className="text-[11px]">{duration}</span>
-                      <span className="font-oswald font-bold uppercase text-[10px] tracking-wider">{active ? 'Đang chọn' : 'Xem →'}</span>
+                      <span className="font-oswald font-bold uppercase text-[10px] tracking-wider">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
                     </div>
                   </button>
                 );

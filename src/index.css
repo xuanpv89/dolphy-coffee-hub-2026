@@ -981,3 +981,28 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 [data-theme="dark"] .border-blue-300 {
   border-color: #334155 !important;
 }
+
+/* Secondary & Focus Border Overrides */
+[data-theme="vintage"] .border-\[\#3ba0e6\],
+[data-theme="vintage"] .border-blue-500,
+[data-theme="vintage"] .border-blue-600 {
+  border-color: #1b4d3e !important;
+}
+
+[data-theme="nordic"] .border-\[\#3ba0e6\],
+[data-theme="nordic"] .border-blue-500,
+[data-theme="nordic"] .border-blue-600 {
+  border-color: #18181b !important;
+}
+
+[data-theme="sunset"] .border-\[\#3ba0e6\],
+[data-theme="sunset"] .border-blue-500,
+[data-theme="sunset"] .border-blue-600 {
+  border-color: #e11d48 !important;
+}
+
+[data-theme="roastery"] .border-\[\#3ba0e6\],
+[data-theme="roastery"] .border-blue-500,
+[data-theme="roastery"] .border-blue-600 {
+  border-color: #0284c7 !important;
+}

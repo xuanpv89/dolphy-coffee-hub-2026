@@ -172,7 +172,7 @@ export const KnowledgeHub: React.FC = () => {
                   <div className="md:col-span-3 flex items-center justify-between md:justify-end gap-4 text-xs font-mono">
                     <span className="text-zinc-400 text-[11px]">{articleReadTime}</span>
                     <span className="font-bold uppercase tracking-wider text-black dark:text-white group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                      <span>{language === 'vi' ? 'ĐỌC TIẾP' : 'READ MORE'}</span>
+                      <span>{t('knowledge.read_more')}</span>
                       <ArrowRight size={13} />
                     </span>
                   </div>
@@ -229,7 +229,7 @@ export const KnowledgeHub: React.FC = () => {
                   <div className="p-6 pt-0 border-t border-[#e6ded1] mt-2 flex items-center justify-between text-xs text-[#6e655c]">
                     <span className="italic">{art.author}</span>
                     <span className="font-sans font-bold text-[#1b4d3e] group-hover:underline flex items-center gap-1 text-[11px] uppercase tracking-wider">
-                      <span>{language === 'vi' ? 'ĐỌC TIẾP' : 'READ MORE'}</span>
+                      <span>{t('knowledge.read_more')}</span>
                       <ArrowRight size={13} />
                     </span>
                   </div>
@@ -262,7 +262,7 @@ export const KnowledgeHub: React.FC = () => {
                         loading="lazy"
                       />
                       <span className="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/40 shadow">
-                        [SYS_{articleCategory}]
+                        {articleCategory}
                       </span>
                     </div>
 
@@ -286,7 +286,7 @@ export const KnowledgeHub: React.FC = () => {
                   <div className="p-5 pt-0 border-t border-cyan-500/20 mt-2 flex items-center justify-between text-xs text-slate-400">
                     <span className="text-[11px] text-slate-400">{art.author}</span>
                     <span className="text-cyan-400 font-bold group-hover:underline flex items-center gap-1">
-                      <span>{language === 'vi' ? 'ĐỌC TIẾP' : 'READ MORE'}</span>
+                      <span>{t('knowledge.read_more')}</span>
                       <ArrowRight size={13} />
                     </span>
                   </div>
@@ -343,7 +343,7 @@ export const KnowledgeHub: React.FC = () => {
                   <div className="p-6 pt-0 border-t border-rose-100 mt-2 flex items-center justify-between text-xs text-[#7d6560]">
                     <span>{art.author}</span>
                     <span className="font-oswald text-rose-600 font-bold group-hover:underline flex items-center gap-1">
-                      <span>{language === 'vi' ? 'ĐỌC TIẾP' : 'READ MORE'}</span>
+                      <span>{t('knowledge.read_more')}</span>
                       <ArrowRight size={13} />
                     </span>
                   </div>
@@ -400,7 +400,7 @@ export const KnowledgeHub: React.FC = () => {
                   <div className="p-5 pt-0 border-t border-gray-100 dark:border-slate-800 mt-2 flex items-center justify-between text-xs text-gray-400 dark:text-gray-500">
                     <span>{art.author}</span>
                     <span className="font-oswald text-[#2076bd] dark:text-[#3ba0e6] font-semibold group-hover:underline flex items-center gap-1">
-                      <span>{language === 'vi' ? 'ĐỌC TIẾP' : 'READ MORE'}</span>
+                      <span>{t('knowledge.read_more')}</span>
                       <ArrowRight size={13} />
                     </span>
                   </div>

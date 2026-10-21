@@ -390,7 +390,7 @@ export const Home: React.FC = () => {
               <div className="lg:col-span-7 rounded-2xl bg-slate-900/90 border border-cyan-500/40 p-6 flex flex-col justify-between shadow-[0_0_25px_rgba(2,132,199,0.2)] group relative overflow-hidden">
                 <div className="absolute top-0 right-0 px-3 py-1 bg-cyan-950/80 border-b border-l border-cyan-500/30 text-[10px] font-mono text-cyan-300 rounded-bl-xl flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-                  <span>SPOTLIGHT // NODE_ALPHA</span>
+                  <span>{t('shop.badge_bestseller')}</span>
                 </div>
 
                 <div className="space-y-4">
@@ -402,10 +402,10 @@ export const Home: React.FC = () => {
                     />
                     <div className="absolute bottom-3 left-3 flex gap-2">
                       <span className="bg-amber-400 text-slate-950 font-mono text-[10px] font-bold px-2 py-0.5 rounded shadow">
-                        ★ {bestSellers[0].rating || 5.0} // TOP PICK
+                        ★ {bestSellers[0].rating || 5.0}
                       </span>
                       <span className="bg-slate-950/80 backdrop-blur border border-cyan-500/40 text-cyan-300 font-mono text-[10px] px-2 py-0.5 rounded">
-                        100% PURE ROAST
+                        {t('home.stat_pure')}
                       </span>
                     </div>
                   </div>
@@ -422,7 +422,7 @@ export const Home: React.FC = () => {
 
                 <div className="pt-6 border-t border-cyan-500/20 mt-6 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-mono text-slate-500 block uppercase">SYSTEM PRICING</span>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">{t('shop.unit_price')}</span>
                     <span className="font-mono text-2xl font-bold text-amber-400">
                       {bestSellers[0].price.toLocaleString('vi-VN')}₫
                     </span>
@@ -432,12 +432,12 @@ export const Home: React.FC = () => {
                     onClick={() => {
                       addToCart(bestSellers[0], 1);
                       const pName = language === 'en' && bestSellers[0].nameEn ? bestSellers[0].nameEn : bestSellers[0].name;
-                      showToast(language === 'vi' ? `Đã nạp "${pName}" vào giỏ hàng!` : `Loaded "${pName}" to cart!`);
+                      showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
                     }}
                     className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all"
                   >
                     <ShoppingBag size={14} />
-                    <span>DISPATCH ORDER</span>
+                    <span>{t('shop.add_to_cart')}</span>
                   </button>
                 </div>
               </div>
@@ -503,7 +503,7 @@ export const Home: React.FC = () => {
                 <div className="flex-1 flex flex-col justify-between space-y-3">
                   <div>
                     <span className="text-[10px] font-sans tracking-[0.2em] text-[#1b4d3e] uppercase font-bold block mb-1">
-                      — ÉDITION SPÉCIALE • EST. 2013 —
+                      {product.isBestSeller ? t('shop.badge_bestseller') : t('home.hero1_tag')}
                     </span>
                     <h3 className="font-serif font-bold text-lg text-[#221e1a] group-hover:text-[#1b4d3e] transition-colors leading-snug">
                       {language === 'en' && product.nameEn ? product.nameEn : product.name}
@@ -515,7 +515,7 @@ export const Home: React.FC = () => {
 
                   <div className="pt-3 border-t border-[#e6ded1] flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] text-[#6e655c] uppercase block font-sans">Giá thủ công</span>
+                      <span className="text-[10px] text-[#6e655c] uppercase block font-sans">{t('shop.unit_price')}</span>
                       <span className="font-serif text-lg font-bold text-[#1b4d3e]">
                         {product.price.toLocaleString('vi-VN')}₫
                       </span>
@@ -529,7 +529,7 @@ export const Home: React.FC = () => {
                       className="px-3.5 py-1.5 rounded border border-[#1b4d3e] bg-[#1b4d3e] text-white hover:bg-[#c05621] hover:border-[#c05621] text-xs font-sans uppercase tracking-wider font-semibold transition-all flex items-center gap-1.5"
                     >
                       <ShoppingBag size={13} />
-                      <span>Thưởng thức</span>
+                      <span>{t('shop.add_to_cart')}</span>
                     </button>
                   </div>
                 </div>
@@ -547,7 +547,7 @@ export const Home: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between text-[11px] font-mono tracking-wider text-zinc-500 pb-2 border-b border-zinc-200 dark:border-zinc-800 mb-3">
                     <span>[0{idx + 1} / 04]</span>
-                    <span className="uppercase text-black dark:text-white font-bold">{product.isBestSeller ? 'BESTSELLER' : 'ORIGIN'}</span>
+                    <span className="uppercase text-black dark:text-white font-bold">{product.isBestSeller ? t('shop.badge_bestseller') : t('home.hero1_tag')}</span>
                   </div>
 
                   <div className="aspect-square bg-zinc-100 dark:bg-zinc-900 overflow-hidden mb-4 border border-zinc-200 dark:border-zinc-800">
@@ -568,7 +568,7 @@ export const Home: React.FC = () => {
 
                 <div className="pt-4 mt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-3">
                   <div className="flex items-baseline justify-between font-mono">
-                    <span className="text-[10px] text-zinc-400 uppercase">PRICE</span>
+                    <span className="text-[10px] text-zinc-400 uppercase">{t('shop.unit_price')}</span>
                     <span className="text-base font-bold text-black dark:text-white">
                       {product.price.toLocaleString('vi-VN')}₫
                     </span>
@@ -581,7 +581,7 @@ export const Home: React.FC = () => {
                     }}
                     className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
                   >
-                    + ADD TO CART
+                    + {t('shop.add_to_cart')}
                   </button>
                 </div>
               </div>
@@ -768,13 +768,13 @@ export const Home: React.FC = () => {
           /* NORDIC BRUTALIST 3-COLUMN ARCHITECTURAL MODULES */
           <div className="border-2 border-zinc-900 dark:border-zinc-300 rounded-none bg-white dark:bg-zinc-950 p-6 sm:p-10">
             <div className="flex items-center justify-between pb-4 border-b-2 border-zinc-900 dark:border-zinc-300 mb-8 font-mono text-xs uppercase tracking-widest text-zinc-500">
-              <span className="text-black dark:text-white font-bold">// 05. DOLPHY ACADEMY // ARCHITECTURAL CURRICULUM</span>
-              <span>EST. 2026 // ADMISSION OPEN</span>
+              <span className="text-black dark:text-white font-bold">// {t('home.hero3_tag')}</span>
+              <span>{t('home.academy_badge')}</span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200 dark:divide-zinc-800">
               {/* Box 1 */}
               <div className="space-y-4 pr-0 lg:pr-6">
-                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">[MODULE 01] PROGRAM OVERVIEW</span>
+                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">// {t('home.academy_badge')}</span>
                 <h3 className="font-oswald text-2xl font-bold uppercase text-black dark:text-white">
                   {t('home.academy_title')}
                 </h3>
@@ -795,19 +795,19 @@ export const Home: React.FC = () => {
 
               {/* Box 2 */}
               <div className="space-y-4 pt-6 lg:pt-0 px-0 lg:px-6">
-                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">[MODULE 02] SPECIFICATIONS</span>
+                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">// {t('home.academy_card_title')}</span>
                 <div className="space-y-3 font-mono text-xs">
                   <div className="p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex justify-between">
-                    <span>TUITION:</span>
+                    <span>{t('home.academy_tuition')}:</span>
                     <strong className="text-black dark:text-white font-bold">7.000.000₫</strong>
                   </div>
                   <div className="p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex justify-between">
-                    <span>DEPOSIT:</span>
+                    <span>{t('home.academy_deposit')}:</span>
                     <strong className="text-black dark:text-white font-bold">2.000.000₫</strong>
                   </div>
                   <div className="p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex justify-between">
-                    <span>LOCATION:</span>
-                    <span className="text-black dark:text-white">THAO DIEN, D2</span>
+                    <span>{t('home.academy_location_lbl')}:</span>
+                    <span className="text-black dark:text-white">{t('home.academy_location_val')}</span>
                   </div>
                 </div>
               </div>
@@ -815,9 +815,9 @@ export const Home: React.FC = () => {
               {/* Box 3 */}
               <div className="space-y-4 pt-6 lg:pt-0 pl-0 lg:pl-6 flex flex-col justify-between">
                 <div>
-                  <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">[MODULE 03] ENROLLMENT</span>
+                  <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">// {t('home.academy_seats')}</span>
                   <p className="text-xs font-mono text-zinc-500 mt-2">
-                    Lớp giới hạn 4 học viên/khóa để đảm bảo 100% thời lượng thực hành máy pha chuyên nghiệp.
+                    {t('home.academy_feature3')}
                   </p>
                 </div>
                 <div className="space-y-2 pt-4">
@@ -825,13 +825,13 @@ export const Home: React.FC = () => {
                     onClick={() => setEnrollingCourse(coursesData[0])}
                     className="w-full py-3 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
                   >
-                    + REGISTER RESERVATION
+                    + {t('home.reserve_seat')}
                   </button>
                   <Link
                     to="/academy"
                     className="block w-full py-2.5 text-center border border-zinc-900 dark:border-zinc-400 font-mono text-xs uppercase tracking-wider hover:bg-zinc-100 dark:hover:bg-zinc-900 text-black dark:text-white transition-colors rounded-none"
                   >
-                    VIEW CURRICULUM DOCS
+                    {t('home.view_curriculum')}
                   </Link>
                 </div>
               </div>
@@ -842,7 +842,7 @@ export const Home: React.FC = () => {
           <div className="bg-slate-950/95 border border-cyan-500/40 rounded-2xl p-8 sm:p-12 shadow-[0_0_35px_rgba(2,132,199,0.2)] text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 px-4 py-1.5 bg-cyan-950/90 border-b border-l border-cyan-500/30 font-mono text-[11px] text-cyan-300 rounded-bl-xl flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-              <span>TERMINAL: DOLPHY_ACADEMY_2026</span>
+              <span>{t('home.hero3_tag')}</span>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -888,16 +888,16 @@ export const Home: React.FC = () => {
 
               <div className="bg-slate-900/90 border border-cyan-500/30 rounded-xl p-6 font-mono text-slate-200 shadow-xl space-y-4">
                 <div className="flex justify-between border-b border-cyan-500/20 pb-3 text-xs">
-                  <span className="text-cyan-400 font-bold">COURSE MATRIX</span>
+                  <span className="text-cyan-400 font-bold">{t('home.hero3_tag')}</span>
                   <span className="text-amber-400 font-bold">{t('home.academy_seats')}</span>
                 </div>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between py-1.5 border-b border-slate-800">
-                    <span className="text-slate-400">TUITION FEE:</span>
+                    <span className="text-slate-400">{t('home.academy_tuition')}:</span>
                     <strong className="text-cyan-300 font-bold text-sm">7.000.000₫</strong>
                   </div>
                   <div className="flex justify-between py-1.5 border-b border-slate-800">
-                    <span className="text-slate-400">DEPOSIT:</span>
+                    <span className="text-slate-400">{t('home.academy_deposit')}:</span>
                     <strong className="text-amber-400 font-bold text-sm">2.000.000₫</strong>
                   </div>
                 </div>
@@ -916,7 +916,7 @@ export const Home: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="space-y-4">
                 <span className="text-xs font-sans tracking-[0.2em] text-[#1b4d3e] uppercase font-bold block">
-                  — ATELIER DE FORMATION BARISTA • 2026 —
+                  {t('home.hero3_tag')}
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-[#1b4d3e] italic leading-tight">
                   {t('home.academy_title')}
@@ -952,15 +952,15 @@ export const Home: React.FC = () => {
 
               <div className="bg-[#faf6f0] border border-[#e6ded1] rounded-lg p-6 space-y-4">
                 <span className="text-xs font-sans font-bold text-[#1b4d3e] uppercase tracking-wider block border-b border-[#e6ded1] pb-2">
-                  Chi Tiết Khóa Học Barista Thực Chiến
+                  {t('home.academy_card_title')}
                 </span>
                 <div className="space-y-2 text-xs font-sans">
                   <div className="flex justify-between py-1 border-b border-[#e6ded1]">
-                    <span className="text-[#6e655c]">Học phí trọn gói:</span>
+                    <span className="text-[#6e655c]">{t('home.academy_tuition')}:</span>
                     <strong className="text-[#1b4d3e] font-serif text-base">7.000.000₫</strong>
                   </div>
                   <div className="flex justify-between py-1 border-b border-[#e6ded1]">
-                    <span className="text-[#6e655c]">Đặt cọc giữ chỗ:</span>
+                    <span className="text-[#6e655c]">{t('home.academy_deposit')}:</span>
                     <strong className="text-[#c05621] font-serif text-base">2.000.000₫</strong>
                   </div>
                 </div>
@@ -1016,7 +1016,7 @@ export const Home: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 sm:p-8 text-[#271a17] shadow-xl space-y-4">
                 <div className="flex justify-between items-center border-b border-rose-100 pb-3">
                   <span className="font-oswald text-xs uppercase tracking-wider text-rose-600 font-bold">
-                    HỌC PHÍ & LỊCH KHAI GIẢNG
+                    {t('home.academy_card_title')}
                   </span>
                   <span className="bg-rose-100 text-rose-600 text-xs font-bold px-2.5 py-0.5 rounded-full">
                     {t('home.academy_seats')}
@@ -1024,11 +1024,11 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between py-1.5 border-b border-rose-50">
-                    <span className="text-gray-500">Học phí trọn khóa:</span>
+                    <span className="text-gray-500">{t('home.academy_tuition')}:</span>
                     <strong className="text-rose-600 font-oswald text-lg">7.000.000₫</strong>
                   </div>
                   <div className="flex justify-between py-1.5 border-b border-rose-50">
-                    <span className="text-gray-500">Đặt cọc giữ chỗ:</span>
+                    <span className="text-gray-500">{t('home.academy_deposit')}:</span>
                     <strong className="text-orange-500 font-oswald text-lg">2.000.000₫</strong>
                   </div>
                 </div>
@@ -1151,6 +1151,149 @@ export const Home: React.FC = () => {
             </p>
           </div>
 
+        {/* Dynamic Multi-Theme Testimonials Layout */}
+        {theme === 'nordic' ? (
+          /* NORDIC: Architectural Tabular Quote Index */
+          <div className="border-2 border-zinc-900 dark:border-zinc-300 divide-y-2 divide-zinc-900 dark:divide-zinc-300 font-mono reveal-stagger">
+            {testimonials.map((item, idx) => (
+              <div key={idx} className="p-6 bg-white dark:bg-zinc-950 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div className="md:col-span-3 space-y-1">
+                  <span className="text-[10px] text-zinc-400 block">[0{idx + 1} // REVIEW]</span>
+                  <h4 className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white">
+                    {item.name}
+                  </h4>
+                  <span className="text-[11px] text-zinc-500 block">{item.role}</span>
+                  <div className="text-amber-500 text-xs">{'★'.repeat(item.stars)}</div>
+                </div>
+
+                <div className="md:col-span-9 space-y-2">
+                  <p className="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200 font-sans leading-relaxed">
+                    "{item.quote}"
+                  </p>
+                  {item.translation && (
+                    <p className="text-xs text-zinc-400 font-sans border-t border-zinc-200 dark:border-zinc-800 pt-1.5 italic">
+                      [{item.translation}]
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : theme === 'vintage' ? (
+          /* VINTAGE: French Bistro Livre d'Or Guestbook */
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-serif reveal-stagger">
+            {testimonials.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-[#faf6f0] p-6 sm:p-7 rounded-lg border-2 border-[#e6ded1] shadow-xs flex flex-col justify-between hover:border-[#1b4d3e] transition-all"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between border-b border-[#e6ded1] pb-2">
+                    <span className="font-serif text-sm font-bold text-[#c05621] italic">N° 0{idx + 1}</span>
+                    <div className="flex items-center text-[#c05621] text-xs">
+                      {'★'.repeat(item.stars)}
+                    </div>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#221e1a] leading-relaxed italic">
+                    "{item.quote}"
+                  </p>
+                  {item.translation && (
+                    <p className="text-xs text-[#6e655c] border-t border-[#e6ded1] pt-2 italic">
+                      [{item.translation}]
+                    </p>
+                  )}
+                </div>
+
+                <div className="pt-4 border-t border-[#e6ded1] mt-4 flex items-center justify-between font-sans">
+                  <div>
+                    <h4 className="font-serif text-sm font-bold text-[#1b4d3e]">
+                      — {item.name}
+                    </h4>
+                    <span className="text-[11px] text-[#6e655c]">{item.role}</span>
+                  </div>
+                  <span className="text-base text-[#1b4d3e]">❦</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : theme === 'roastery' ? (
+          /* ROASTERY: Cyber Terminal Guest Reviews */
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono reveal-stagger">
+            {testimonials.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-[#0b1324] p-6 rounded-xl border border-cyan-500/40 shadow-[0_0_20px_rgba(2,132,199,0.15)] flex flex-col justify-between hover:border-cyan-400 transition-all"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-[10px] text-cyan-400 border-b border-cyan-500/20 pb-2">
+                    <span>[LOG_#0{idx + 1}]</span>
+                    <div className="text-amber-400">{'★'.repeat(item.stars)}</div>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
+                    "{item.quote}"
+                  </p>
+                  {item.translation && (
+                    <p className="text-xs text-slate-400 border-t border-cyan-500/20 pt-2 font-sans italic">
+                      [{item.translation}]
+                    </p>
+                  )}
+                </div>
+
+                <div className="pt-4 border-t border-cyan-500/20 mt-4 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-oswald text-sm font-bold text-cyan-400 uppercase">
+                      // {item.name}
+                    </h4>
+                    <span className="text-[10px] text-slate-400">{item.role}</span>
+                  </div>
+                  <span className="text-xs text-cyan-400 font-mono">2026</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : theme === 'sunset' ? (
+          /* SUNSET: Floating Organic Pebble Reviews */
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
+            {testimonials.map((item, idx) => (
+              <div
+                key={idx}
+                className={`bg-white p-7 rounded-3xl border border-rose-100 shadow-xl shadow-rose-500/5 hover-lift transition-all flex flex-col justify-between ${
+                  idx === 1 ? 'md:translate-y-4 md:border-rose-300 md:shadow-rose-500/15' : ''
+                }`}
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between border-b border-rose-100 pb-2">
+                    <span className="font-oswald text-xs font-bold uppercase tracking-wider text-rose-500">
+                      0{idx + 1}
+                    </span>
+                    <div className="flex items-center text-orange-400 text-xs">
+                      {'★'.repeat(item.stars)}
+                    </div>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#271a17] leading-relaxed italic">
+                    "{item.quote}"
+                  </p>
+                  {item.translation && (
+                    <p className="text-xs text-[#7d6560] border-t border-rose-100 pt-2">
+                      [{item.translation}]
+                    </p>
+                  )}
+                </div>
+
+                <div className="pt-4 border-t border-rose-100 mt-4 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-oswald text-sm font-bold text-rose-600">
+                      — {item.name}
+                    </h4>
+                    <span className="text-[11px] text-[#7d6560]">{item.role}</span>
+                  </div>
+                  <span className="text-base">✨</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* OCEAN & CLASSIC DARK: Standard 3-Col Cards */
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
             {testimonials.map((item, idx) => (
               <div
@@ -1183,6 +1326,7 @@ export const Home: React.FC = () => {
               </div>
             ))}
           </div>
+        )}
         </div>
       </section>
 
