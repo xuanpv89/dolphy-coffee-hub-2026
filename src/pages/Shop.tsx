@@ -799,13 +799,19 @@ export const Shop: React.FC = () => {
           onClick={() => setModalProduct(null)}
         >
           <div 
-            className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-gray-200 dark:border-slate-800 my-auto"
+            className={`max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative my-auto transition-colors ${
+              theme === 'nordic' ? 'bg-white dark:bg-zinc-950 text-black dark:text-white rounded-none border-2 border-zinc-900 dark:border-zinc-200 font-mono' :
+              theme === 'vintage' ? 'bg-[#faf6f0] text-[#221e1a] rounded-lg border-2 border-[#e6ded1] font-serif' :
+              theme === 'roastery' ? 'bg-[#0b1324] text-white rounded-xl border border-cyan-500/40 font-mono shadow-[0_0_30px_rgba(2,132,199,0.3)]' :
+              theme === 'sunset' ? 'bg-white text-[#271a17] rounded-3xl border border-rose-200 shadow-2xl' :
+              'bg-white dark:bg-[#1e293b] text-[#222222] dark:text-white rounded-2xl border border-gray-200 dark:border-slate-800'
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setModalProduct(null)}
-              className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+              className="absolute top-4 right-4 z-10 p-2 opacity-60 hover:opacity-100 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
             >
               <X size={20} />
             </button>
@@ -813,7 +819,13 @@ export const Shop: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 sm:p-8">
               {/* Product Visuals */}
               <div className="space-y-3">
-                <div className="aspect-square rounded-xl overflow-hidden bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800">
+                <div className={`aspect-square overflow-hidden bg-gray-50 dark:bg-slate-900 border ${
+                  theme === 'nordic' ? 'rounded-none border-zinc-300 dark:border-zinc-700' :
+                  theme === 'vintage' ? 'rounded-lg border-[#e6ded1]' :
+                  theme === 'roastery' ? 'rounded-xl border-cyan-500/30' :
+                  theme === 'sunset' ? 'rounded-2xl border-rose-100' :
+                  'rounded-xl border-gray-100 dark:border-slate-800'
+                }`}>
                   <img
                     src={modalActiveImage || modalProduct.image}
                     alt={modalProduct.name}
@@ -826,8 +838,19 @@ export const Shop: React.FC = () => {
                       <button
                         key={i}
                         onClick={() => setModalActiveImage(img)}
-                        className={`w-16 h-16 rounded-lg overflow-hidden border-2 shrink-0 transition-all ${
-                          modalActiveImage === img ? 'border-[#2076bd] shadow' : 'border-transparent opacity-70 hover:opacity-100'
+                        className={`w-16 h-16 overflow-hidden border-2 shrink-0 transition-all ${
+                          theme === 'nordic' ? 'rounded-none' :
+                          theme === 'vintage' ? 'rounded-md' :
+                          theme === 'roastery' ? 'rounded-lg' :
+                          theme === 'sunset' ? 'rounded-xl' : 'rounded-lg'
+                        } ${
+                          modalActiveImage === img
+                            ? (theme === 'vintage' ? 'border-[#1b4d3e]' :
+                               theme === 'roastery' ? 'border-cyan-400' :
+                               theme === 'sunset' ? 'border-rose-500' :
+                               theme === 'nordic' ? 'border-black dark:border-white' :
+                               'border-[#2076bd] shadow')
+                            : 'border-transparent opacity-70 hover:opacity-100'
                         }`}
                       >
                         <img src={img} alt="" className="w-full h-full object-cover" />
@@ -841,21 +864,38 @@ export const Shop: React.FC = () => {
               <div className="space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6]">
+                    <span className={`text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 ${
+                      theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono' :
+                      theme === 'vintage' ? 'rounded bg-[#1b4d3e] text-white font-sans' :
+                      theme === 'roastery' ? 'rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-500/40 font-mono' :
+                      theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 font-oswald' :
+                      'rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6] font-oswald'
+                    }`}>
                       {language === 'en' ? (modalProduct.categoryNameEn || modalProduct.categoryName) : modalProduct.categoryName}
                     </span>
-                    <span className="text-[10px] font-oswald uppercase tracking-wider font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                    <span className="text-[10px] uppercase tracking-wider font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                       <Check size={12} />
                       <span>{language === 'vi' ? 'Còn hàng tại 10 quán' : 'In Stock Across 10 Stores'}</span>
                     </span>
                   </div>
 
-                  <h2 className="font-oswald text-2xl font-bold uppercase text-[#222222] dark:text-white leading-tight">
+                  <h2 className={`text-2xl font-bold uppercase leading-tight ${
+                    theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                    theme === 'roastery' ? 'font-oswald text-white' :
+                    theme === 'sunset' ? 'font-oswald text-[#271a17]' :
+                    'font-oswald text-[#222222] dark:text-white'
+                  }`}>
                     {language === 'en' ? (modalProduct.nameEn || modalProduct.name) : modalProduct.name}
                   </h2>
 
                   <div className="flex items-baseline gap-3">
-                    <span className="font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">
+                    <span className={`text-2xl font-bold ${
+                      theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                      theme === 'roastery' ? 'font-oswald text-cyan-400' :
+                      theme === 'sunset' ? 'font-oswald text-rose-600' :
+                      theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                      'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                    }`}>
                       {modalProduct.price.toLocaleString('vi-VN')}₫
                     </span>
                     {modalProduct.compareAtPrice && (
@@ -865,12 +905,18 @@ export const Shop: React.FC = () => {
                     )}
                   </div>
 
-                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                  <p className="text-xs opacity-80 leading-relaxed whitespace-pre-line">
                     {language === 'en' ? (modalProduct.descriptionEn || modalProduct.description) : modalProduct.description}
                   </p>
 
                   {(modalProduct.origin || modalProduct.originEn) && (
-                    <div className="p-3 rounded-lg bg-gray-50 dark:bg-slate-900/60 border border-gray-100 dark:border-slate-800 text-xs space-y-1">
+                    <div className={`p-3 text-xs space-y-1 border ${
+                      theme === 'nordic' ? 'rounded-none border-zinc-900 dark:border-zinc-200 bg-zinc-50 dark:bg-zinc-900' :
+                      theme === 'vintage' ? 'rounded-lg border-[#e6ded1] bg-[#f2ebe0] text-[#221e1a]' :
+                      theme === 'roastery' ? 'rounded-lg border-cyan-500/20 bg-slate-900/60' :
+                      theme === 'sunset' ? 'rounded-2xl border-rose-100 bg-rose-50/50' :
+                      'rounded-lg bg-gray-50 dark:bg-slate-900/60 border-gray-100 dark:border-slate-800'
+                    }`}>
                       <p><strong>{language === 'vi' ? 'Nguồn gốc:' : 'Origin:'}</strong> {language === 'en' ? (modalProduct.originEn || modalProduct.origin) : modalProduct.origin}</p>
                       {modalProduct.roastLevel && <p><strong>{language === 'vi' ? 'Cấp độ rang:' : 'Roast:'}</strong> {modalProduct.roastLevel}</p>}
                       {modalProduct.weight && <p><strong>{language === 'vi' ? 'Đóng gói:' : 'Net weight:'}</strong> {modalProduct.weight}</p>}
@@ -880,12 +926,18 @@ export const Shop: React.FC = () => {
 
                   {modalProduct.tasteNotes && (
                     <div className="space-y-1">
-                      <span className="text-[11px] font-oswald uppercase font-bold text-gray-500">
+                      <span className="text-[11px] uppercase font-bold opacity-70">
                         {language === 'vi' ? 'Hương vị cảm nhận (Sensory Notes):' : 'Sensory Notes:'}
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {modalProduct.tasteNotes.map((note, nIdx) => (
-                          <span key={nIdx} className="text-xs px-2.5 py-1 rounded bg-[#f0f8ff] dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] font-medium">
+                          <span key={nIdx} className={`text-xs px-2.5 py-1 font-medium ${
+                            theme === 'nordic' ? 'rounded-none bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white' :
+                            theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e]' :
+                            theme === 'roastery' ? 'rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-500/30' :
+                            theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600' :
+                            'rounded bg-[#f0f8ff] dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
+                          }`}>
                             {note}
                           </span>
                         ))}
@@ -902,7 +954,13 @@ export const Shop: React.FC = () => {
                       showToast(language === 'vi' ? `Đã thêm "${modalProduct.name}" vào giỏ hàng!` : `Added "${modalProduct.name}" to cart!`);
                       setModalProduct(null);
                     }}
-                    className="flex-1 py-3 rounded-xl bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+                    className={`flex-1 py-3 text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-2 shadow-md ${
+                      theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-amber-600' :
+                      theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
+                      theme === 'roastery' ? 'rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
+                      theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald shadow-md' :
+                      'rounded-xl bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald'
+                    }`}
                   >
                     <ShoppingBag size={15} />
                     <span>{t('shop.add_to_cart')}</span>
@@ -911,7 +969,13 @@ export const Shop: React.FC = () => {
                     href="https://dolphycoffee.cukcuk.vn/order-online/"
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-3 rounded-xl bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950 font-oswald text-xs uppercase tracking-wider font-extrabold transition-colors flex items-center justify-center gap-1.5 shadow-md"
+                    className={`px-4 py-3 text-xs uppercase tracking-wider font-extrabold transition-all flex items-center justify-center gap-1.5 shadow-md ${
+                      theme === 'nordic' ? 'rounded-none bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white border border-current font-mono' :
+                      theme === 'vintage' ? 'rounded border border-[#e6ded1] bg-white text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white font-serif' :
+                      theme === 'roastery' ? 'rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 hover:bg-slate-800 font-mono' :
+                      theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 font-oswald' :
+                      'rounded-xl bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950 font-oswald'
+                    }`}
                     title={language === 'vi' ? 'Đặt giao hàng tận nơi' : 'Online Delivery'}
                   >
                     <span>{language === 'vi' ? 'Giao Hàng Tận Nơi' : 'Delivery'}</span>

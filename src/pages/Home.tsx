@@ -336,41 +336,183 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. BRAND MISSION & INTRO BANNER */}
-      <section className="bg-[#f0f8ff] dark:bg-slate-800/50 border-b border-gray-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
-        <div className="max-w-4xl mx-auto space-y-4 reveal-on-scroll">
-          <div className="flex items-center justify-center gap-2 text-[#FAEA28]">
-            <Star size={16} fill="#FAEA28" />
-            <span className="font-oswald text-xs uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
-              DOLPHY CAFÉ • EST. 2013
-            </span>
-            <Star size={16} fill="#FAEA28" />
-          </div>
+      {/* 2. BRAND MISSION & INTRO BANNER (Theme-Adaptive Architecture) */}
+      {theme === 'nordic' ? (
+        /* NORDIC: Architectural Minimalist Mono Ribbon */
+        <section className="bg-white dark:bg-zinc-950 border-b-2 border-zinc-900 dark:border-zinc-200 py-12 px-4 sm:px-6 lg:px-8 text-center font-mono transition-colors">
+          <div className="max-w-4xl mx-auto space-y-4 reveal-on-scroll">
+            <div className="flex items-center justify-center gap-2 text-black dark:text-white">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] font-bold">
+                // DOLPHY CAFÉ • EST. 2013 // HERITAGE
+              </span>
+            </div>
 
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed font-normal italic max-w-3xl mx-auto">
-            {t('home.slogan_quote')}
-          </p>
+            <p className="text-sm sm:text-base text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans max-w-3xl mx-auto">
+              "{t('home.slogan_quote')}"
+            </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-blue-100 dark:border-slate-700 max-w-3xl mx-auto reveal-stagger">
-            <div className="p-2">
-              <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">13+</span>
-              <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_years')}</span>
-            </div>
-            <div className="p-2">
-              <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">10</span>
-              <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_branches')}</span>
-            </div>
-            <div className="p-2">
-              <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">100%</span>
-              <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_pure')}</span>
-            </div>
-            <div className="p-2">
-              <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">TOP 10</span>
-              <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_top10')}</span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 border-2 border-zinc-900 dark:border-zinc-200 divide-x divide-zinc-900 dark:divide-zinc-200 rounded-none max-w-3xl mx-auto mt-6">
+              <div className="p-4 bg-white dark:bg-zinc-950">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-black dark:text-white">13+</span>
+                <span className="text-[11px] text-zinc-500 uppercase tracking-wider">{t('home.stat_years')}</span>
+              </div>
+              <div className="p-4 bg-white dark:bg-zinc-950">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-black dark:text-white">10</span>
+                <span className="text-[11px] text-zinc-500 uppercase tracking-wider">{t('home.stat_branches')}</span>
+              </div>
+              <div className="p-4 bg-white dark:bg-zinc-950">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-black dark:text-white">100%</span>
+                <span className="text-[11px] text-zinc-500 uppercase tracking-wider">{t('home.stat_pure')}</span>
+              </div>
+              <div className="p-4 bg-white dark:bg-zinc-950">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-black dark:text-white">TOP 10</span>
+                <span className="text-[11px] text-zinc-500 uppercase tracking-wider">{t('home.stat_top10')}</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : theme === 'vintage' ? (
+        /* VINTAGE: French Bistro Brass Plaque */
+        <section className="bg-[#faf6f0] border-b-2 border-[#e6ded1] py-12 px-4 sm:px-6 lg:px-8 text-center font-serif transition-colors">
+          <div className="max-w-4xl mx-auto space-y-4 reveal-on-scroll">
+            <div className="flex items-center justify-center gap-2 text-[#c05621]">
+              <span className="text-sm">❦</span>
+              <span className="font-serif text-xs uppercase tracking-[0.25em] text-[#1b4d3e] font-bold">
+                DOLPHY CAFÉ • MAISON FONNDÉE EN 2013
+              </span>
+              <span className="text-sm">❦</span>
+            </div>
+
+            <p className="text-sm sm:text-base text-[#221e1a] leading-relaxed italic max-w-3xl mx-auto">
+              "{t('home.slogan_quote')}"
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-lg bg-[#ffffff] border-2 border-[#e6ded1] shadow-xs max-w-3xl mx-auto mt-6">
+              <div className="p-2">
+                <span className="block font-serif text-2xl sm:text-3xl font-bold text-[#1b4d3e]">13+</span>
+                <span className="text-xs text-[#6e655c] italic">{t('home.stat_years')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-serif text-2xl sm:text-3xl font-bold text-[#1b4d3e]">10</span>
+                <span className="text-xs text-[#6e655c] italic">{t('home.stat_branches')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-serif text-2xl sm:text-3xl font-bold text-[#1b4d3e]">100%</span>
+                <span className="text-xs text-[#6e655c] italic">{t('home.stat_pure')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-serif text-2xl sm:text-3xl font-bold text-[#c05621]">TOP 10</span>
+                <span className="text-xs text-[#6e655c] italic">{t('home.stat_top10')}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'roastery' ? (
+        /* ROASTERY: Cyber Telemetry HUD Status Ribbon */
+        <section className="bg-[#070a12] border-b border-cyan-500/30 py-12 px-4 sm:px-6 lg:px-8 text-center font-mono transition-colors">
+          <div className="max-w-4xl mx-auto space-y-4 reveal-on-scroll">
+            <div className="flex items-center justify-center gap-2 text-cyan-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span className="font-mono text-xs uppercase tracking-widest text-cyan-300 font-bold">
+                SYSTEM STATS // DOLPHY EST. 2013
+              </span>
+            </div>
+
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans max-w-3xl mx-auto">
+              "{t('home.slogan_quote')}"
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-xl bg-[#0b1324] border border-cyan-500/40 shadow-[0_0_25px_rgba(2,132,199,0.2)] max-w-3xl mx-auto mt-6">
+              <div className="p-2 border-r last:border-r-0 border-cyan-500/20">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-cyan-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">13+</span>
+                <span className="text-[11px] text-slate-400 uppercase tracking-wider">{t('home.stat_years')}</span>
+              </div>
+              <div className="p-2 border-r last:border-r-0 border-cyan-500/20">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-cyan-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">10</span>
+                <span className="text-[11px] text-slate-400 uppercase tracking-wider">{t('home.stat_branches')}</span>
+              </div>
+              <div className="p-2 border-r last:border-r-0 border-cyan-500/20">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-cyan-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">100%</span>
+                <span className="text-[11px] text-slate-400 uppercase tracking-wider">{t('home.stat_pure')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]">TOP 10</span>
+                <span className="text-[11px] text-slate-400 uppercase tracking-wider">{t('home.stat_top10')}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'sunset' ? (
+        /* SUNSET: Floating Organic Coral Pebble Ribbon */
+        <section className="bg-[#fff8f5] border-b border-rose-200 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
+          <div className="max-w-4xl mx-auto space-y-4 reveal-on-scroll">
+            <div className="flex items-center justify-center gap-2 text-rose-500">
+              <span className="font-oswald text-xs uppercase tracking-widest text-rose-600 font-bold">
+                DOLPHY CAFÉ • EST. 2013 • SAIGON HORIZON
+              </span>
+            </div>
+
+            <p className="text-sm sm:text-base text-[#271a17] leading-relaxed italic max-w-3xl mx-auto">
+              "{t('home.slogan_quote')}"
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-xl shadow-rose-500/5 max-w-3xl mx-auto mt-6">
+              <div className="p-2">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">13+</span>
+                <span className="text-xs text-[#7d6560] font-medium">{t('home.stat_years')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">10</span>
+                <span className="text-xs text-[#7d6560] font-medium">{t('home.stat_branches')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">100%</span>
+                <span className="text-xs text-[#7d6560] font-medium">{t('home.stat_pure')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">TOP 10</span>
+                <span className="text-xs text-[#7d6560] font-medium">{t('home.stat_top10')}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        /* OCEAN & CLASSIC DARK: Original Balanced Card Ribbon */
+        <section className="bg-[#f0f8ff] dark:bg-slate-800/50 border-b border-gray-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors">
+          <div className="max-w-4xl mx-auto space-y-4 reveal-on-scroll">
+            <div className="flex items-center justify-center gap-2 text-[#FAEA28]">
+              <Star size={16} fill="#FAEA28" />
+              <span className="font-oswald text-xs uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6] font-bold">
+                DOLPHY CAFÉ • EST. 2013
+              </span>
+              <Star size={16} fill="#FAEA28" />
+            </div>
+
+            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed font-normal italic max-w-3xl mx-auto">
+              {t('home.slogan_quote')}
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-blue-100 dark:border-slate-700 max-w-3xl mx-auto reveal-stagger">
+              <div className="p-2">
+                <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">13+</span>
+                <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_years')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">10</span>
+                <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_branches')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">100%</span>
+                <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_pure')}</span>
+              </div>
+              <div className="p-2">
+                <span className="block font-oswald text-2xl font-bold text-[#2076bd] dark:text-[#3ba0e6]">TOP 10</span>
+                <span className="text-xs text-gray-600 dark:text-gray-400">{t('home.stat_top10')}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 3. SẢN PHẨM BÁN CHẠY */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -723,44 +865,187 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. MIDDLE BANNER */}
-      <section 
-        className="relative py-20 sm:py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d3b66]/95 via-[#165b94]/90 to-black/85" />
-        <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-white">
-          <div className="space-y-4 max-w-xl text-center md:text-left reveal-left">
-            <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block shadow">
-              {t('home.delivery_tag')}
-            </span>
-            <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wider">
-              {t('home.delivery_title')}
-            </h2>
-            <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-              {t('home.delivery_desc')}
-            </p>
-          </div>
+      {/* 4. MIDDLE DELIVERY BANNER (Theme-Adaptive Architecture) */}
+      {theme === 'nordic' ? (
+        /* NORDIC: Architectural Delivery Banner */
+        <section className="bg-black text-white border-y-2 border-zinc-900 py-16 sm:py-20 px-4 sm:px-8 font-mono">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center md:text-left">
+              <span className="bg-white text-black font-mono font-bold text-xs uppercase tracking-[0.2em] px-3 py-1 inline-block border border-white">
+                // {t('home.delivery_tag')}
+              </span>
+              <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wider">
+                {t('home.delivery_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed">
+                {t('home.delivery_desc')}
+              </p>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 reveal-right">
-            <a
-              href="https://dolphycoffee.cukcuk.vn/order-online/"
-              target="_blank"
-              rel="noreferrer"
-              className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-lg flex items-center justify-center gap-2 hover-lift"
-            >
-              <span>{t('home.order_cukcuk')}</span>
-              <ExternalLink size={16} />
-            </a>
-            <Link
-              to="/branches"
-              className="dolphy-btn px-8 py-3.5 rounded bg-white hover:bg-gray-100 text-[#222222] text-sm font-semibold shadow-lg hover-lift"
-            >
-              {t('home.find_nearby')}
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-3.5 bg-white text-black hover:bg-zinc-200 text-xs font-mono uppercase tracking-widest font-bold flex items-center justify-center gap-2 rounded-none transition-colors"
+              >
+                <span>{t('home.order_cukcuk')}</span>
+                <ExternalLink size={14} />
+              </a>
+              <Link
+                to="/branches"
+                className="px-8 py-3.5 bg-black border border-white text-white hover:bg-white hover:text-black text-xs font-mono uppercase tracking-widest font-bold flex items-center justify-center rounded-none transition-colors"
+              >
+                {t('home.find_nearby')}
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : theme === 'vintage' ? (
+        /* VINTAGE: French Bistro Botanical Salon Banner */
+        <section className="bg-[#1b4d3e] text-[#fbf7ee] border-y-2 border-[#2d6a4f] py-16 sm:py-20 px-4 sm:px-8 font-serif">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center md:text-left">
+              <span className="bg-[#c05621] text-white font-serif italic text-xs px-3.5 py-1 rounded inline-block shadow-xs">
+                ❦ {t('home.delivery_tag')}
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold italic leading-tight">
+                {t('home.delivery_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#e6ded1] leading-relaxed">
+                "{t('home.delivery_desc')}"
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto font-sans">
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-3.5 rounded bg-[#c05621] hover:bg-[#a84819] text-white text-xs uppercase tracking-wider font-semibold shadow-md flex items-center justify-center gap-2 transition-all"
+              >
+                <span>{t('home.order_cukcuk')}</span>
+                <ExternalLink size={14} />
+              </a>
+              <Link
+                to="/branches"
+                className="px-8 py-3.5 rounded border border-[#e6ded1] bg-white/10 hover:bg-white text-white hover:text-[#1b4d3e] text-xs uppercase tracking-wider font-semibold transition-all text-center"
+              >
+                {t('home.find_nearby')}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'roastery' ? (
+        /* ROASTERY: Cyber Telemetry Dispatch Banner */
+        <section className="bg-[#070a12] border-y border-cyan-500/40 py-16 sm:py-20 px-4 sm:px-8 text-white font-mono shadow-[0_0_35px_rgba(2,132,199,0.2)]">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center md:text-left">
+              <span className="bg-cyan-950 border border-cyan-500/40 text-cyan-400 font-mono text-xs px-3 py-1 rounded inline-block">
+                // {t('home.delivery_tag')}
+              </span>
+              <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wider text-cyan-300">
+                {t('home.delivery_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                {t('home.delivery_desc')}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2 transition-all"
+              >
+                <span>{t('home.order_cukcuk')}</span>
+                <ExternalLink size={14} />
+              </a>
+              <Link
+                to="/branches"
+                className="px-8 py-3.5 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 hover:bg-slate-800 text-xs uppercase tracking-wider font-semibold transition-all text-center"
+              >
+                {t('home.find_nearby')}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'sunset' ? (
+        /* SUNSET: Flowing Coral Wave Banner */
+        <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+          <div className="rounded-3xl bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 p-8 sm:p-14 text-white shadow-2xl shadow-rose-500/25 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center md:text-left">
+              <span className="bg-white/20 text-white font-oswald text-xs uppercase tracking-widest px-3.5 py-1 rounded-full inline-block backdrop-blur font-bold">
+                {t('home.delivery_tag')}
+              </span>
+              <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wide">
+                {t('home.delivery_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-rose-100 leading-relaxed">
+                {t('home.delivery_desc')}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-3.5 rounded-full bg-white text-rose-600 hover:bg-rose-50 text-xs font-oswald uppercase tracking-wider font-bold shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-105"
+              >
+                <span>{t('home.order_cukcuk')}</span>
+                <ExternalLink size={14} />
+              </a>
+              <Link
+                to="/branches"
+                className="px-8 py-3.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-oswald uppercase tracking-wider font-semibold backdrop-blur transition-all text-center"
+              >
+                {t('home.find_nearby')}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : (
+        /* OCEAN & CLASSIC DARK: Original 2-Tone Gradient Banner */
+        <section 
+          className="relative py-20 sm:py-24 px-4 sm:px-8 bg-cover bg-center overflow-hidden"
+          style={{ backgroundImage: "url('/images/hero_slide_beans.webp')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d3b66]/95 via-[#165b94]/90 to-black/85" />
+          <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+            <div className="space-y-4 max-w-xl text-center md:text-left reveal-left">
+              <span className="bg-[#FAEA28] text-slate-950 font-extrabold text-xs font-oswald uppercase tracking-widest px-3 py-1 rounded inline-block shadow">
+                {t('home.delivery_tag')}
+              </span>
+              <h2 className="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-wider">
+                {t('home.delivery_title')}
+              </h2>
+              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+                {t('home.delivery_desc')}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 reveal-right">
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="dolphy-btn dolphy-btn-amber px-8 py-3.5 rounded text-sm font-semibold shadow-lg flex items-center justify-center gap-2 hover-lift"
+              >
+                <span>{t('home.order_cukcuk')}</span>
+                <ExternalLink size={16} />
+              </a>
+              <Link
+                to="/branches"
+                className="dolphy-btn px-8 py-3.5 rounded bg-white hover:bg-gray-100 text-[#222222] text-sm font-semibold shadow-lg hover-lift"
+              >
+                {t('home.find_nearby')}
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 5. STRATEGIC PILLAR: DOLPHY ACADEMY (Theme-Adaptive Structure) */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -1393,217 +1678,894 @@ export const Home: React.FC = () => {
           </p>
         </div>
 
-        {/* 8-Photo Interactive Gallery Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 reveal-stagger">
-          {communityGalleryData.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setSelectedPhoto(item)}
-              className="group relative aspect-square rounded-xl overflow-hidden shadow-sm hover-lift hover:shadow-xl dark:hover:shadow-slate-900/60 cursor-pointer bg-gray-100 dark:bg-slate-800 transition-all duration-300"
-            >
-              <img
-                src={item.image}
-                alt={language === 'vi' ? item.title : item.titleEn}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                loading="lazy"
-              />
-
-              {/* Tag Category top-left */}
-              <div className="absolute top-2.5 left-2.5 z-10">
-                <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-white">
-                  {language === 'vi' ? item.category : item.categoryEn}
-                </span>
-              </div>
-
-              {/* Hover Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4 text-white">
-                <span className="text-[11px] text-[#FAEA28] font-oswald flex items-center gap-1 mb-1 font-semibold">
-                  <MapPin size={12} className="text-[#FAEA28]" />
-                  <span>{language === 'vi' ? item.location : item.locationEn}</span>
-                </span>
-
-                <h4 className="font-oswald text-xs sm:text-sm font-semibold uppercase leading-tight line-clamp-2">
-                  {language === 'vi' ? item.title : item.titleEn}
-                </h4>
-
-                <div className="flex items-center justify-between pt-2 border-t border-white/20 mt-2 text-[11px] text-white/80">
-                  <span className="flex items-center gap-1 text-red-400">
-                    <Heart size={12} className="fill-red-400 text-red-400" />
-                    <span>{item.likes} {t('home.community_like')}</span>
-                  </span>
-                  <span className="text-[10px] uppercase font-oswald text-[#3ba0e6]">
-                    {language === 'vi' ? 'Xem ảnh' : 'View'} →
+        {/* Dynamic Multi-Theme Photo Gallery */}
+        {theme === 'nordic' ? (
+          /* NORDIC: Brutalist Sharp Photo Matrix */
+          <div className="grid grid-cols-2 sm:grid-cols-4 border-2 border-zinc-900 dark:border-zinc-200 divide-y sm:divide-y-0 sm:divide-x divide-zinc-900 dark:divide-zinc-200 rounded-none font-mono reveal-stagger">
+            {communityGalleryData.map((item, idx) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedPhoto(item)}
+                className="group relative aspect-square overflow-hidden cursor-pointer bg-zinc-100 dark:bg-zinc-900"
+              >
+                <img
+                  src={item.image}
+                  alt={language === 'vi' ? item.title : item.titleEn}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute top-2 left-2 z-10">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 bg-black text-white">
+                    [0{idx + 1} // {language === 'vi' ? item.category : item.categoryEn}]
                   </span>
                 </div>
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
+                  <span className="text-[10px] uppercase tracking-wider text-amber-400 font-mono">
+                    {language === 'vi' ? item.location : item.locationEn}
+                  </span>
+                  <h4 className="font-oswald text-xs sm:text-sm font-bold uppercase line-clamp-2 mt-1">
+                    {language === 'vi' ? item.title : item.titleEn}
+                  </h4>
+                  <div className="flex items-center justify-between pt-2 border-t border-zinc-700 mt-2 text-[10px] text-zinc-300 font-mono">
+                    <span>{item.likes} {t('home.community_like')}</span>
+                    <span className="text-white font-bold">{language === 'vi' ? 'Xem ảnh →' : 'View →'}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : theme === 'vintage' ? (
+          /* VINTAGE: French Salon Gallery Wall */
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 font-serif reveal-stagger">
+            {communityGalleryData.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedPhoto(item)}
+                className="group relative aspect-square rounded-lg overflow-hidden border-2 border-[#e6ded1] shadow-xs hover:border-[#1b4d3e] cursor-pointer bg-[#faf6f0] transition-all duration-300 p-1"
+              >
+                <div className="w-full h-full overflow-hidden rounded relative">
+                  <img
+                    src={item.image}
+                    alt={language === 'vi' ? item.title : item.titleEn}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2 left-2 z-10">
+                    <span className="text-[10px] font-sans font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#1b4d3e] text-white shadow-xs">
+                      {language === 'vi' ? item.category : item.categoryEn}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1b4d3e]/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 text-white">
+                    <span className="text-[10px] text-[#e7dec8] italic">
+                      {language === 'vi' ? item.location : item.locationEn}
+                    </span>
+                    <h4 className="font-serif text-xs font-bold leading-tight line-clamp-2 mt-1">
+                      {language === 'vi' ? item.title : item.titleEn}
+                    </h4>
+                    <div className="flex items-center justify-between pt-2 border-t border-white/20 mt-2 text-[10px] text-white/90">
+                      <span>{item.likes} {t('home.community_like')}</span>
+                      <span className="italic">{language === 'vi' ? 'Xem ảnh' : 'View'} ❦</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : theme === 'roastery' ? (
+          /* ROASTERY: Cyber Surveillance Lens Feed */
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono reveal-stagger">
+            {communityGalleryData.map((item, idx) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedPhoto(item)}
+                className="group relative aspect-square rounded-xl overflow-hidden border border-cyan-500/30 shadow-[0_0_15px_rgba(2,132,199,0.15)] hover:border-cyan-400 cursor-pointer bg-slate-950 transition-all duration-300"
+              >
+                <img
+                  src={item.image}
+                  alt={language === 'vi' ? item.title : item.titleEn}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  loading="lazy"
+                />
+                <div className="absolute top-2 left-2 z-10">
+                  <span className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-slate-950/90 text-cyan-400 border border-cyan-500/30">
+                    CAM_0{idx + 1}
+                  </span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1324]/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 text-white">
+                  <span className="text-[10px] text-cyan-400 font-mono">
+                    LOC: {language === 'vi' ? item.location : item.locationEn}
+                  </span>
+                  <h4 className="font-oswald text-xs font-bold uppercase line-clamp-2 mt-1">
+                    {language === 'vi' ? item.title : item.titleEn}
+                  </h4>
+                  <div className="flex items-center justify-between pt-2 border-t border-cyan-500/30 mt-2 text-[10px] text-slate-300 font-mono">
+                    <span>{item.likes} {t('home.community_like')}</span>
+                    <span className="text-cyan-400 font-bold">{language === 'vi' ? 'MỞ XEM →' : 'OPEN →'}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : theme === 'sunset' ? (
+          /* SUNSET: Organic Pebble Curves */
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 reveal-stagger">
+            {communityGalleryData.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedPhoto(item)}
+                className="group relative aspect-square rounded-3xl overflow-hidden shadow-xl shadow-rose-500/5 hover-lift hover:shadow-rose-500/20 cursor-pointer bg-rose-50 transition-all duration-300"
+              >
+                <img
+                  src={item.image}
+                  alt={language === 'vi' ? item.title : item.titleEn}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 left-3 z-10">
+                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md">
+                    {language === 'vi' ? item.category : item.categoryEn}
+                  </span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
+                  <span className="text-[11px] text-orange-300 font-oswald flex items-center gap-1 mb-1 font-semibold">
+                    <MapPin size={12} className="text-orange-300" />
+                    <span>{language === 'vi' ? item.location : item.locationEn}</span>
+                  </span>
+                  <h4 className="font-oswald text-xs sm:text-sm font-semibold uppercase leading-tight line-clamp-2">
+                    {language === 'vi' ? item.title : item.titleEn}
+                  </h4>
+                  <div className="flex items-center justify-between pt-2 border-t border-white/20 mt-2 text-[11px] text-white/80">
+                    <span className="flex items-center gap-1 text-red-400">
+                      <Heart size={12} className="fill-red-400 text-red-400" />
+                      <span>{item.likes} {t('home.community_like')}</span>
+                    </span>
+                    <span className="text-[10px] uppercase font-oswald text-rose-300">
+                      {language === 'vi' ? 'Xem ảnh' : 'View'} →
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* OCEAN & CLASSIC DARK: Standard 8-Photo Grid */
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 reveal-stagger">
+            {communityGalleryData.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedPhoto(item)}
+                className="group relative aspect-square rounded-xl overflow-hidden shadow-sm hover-lift hover:shadow-xl dark:hover:shadow-slate-900/60 cursor-pointer bg-gray-100 dark:bg-slate-800 transition-all duration-300"
+              >
+                <img
+                  src={item.image}
+                  alt={language === 'vi' ? item.title : item.titleEn}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
 
-        {/* Social Channels CTA Bar */}
-        <div className="mt-8 p-5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/60 border border-blue-100 dark:border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
-          <div className="flex items-center gap-3 text-center sm:text-left">
-            <div className="w-12 h-12 rounded-xl bg-[#1877F2] text-white flex items-center justify-center shrink-0 shadow">
-              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </div>
-            <div>
-              <p className="font-oswald text-base font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase">
+                {/* Tag Category top-left */}
+                <div className="absolute top-2.5 left-2.5 z-10">
+                  <span className="text-[10px] font-oswald font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-white">
+                    {language === 'vi' ? item.category : item.categoryEn}
+                  </span>
+                </div>
+
+                {/* Hover Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4 text-white">
+                  <span className="text-[11px] text-[#FAEA28] font-oswald flex items-center gap-1 mb-1 font-semibold">
+                    <MapPin size={12} className="text-[#FAEA28]" />
+                    <span>{language === 'vi' ? item.location : item.locationEn}</span>
+                  </span>
+
+                  <h4 className="font-oswald text-xs sm:text-sm font-semibold uppercase leading-tight line-clamp-2">
+                    {language === 'vi' ? item.title : item.titleEn}
+                  </h4>
+
+                  <div className="flex items-center justify-between pt-2 border-t border-white/20 mt-2 text-[11px] text-white/80">
+                    <span className="flex items-center gap-1 text-red-400">
+                      <Heart size={12} className="fill-red-400 text-red-400" />
+                      <span>{item.likes} {t('home.community_like')}</span>
+                    </span>
+                    <span className="text-[10px] uppercase font-oswald text-[#3ba0e6]">
+                      {language === 'vi' ? 'Xem ảnh' : 'View'} →
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Social Channels CTA Bar (Theme-Adaptive) */}
+        {theme === 'nordic' ? (
+          /* NORDIC: Stark Brutalist Monospace Social Ribbon */
+          <div className="mt-8 p-6 border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono rounded-none flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="space-y-1 text-center md:text-left">
+              <span className="text-[10px] text-zinc-400 block">// SOCIAL CONNECT</span>
+              <p className="font-oswald text-base font-bold text-black dark:text-white uppercase tracking-wider">
                 {language === 'vi' ? 'KẾT NỐI VỚI DOLPHY TRÊN MẠNG XÃ HỘI' : 'CONNECT WITH DOLPHY ON SOCIAL MEDIA'}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-zinc-500 font-sans">
                 #DolphyCafe #HappinessInACup #DolphyThaoDien #BlueDolphins #DolphyTikTok
               </p>
             </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <a
+                href="https://www.facebook.com/dolphycafe"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-amber-600 transition-colors flex items-center gap-1.5"
+              >
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://www.instagram.com/dolphycafe/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 border border-zinc-900 dark:border-zinc-200 text-black dark:text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center gap-1.5"
+              >
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@_.dolphycafe._"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-amber-600 transition-colors flex items-center gap-1.5"
+              >
+                <span>TikTok</span>
+              </a>
+            </div>
           </div>
-
-          <div className="flex flex-wrap items-center gap-2.5">
-            <a
-              href="https://www.facebook.com/dolphycafe"
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 rounded-xl bg-[#1877F2] hover:bg-[#1464cc] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-all shadow flex items-center gap-1.5"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-              <span>Facebook</span>
-            </a>
-
-            <a
-              href="https://www.instagram.com/dolphycafe/"
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-95 text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-all shadow flex items-center gap-1.5"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              <span>Instagram</span>
-            </a>
-
-            <a
-              href="https://www.tiktok.com/@_.dolphycafe._"
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 rounded-xl bg-black hover:bg-gray-900 text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-all shadow flex items-center gap-1.5 border border-gray-700"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.97v7.68c-.01 2.27-.85 4.54-2.42 6.18-1.57 1.64-3.8 2.59-6.07 2.61-2.27.02-4.52-.89-6.12-2.49-1.61-1.6-2.52-3.85-2.5-6.12.02-2.27.93-4.52 2.53-6.12 1.6-1.6 3.86-2.5 6.13-2.48.42.01.84.05 1.25.13v4.18c-.42-.14-.87-.22-1.32-.22-1.15-.01-2.29.44-3.11 1.25-.82.81-1.28 1.95-1.27 3.1.01 1.15.47 2.29 1.29 3.1.82.81 1.96 1.26 3.11 1.25 1.15-.01 2.29-.46 3.1-1.27.81-.82 1.26-1.96 1.25-3.11V.02z"/>
-              </svg>
-              <span>TikTok</span>
-            </a>
+        ) : theme === 'vintage' ? (
+          /* VINTAGE: French Salon Cream & Forest Green Plaque */
+          <div className="mt-8 p-6 rounded-lg bg-[#faf6f0] border-2 border-[#e6ded1] font-serif flex flex-col md:flex-row items-center justify-between gap-4 shadow-xs">
+            <div className="space-y-1 text-center md:text-left">
+              <span className="text-xs text-[#c05621] italic font-serif">❦ Dolphy Café • Réseau Social</span>
+              <p className="font-serif text-lg font-bold text-[#1b4d3e] leading-tight">
+                {language === 'vi' ? 'KẾT NỐI VỚI DOLPHY TRÊN MẠNG XÃ HỘI' : 'CONNECT WITH DOLPHY ON SOCIAL MEDIA'}
+              </p>
+              <p className="text-xs text-[#6e655c] italic">
+                #DolphyCafe #HappinessInACup #DolphyThaoDien #BlueDolphins #DolphyTikTok
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2.5 font-sans">
+              <a
+                href="https://www.facebook.com/dolphycafe"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded bg-[#1b4d3e] hover:bg-[#13382d] text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-xs flex items-center gap-1.5"
+              >
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://www.instagram.com/dolphycafe/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded bg-[#c05621] hover:bg-[#a84819] text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-xs flex items-center gap-1.5"
+              >
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@_.dolphycafe._"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded border border-[#e6ded1] bg-white text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-xs flex items-center gap-1.5"
+              >
+                <span>TikTok</span>
+              </a>
+            </div>
           </div>
-        </div>
+        ) : theme === 'roastery' ? (
+          /* ROASTERY: Cyber Telemetry Uplink Terminal */
+          <div className="mt-8 p-5 rounded-xl bg-[#0b1324] border border-cyan-500/40 font-mono shadow-[0_0_20px_rgba(2,132,199,0.2)] flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="space-y-1 text-center md:text-left">
+              <span className="text-[10px] text-cyan-400 block">[DATA_UPLINK // SOCIAL_NETWORK]</span>
+              <p className="font-oswald text-base font-bold text-white uppercase tracking-wider">
+                {language === 'vi' ? 'KẾT NỐI VỚI DOLPHY TRÊN MẠNG XÃ HỘI' : 'CONNECT WITH DOLPHY ON SOCIAL MEDIA'}
+              </p>
+              <p className="text-xs text-slate-400 font-sans">
+                #DolphyCafe #HappinessInACup #DolphyThaoDien #BlueDolphins #DolphyTikTok
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <a
+                href="https://www.facebook.com/dolphycafe"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-lg bg-cyan-950 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-black text-xs uppercase tracking-wider font-bold transition-all shadow-[0_0_12px_rgba(6,182,212,0.3)]"
+              >
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://www.instagram.com/dolphycafe/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-lg bg-slate-900 border border-amber-500/40 text-amber-300 hover:bg-amber-500 hover:text-black text-xs uppercase tracking-wider font-bold transition-all"
+              >
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@_.dolphycafe._"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-lg bg-slate-950 border border-slate-700 text-slate-200 hover:bg-white hover:text-black text-xs uppercase tracking-wider font-bold transition-all"
+              >
+                <span>TikTok</span>
+              </a>
+            </div>
+          </div>
+        ) : theme === 'sunset' ? (
+          /* SUNSET: Flowing Rose-Orange Pebble Card */
+          <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-rose-50 to-orange-50 border border-rose-200 shadow-xl shadow-rose-500/10 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="space-y-1 text-center md:text-left">
+              <span className="text-[10px] font-oswald uppercase tracking-widest text-rose-500 font-bold block">✨ DOLPHY COMMUNITY</span>
+              <p className="font-oswald text-base font-bold text-[#271a17] uppercase tracking-wider">
+                {language === 'vi' ? 'KẾT NỐI VỚI DOLPHY TRÊN MẠNG XÃ HỘI' : 'CONNECT WITH DOLPHY ON SOCIAL MEDIA'}
+              </p>
+              <p className="text-xs text-[#7d6560]">
+                #DolphyCafe #HappinessInACup #DolphyThaoDien #BlueDolphins #DolphyTikTok
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <a
+                href="https://www.facebook.com/dolphycafe"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald text-xs uppercase tracking-wider font-bold hover:scale-105 transition-all shadow-md"
+              >
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://www.instagram.com/dolphycafe/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white font-oswald text-xs uppercase tracking-wider font-bold hover:scale-105 transition-all shadow-md"
+              >
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@_.dolphycafe._"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-full bg-black text-white font-oswald text-xs uppercase tracking-wider font-bold hover:scale-105 transition-all shadow-md"
+              >
+                <span>TikTok</span>
+              </a>
+            </div>
+          </div>
+        ) : (
+          /* OCEAN & CLASSIC DARK: Original */
+          <div className="mt-8 p-5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/60 border border-blue-100 dark:border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+            <div className="flex items-center gap-3 text-center sm:text-left">
+              <div className="w-12 h-12 rounded-xl bg-[#1877F2] text-white flex items-center justify-center shrink-0 shadow">
+                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div>
+                <p className="font-oswald text-base font-bold text-[#2076bd] dark:text-[#3ba0e6] uppercase">
+                  {language === 'vi' ? 'KẾT NỐI VỚI DOLPHY TRÊN MẠNG XÃ HỘI' : 'CONNECT WITH DOLPHY ON SOCIAL MEDIA'}
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  #DolphyCafe #HappinessInACup #DolphyThaoDien #BlueDolphins #DolphyTikTok
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2.5">
+              <a
+                href="https://www.facebook.com/dolphycafe"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-xl bg-[#1877F2] hover:bg-[#1464cc] text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-all shadow flex items-center gap-1.5"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>Facebook</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/dolphycafe/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-95 text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-all shadow flex items-center gap-1.5"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@_.dolphycafe._"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-xl bg-black hover:bg-gray-900 text-white font-oswald text-xs uppercase tracking-wider font-semibold transition-all shadow flex items-center gap-1.5 border border-gray-700"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.97v7.68c-.01 2.27-.85 4.54-2.42 6.18-1.57 1.64-3.8 2.59-6.07 2.61-2.27.02-4.52-.89-6.12-2.49-1.61-1.6-2.52-3.85-2.5-6.12.02-2.27.93-4.52 2.53-6.12 1.6-1.6 3.86-2.5 6.13-2.48.42.01.84.05 1.25.13v4.18c-.42-.14-.87-.22-1.32-.22-1.15-.01-2.29.44-3.11 1.25-.82.81-1.28 1.95-1.27 3.1.01 1.15.47 2.29 1.29 3.1.82.81 1.96 1.26 3.11 1.25 1.15-.01 2.29-.46 3.1-1.27.81-.82 1.26-1.96 1.25-3.11V.02z"/>
+                </svg>
+                <span>TikTok</span>
+              </a>
+            </div>
+          </div>
+        )}
       </section>
 
-      {/* 8. TIN TỨC MỚI */}
+      {/* 8. TIN TỨC MỚI (Theme-Adaptive Architecture) */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 reveal-on-scroll">
           <h2 className="section-title">{t('home.news_title')}</h2>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
             {t('home.news_sub')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {articlesData.slice(0, 4).map((article) => {
-            const artTitle = language === 'en' ? (article.titleEn || article.title) : article.title;
-            const artCat = language === 'en' ? (article.categoryEn || article.category) : article.category;
-            const artExcerpt = language === 'en' ? (article.excerptEn || article.excerpt) : article.excerpt;
+        {theme === 'nordic' ? (
+          /* NORDIC: Architectural Tabular Directory List */
+          <div className="border-2 border-zinc-900 dark:border-zinc-200 divide-y-2 divide-zinc-900 dark:divide-zinc-200 font-mono reveal-stagger">
+            {articlesData.slice(0, 4).map((article) => {
+              const artTitle = language === 'en' ? (article.titleEn || article.title) : article.title;
+              const artCat = language === 'en' ? (article.categoryEn || article.category) : article.category;
+              const artExcerpt = language === 'en' ? (article.excerptEn || article.excerpt) : article.excerpt;
 
-            return (
-              <article
-                key={article.id}
-                className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-lg dark:hover:shadow-slate-900/50 transition-shadow duration-300 flex flex-col group"
-              >
-                <div className="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-slate-900">
-                  <img
-                    src={article.image}
-                    alt={artTitle}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+              return (
+                <div
+                  key={article.id}
+                  className="p-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-white dark:bg-zinc-950 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+                >
+                  <div className="md:col-span-2 text-xs text-zinc-500 space-y-1">
+                    <span className="font-bold text-black dark:text-white block font-oswald text-sm">[{article.date || '2026-10-15'}]</span>
+                    <span className="uppercase text-[10px] tracking-wider block text-amber-600">// {artCat}</span>
+                  </div>
 
-                <div className="p-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
-                      <span className="flex items-center gap-1">
-                        <Calendar size={12} />
-                        {article.date || '2026-10-15'}
-                      </span>
-                      <span className="text-[#2076bd] dark:text-[#3ba0e6] font-medium font-oswald">
-                        {artCat}
-                      </span>
-                    </div>
-
-                    <h3 className="font-oswald text-sm font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors line-clamp-2 leading-snug">
+                  <div className="md:col-span-7 space-y-1">
+                    <h3 className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white hover:text-amber-600 transition-colors leading-tight">
                       <Link to="/knowledge">{artTitle}</Link>
                     </h3>
-
-                    <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed font-sans">
                       {artExcerpt}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-gray-100 dark:border-slate-800 mt-3 text-[11px] text-gray-400 dark:text-gray-500 flex items-center justify-between">
-                    <span>{language === 'vi' ? 'Đăng bởi Cá Heo Xanh' : 'By Blue Dolphin'}</span>
-                    <Link to="/knowledge" className="text-[#2076bd] dark:text-[#3ba0e6] hover:underline font-semibold font-oswald">
-                      {t('knowledge.read_more')}
+                  <div className="md:col-span-3 flex items-center justify-between md:justify-end gap-4 text-xs font-mono">
+                    <span className="text-zinc-400 text-[11px]">{language === 'vi' ? 'Cá Heo Xanh' : 'Blue Dolphin'}</span>
+                    <Link
+                      to="/knowledge"
+                      className="font-bold uppercase tracking-wider text-black dark:text-white hover:text-amber-600 transition-colors flex items-center gap-1"
+                    >
+                      <span>{t('knowledge.read_more')}</span>
+                      <ArrowRight size={13} />
                     </Link>
                   </div>
                 </div>
-              </article>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        ) : theme === 'vintage' ? (
+          /* VINTAGE: French Bistro Broadsheet Gazette (2x2 Grid) */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-serif reveal-stagger">
+            {articlesData.slice(0, 4).map((article) => {
+              const artTitle = language === 'en' ? (article.titleEn || article.title) : article.title;
+              const artCat = language === 'en' ? (article.categoryEn || article.category) : article.category;
+              const artExcerpt = language === 'en' ? (article.excerptEn || article.excerpt) : article.excerpt;
 
+              return (
+                <div
+                  key={article.id}
+                  className="bg-[#faf6f0] border-2 border-[#e6ded1] rounded-lg overflow-hidden shadow-xs hover:border-[#1b4d3e] transition-all flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="h-56 overflow-hidden bg-stone-100 relative border-b border-[#e6ded1]">
+                      <img
+                        src={article.image}
+                        alt={artTitle}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded bg-[#1b4d3e] text-white shadow-xs font-serif">
+                        {artCat}
+                      </span>
+                    </div>
+
+                    <div className="p-6 space-y-3">
+                      <div className="flex items-center gap-3 text-xs text-[#6e655c] italic border-b border-[#e6ded1] pb-2">
+                        <span>{article.date || '2026-10-15'}</span>
+                        <span>•</span>
+                        <span>{language === 'vi' ? 'Đăng bởi Cá Heo Xanh' : 'By Blue Dolphin'}</span>
+                      </div>
+
+                      <h3 className="font-serif text-xl font-bold text-[#221e1a] group-hover:text-[#1b4d3e] transition-colors leading-snug">
+                        <Link to="/knowledge">{artTitle}</Link>
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-[#6e655c] line-clamp-3 leading-relaxed">
+                        {artExcerpt}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-6 pt-0 border-t border-[#e6ded1] mt-2 flex items-center justify-between text-xs text-[#6e655c]">
+                    <span className="italic">Dolphy Gazette</span>
+                    <Link
+                      to="/knowledge"
+                      className="font-sans font-bold text-[#1b4d3e] hover:text-[#c05621] flex items-center gap-1 text-[11px] uppercase tracking-wider"
+                    >
+                      <span>{t('knowledge.read_more')}</span>
+                      <ArrowRight size={13} />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : theme === 'roastery' ? (
+          /* ROASTERY: Cyber Telemetry Article Feed */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono reveal-stagger">
+            {articlesData.slice(0, 4).map((article) => {
+              const artTitle = language === 'en' ? (article.titleEn || article.title) : article.title;
+              const artCat = language === 'en' ? (article.categoryEn || article.category) : article.category;
+              const artExcerpt = language === 'en' ? (article.excerptEn || article.excerpt) : article.excerpt;
+
+              return (
+                <div
+                  key={article.id}
+                  className="bg-[#0b1324] border border-cyan-500/40 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(2,132,199,0.15)] hover:border-cyan-400 transition-all flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="h-44 overflow-hidden bg-slate-950 relative border-b border-cyan-500/20">
+                      <img
+                        src={article.image}
+                        alt={artTitle}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-2.5 left-2.5 text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/40 shadow">
+                        {artCat}
+                      </span>
+                    </div>
+
+                    <div className="p-4 space-y-2">
+                      <div className="text-[10px] text-cyan-500/80 flex items-center gap-1">
+                        <Calendar size={11} />
+                        <span>{article.date || '2026-10-15'}</span>
+                      </div>
+
+                      <h3 className="font-oswald text-sm font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug line-clamp-2 uppercase">
+                        <Link to="/knowledge">{artTitle}</Link>
+                      </h3>
+
+                      <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed font-sans">
+                        {artExcerpt}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 pt-0 border-t border-cyan-500/20 mt-2 flex items-center justify-between text-xs text-slate-400">
+                    <span className="text-[10px]">{language === 'vi' ? 'Cá Heo Xanh' : 'Blue Dolphin'}</span>
+                    <Link
+                      to="/knowledge"
+                      className="text-cyan-400 font-bold hover:underline flex items-center gap-1 text-[11px]"
+                    >
+                      <span>{t('knowledge.read_more')}</span>
+                      <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : theme === 'sunset' ? (
+          /* SUNSET: Organic Pebble Curves (4-Col Floating) */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
+            {articlesData.slice(0, 4).map((article) => {
+              const artTitle = language === 'en' ? (article.titleEn || article.title) : article.title;
+              const artCat = language === 'en' ? (article.categoryEn || article.category) : article.category;
+              const artExcerpt = language === 'en' ? (article.excerptEn || article.excerpt) : article.excerpt;
+
+              return (
+                <article
+                  key={article.id}
+                  className="bg-white rounded-3xl border border-rose-100 overflow-hidden shadow-xl shadow-rose-500/5 hover-lift transition-all duration-300 flex flex-col group"
+                >
+                  <div className="aspect-[16/10] overflow-hidden bg-rose-50 relative">
+                    <img
+                      src={article.image}
+                      alt={artTitle}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-2.5 left-2.5 text-[9px] font-oswald font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow">
+                      {artCat}
+                    </span>
+                  </div>
+
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div className="space-y-2">
+                      <div className="text-[11px] text-rose-400 font-oswald flex items-center gap-1">
+                        <Calendar size={12} />
+                        <span>{article.date || '2026-10-15'}</span>
+                      </div>
+
+                      <h3 className="font-oswald text-sm font-semibold text-[#271a17] group-hover:text-rose-600 transition-colors line-clamp-2 leading-snug">
+                        <Link to="/knowledge">{artTitle}</Link>
+                      </h3>
+
+                      <p className="text-xs text-[#7d6560] line-clamp-2">
+                        {artExcerpt}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-rose-100 mt-3 text-[11px] text-[#7d6560] flex items-center justify-between">
+                      <span>{language === 'vi' ? 'Đăng bởi Cá Heo Xanh' : 'By Blue Dolphin'}</span>
+                      <Link to="/knowledge" className="text-rose-600 hover:underline font-semibold font-oswald">
+                        {t('knowledge.read_more')} →
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          /* OCEAN & CLASSIC DARK: Original 4-Col Grid */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {articlesData.slice(0, 4).map((article) => {
+              const artTitle = language === 'en' ? (article.titleEn || article.title) : article.title;
+              const artCat = language === 'en' ? (article.categoryEn || article.category) : article.category;
+              const artExcerpt = language === 'en' ? (article.excerptEn || article.excerpt) : article.excerpt;
+
+              return (
+                <article
+                  key={article.id}
+                  className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-lg dark:hover:shadow-slate-900/50 transition-shadow duration-300 flex flex-col group"
+                >
+                  <div className="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-slate-900">
+                    <img
+                      src={article.image}
+                      alt={artTitle}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <div className="p-4 flex-1 flex flex-col justify-between">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
+                        <span className="flex items-center gap-1">
+                          <Calendar size={12} />
+                          {article.date || '2026-10-15'}
+                        </span>
+                        <span className="text-[#2076bd] dark:text-[#3ba0e6] font-medium font-oswald">
+                          {artCat}
+                        </span>
+                      </div>
+
+                      <h3 className="font-oswald text-sm font-semibold text-[#222222] dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6] transition-colors line-clamp-2 leading-snug">
+                        <Link to="/knowledge">{artTitle}</Link>
+                      </h3>
+
+                      <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+                        {artExcerpt}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-gray-100 dark:border-slate-800 mt-3 text-[11px] text-gray-400 dark:text-gray-500 flex items-center justify-between">
+                      <span>{language === 'vi' ? 'Đăng bởi Cá Heo Xanh' : 'By Blue Dolphin'}</span>
+                      <Link to="/knowledge" className="text-[#2076bd] dark:text-[#3ba0e6] hover:underline font-semibold font-oswald">
+                        {t('knowledge.read_more')}
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
+
+        {/* View All News Button */}
         <div className="text-center mt-10">
           <Link
             to="/knowledge"
-            className="dolphy-btn dolphy-btn-outline px-8 py-3 rounded text-sm font-semibold dark:border-[#3ba0e6] dark:text-[#3ba0e6] dark:hover:bg-[#3ba0e6] dark:hover:text-white"
+            className={`px-8 py-3 text-sm font-semibold inline-flex items-center gap-2 transition-all ${
+              theme === 'nordic'
+                ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-amber-600'
+                : theme === 'vintage'
+                ? 'rounded bg-[#1b4d3e] text-white hover:bg-[#c05621] font-serif shadow-xs'
+                : theme === 'roastery'
+                ? 'rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-black font-mono font-bold shadow-[0_0_15px_rgba(6,182,212,0.3)]'
+                : theme === 'sunset'
+                ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald uppercase tracking-wider font-bold shadow-lg shadow-rose-500/20 hover:scale-105'
+                : 'dolphy-btn dolphy-btn-outline rounded dark:border-[#3ba0e6] dark:text-[#3ba0e6] dark:hover:bg-[#3ba0e6] dark:hover:text-white'
+            }`}
           >
-            {t('home.view_all_news')}
+            <span>{t('home.view_all_news')}</span>
+            <ArrowRight size={16} />
           </Link>
         </div>
       </section>
 
-      {/* 8. 10 CHI NHÁNH CỬA HÀNG */}
-      <section className="bg-[#f0f8ff] dark:bg-slate-800/50 py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-slate-800 transition-colors">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="space-y-3 max-w-xl text-center lg:text-left">
-            <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
-              {t('home.finder_tag')}
-            </span>
-            <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#222222] dark:text-white">
-              {t('home.finder_title')}
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              {t('home.finder_desc')}
-            </p>
-          </div>
+      {/* 8.5 10 CHI NHÁNH CỬA HÀNG (Theme-Adaptive Architecture) */}
+      {theme === 'nordic' ? (
+        /* NORDIC: Architectural Finder Banner */
+        <section className="bg-black text-white border-y-2 border-zinc-900 py-16 sm:py-20 px-4 sm:px-8 font-mono">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center lg:text-left">
+              <span className="bg-white text-black font-mono font-bold text-xs uppercase tracking-[0.2em] px-3 py-1 inline-block border border-white">
+                // {t('home.finder_tag')}
+              </span>
+              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider">
+                {t('home.finder_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed">
+                {t('home.finder_desc')}
+              </p>
+            </div>
 
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link
-              to="/branches"
-              className="dolphy-btn dolphy-btn-primary px-6 py-3 rounded text-sm font-semibold shadow flex items-center gap-2"
-            >
-              <MapPin size={16} />
-              <span>{t('home.map_button')}</span>
-            </Link>
-            <a
-              href="https://dolphycoffee.cukcuk.vn/order-online/"
-              target="_blank"
-              rel="noreferrer"
-              className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold shadow flex items-center gap-2"
-            >
-              <span>{t('home.delivery_button')}</span>
-              <ExternalLink size={14} />
-            </a>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                to="/branches"
+                className="px-6 py-3 bg-white text-black hover:bg-zinc-200 text-xs font-mono uppercase tracking-widest font-bold flex items-center gap-2 rounded-none transition-colors"
+              >
+                <MapPin size={16} />
+                <span>{t('home.map_button')}</span>
+              </Link>
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-3 bg-black border border-white text-white hover:bg-white hover:text-black text-xs font-mono uppercase tracking-widest font-bold flex items-center gap-2 rounded-none transition-colors"
+              >
+                <span>{t('home.delivery_button')}</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : theme === 'vintage' ? (
+        /* VINTAGE: French Bistro Botanical Salon Banner */
+        <section className="bg-[#1b4d3e] text-[#fbf7ee] border-y-2 border-[#2d6a4f] py-16 sm:py-20 px-4 sm:px-8 font-serif">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center lg:text-left">
+              <span className="bg-[#c05621] text-white font-serif italic text-xs px-3.5 py-1 rounded inline-block shadow-xs">
+                ❦ {t('home.finder_tag')}
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold italic leading-tight">
+                {t('home.finder_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#e6ded1] leading-relaxed">
+                "{t('home.finder_desc')}"
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3 justify-center font-sans">
+              <Link
+                to="/branches"
+                className="px-6 py-3 rounded bg-[#c05621] hover:bg-[#a84819] text-white text-xs uppercase tracking-wider font-semibold shadow-md flex items-center gap-2 transition-all"
+              >
+                <MapPin size={16} />
+                <span>{t('home.map_button')}</span>
+              </Link>
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-3 rounded border border-[#e6ded1] bg-white/10 hover:bg-white text-white hover:text-[#1b4d3e] text-xs uppercase tracking-wider font-semibold transition-all flex items-center gap-2"
+              >
+                <span>{t('home.delivery_button')}</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'roastery' ? (
+        /* ROASTERY: Cyber Telemetry Dispatch Hub */
+        <section className="bg-[#070a12] border-y border-cyan-500/40 py-16 sm:py-20 px-4 sm:px-8 text-white font-mono shadow-[0_0_35px_rgba(2,132,199,0.2)]">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center lg:text-left">
+              <span className="bg-cyan-950 border border-cyan-500/40 text-cyan-400 font-mono text-xs px-3 py-1 rounded inline-block">
+                // {t('home.finder_tag')}
+              </span>
+              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wider text-cyan-300">
+                {t('home.finder_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                {t('home.finder_desc')}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                to="/branches"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center gap-2 transition-all"
+              >
+                <MapPin size={16} />
+                <span>{t('home.map_button')}</span>
+              </Link>
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-3 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 hover:bg-slate-800 text-xs uppercase tracking-wider font-semibold transition-all flex items-center gap-2"
+              >
+                <span>{t('home.delivery_button')}</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+        </section>
+      ) : theme === 'sunset' ? (
+        /* SUNSET: Flowing Coral Wave Container */
+        <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+          <div className="rounded-3xl bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 p-8 sm:p-14 text-white shadow-2xl shadow-rose-500/25 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center lg:text-left">
+              <span className="bg-white/20 text-white font-oswald text-xs uppercase tracking-widest px-3.5 py-1 rounded-full inline-block backdrop-blur font-bold">
+                {t('home.finder_tag')}
+              </span>
+              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wide">
+                {t('home.finder_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-rose-100 leading-relaxed">
+                {t('home.finder_desc')}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                to="/branches"
+                className="px-6 py-3 rounded-full bg-white text-rose-600 hover:bg-rose-50 text-xs font-oswald uppercase tracking-wider font-bold shadow-lg flex items-center gap-2 transition-all hover:scale-105"
+              >
+                <MapPin size={16} />
+                <span>{t('home.map_button')}</span>
+              </Link>
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-3 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-oswald uppercase tracking-wider font-semibold backdrop-blur transition-all flex items-center gap-2"
+              >
+                <span>{t('home.delivery_button')}</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+        </section>
+      ) : (
+        /* OCEAN & CLASSIC DARK: Original */
+        <section className="bg-[#f0f8ff] dark:bg-slate-800/50 py-14 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-slate-800 transition-colors">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl text-center lg:text-left">
+              <span className="text-xs font-oswald font-bold uppercase tracking-widest text-[#2076bd] dark:text-[#3ba0e6]">
+                {t('home.finder_tag')}
+              </span>
+              <h2 className="font-oswald text-2xl sm:text-3xl font-bold uppercase text-[#222222] dark:text-white">
+                {t('home.finder_title')}
+              </h2>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                {t('home.finder_desc')}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                to="/branches"
+                className="dolphy-btn dolphy-btn-primary px-6 py-3 rounded text-sm font-semibold shadow flex items-center gap-2"
+              >
+                <MapPin size={16} />
+                <span>{t('home.map_button')}</span>
+              </Link>
+              <a
+                href="https://dolphycoffee.cukcuk.vn/order-online/"
+                target="_blank"
+                rel="noreferrer"
+                className="dolphy-btn dolphy-btn-amber px-6 py-3 rounded text-sm font-semibold shadow flex items-center gap-2"
+              >
+                <span>{t('home.delivery_button')}</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Lightbox Modal for Community Photo */}
       {selectedPhoto && createPortal(
@@ -1612,7 +2574,13 @@ export const Home: React.FC = () => {
           onClick={() => setSelectedPhoto(null)}
         >
           <div 
-            className="bg-white dark:bg-[#1e293b] rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative my-auto"
+            className={`max-w-2xl w-full overflow-hidden shadow-2xl relative my-auto transition-all ${
+              theme === 'nordic' ? 'bg-white dark:bg-zinc-950 rounded-none border-2 border-zinc-900 dark:border-zinc-200 font-mono' :
+              theme === 'vintage' ? 'bg-[#faf6f0] rounded-lg border-2 border-[#e6ded1] font-serif' :
+              theme === 'roastery' ? 'bg-[#0b1324] rounded-xl border border-cyan-500/40 text-white font-mono shadow-[0_0_30px_rgba(2,132,199,0.3)]' :
+              theme === 'sunset' ? 'bg-white rounded-3xl border border-rose-100 shadow-2xl' :
+              'bg-white dark:bg-[#1e293b] rounded-2xl'
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -1632,7 +2600,13 @@ export const Home: React.FC = () => {
 
             <div className="p-5 space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-oswald uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6]">
+                <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${
+                  theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black rounded-none' :
+                  theme === 'vintage' ? 'bg-[#1b4d3e] text-white rounded' :
+                  theme === 'roastery' ? 'bg-cyan-950 text-cyan-400 border border-cyan-500/40 rounded-lg' :
+                  theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-full' :
+                  'bg-blue-100 dark:bg-blue-950/60 text-[#2076bd] dark:text-[#3ba0e6]'
+                }`}>
                   {language === 'vi' ? selectedPhoto.category : selectedPhoto.categoryEn}
                 </span>
                 <span className="flex items-center gap-1 text-red-500 font-semibold text-xs">
@@ -1641,12 +2615,22 @@ export const Home: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-oswald text-lg font-bold text-[#222222] dark:text-white uppercase">
+              <h3 className={`text-lg font-bold uppercase ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'roastery' ? 'font-oswald text-cyan-300' :
+                theme === 'sunset' ? 'font-oswald text-[#271a17]' :
+                'font-oswald text-[#222222] dark:text-white'
+              }`}>
                 {language === 'vi' ? selectedPhoto.title : selectedPhoto.titleEn}
               </h3>
 
               <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-                <MapPin size={13} className="text-[#2076bd] dark:text-[#3ba0e6]" />
+                <MapPin size={13} className={
+                  theme === 'vintage' ? 'text-[#1b4d3e]' :
+                  theme === 'roastery' ? 'text-cyan-400' :
+                  theme === 'sunset' ? 'text-rose-500' :
+                  'text-[#2076bd] dark:text-[#3ba0e6]'
+                } />
                 <span>{language === 'vi' ? selectedPhoto.location : selectedPhoto.locationEn}</span>
               </div>
             </div>

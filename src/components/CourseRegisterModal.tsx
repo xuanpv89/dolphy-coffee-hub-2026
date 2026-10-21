@@ -5,7 +5,7 @@ import { Course, StudentRegistration } from '../types';
 import { coursesData } from '../data/dolphyData';
 
 export const CourseRegisterModal: React.FC = () => {
-  const { enrollingCourse, setEnrollingCourse, submitRegistration, t, language } = useDolphy();
+  const { enrollingCourse, setEnrollingCourse, submitRegistration, t, language, theme } = useDolphy();
 
   const [selectedCourse, setSelectedCourse] = useState<Course>(enrollingCourse || coursesData[0]);
   const [formData, setFormData] = useState({
@@ -68,19 +68,37 @@ export const CourseRegisterModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-white dark:bg-[#1e293b] rounded-3xl shadow-2xl overflow-hidden border border-blue-100 dark:border-slate-700 my-6">
+      <div className={`relative w-full max-w-2xl shadow-2xl overflow-hidden my-6 transition-colors ${
+        theme === 'nordic' ? 'bg-white dark:bg-zinc-950 text-black dark:text-white rounded-none border-2 border-zinc-900 dark:border-zinc-200 font-mono' :
+        theme === 'vintage' ? 'bg-[#faf6f0] text-[#221e1a] rounded-lg border-2 border-[#e6ded1] font-serif' :
+        theme === 'roastery' ? 'bg-[#070a12] text-white rounded-xl border border-cyan-500/40 font-mono shadow-[0_0_30px_rgba(2,132,199,0.3)]' :
+        theme === 'sunset' ? 'bg-white text-[#271a17] rounded-3xl border border-rose-200 shadow-2xl' :
+        'bg-white dark:bg-[#1e293b] rounded-3xl border border-blue-100 dark:border-slate-700'
+      }`}>
         
         {/* Header */}
-        <div className="px-6 py-4 bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] text-white flex items-center justify-between">
+        <div className={`px-6 py-4 flex items-center justify-between text-white transition-colors ${
+          theme === 'nordic' ? 'bg-black dark:bg-zinc-900 border-b-2 border-zinc-900 dark:border-zinc-200 font-mono' :
+          theme === 'vintage' ? 'bg-[#1b4d3e] border-b-2 border-[#2d6a4f] text-[#faf6f0] font-serif' :
+          theme === 'roastery' ? 'bg-[#0b1324] border-b border-cyan-500/40 text-cyan-300 font-mono shadow-[0_0_20px_rgba(2,132,199,0.2)]' :
+          theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 font-oswald' :
+          'bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] font-oswald'
+        }`}>
           <div className="flex items-center gap-2.5">
-            <GraduationCap className="text-[#FAEA28]" size={24} />
+            <GraduationCap className={
+              theme === 'vintage' ? 'text-[#c05621]' :
+              theme === 'roastery' ? 'text-cyan-400' :
+              theme === 'sunset' ? 'text-amber-300' :
+              theme === 'nordic' ? 'text-white' :
+              'text-[#FAEA28]'
+            } size={24} />
             <div>
-              <h3 className="font-oswald text-lg font-bold uppercase tracking-wider">
+              <h3 className="text-lg font-bold uppercase tracking-wider">
                 {createdReg 
                   ? (language === 'vi' ? 'ĐĂNG KÝ THÀNH CÔNG!' : 'REGISTRATION SUCCESSFUL!')
                   : t('course_modal.title')}
               </h3>
-              <p className="text-xs text-blue-100">
+              <p className="text-xs opacity-80">
                 {language === 'vi' ? 'Cam kết đào tạo thực chiến & ưu tiên tuyển dụng' : 'Hands-on practical training & hiring preference'}
               </p>
             </div>
@@ -344,7 +362,13 @@ export const CourseRegisterModal: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald text-sm uppercase tracking-wider font-semibold shadow-lg transition-colors flex items-center justify-center gap-2"
+                  className={`w-full py-3.5 text-sm uppercase tracking-wider font-semibold shadow-lg transition-all flex items-center justify-center gap-2 ${
+                    theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-amber-600' :
+                    theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
+                    theme === 'roastery' ? 'rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)]' :
+                    theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald shadow-lg shadow-rose-500/25' :
+                    'rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald'
+                  }`}
                 >
                   <GraduationCap size={18} />
                   <span>
