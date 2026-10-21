@@ -10,7 +10,7 @@
 ## 📑 MỤC LỤC TỔNG QUAN
 
 1. [Nhận Diện Thương Hiệu (Brand Identity)](#1-nhận-diện-thương-hiệu-brand-identity)
-2. [Hệ Thống Bảng Màu Chuẩn (Color Palette & Tokens)](#2-hệ-thống-bảng-màu-chuẩn-color-palette--tokens)
+2. [Hệ Thống Bảng Màu Chuẩn & Bộ 5 Theme Thiết Kế (5 Distinct Themes)](#2-hệ-thống-bảng-màu-chuẩn--bộ-5-theme-thiết-kế-5-distinct-themes)
 3. [Quy Chuẩn Font Chữ & Typography](#3-quy-chuẩn-font-chữ--typography)
 4. [Tiêu Chuẩn Thiết Kế & Trải Nghiệm Người Dùng (UI/UX)](#4-tiêu-chuẩn-thiết-kế--trải-nghiệm-người-dùng-uiux)
 5. [Kiến Trúc Kỹ Thuật & Công Nghệ (Technical Stack)](#5-kiến-trúc-kỹ-thuật--công-nghệ-technical-stack)
@@ -43,7 +43,7 @@
 
 ---
 
-## 2. HỆ THỐNG BẢNG MÀU CHUẨN (COLOR PALETTE & TOKENS)
+## 2. HỆ THỐNG BẢNG MÀU CHUẨN & BỘ 5 THEME THIẾT KẾ (5 DISTINCT THEMES)
 
 Mọi thành phần giao diện trên website đều tuân thủ nghiêm ngặt bảng mã màu thương hiệu đã được chuẩn hóa:
 
@@ -63,6 +63,25 @@ Mọi thành phần giao diện trên website đều tuân thủ nghiêm ngặt 
 | **Thành Công (Success)** | **Emerald Green** | `#16a34a` | `rgb(22, 163, 74)` | Trạng thái: "Đã cọc", "Đã thanh toán", "Đã tuyển", thông báo thành công. |
 | **Cảnh Báo / Chờ Duyệt** | **Warning Orange** | `#f59e0b` | `rgb(245, 158, 11)` | Trạng thái: "Chờ liên hệ", "Chờ đặt cọc", "Đang xử lý". |
 | **Hủy Bỏ / Lỗi (Error)** | **Rose Red** | `#ef4444` | `rgb(239, 68, 68)` | Trạng thái: "Đã hủy", "Hết hàng", thông báo lỗi. |
+
+---
+
+### 2.2. BỘ 5 PHONG CÁCH THIẾT KẾ GIAO DIỆN RIÊNG BIỆT (5 DISTINCT DESIGN THEMES)
+
+Website Dolphy Café & Academy được trang bị hệ thống **5 Theme Thiết Kế Độc Lập**. Mỗi lần người dùng nhấn vào nút biểu tượng Theme trên thanh Menu, website sẽ lập tức chuyển đổi sang một phong cách thiết kế UI/UX hoàn toàn mới lạ với hệ màu, phông chữ, bo góc thẻ và hiệu ứng chuyển động riêng biệt mà toàn bộ nội dung và trang vẫn giữ nguyên:
+
+| STT | Tên Theme | Phong Cách Thiết Kế (Aesthetic) | Bảng Màu Chủ Đạo | Đặc Trưng UI/UX & Hình Học | Phông Chữ & Điểm Nhấn |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| **1** | 🌊 **Di Sản Biển Xanh** <br>*(Ocean Heritage)* | Nguyên bản 2013 kinh điển của Dolphy Café Thảo Điền. | Xanh đại dương (`#2076bd`), Vàng Sunshine (`#FAEA28`), Trắng tuyết (`#ffffff`). | Thẻ bo tròn chuẩn 12px, bóng đổ dịu nhẹ, nút bấm hiện đại dứt khoát. | Phông **Oswald** kết hợp **Montserrat**, gạch chân tiêu đề vàng rực rỡ. |
+| **2** | 🌙 **Xưởng Rang Đêm** <br>*(Midnight Roastery)* | Cyber Lounge huyền bí cho tín đồ specialty coffee về đêm. | Đen tuyền Obsidian (`#070a12`), Xanh Neon Cyan (`#0284c7`), Lửa rang Hổ Phách (`#f59e0b`). | Hiệu ứng kính mờ (Frosted Glassmorphism), thẻ nền tối mờ `rgba(14,23,38,0.75)`, viền phản quang Neon. | Tiêu đề phát sáng dạ quang dịu mắt, huy hiệu dạ quang hổ phách. |
+| **3** | 🌿 **Vườn Cổ Điển Thảo Điền** <br>*(Botanical Courtyard)* | Biệt thự Pháp sân vườn cổ điển, phong vị hoài niệm quý phái. | Xanh Ngọc Bảo (`#1b4d3e`), Giấy Mộc Linen (`#faf6f0`), Quế Hồi Terracotta (`#c05621`). | Thẻ bo góc 8px với đường viền chỉ giấy mộc tinh xảo, nền giấy tự nhiên chống lóa mắt. | Toàn bộ tiêu đề chuyển sang phông **Playfair Display (Serif)** quý phái, in nghiêng mềm mại. |
+| **4** | 📐 **Tối Giản Bắc Âu** <br>*(Nordic Minimalist)* | Studio kiến trúc Bắc Âu & quầy pour-over tối giản Tokyo. | Đen Than Chì (`#18181b`), Trắng Tinh Khiết (`#ffffff`), Caramel Nướng (`#c27803`). | **Góc cạnh sắc sảo tuyệt đối (0px radius)**, đường viền đơn nét mảnh tinh tế, phẳng hoàn toàn không bóng đổ. | Phông **Oswald All-Caps** giãn cách chữ rộng (tracking-widest), tối giản tinh gọn. |
+| **5** | 🌅 **Hoàng Hôn Sài Gòn** <br>*(Sunset Saigon)* | Nắng chiều tà rực rỡ bên sông Sài Gòn & phong cách sống tươi trẻ. | Đỏ San Hô (`#e11d48`), Cam Hoàng Hôn (`#f97316`), Sữa Đào Ánh Hồng (`#fff8f5`). | **Đường bo cong hạt sỏi hữu cơ (Pebble 24px)**, nút bấm dạng viên thuốc bo tròn mềm mại (`rounded-full`). | Nút bấm chuyển màu hoàng hôn (Gradient Coral-Orange), bóng đổ hổ phách ấm áp. |
+
+* **Cách chuyển đổi**:
+  - **Nhấn 1 chạm**: Bấm vào nút Theme trên thanh Header (hoặc menu di động) để chuyển tiếp xoay vòng qua 5 theme.
+  - **Rê chuột (Desktop)**: Rê chuột vào nút Theme để mở bảng chọn 5 theme trực quan kèm chấm màu đại diện.
+  - **Ghi nhớ thông minh**: Lựa chọn theme của bạn được tự động lưu vào trình duyệt (`localStorage`) và áp dụng nhất quán trên tất cả các trang.
 
 ---
 

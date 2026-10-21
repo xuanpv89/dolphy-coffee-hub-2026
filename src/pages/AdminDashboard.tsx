@@ -78,6 +78,7 @@ export const AdminDashboard: React.FC = () => {
     language,
     toggleLanguage,
     theme,
+    themeConfig,
     toggleTheme,
     showToast
   } = useDolphy();
@@ -739,13 +740,14 @@ export const AdminDashboard: React.FC = () => {
               <span>{language.toUpperCase()}</span>
             </button>
 
-            {/* Dark / Light Mode Switcher */}
+            {/* 5-Theme Switcher Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-gray-200 border border-slate-700 transition-colors"
-              title={theme === 'dark' ? 'Chuyển sang nền sáng' : 'Chuyển sang nền tối'}
+              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-gray-200 border border-slate-700 transition-colors flex items-center gap-1.5"
+              title={`Giao diện: ${themeConfig?.nameVi || theme} (Bấm để chuyển sang theme tiếp theo)`}
             >
-              {theme === 'dark' ? <Sun size={15} className="text-amber-400" /> : <Moon size={15} className="text-blue-300" />}
+              <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: themeConfig?.primaryHex || '#2076bd' }} />
+              <span className="text-xs font-oswald uppercase tracking-wider text-gray-300">{themeConfig?.badgeVi || theme}</span>
             </button>
 
             {/* Exit Admin & Open Website Link */}

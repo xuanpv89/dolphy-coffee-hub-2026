@@ -303,3 +303,418 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   }
 }
 
+
+
+/* ==========================================================================
+   DOLPHY 5-THEME DESIGN ENGINE:
+   1. Ocean Heritage (Di Sản Biển Xanh - Original 2013)
+   2. Midnight Roastery (Xưởng Rang Đêm - Dark Cyber Lounge)
+   3. Botanical Courtyard (Vườn Cổ Điển Thảo Điền - French Bistro)
+   4. Nordic Minimalist (Tối Giản Bắc Âu - Minimal Studio Mono)
+   5. Sunset Saigon (Hoàng Hôn Sài Gòn - Warm Vibrant Horizon)
+   ========================================================================== */
+
+/* 1. DOLPHY OCEAN (DEFAULT / 2013 HERITAGE) */
+[data-theme="ocean"], :root:not([data-theme]) {
+  --dolphy-primary: #2076bd;
+  --dolphy-primary-hover: #165b94;
+  --dolphy-primary-light: #3ba0e6;
+  --dolphy-accent: #FAEA28;
+  --dolphy-accent-dark: #D4C618;
+  --dolphy-accent-text: #0f172a;
+  --dolphy-bg-page: #f8fafc;
+  --dolphy-bg-surface: #ffffff;
+  --dolphy-bg-subtle: #f0f8ff;
+  --dolphy-text-main: #222222;
+  --dolphy-text-muted: #64748b;
+  --dolphy-border: #e2e8f0;
+  --dolphy-card-radius: 12px;
+  --dolphy-btn-radius: 6px;
+  --dolphy-font-heading: 'Oswald', sans-serif;
+  --dolphy-shadow: 0 10px 25px -5px rgba(32, 118, 189, 0.08);
+}
+
+/* 2. MIDNIGHT ROASTERY (DARK SPECIALTY CYBER LOUNGE) */
+[data-theme="roastery"] {
+  --dolphy-primary: #0284c7;
+  --dolphy-primary-hover: #38bdf8;
+  --dolphy-primary-light: #7dd3fc;
+  --dolphy-accent: #f59e0b;
+  --dolphy-accent-dark: #d97706;
+  --dolphy-accent-text: #020617;
+  --dolphy-bg-page: #070a12;
+  --dolphy-bg-surface: #0f172a;
+  --dolphy-bg-subtle: #162032;
+  --dolphy-text-main: #f8fafc;
+  --dolphy-text-muted: #94a3b8;
+  --dolphy-border: #1e293b;
+  --dolphy-card-radius: 14px;
+  --dolphy-btn-radius: 8px;
+  --dolphy-font-heading: 'Oswald', sans-serif;
+  --dolphy-shadow: 0 12px 30px -5px rgba(2, 132, 199, 0.25);
+}
+
+[data-theme="roastery"] body,
+[data-theme="roastery"] #root,
+[data-theme="roastery"] main {
+  background-color: #070a12 !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="roastery"] .bg-white {
+  background-color: #0e1726 !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="roastery"] .bg-\[\#f8fafc\],
+[data-theme="roastery"] .bg-\[\#f1f5f9\] {
+  background-color: #070a12 !important;
+}
+
+[data-theme="roastery"] .bg-\[\#f0f8ff\] {
+  background-color: #0b1324 !important;
+}
+
+[data-theme="roastery"] .text-\[\#222222\] {
+  color: #f8fafc !important;
+}
+
+[data-theme="roastery"] .border-gray-100,
+[data-theme="roastery"] .border-gray-200 {
+  border-color: #1e293b !important;
+}
+
+[data-theme="roastery"] .section-title {
+  color: #38bdf8 !important;
+  text-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="roastery"] .section-title::after {
+  background-color: #f59e0b !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+}
+
+[data-theme="roastery"] header {
+  background-color: rgba(11, 19, 36, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom-color: #1e293b !important;
+}
+
+[data-theme="roastery"] footer {
+  background-color: #05070d !important;
+  border-top-color: #0284c7 !important;
+}
+
+/* 3. BOTANICAL GARDEN (VƯỜN CỔ ĐIỂN THẢO ĐIỀN - FRENCH BISTRO) */
+[data-theme="vintage"] {
+  --dolphy-primary: #1b4d3e;
+  --dolphy-primary-hover: #13382d;
+  --dolphy-primary-light: #2d6a4f;
+  --dolphy-accent: #c05621;
+  --dolphy-accent-dark: #9c4215;
+  --dolphy-accent-text: #ffffff;
+  --dolphy-bg-page: #faf6f0;
+  --dolphy-bg-surface: #ffffff;
+  --dolphy-bg-subtle: #f2ebe0;
+  --dolphy-text-main: #221e1a;
+  --dolphy-text-muted: #6e655c;
+  --dolphy-border: #e6ded1;
+  --dolphy-card-radius: 8px;
+  --dolphy-btn-radius: 4px;
+  --dolphy-font-heading: 'Playfair Display', Georgia, serif;
+  --dolphy-shadow: 0 8px 24px -4px rgba(27, 77, 62, 0.12);
+}
+
+[data-theme="vintage"] body,
+[data-theme="vintage"] #root,
+[data-theme="vintage"] main {
+  background-color: #faf6f0 !important;
+  color: #221e1a !important;
+}
+
+[data-theme="vintage"] .bg-\[\#f8fafc\],
+[data-theme="vintage"] .bg-\[\#f1f5f9\] {
+  background-color: #faf6f0 !important;
+}
+
+[data-theme="vintage"] .bg-\[\#f0f8ff\] {
+  background-color: #f2ebe0 !important;
+}
+
+[data-theme="vintage"] .bg-white {
+  background-color: #ffffff !important;
+  border-color: #e6ded1 !important;
+}
+
+[data-theme="vintage"] .border-gray-100,
+[data-theme="vintage"] .border-gray-200 {
+  border-color: #e6ded1 !important;
+}
+
+[data-theme="vintage"] .text-\[\#222222\] {
+  color: #221e1a !important;
+}
+
+[data-theme="vintage"] .section-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  color: #1b4d3e !important;
+}
+
+[data-theme="vintage"] .section-title::after {
+  background-color: #c05621 !important;
+  height: 2px !important;
+  width: 50px !important;
+}
+
+[data-theme="vintage"] h1,
+[data-theme="vintage"] h2,
+[data-theme="vintage"] h3,
+[data-theme="vintage"] .font-oswald {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+[data-theme="vintage"] .rounded-lg,
+[data-theme="vintage"] .rounded-xl,
+[data-theme="vintage"] .rounded-2xl {
+  border-radius: 8px !important;
+}
+
+[data-theme="vintage"] header {
+  background-color: #faf6f0 !important;
+  border-bottom-color: #e6ded1 !important;
+}
+
+[data-theme="vintage"] footer {
+  background-color: #112019 !important;
+  border-top-color: #1b4d3e !important;
+}
+
+/* 4. NORDIC MINIMALIST (TỐI GIẢN BẮC ÂU - MINIMAL STUDIO MONO) */
+[data-theme="nordic"] {
+  --dolphy-primary: #18181b;
+  --dolphy-primary-hover: #3f3f46;
+  --dolphy-primary-light: #52525b;
+  --dolphy-accent: #c27803;
+  --dolphy-accent-dark: #9a5e02;
+  --dolphy-accent-text: #ffffff;
+  --dolphy-bg-page: #ffffff;
+  --dolphy-bg-surface: #ffffff;
+  --dolphy-bg-subtle: #f4f4f5;
+  --dolphy-text-main: #09090b;
+  --dolphy-text-muted: #71717a;
+  --dolphy-border: #e4e4e7;
+  --dolphy-card-radius: 0px;
+  --dolphy-btn-radius: 0px;
+  --dolphy-font-heading: 'Oswald', sans-serif;
+  --dolphy-shadow: none;
+}
+
+[data-theme="nordic"] body,
+[data-theme="nordic"] #root,
+[data-theme="nordic"] main {
+  background-color: #ffffff !important;
+  color: #09090b !important;
+}
+
+[data-theme="nordic"] .bg-\[\#f8fafc\],
+[data-theme="nordic"] .bg-\[\#f1f5f9\] {
+  background-color: #ffffff !important;
+}
+
+[data-theme="nordic"] .bg-\[\#f0f8ff\] {
+  background-color: #f4f4f5 !important;
+}
+
+[data-theme="nordic"] .border-gray-100,
+[data-theme="nordic"] .border-gray-200 {
+  border-color: #e4e4e7 !important;
+}
+
+[data-theme="nordic"] .text-\[\#222222\] {
+  color: #09090b !important;
+}
+
+[data-theme="nordic"] .section-title {
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 2.5px !important;
+  text-transform: uppercase !important;
+  color: #18181b !important;
+}
+
+[data-theme="nordic"] .section-title::after {
+  background-color: #c27803 !important;
+  height: 2px !important;
+  width: 40px !important;
+}
+
+[data-theme="nordic"] .rounded-md,
+[data-theme="nordic"] .rounded-lg,
+[data-theme="nordic"] .rounded-xl,
+[data-theme="nordic"] .rounded-2xl,
+[data-theme="nordic"] .rounded-3xl,
+[data-theme="nordic"] button.rounded-lg,
+[data-theme="nordic"] button.rounded-md,
+[data-theme="nordic"] button.rounded-full,
+[data-theme="nordic"] .dolphy-btn {
+  border-radius: 0px !important;
+}
+
+[data-theme="nordic"] .hover-lift {
+  box-shadow: none !important;
+}
+[data-theme="nordic"] .hover-lift:hover {
+  transform: none !important;
+  border-color: #18181b !important;
+}
+
+[data-theme="nordic"] header {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #18181b !important;
+}
+
+[data-theme="nordic"] footer {
+  background-color: #09090b !important;
+  border-top-color: #27272a !important;
+}
+
+/* 5. SUNSET SAIGON (HOÀNG HÔN SÀI GÒN - WARM VIBRANT HORIZON) */
+[data-theme="sunset"] {
+  --dolphy-primary: #e11d48;
+  --dolphy-primary-hover: #be123c;
+  --dolphy-primary-light: #fb7185;
+  --dolphy-accent: #f97316;
+  --dolphy-accent-dark: #ea580c;
+  --dolphy-accent-text: #ffffff;
+  --dolphy-bg-page: #fff8f5;
+  --dolphy-bg-surface: #ffffff;
+  --dolphy-bg-subtle: #ffede6;
+  --dolphy-text-main: #271a17;
+  --dolphy-text-muted: #7d6560;
+  --dolphy-border: #fed7aa;
+  --dolphy-card-radius: 26px;
+  --dolphy-btn-radius: 9999px;
+  --dolphy-font-heading: 'Oswald', sans-serif;
+  --dolphy-shadow: 0 14px 35px -6px rgba(225, 29, 72, 0.16);
+}
+
+[data-theme="sunset"] body,
+[data-theme="sunset"] #root,
+[data-theme="sunset"] main {
+  background-color: #fff8f5 !important;
+  color: #271a17 !important;
+}
+
+[data-theme="sunset"] .bg-\[\#f8fafc\],
+[data-theme="sunset"] .bg-\[\#f1f5f9\] {
+  background-color: #fff8f5 !important;
+}
+
+[data-theme="sunset"] .bg-\[\#f0f8ff\] {
+  background-color: #ffede6 !important;
+}
+
+[data-theme="sunset"] .border-gray-100,
+[data-theme="sunset"] .border-gray-200 {
+  border-color: #fed7aa !important;
+}
+
+[data-theme="sunset"] .text-\[\#222222\] {
+  color: #271a17 !important;
+}
+
+[data-theme="sunset"] .section-title {
+  color: #e11d48 !important;
+}
+
+[data-theme="sunset"] .section-title::after {
+  background: linear-gradient(90deg, #e11d48, #f97316) !important;
+  height: 4px !important;
+  border-radius: 9999px !important;
+}
+
+[data-theme="sunset"] .rounded-lg,
+[data-theme="sunset"] .rounded-xl,
+[data-theme="sunset"] .rounded-2xl {
+  border-radius: 24px !important;
+}
+
+[data-theme="sunset"] .dolphy-btn,
+[data-theme="sunset"] button.rounded-md,
+[data-theme="sunset"] button.rounded-lg {
+  border-radius: 9999px !important;
+}
+
+[data-theme="sunset"] .dolphy-btn-primary,
+[data-theme="sunset"] .bg-\[\#2076bd\] {
+  background: linear-gradient(135deg, #e11d48 0%, #f97316 100%) !important;
+  box-shadow: 0 8px 20px -4px rgba(225, 29, 72, 0.35) !important;
+}
+
+[data-theme="sunset"] .dolphy-btn-primary:hover,
+[data-theme="sunset"] .hover\:bg-\[\#165b94\]:hover,
+[data-theme="sunset"] .hover\:bg-\[\#2076bd\]:hover {
+  background: linear-gradient(135deg, #f97316 0%, #e11d48 100%) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="sunset"] header {
+  background-color: rgba(255, 248, 245, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom-color: #fed7aa !important;
+}
+
+[data-theme="sunset"] footer {
+  background-color: #221215 !important;
+  border-top-color: #e11d48 !important;
+}
+
+/* ==========================================================================
+   GLOBAL THEME BRIDGE (Applies smoothly across all 5 themes)
+   ========================================================================== */
+[data-theme] .bg-\[\#2076bd\] {
+  background-color: var(--dolphy-primary) !important;
+}
+
+[data-theme] .hover\:bg-\[\#165b94\]:hover,
+[data-theme] .hover\:bg-\[\#2076bd\]:hover {
+  background-color: var(--dolphy-primary-hover) !important;
+}
+
+[data-theme] .text-\[\#2076bd\],
+[data-theme] .text-\[\#165b94\] {
+  color: var(--dolphy-primary) !important;
+}
+
+[data-theme] .border-\[\#2076bd\] {
+  border-color: var(--dolphy-primary) !important;
+}
+
+[data-theme] .bg-\[\#FAEA28\] {
+  background-color: var(--dolphy-accent) !important;
+  color: var(--dolphy-accent-text) !important;
+}
+
+[data-theme] .hover\:bg-\[\#FAEA28\]:hover {
+  background-color: var(--dolphy-accent) !important;
+  color: var(--dolphy-accent-text) !important;
+}
+
+[data-theme] .text-\[\#FAEA28\] {
+  color: var(--dolphy-accent) !important;
+}
+
+[data-theme] .border-\[\#FAEA28\] {
+  border-color: var(--dolphy-accent) !important;
+}
+
+[data-theme] .section-title {
+  color: var(--dolphy-primary) !important;
+  font-family: var(--dolphy-font-heading) !important;
+}
+
+[data-theme] .section-title::after {
+  background-color: var(--dolphy-accent) !important;
+}

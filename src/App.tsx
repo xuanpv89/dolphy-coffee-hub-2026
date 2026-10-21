@@ -8,6 +8,7 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { CourseRegisterModal } from './components/CourseRegisterModal';
 import { ApplicationModal } from './components/ApplicationModal';
 import { Toast } from './components/Toast';
+import { ThemeToast } from './components/ThemeToast';
 import { BackToTop } from './components/BackToTop';
 import { PwaInstallPrompt } from './components/pwa/PwaInstallPrompt';
 import { OfflineIndicator } from './components/pwa/OfflineIndicator';
@@ -78,6 +79,7 @@ const AppLayout: React.FC = () => {
       <CourseRegisterModal />
       <ApplicationModal />
       <Toast />
+      <ThemeToast />
       {!isAdmin && <BackToTop />}
 
       {/* Progressive Web App (PWA) Global Controls */}

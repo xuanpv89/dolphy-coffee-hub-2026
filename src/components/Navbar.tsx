@@ -1,14 +1,32 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck, Sun, Moon, Globe, Download } from 'lucide-react';
+import { ShoppingBag, Menu, X, Search, PhoneCall, ExternalLink, ShieldCheck, Sun, Moon, Globe, Download, Waves, Leaf, Square, Sunrise, Palette } from 'lucide-react';
+import { Theme } from '../types/theme';
 import { useDolphy } from '../context/DolphyContext';
 import { brandInfo } from '../data/dolphyData';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { cartCount, setIsCartOpen, language, toggleLanguage, theme, toggleTheme, t, isStandalone, installPwa } = useDolphy();
+  const { cartCount, setIsCartOpen, language, toggleLanguage, theme, toggleTheme, setTheme, themeConfig, allThemes, t, isStandalone, installPwa } = useDolphy();
   const location = useLocation();
+
+  const renderThemeIcon = (id: Theme, size = 14) => {
+    switch (id) {
+      case 'ocean':
+        return <Waves size={size} className="text-[#2076bd]" />;
+      case 'roastery':
+        return <Moon size={size} className="text-amber-400" />;
+      case 'vintage':
+        return <Leaf size={size} className="text-emerald-600" />;
+      case 'nordic':
+        return <Square size={size} className="text-zinc-900 dark:text-zinc-100" />;
+      case 'sunset':
+        return <Sunrise size={size} className="text-rose-500" />;
+      default:
+        return <Palette size={size} className="text-[#2076bd]" />;
+    }
+  };
 
   const navLinks = [
     { name: t('nav.home'), path: '/' },
@@ -84,14 +102,52 @@ export const Navbar: React.FC = () => {
               <span className={language === 'en' ? 'text-[#2076bd] dark:text-[#3ba0e6]' : 'text-gray-400 dark:text-gray-500'}>EN</span>
             </button>
 
-            {/* Theme Toggle Button (Light / Dark) */}
-            <button
-              onClick={toggleTheme}
-              className="p-1.5 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-[#FAEA28] hover:border-[#2076bd] hover:text-[#2076bd] transition-colors"
-              title={theme === 'light' ? t('nav.theme_dark') : t('nav.theme_light')}
-            >
-              {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
-            </button>
+            {/* 5-Theme Cycle Button with Hover Quick-Picker */}
+            <div className="relative group">
+              <button
+                onClick={toggleTheme}
+                className="flex items-center gap-1.5 p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-200 hover:border-[#2076bd] transition-all hover:scale-105"
+                title={language === 'vi' ? `Giao diện: ${themeConfig?.nameVi || ''} (Nhấn để chuyển sang theme tiếp theo)` : `Theme: ${themeConfig?.nameEn || ''} (Click to cycle themes)`}
+              >
+                {renderThemeIcon(theme, 13)}
+                <span className="hidden xl:inline text-[11px] font-bold font-oswald uppercase tracking-wider text-gray-700 dark:text-gray-200">
+                  {language === 'vi' ? themeConfig?.badgeVi : themeConfig?.badgeEn}
+                </span>
+              </button>
+
+              {/* Quick Theme Selector Dropdown on Hover */}
+              <div className="hidden group-hover:block absolute right-0 top-full pt-1.5 z-50">
+                <div className="p-2 rounded-xl shadow-xl backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border border-gray-200 dark:border-slate-700 w-52 space-y-1 text-xs">
+                  <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between">
+                    <span>5 Themes Thiết Kế</span>
+                    <span className="text-[9px] text-[#2076bd]">Click để đổi</span>
+                  </div>
+                  {allThemes?.map(tItem => (
+                    <button
+                      key={tItem.id}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setTheme(tItem.id);
+                      }}
+                      className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-left transition-all ${
+                        theme === tItem.id
+                          ? 'bg-[#2076bd]/10 text-[#2076bd] font-bold dark:bg-slate-800'
+                          : 'hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
+                          style={{ backgroundColor: tItem.primaryHex }}
+                        />
+                        <span className="truncate">{language === 'vi' ? tItem.nameVi : tItem.nameEn}</span>
+                      </div>
+                      {renderThemeIcon(tItem.id, 12)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Install PWA Button (Desktop) */}
             {!isStandalone && (
@@ -215,10 +271,33 @@ export const Navbar: React.FC = () => {
             <button
               onClick={toggleTheme}
               className="flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold"
+              title={language === 'vi' ? 'Nhấn để chuyển theme tiếp theo' : 'Click to cycle themes'}
             >
-              {theme === 'light' ? <Moon size={14} /> : <Sun size={14} className="text-amber-400" />}
-              <span>{theme === 'light' ? t('nav.theme_dark') : t('nav.theme_light')}</span>
+              {renderThemeIcon(theme, 13)}
+              <span>{language === 'vi' ? themeConfig?.nameVi : themeConfig?.nameEn}</span>
             </button>
+          </div>
+
+          {/* Mobile 5-Theme Quick Chips */}
+          <div className="flex items-center justify-between gap-1 pt-1 pb-2 border-b border-gray-100 dark:border-slate-800">
+            {allThemes?.map(tItem => (
+              <button
+                key={tItem.id}
+                onClick={() => setTheme(tItem.id)}
+                className={`flex-1 py-1 px-0.5 rounded text-[10px] font-medium border text-center transition-all ${
+                  theme === tItem.id
+                    ? 'font-bold ring-2 ring-offset-1 shadow-xs'
+                    : 'opacity-70 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300'
+                }`}
+                style={{
+                  borderColor: theme === tItem.id ? tItem.primaryHex : undefined,
+                  backgroundColor: theme === tItem.id ? tItem.primaryHex : 'transparent',
+                  color: theme === tItem.id ? '#ffffff' : undefined
+                }}
+              >
+                {tItem.nameVi.split(' ')[0]}
+              </button>
+            ))}
           </div>
 
           {navLinks.map((link) => (

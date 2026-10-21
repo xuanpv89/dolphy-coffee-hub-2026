@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, ReactNode } from 'react';
 import { Product, Course, CartItem, Order, StudentRegistration, JobApplication, Job } from '../types';
 import { Language, Theme, translations } from '../i18n/translations';
+import { ThemeConfig, DOLPHY_THEMES, THEME_ORDER, getNextTheme } from '../types/theme';
 import { pwaService } from '../pwa/pwaService';
 
 interface DolphyContextType {
@@ -9,8 +10,11 @@ interface DolphyContextType {
   setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
   theme: Theme;
+  themeConfig: ThemeConfig;
+  allThemes: ThemeConfig[];
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
+  themeToast: { show: boolean; name: string; desc: string; icon: string } | null;
   t: (key: string) => string;
 
   // PWA & Connectivity
@@ -70,16 +74,22 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     }
   });
 
-  const [theme, setTheme] = useState<Theme>(() => {
+  const [theme, setThemeState] = useState<Theme>(() => {
     try {
       const saved = localStorage.getItem('dolphy_theme');
-      if (saved === 'dark' || saved === 'light') return saved;
+      if (saved && THEME_ORDER.includes(saved as Theme)) {
+        return saved as Theme;
+      }
+      if (saved === 'dark') return 'roastery';
+      if (saved === 'light') return 'ocean';
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
+        return 'roastery';
       }
     } catch {}
-    return 'light';
+    return 'ocean';
   });
+
+  const [themeToast, setThemeToast] = useState<{ show: boolean; name: string; desc: string; icon: string } | null>(null);
 
   useEffect(() => {
     try {
@@ -90,7 +100,8 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   useEffect(() => {
     try {
       localStorage.setItem('dolphy_theme', theme);
-      if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'roastery') {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
@@ -98,12 +109,30 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     } catch {}
   }, [theme]);
 
+  useEffect(() => {
+    if (themeToast) {
+      const timer = setTimeout(() => {
+        setThemeToast(null);
+      }, 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [themeToast]);
+
   const toggleLanguage = () => {
     setLanguage(prev => (prev === 'vi' ? 'en' : 'vi'));
   };
 
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
+    const cfg = DOLPHY_THEMES[newTheme];
+    const name = language === 'vi' ? cfg.nameVi : cfg.nameEn;
+    const desc = language === 'vi' ? cfg.taglineVi : cfg.taglineEn;
+    setThemeToast({ show: true, name, desc, icon: cfg.iconName });
+  };
+
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    const next = getNextTheme(theme);
+    setTheme(next);
   };
 
   // PWA Connectivity & Installation State
@@ -398,8 +427,11 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         setLanguage,
         toggleLanguage,
         theme,
+        themeConfig: DOLPHY_THEMES[theme],
+        allThemes: THEME_ORDER.map(id => DOLPHY_THEMES[id]),
         setTheme,
         toggleTheme,
+        themeToast,
         t,
         cart,
         isCartOpen,
