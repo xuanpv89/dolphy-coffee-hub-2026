@@ -300,7 +300,7 @@ export const Navbar: React.FC = () => {
   if (theme === 'roastery') {
     return (
       <>
-        <header className="fixed top-2 sm:top-3 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-40 rounded-2xl backdrop-blur-2xl bg-slate-950/85 border border-cyan-500/35 shadow-[0_0_30px_rgba(2,132,199,0.25)] px-3 sm:px-6 py-2 transition-all">
+        <header className="fixed top-2 sm:top-3 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-40 rounded-2xl backdrop-blur-2xl bg-slate-950/85 border border-cyan-500/35 shadow-[0_0_30px_rgba(6,182,212,0.25)] px-3 sm:px-6 py-2 transition-all">
           <div className="flex items-center justify-between gap-2">
             
             {/* Left: Cyber Logo & Live Status */}
@@ -309,7 +309,7 @@ export const Navbar: React.FC = () => {
                 <img 
                   src="/images/dolphy-logo-dark.png" 
                   alt="Dolphy Cyber" 
-                  className="h-8 sm:h-10 w-auto object-contain"
+                  className="theme-logo-img h-8 sm:h-10 w-auto object-contain"
                 />
               </Link>
             </div>
@@ -344,11 +344,11 @@ export const Navbar: React.FC = () => {
 
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-mono shadow-[0_0_15px_rgba(6,182,212,0.4)]"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-600 via-blue-600 to-pink-600 hover:from-cyan-500 hover:to-pink-500 text-white text-xs font-mono shadow-[0_0_15px_rgba(6,182,212,0.4)]"
               >
                 <ShoppingBag size={13} />
                 <span className="hidden xs:inline">{t('nav.cart')}</span>
-                <span className="bg-amber-400 text-slate-950 font-bold px-1.5 py-0.2 rounded-full text-[10px]">
+                <span className="bg-pink-500 text-white font-bold px-1.5 py-0.2 rounded-full text-[10px]">
                   {cartCount}
                 </span>
               </button>
@@ -370,86 +370,95 @@ export const Navbar: React.FC = () => {
   }
 
   // ==========================================================================
-  // 2. THEME: VINTAGE (French Colonial Centered Editorial Masthead)
+  // 2. THEME: VINTAGE (Thảo Điền 2013 • French Botanical Courtyard Bistro)
   // ==========================================================================
   if (theme === 'vintage') {
     return (
-      <header className="w-full bg-[#faf6f0] text-[#221e1a] border-b border-[#e6ded1] transition-colors shadow-2xs font-serif">
-        {/* Top Heritage Gazette Ribbon */}
-        <div className="border-b border-[#e6ded1] py-1.5 px-4 text-xs text-[#6e655c] flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 text-[11px] font-sans">
-            <span className="text-[#1b4d3e] font-bold">EST. 2013</span>
-            <span>•</span>
-            <span>THẢO ĐIỀN, SAIGON</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline">HOTLINE: <strong>{brandInfo.hotline}</strong></span>
-          </div>
+      <header className="sticky top-0 z-40 w-full bg-[#faf6f0]/95 backdrop-blur-md text-[#221e1a] border-b border-[#e6ded1] shadow-[0_4px_20px_rgba(27,77,62,0.06)] transition-colors font-serif">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
+          
+          {/* Left: Refined Boutique Crest & Brand Signature */}
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
+            <div className="relative p-1 rounded-full bg-[#1b4d3e]/5 border border-[#1b4d3e]/20 group-hover:border-[#1b4d3e]/40 transition-colors shadow-2xs">
+              <img 
+                src="/images/dolphy-logo.png" 
+                alt="Dolphy Café" 
+                className="theme-logo-img h-9 sm:h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.14em] text-[#1b4d3e] uppercase leading-none group-hover:text-[#c05621] transition-colors">
+                DOLPHY CAFÉ
+              </span>
+              <span className="font-serif italic text-[11px] text-[#6e655c] tracking-wider mt-1 flex items-center gap-1.5">
+                <span>Thảo Điền, Sài Gòn</span>
+                <span className="text-[#c05621] font-bold">•</span>
+                <span className="text-[#c05621] font-semibold not-italic text-[10px]">EST. 2013</span>
+              </span>
+            </div>
+          </Link>
 
-          <div className="flex items-center gap-2">
+          {/* Center: Sophisticated Editorial Navigation */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {navLinks.map((link) => {
+              const active = isActive(link.path);
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`relative px-3 py-1.5 text-xs font-serif tracking-wide transition-all ${
+                    active
+                      ? 'text-[#1b4d3e] font-bold italic'
+                      : 'text-[#4a4239] hover:text-[#c05621]'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {active && (
+                    <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#1b4d3e] rounded-full" />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right: Vintage Action Bar */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <a
+              href={`tel:${brandInfo.hotline}`}
+              className="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e6ded1] bg-[#f5efe4]/70 text-xs text-[#6e655c] hover:text-[#1b4d3e] hover:border-[#1b4d3e] transition-colors"
+            >
+              <PhoneCall size={12} className="text-[#c05621]" />
+              <span className="font-sans text-[11px] font-medium">{brandInfo.hotline}</span>
+            </a>
+
             <button
               onClick={toggleLanguage}
-              className="px-2 py-0.5 rounded border border-[#e6ded1] text-[11px] font-sans hover:border-[#1b4d3e]"
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#e6ded1] bg-[#f5efe4]/70 text-[#1b4d3e] hover:border-[#1b4d3e] text-xs font-sans font-medium transition-colors shadow-2xs"
             >
-              {language === 'vi' ? 'Tiếng Việt' : 'English'}
+              <Globe size={12} className="text-[#c05621]" />
+              <span>{language === 'vi' ? 'VI' : 'EN'}</span>
             </button>
+
             {renderThemeButton(true)}
+
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-1 px-2.5 py-0.5 rounded border border-[#1b4d3e] bg-[#1b4d3e] text-white text-[11px] font-sans shadow-2xs"
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1b4d3e] hover:bg-[#c05621] text-[#faf6f0] text-xs font-serif font-semibold tracking-wider transition-all shadow-xs cursor-pointer"
             >
-              <ShoppingBag size={11} />
-              <span>{t('nav.cart')} ({cartCount})</span>
+              <ShoppingBag size={13} className="text-[#faf6f0]" />
+              <span className="hidden xs:inline">{t('nav.cart')}</span>
+              <span className="bg-[#c05621] text-white font-sans text-[10px] font-bold px-1.5 py-0.2 rounded-full">
+                {cartCount}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg border border-[#e6ded1] text-[#1b4d3e] hover:bg-[#1b4d3e]/5 transition-colors"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
-        </div>
-
-        {/* Middle: Prominent Centered Brand Masthead */}
-        <div className="py-4 text-center max-w-3xl mx-auto px-4">
-          <Link to="/" className="inline-block group">
-            <img 
-              src="/images/dolphy-logo.png" 
-              alt="Dolphy Café" 
-              className="h-10 sm:h-14 mx-auto object-contain group-hover:scale-105 transition-transform"
-            />
-          </Link>
-        </div>
-
-        {/* Bottom: Centered Symmetrical Navigation Bar with Divider Dots */}
-        <nav className="border-y border-[#e6ded1] bg-[#f5efe4]/70 hidden lg:block">
-          <div className="max-w-7xl mx-auto px-4">
-            <ul className="flex items-center justify-center gap-1 py-2 text-xs tracking-wide">
-              {navLinks.map((link, idx) => (
-                <React.Fragment key={link.path}>
-                  <li>
-                    <Link
-                      to={link.path}
-                      className={`px-3 py-1 rounded transition-colors ${
-                        isActive(link.path)
-                          ? 'text-[#1b4d3e] font-bold bg-[#1b4d3e]/10 italic'
-                          : 'text-[#4a4239] hover:text-[#1b4d3e]'
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                  {idx < navLinks.length - 1 && (
-                    <li className="text-[#c05621] opacity-60 select-none text-[10px]">❦</li>
-                  )}
-                </React.Fragment>
-              ))}
-            </ul>
-          </div>
-        </nav>
-
-        {/* Mobile Toggle on Vintage */}
-        <div className="lg:hidden flex items-center justify-between px-4 py-2 border-t border-[#e6ded1]">
-          <span className="text-xs font-serif italic text-[#1b4d3e]">Dolphy Café</span>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded border border-[#e6ded1] text-[#1b4d3e]"
-          >
-            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
         </div>
         {renderMobileDrawer()}
       </header>
@@ -464,8 +473,13 @@ export const Navbar: React.FC = () => {
       <header className="w-full bg-white text-black border-b border-black transition-colors sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           
-          {/* Left: Stark Minimalist Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          {/* Left: Stark Minimalist Logo with Monochrome Brand Mark */}
+          <Link to="/" className="flex items-center gap-2.5">
+            <img 
+              src="/images/dolphy-logo.png" 
+              alt="Dolphy Nordic" 
+              className="theme-logo-img h-7 sm:h-8 w-auto object-contain"
+            />
             <span className="font-oswald text-xl font-bold tracking-[0.15em] uppercase">
               DOLPHY
             </span>
@@ -480,7 +494,7 @@ export const Navbar: React.FC = () => {
                   to={link.path}
                   className={`py-1 px-1 transition-all ${
                     isActive(link.path)
-                      ? 'font-bold underline decoration-2 underline-offset-4 text-black'
+                      ? 'font-bold underline decoration-[#ff3b00] decoration-2 underline-offset-4 text-black'
                       : 'text-zinc-600 hover:text-black'
                   }`}
                 >
@@ -499,7 +513,8 @@ export const Navbar: React.FC = () => {
               onClick={() => setIsCartOpen(true)}
               className="flex items-center gap-1.5 px-3 py-1 bg-black hover:bg-zinc-800 text-white text-xs font-mono uppercase tracking-wider"
             >
-              <span>{t('nav.cart')} [{cartCount}]</span>
+              <span>{t('nav.cart')}</span>
+              <span className="text-[#ff3b00] font-bold">[{cartCount}]</span>
             </button>
 
             <button
@@ -528,7 +543,7 @@ export const Navbar: React.FC = () => {
             <img 
               src="/images/dolphy-logo.png" 
               alt="Dolphy Sunset" 
-              className="h-8 sm:h-11 w-auto object-contain"
+              className="theme-logo-img h-8 sm:h-11 w-auto object-contain"
             />
           </Link>
 
@@ -540,7 +555,7 @@ export const Navbar: React.FC = () => {
                 to={link.path}
                 className={`px-3 py-1.5 rounded-full transition-all ${
                   isActive(link.path)
-                    ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white font-bold shadow-md shadow-rose-500/20'
+                    ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-bold shadow-md shadow-rose-500/20'
                     : 'text-zinc-700 hover:text-rose-600 hover:bg-rose-50'
                 }`}
               >
@@ -555,7 +570,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white text-xs font-oswald uppercase tracking-wider font-bold shadow-md shadow-rose-500/25"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white text-xs font-oswald uppercase tracking-wider font-bold shadow-md shadow-rose-500/25"
             >
               <ShoppingBag size={13} />
               <span className="hidden xs:inline">{t('nav.cart')}</span>
@@ -591,12 +606,12 @@ export const Navbar: React.FC = () => {
             <img 
               src="/images/dolphy-logo.png" 
               alt="Dolphy Café" 
-              className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain dark:hidden"
+              className="theme-logo-img h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain dark:hidden"
             />
             <img 
               src="/images/dolphy-logo-dark.png" 
               alt="Dolphy Café" 
-              className="h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain hidden dark:block"
+              className="theme-logo-img h-8 xs:h-9 sm:h-12 md:h-14 w-auto object-contain hidden dark:block"
             />
           </Link>
 

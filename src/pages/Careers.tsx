@@ -456,7 +456,7 @@ export const Careers: React.FC = () => {
                     <div className="md:col-span-2 flex justify-start md:justify-end">
                       <button
                         onClick={() => setApplyingJob(job)}
-                        className="px-5 py-2.5 rounded-none bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-amber-600 dark:hover:bg-amber-500 transition-colors cursor-pointer w-full md:w-auto text-center"
+                        className="px-5 py-2.5 rounded-none bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#ff3b00] hover:text-white dark:hover:bg-[#ff3b00] dark:hover:text-white transition-colors cursor-pointer w-full md:w-auto text-center"
                       >
                         {t('careers.apply_now')}
                       </button>
@@ -584,7 +584,7 @@ export const Careers: React.FC = () => {
                           <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/40">
                             [{jType}]
                           </span>
-                          <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-500/40">
+                          <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-pink-950/80 text-pink-400 border border-pink-500/40">
                             {jDept}
                           </span>
                         </div>

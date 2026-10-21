@@ -1,5 +1,5 @@
 import React from 'react';
-import { Waves, Moon, Leaf, Square, Sunrise, Sparkles } from 'lucide-react';
+import { Waves, Moon, Leaf, Square, Sunrise, Sparkles, Flame } from 'lucide-react';
 import { useDolphy } from '../context/DolphyContext';
 import { Theme } from '../types/theme';
 
@@ -12,14 +12,16 @@ export const ThemeToast: React.FC = () => {
     switch (id) {
       case 'ocean':
         return <Waves size={16} className="text-[#2076bd]" />;
+      case 'dark':
+        return <Moon size={16} className="text-[#FAEA28]" />;
       case 'roastery':
-        return <Moon size={16} className="text-amber-400" />;
+        return <Flame size={16} className="text-[#06b6d4]" />;
       case 'vintage':
-        return <Leaf size={16} className="text-emerald-600" />;
+        return <Leaf size={16} className="text-[#1b4d3e]" />;
       case 'nordic':
-        return <Square size={16} className="text-zinc-900 dark:text-zinc-100" />;
+        return <Square size={16} className="text-[#ff3b00]" />;
       case 'sunset':
-        return <Sunrise size={16} className="text-rose-500" />;
+        return <Sunrise size={16} className="text-[#e11d48]" />;
       default:
         return <Sparkles size={16} className="text-amber-400" />;
     }

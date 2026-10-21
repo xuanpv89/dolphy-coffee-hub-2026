@@ -19,7 +19,7 @@ export const Policies: React.FC = () => {
       <section className={`reveal-on-scroll border-b text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden ${
         theme === 'vintage' ? 'bg-[#1b4d3e] border-[#2d6a4f]' :
         theme === 'nordic' ? 'bg-zinc-950 border-zinc-800' :
-        theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 border-rose-300' :
+        theme === 'sunset' ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-[#ff7a00] border-rose-300' :
         theme === 'roastery' ? 'bg-[#070a12] border-cyan-500/30' :
         theme === 'dark' ? 'bg-[#0f172a] border-slate-800' :
         'bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800'
@@ -70,7 +70,7 @@ export const Policies: React.FC = () => {
               } ${
                 activeTab === 'guide'
                   ? (theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black shadow' :
-                     theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md' :
+                     theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white shadow-md' :
                      theme === 'vintage' ? 'bg-[#1b4d3e] text-white shadow' :
                      theme === 'roastery' ? 'bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
                      theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 shadow' :
@@ -96,7 +96,7 @@ export const Policies: React.FC = () => {
               } ${
                 activeTab === 'privacy'
                   ? (theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black shadow' :
-                     theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md' :
+                     theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white shadow-md' :
                      theme === 'vintage' ? 'bg-[#1b4d3e] text-white shadow' :
                      theme === 'roastery' ? 'bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
                      theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 shadow' :
@@ -122,7 +122,7 @@ export const Policies: React.FC = () => {
               } ${
                 activeTab === 'terms'
                   ? (theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black shadow' :
-                     theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md' :
+                     theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white shadow-md' :
                      theme === 'vintage' ? 'bg-[#1b4d3e] text-white shadow' :
                      theme === 'roastery' ? 'bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
                      theme === 'dark' ? 'bg-[#FAEA28] text-slate-950 shadow' :

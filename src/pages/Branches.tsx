@@ -68,7 +68,7 @@ export const Branches: React.FC = () => {
           <div className={`p-4 text-white flex items-center justify-between ${
             theme === 'vintage' ? 'bg-[#1b4d3e]' :
             theme === 'roastery' ? 'bg-[#0b1324] border-b border-cyan-500/30 text-cyan-300' :
-            theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500' :
+            theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00]' :
             theme === 'nordic' ? 'bg-black text-white font-mono' :
             theme === 'dark' ? 'bg-[#0f172a] text-amber-400 border-b border-slate-800' :
             'bg-[#2076bd]'
@@ -78,7 +78,7 @@ export const Branches: React.FC = () => {
                 theme === 'vintage' ? 'text-[#c05621]' :
                 theme === 'roastery' ? 'text-cyan-400' :
                 theme === 'sunset' ? 'text-white' :
-                theme === 'nordic' ? 'text-amber-500' :
+                theme === 'nordic' ? 'text-[#ff3b00]' :
                 'text-[#FAEA28]'
               } />
               <span className="font-oswald text-sm font-bold uppercase tracking-wide">
@@ -249,7 +249,7 @@ export const Branches: React.FC = () => {
                       href={`https://maps.google.com/?q=${encodeURIComponent(branch.address + ', TP. Hồ Chí Minh')}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none flex items-center justify-center gap-1.5 cursor-pointer"
+                      className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-[#ff3b00] hover:text-white dark:hover:bg-[#ff3b00] dark:hover:text-white transition-colors rounded-none flex items-center justify-center gap-1.5 cursor-pointer"
                     >
                       <Navigation size={12} />
                       <span>+ {t('branches.get_directions')}</span>
@@ -298,7 +298,7 @@ export const Branches: React.FC = () => {
                         <span>{branch.address}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Phone size={13} className="text-amber-400 shrink-0" />
+                        <Phone size={13} className="text-pink-400 shrink-0" />
                         <span>{branch.phone}</span>
                       </div>
                     </div>

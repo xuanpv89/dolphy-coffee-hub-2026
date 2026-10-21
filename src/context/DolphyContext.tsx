@@ -76,6 +76,11 @@ export const DolphyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
   const [theme, setThemeState] = useState<Theme>(() => {
     try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlTheme = urlParams.get('theme') as Theme;
+      if (urlTheme && THEME_ORDER.includes(urlTheme)) {
+        return urlTheme;
+      }
       const saved = localStorage.getItem('dolphy_theme');
       if (saved && THEME_ORDER.includes(saved as Theme)) {
         return saved as Theme;

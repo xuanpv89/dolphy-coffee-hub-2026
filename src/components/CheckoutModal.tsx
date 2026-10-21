@@ -177,10 +177,10 @@ export const CheckoutModal: React.FC = () => {
                 <button
                   onClick={handleClose}
                   className={`px-6 py-2.5 font-bold text-sm transition-all ${
-                    theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono hover:bg-amber-600' :
+                    theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono hover:bg-[#ff3b00] hover:text-white' :
                     theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
                     theme === 'roastery' ? 'rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
-                    theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald shadow-md' :
+                    theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald shadow-md' :
                     'rounded-xl bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white'
                   }`}
                 >
@@ -454,10 +454,10 @@ export const CheckoutModal: React.FC = () => {
                 <button
                   type="submit"
                   className={`w-full py-3.5 text-sm uppercase tracking-wider font-semibold shadow-lg transition-all ${
-                    theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-amber-600' :
+                    theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-[#ff3b00] hover:text-white' :
                     theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
-                    theme === 'roastery' ? 'rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)]' :
-                    theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald shadow-lg shadow-rose-500/25' :
+                    theme === 'roastery' ? 'rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-pink-600 hover:from-cyan-500 hover:to-pink-500 text-white font-mono font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)]' :
+                    theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white font-oswald shadow-lg shadow-rose-500/25' :
                     theme === 'dark' ? 'rounded-lg bg-[#FAEA28] hover:bg-amber-300 text-slate-950 font-oswald font-bold' :
                     'rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald'
                   }`}

@@ -235,7 +235,7 @@ export const Academy: React.FC = () => {
                     <div>
                       <div className="flex items-center justify-between text-[10px] text-cyan-400 pb-2 border-b border-cyan-500/20 mb-2">
                         <span>[TRACK_0{idx + 1}]</span>
-                        <span className="font-bold text-amber-400">{price}₫</span>
+                        <span className="font-bold text-pink-400">{price}₫</span>
                       </div>
                       <h3 className="font-oswald text-sm font-bold uppercase tracking-wider leading-snug text-white">
                         {title}
@@ -544,8 +544,8 @@ export const Academy: React.FC = () => {
               <button
                 onClick={() => setEnrollingCourse(currentCourse)}
                 className={`w-full py-3.5 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow flex items-center justify-center gap-2 hover-lift ${
-                  theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-amber-600' :
-                  theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white shadow-rose-500/25' :
+                  theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
+                  theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white shadow-rose-500/25' :
                   theme === 'vintage' ? 'rounded-md bg-[#c05621] text-white hover:bg-[#a04618]' :
                   theme === 'roastery' ? 'rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_20px_rgba(6,182,212,0.5)]' :
                   'rounded bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950'

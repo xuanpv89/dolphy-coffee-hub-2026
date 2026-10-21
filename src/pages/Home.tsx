@@ -246,16 +246,16 @@ export const Home: React.FC = () => {
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
                   <Link
                     to={slide.ctaLink}
-                    className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 text-white font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg ${
+                    className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 font-oswald text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all shadow-lg ${
                       theme === 'roastery'
-                        ? 'rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-[0_0_20px_rgba(6,182,212,0.4)]'
+                        ? 'rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-pink-600 hover:from-cyan-500 hover:to-pink-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)]'
                         : theme === 'vintage'
-                        ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] border border-emerald-900/40 font-serif'
+                        ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white border border-emerald-900/40 font-serif'
                         : theme === 'nordic'
                         ? 'rounded-none bg-white text-black hover:bg-zinc-200 uppercase tracking-[0.15em] font-mono font-bold'
                         : theme === 'sunset'
-                        ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 shadow-xl shadow-rose-500/30'
-                        : 'rounded bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950'
+                        ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white shadow-xl shadow-rose-500/30'
+                        : 'rounded bg-[#2076bd] text-white hover:bg-[#FAEA28] hover:text-slate-950'
                     }`}
                   >
                     {slide.ctaText}
@@ -436,7 +436,7 @@ export const Home: React.FC = () => {
                 <span className="text-[11px] text-slate-400 uppercase tracking-wider">{t('home.stat_pure')}</span>
               </div>
               <div className="p-2">
-                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]">TOP 10</span>
+                <span className="block font-oswald text-2xl sm:text-3xl font-bold text-pink-400 drop-shadow-[0_0_8px_rgba(236,72,153,0.6)]">TOP 10</span>
                 <span className="text-[11px] text-slate-400 uppercase tracking-wider">{t('home.stat_top10')}</span>
               </div>
             </div>
@@ -543,7 +543,7 @@ export const Home: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute bottom-3 left-3 flex gap-2">
-                      <span className="bg-amber-400 text-slate-950 font-mono text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                      <span className="bg-pink-500 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded shadow">
                         ★ {bestSellers[0].rating || 5.0}
                       </span>
                       <span className="bg-slate-950/80 backdrop-blur border border-cyan-500/40 text-cyan-300 font-mono text-[10px] px-2 py-0.5 rounded">
@@ -565,7 +565,7 @@ export const Home: React.FC = () => {
                 <div className="pt-6 border-t border-cyan-500/20 mt-6 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] font-mono text-slate-500 block uppercase">{t('shop.unit_price')}</span>
-                    <span className="font-mono text-2xl font-bold text-amber-400">
+                    <span className="font-mono text-2xl font-bold text-pink-400">
                       {bestSellers[0].price.toLocaleString('vi-VN')}₫
                     </span>
                   </div>
@@ -576,7 +576,7 @@ export const Home: React.FC = () => {
                       const pName = language === 'en' && bestSellers[0].nameEn ? bestSellers[0].nameEn : bestSellers[0].name;
                       showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
                     }}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-pink-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all"
                   >
                     <ShoppingBag size={14} />
                     <span>{t('shop.add_to_cart')}</span>
@@ -600,7 +600,7 @@ export const Home: React.FC = () => {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-amber-400 mb-1">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-pink-400 mb-1">
                       <span>#0{idx + 2}</span>
                       <span>•</span>
                       <span>★ {product.rating || 5.0}</span>
@@ -721,7 +721,7 @@ export const Home: React.FC = () => {
                       const pName = language === 'en' && product.nameEn ? product.nameEn : product.name;
                       showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ hàng!` : `Added "${pName}" to cart!`);
                     }}
-                    className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
+                    className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-[#ff3b00] hover:text-white dark:hover:bg-[#ff3b00] dark:hover:text-white transition-colors rounded-none"
                   >
                     + {t('shop.add_to_cart')}
                   </button>
@@ -1059,7 +1059,7 @@ export const Home: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200 dark:divide-zinc-800">
               {/* Box 1 */}
               <div className="space-y-4 pr-0 lg:pr-6">
-                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">// {t('home.academy_badge')}</span>
+                <span className="font-mono text-xs text-[#ff3b00] font-bold tracking-wider block">// {t('home.academy_badge')}</span>
                 <h3 className="font-oswald text-2xl font-bold uppercase text-black dark:text-white">
                   {t('home.academy_title')}
                 </h3>
@@ -1080,7 +1080,7 @@ export const Home: React.FC = () => {
 
               {/* Box 2 */}
               <div className="space-y-4 pt-6 lg:pt-0 px-0 lg:px-6">
-                <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">// {t('home.academy_card_title')}</span>
+                <span className="font-mono text-xs text-[#ff3b00] font-bold tracking-wider block">// {t('home.academy_card_title')}</span>
                 <div className="space-y-3 font-mono text-xs">
                   <div className="p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex justify-between">
                     <span>{t('home.academy_tuition')}:</span>
@@ -1100,7 +1100,7 @@ export const Home: React.FC = () => {
               {/* Box 3 */}
               <div className="space-y-4 pt-6 lg:pt-0 pl-0 lg:pl-6 flex flex-col justify-between">
                 <div>
-                  <span className="font-mono text-xs text-amber-600 font-bold tracking-wider block">// {t('home.academy_seats')}</span>
+                  <span className="font-mono text-xs text-[#ff3b00] font-bold tracking-wider block">// {t('home.academy_seats')}</span>
                   <p className="text-xs font-mono text-zinc-500 mt-2">
                     {t('home.academy_feature3')}
                   </p>
@@ -1108,7 +1108,7 @@ export const Home: React.FC = () => {
                 <div className="space-y-2 pt-4">
                   <button
                     onClick={() => setEnrollingCourse(coursesData[0])}
-                    className="w-full py-3 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none"
+                    className="w-full py-3 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-[#ff3b00] hover:text-white dark:hover:bg-[#ff3b00] dark:hover:text-white transition-colors rounded-none"
                   >
                     + {t('home.reserve_seat')}
                   </button>
@@ -1132,7 +1132,7 @@ export const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="space-y-5">
-                <span className="bg-amber-400 text-slate-950 font-mono text-xs font-bold px-3 py-1 rounded shadow">
+                <span className="bg-pink-500 text-white font-mono text-xs font-bold px-3 py-1 rounded shadow">
                   // {t('home.academy_badge')}
                 </span>
                 <h2 className="font-mono text-2xl sm:text-4xl font-bold uppercase tracking-wider text-cyan-300">
@@ -1158,7 +1158,7 @@ export const Home: React.FC = () => {
                 <div className="pt-4 flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={() => setEnrollingCourse(coursesData[0])}
-                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]"
+                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-pink-600 hover:from-cyan-500 hover:to-pink-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]"
                   >
                     {t('home.reserve_seat')}
                   </button>
@@ -1174,7 +1174,7 @@ export const Home: React.FC = () => {
               <div className="bg-slate-900/90 border border-cyan-500/30 rounded-xl p-6 font-mono text-slate-200 shadow-xl space-y-4">
                 <div className="flex justify-between border-b border-cyan-500/20 pb-3 text-xs">
                   <span className="text-cyan-400 font-bold">{t('home.hero3_tag')}</span>
-                  <span className="text-amber-400 font-bold">{t('home.academy_seats')}</span>
+                  <span className="text-pink-400 font-bold">{t('home.academy_seats')}</span>
                 </div>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between py-1.5 border-b border-slate-800">
@@ -1183,7 +1183,7 @@ export const Home: React.FC = () => {
                   </div>
                   <div className="flex justify-between py-1.5 border-b border-slate-800">
                     <span className="text-slate-400">{t('home.academy_deposit')}:</span>
-                    <strong className="text-amber-400 font-bold text-sm">2.000.000₫</strong>
+                    <strong className="text-pink-400 font-bold text-sm">2.000.000₫</strong>
                   </div>
                 </div>
                 <button
@@ -1448,7 +1448,7 @@ export const Home: React.FC = () => {
                     {item.name}
                   </h4>
                   <span className="text-[11px] text-zinc-500 block">{item.role}</span>
-                  <div className="text-amber-500 text-xs">{'★'.repeat(item.stars)}</div>
+                  <div className="text-[#ff3b00] text-xs font-mono">{'■'.repeat(item.stars)}</div>
                 </div>
 
                 <div className="md:col-span-9 space-y-2">
@@ -1512,7 +1512,7 @@ export const Home: React.FC = () => {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-[10px] text-cyan-400 border-b border-cyan-500/20 pb-2">
                     <span>[LOG_#0{idx + 1}]</span>
-                    <div className="text-amber-400">{'★'.repeat(item.stars)}</div>
+                    <div className="text-pink-400 drop-shadow-[0_0_6px_rgba(236,72,153,0.6)]">{'★'.repeat(item.stars)}</div>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
                     "{item.quote}"
@@ -1700,7 +1700,7 @@ export const Home: React.FC = () => {
                   </span>
                 </div>
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
-                  <span className="text-[10px] uppercase tracking-wider text-amber-400 font-mono">
+                  <span className="text-[10px] uppercase tracking-wider text-[#ff3b00] font-mono font-bold">
                     {language === 'vi' ? item.location : item.locationEn}
                   </span>
                   <h4 className="font-oswald text-xs sm:text-sm font-bold uppercase line-clamp-2 mt-1">
@@ -1894,7 +1894,7 @@ export const Home: React.FC = () => {
                 href="https://www.facebook.com/dolphycafe"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-amber-600 transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#ff3b00] hover:text-white transition-colors flex items-center gap-1.5"
               >
                 <span>Facebook</span>
               </a>
@@ -1902,7 +1902,7 @@ export const Home: React.FC = () => {
                 href="https://www.instagram.com/dolphycafe/"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 border border-zinc-900 dark:border-zinc-200 text-black dark:text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 border border-zinc-900 dark:border-zinc-200 text-black dark:text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#ff3b00] hover:text-white hover:border-[#ff3b00] transition-colors flex items-center gap-1.5"
               >
                 <span>Instagram</span>
               </a>
@@ -1910,7 +1910,7 @@ export const Home: React.FC = () => {
                 href="https://www.tiktok.com/@_.dolphycafe._"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-amber-600 transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#ff3b00] hover:text-white transition-colors flex items-center gap-1.5"
               >
                 <span>TikTok</span>
               </a>
@@ -1980,7 +1980,7 @@ export const Home: React.FC = () => {
                 href="https://www.instagram.com/dolphycafe/"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-lg bg-slate-900 border border-amber-500/40 text-amber-300 hover:bg-amber-500 hover:text-black text-xs uppercase tracking-wider font-bold transition-all"
+                className="px-4 py-2 rounded-lg bg-pink-950/70 border border-pink-500/40 text-pink-300 hover:bg-pink-500 hover:text-white text-xs uppercase tracking-wider font-bold transition-all shadow-[0_0_12px_rgba(236,72,153,0.3)]"
               >
                 <span>Instagram</span>
               </a>
@@ -2117,11 +2117,11 @@ export const Home: React.FC = () => {
                 >
                   <div className="md:col-span-2 text-xs text-zinc-500 space-y-1">
                     <span className="font-bold text-black dark:text-white block font-oswald text-sm">[{article.date || '2026-10-15'}]</span>
-                    <span className="uppercase text-[10px] tracking-wider block text-amber-600">// {artCat}</span>
+                    <span className="uppercase text-[10px] tracking-wider block text-[#ff3b00] font-bold">// {artCat}</span>
                   </div>
 
                   <div className="md:col-span-7 space-y-1">
-                    <h3 className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white hover:text-amber-600 transition-colors leading-tight">
+                    <h3 className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white hover:text-[#ff3b00] transition-colors leading-tight">
                       <Link to="/knowledge">{artTitle}</Link>
                     </h3>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed font-sans">
@@ -2133,7 +2133,7 @@ export const Home: React.FC = () => {
                     <span className="text-zinc-400 text-[11px]">{language === 'vi' ? 'Cá Heo Xanh' : 'Blue Dolphin'}</span>
                     <Link
                       to="/knowledge"
-                      className="font-bold uppercase tracking-wider text-black dark:text-white hover:text-amber-600 transition-colors flex items-center gap-1"
+                      className="font-bold uppercase tracking-wider text-black dark:text-white hover:text-[#ff3b00] transition-colors flex items-center gap-1"
                     >
                       <span>{t('knowledge.read_more')}</span>
                       <ArrowRight size={13} />
@@ -2368,13 +2368,13 @@ export const Home: React.FC = () => {
             to="/knowledge"
             className={`px-8 py-3 text-sm font-semibold inline-flex items-center gap-2 transition-all ${
               theme === 'nordic'
-                ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-amber-600'
+                ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-[#ff3b00] hover:text-white'
                 : theme === 'vintage'
                 ? 'rounded bg-[#1b4d3e] text-white hover:bg-[#c05621] font-serif shadow-xs'
                 : theme === 'roastery'
                 ? 'rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-black font-mono font-bold shadow-[0_0_15px_rgba(6,182,212,0.3)]'
                 : theme === 'sunset'
-                ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald uppercase tracking-wider font-bold shadow-lg shadow-rose-500/20 hover:scale-105'
+                ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald uppercase tracking-wider font-bold shadow-lg shadow-rose-500/20 hover:scale-105'
                 : 'dolphy-btn dolphy-btn-outline rounded dark:border-[#3ba0e6] dark:text-[#3ba0e6] dark:hover:bg-[#3ba0e6] dark:hover:text-white'
             }`}
           >

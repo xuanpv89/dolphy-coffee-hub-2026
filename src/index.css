@@ -407,12 +407,12 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 
 /* 3. MIDNIGHT ROASTERY (DARK SPECIALTY CYBER LOUNGE) */
 [data-theme="roastery"] {
-  --dolphy-primary: #0284c7;
-  --dolphy-primary-hover: #38bdf8;
-  --dolphy-primary-light: #7dd3fc;
-  --dolphy-accent: #f59e0b;
-  --dolphy-accent-dark: #d97706;
-  --dolphy-accent-text: #020617;
+  --dolphy-primary: #06b6d4;
+  --dolphy-primary-hover: #22d3ee;
+  --dolphy-primary-light: #67e8f9;
+  --dolphy-accent: #ec4899;
+  --dolphy-accent-dark: #db2777;
+  --dolphy-accent-text: #ffffff;
   --dolphy-bg-page: #070a12;
   --dolphy-bg-surface: #0f172a;
   --dolphy-bg-subtle: #162032;
@@ -422,7 +422,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   --dolphy-card-radius: 14px;
   --dolphy-btn-radius: 8px;
   --dolphy-font-heading: 'Oswald', sans-serif;
-  --dolphy-shadow: 0 12px 30px -5px rgba(2, 132, 199, 0.25);
+  --dolphy-shadow: 0 12px 30px -5px rgba(6, 182, 212, 0.25);
 }
 
 [data-theme="roastery"] body,
@@ -463,8 +463,8 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="roastery"] .section-title::after {
-  background-color: #f59e0b !important;
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+  background-color: #ec4899 !important;
+  box-shadow: 0 0 14px rgba(236, 72, 153, 0.8) !important;
 }
 
 [data-theme="roastery"] header {
@@ -494,7 +494,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   --dolphy-border: #e6ded1;
   --dolphy-card-radius: 8px;
   --dolphy-btn-radius: 4px;
-  --dolphy-font-heading: 'Playfair Display', Georgia, serif;
+  --dolphy-font-heading: 'Lora', 'Playfair Display', Georgia, serif;
   --dolphy-shadow: 0 8px 24px -4px rgba(27, 77, 62, 0.12);
 }
 
@@ -531,7 +531,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="vintage"] .section-title {
-  font-family: 'Playfair Display', Georgia, serif !important;
+  font-family: 'Lora', 'Playfair Display', Georgia, serif !important;
   font-style: italic !important;
   font-weight: 700 !important;
   letter-spacing: 0.5px !important;
@@ -547,8 +547,9 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 [data-theme="vintage"] h1,
 [data-theme="vintage"] h2,
 [data-theme="vintage"] h3,
-[data-theme="vintage"] .font-oswald {
-  font-family: 'Playfair Display', Georgia, serif !important;
+[data-theme="vintage"] .font-oswald,
+[data-theme="vintage"] .font-serif {
+  font-family: 'Lora', 'Playfair Display', Georgia, serif !important;
 }
 
 [data-theme="vintage"] .rounded-lg,
@@ -569,11 +570,11 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 
 /* 5. NORDIC MINIMALIST (TỐI GIẢN BẮC ÂU - MINIMAL STUDIO MONO) */
 [data-theme="nordic"] {
-  --dolphy-primary: #18181b;
-  --dolphy-primary-hover: #3f3f46;
+  --dolphy-primary: #09090b;
+  --dolphy-primary-hover: #27272a;
   --dolphy-primary-light: #52525b;
-  --dolphy-accent: #c27803;
-  --dolphy-accent-dark: #9a5e02;
+  --dolphy-accent: #ff3b00;
+  --dolphy-accent-dark: #d63200;
   --dolphy-accent-text: #ffffff;
   --dolphy-bg-page: #ffffff;
   --dolphy-bg-surface: #ffffff;
@@ -622,7 +623,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="nordic"] .section-title::after {
-  background-color: #c27803 !important;
+  background-color: #ff3b00 !important;
   height: 2px !important;
   width: 40px !important;
 }
@@ -662,7 +663,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
   --dolphy-primary: #e11d48;
   --dolphy-primary-hover: #be123c;
   --dolphy-primary-light: #fb7185;
-  --dolphy-accent: #f97316;
+  --dolphy-accent: #ff7a00;
   --dolphy-accent-dark: #ea580c;
   --dolphy-accent-text: #ffffff;
   --dolphy-bg-page: #fff8f5;
@@ -709,7 +710,7 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 }
 
 [data-theme="sunset"] .section-title::after {
-  background: linear-gradient(90deg, #e11d48, #f97316) !important;
+  background: linear-gradient(90deg, #e11d48, #ff7a00) !important;
   height: 4px !important;
   border-radius: 9999px !important;
 }
@@ -1004,5 +1005,94 @@ h1, h2, h3, h4, h5, h6, .font-oswald, .font-heading {
 [data-theme="roastery"] .border-\[\#3ba0e6\],
 [data-theme="roastery"] .border-blue-500,
 [data-theme="roastery"] .border-blue-600 {
-  border-color: #0284c7 !important;
+  border-color: #06b6d4 !important;
+}
+
+/* ==========================================================================
+   THEME-AWARE IMAGE & PHOTO TONAL GRADING
+   Harmonizes photograph warmth/contrast with each theme's bespoke palette
+   ========================================================================== */
+
+/* Vintage (Thảo Điền 2013): Warm artisanal linen sepia & rich emerald-friendly contrast */
+[data-theme="vintage"] img:not([data-no-theme-filter]):not(.theme-logo-img) {
+  filter: contrast(1.02) sepia(0.12) saturate(0.92);
+  transition: filter 0.3s ease;
+}
+[data-theme="vintage"] img:not([data-no-theme-filter]):not(.theme-logo-img):hover {
+  filter: contrast(1.05) sepia(0.04) saturate(1.02);
+}
+
+/* Nordic (Scandinavian Minimalist): Crisp high-contrast, slight architectural desaturation */
+[data-theme="nordic"] img:not([data-no-theme-filter]):not(.theme-logo-img) {
+  filter: contrast(1.08) saturate(0.85);
+  transition: filter 0.3s ease;
+}
+[data-theme="nordic"] img:not([data-no-theme-filter]):not(.theme-logo-img):hover {
+  filter: contrast(1.04) saturate(1);
+}
+
+/* Roastery (Cyber Lounge): Deep black level, high micro-contrast, vibrant cyber saturation */
+[data-theme="roastery"] img:not([data-no-theme-filter]):not(.theme-logo-img) {
+  filter: contrast(1.06) brightness(0.94) saturate(1.08);
+  transition: filter 0.3s ease;
+}
+[data-theme="roastery"] img:not([data-no-theme-filter]):not(.theme-logo-img):hover {
+  filter: contrast(1.1) brightness(1) saturate(1.18);
+}
+
+/* Sunset (Saigon Sunset Horizon): Warm golden-hour glow, lush coral & tangerine radiance */
+[data-theme="sunset"] img:not([data-no-theme-filter]):not(.theme-logo-img) {
+  filter: contrast(1.03) saturate(1.12) hue-rotate(-4deg);
+  transition: filter 0.3s ease;
+}
+[data-theme="sunset"] img:not([data-no-theme-filter]):not(.theme-logo-img):hover {
+  filter: contrast(1.06) saturate(1.22);
+}
+
+/* Dark (Classic Dark Mode): Deep contrast, prevents washed out blacks */
+[data-theme="dark"] img:not([data-no-theme-filter]):not(.theme-logo-img) {
+  filter: contrast(1.04) brightness(0.96);
+  transition: filter 0.3s ease;
+}
+[data-theme="dark"] img:not([data-no-theme-filter]):not(.theme-logo-img):hover {
+  filter: contrast(1.05) brightness(1.02);
+}
+
+/* ==========================================================================
+   THEME-HARMONIZED LOGO SYSTEM
+   Harmonizes brand logo color across all 6 themes without clashing
+   ========================================================================== */
+
+/* Vintage: Elegant forest emerald & warm antique brass */
+[data-theme="vintage"] .theme-logo-img {
+  filter: sepia(0.35) hue-rotate(95deg) brightness(0.85) contrast(1.15) !important;
+}
+
+/* Nordic: Stark architectural monochrome (black on light, pure white on dark) */
+[data-theme="nordic"] .theme-logo-img {
+  filter: grayscale(100%) contrast(150%) brightness(0.12) !important;
+}
+.dark [data-theme="nordic"] .theme-logo-img,
+[data-theme="nordic"].dark .theme-logo-img {
+  filter: grayscale(100%) invert(100%) contrast(150%) brightness(1.8) !important;
+}
+
+/* Roastery: Neon cyber cyan luminescent glow */
+[data-theme="roastery"] .theme-logo-img {
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.65)) brightness(1.15) !important;
+}
+
+/* Sunset: Radiant rose-coral sunset glow */
+[data-theme="sunset"] .theme-logo-img {
+  filter: hue-rotate(140deg) saturate(1.35) contrast(1.05) brightness(0.95) !important;
+}
+
+/* Dark: Pristine gold & midnight slate */
+[data-theme="dark"] .theme-logo-img {
+  filter: brightness(1.05) contrast(1.05) !important;
+}
+
+/* Ocean: Original authentic heritage 2013 blue & yellow */
+[data-theme="ocean"] .theme-logo-img {
+  filter: none !important;
 }

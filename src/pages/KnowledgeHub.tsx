@@ -159,11 +159,11 @@ export const KnowledgeHub: React.FC = () => {
                 >
                   <div className="md:col-span-2 text-xs text-zinc-500 space-y-1">
                     <span className="font-bold text-black dark:text-white block font-oswald text-sm">[{art.date || '2026-10-15'}]</span>
-                    <span className="uppercase text-[10px] tracking-wider block text-amber-600">// {articleCategory}</span>
+                    <span className="uppercase text-[10px] tracking-wider block text-[#ff3b00] font-bold">// {articleCategory}</span>
                   </div>
 
                   <div className="md:col-span-7 space-y-1">
-                    <h3 className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white group-hover:text-amber-600 transition-colors leading-tight">
+                    <h3 className="font-oswald text-base font-bold uppercase tracking-wider text-black dark:text-white group-hover:text-[#ff3b00] transition-colors leading-tight">
                       {articleTitle}
                     </h3>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed font-sans">

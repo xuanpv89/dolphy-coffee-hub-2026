@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
               <span>HAPPINESS IN A CUP • SINCE 2013</span>
             </div>
             <div className="flex items-center gap-4 text-slate-400">
-              <span className="text-amber-400">{t('footer.top10_badge')}</span>
+              <span className="text-pink-400 font-bold">{t('footer.top10_badge')}</span>
             </div>
           </div>
 
@@ -64,11 +64,11 @@ export const Footer: React.FC = () => {
             <div className="lg:col-span-4 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-slate-900 border border-cyan-500/40 p-1 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-                  <img src="/favicon.png" alt="Dolphy" className="w-full h-full object-contain" />
+                  <img src="/favicon.png" alt="Dolphy" className="theme-logo-img w-full h-full object-contain" />
                 </div>
                 <div>
                   <span className="text-base font-bold tracking-widest text-cyan-300 block font-oswald uppercase">DOLPHY CAFÉ</span>
-                  <span className="text-[10px] text-amber-400 tracking-wider">HAPPINESS IN A CUP • SINCE 2013</span>
+                  <span className="text-[10px] text-pink-400 tracking-wider">HAPPINESS IN A CUP • SINCE 2013</span>
                 </div>
               </div>
               <p className="text-slate-400 text-[11px] leading-relaxed font-sans">
@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
                   <li key={i}>• {b}</li>
                 ))}
               </ul>
-              <Link to="/branches" className="inline-block text-xs text-amber-400 hover:underline mt-1 font-bold">
+              <Link to="/branches" className="inline-block text-xs text-cyan-400 hover:text-pink-400 hover:underline mt-1 font-bold">
                 {language === 'vi' ? 'Xem tất cả 10 chi nhánh & bản đồ →' : 'View all 10 branches & map →'}
               </Link>
             </div>
@@ -145,7 +145,7 @@ export const Footer: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full py-2 px-3 rounded bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all font-oswald flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2 px-3 rounded bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-400 hover:to-pink-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(236,72,153,0.4)] transition-all font-oswald flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Send size={13} />
                   <span>{language === 'vi' ? 'ĐĂNG KÝ NHẬN TIN' : 'SUBSCRIBE'}</span>
@@ -184,8 +184,8 @@ export const Footer: React.FC = () => {
             {/* Cột 1 */}
             <div className="lg:col-span-4 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded bg-white p-1 flex items-center justify-center border-2 border-[#c05621] shadow shrink-0">
-                  <img src="/favicon.png" alt="Dolphy Café" className="w-full h-full object-contain" />
+                <div className="w-12 h-12 rounded-lg bg-[#faf6f0] p-1.5 flex items-center justify-center border border-[#c05621]/40 shadow-xs shrink-0">
+                  <img src="/favicon.png" alt="Dolphy Café" className="theme-logo-img w-full h-full object-contain" />
                 </div>
                 <div>
                   <span className="font-serif text-xl font-bold tracking-wider text-[#faf6f0] uppercase block leading-none">
@@ -313,7 +313,7 @@ export const Footer: React.FC = () => {
             <div className="lg:col-span-4 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white p-1 flex items-center justify-center border border-zinc-800 shrink-0">
-                  <img src="/favicon.png" alt="Dolphy Café" className="w-full h-full object-contain" />
+                  <img src="/favicon.png" alt="Dolphy Café" className="theme-logo-img w-full h-full object-contain" />
                 </div>
                 <div>
                   <span className="font-oswald text-lg font-bold tracking-wider text-white uppercase block leading-none">
@@ -360,7 +360,7 @@ export const Footer: React.FC = () => {
                   <li key={i}>• {b}</li>
                 ))}
               </ul>
-              <Link to="/branches" className="inline-block text-xs text-amber-500 hover:underline mt-2">
+              <Link to="/branches" className="inline-block text-xs text-[#ff3b00] hover:underline mt-2">
                 {language === 'vi' ? 'Xem tất cả 10 chi nhánh & bản đồ →' : 'View all 10 branches & map →'}
               </Link>
             </div>
@@ -401,7 +401,7 @@ export const Footer: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full py-2 px-4 bg-white hover:bg-zinc-200 text-black text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 rounded-none cursor-pointer"
+                  className="w-full py-2 px-4 bg-white hover:bg-[#ff3b00] text-black hover:text-white text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 rounded-none cursor-pointer transition-colors"
                 >
                   <Send size={13} />
                   <span>{language === 'vi' ? 'ĐĂNG KÝ NHẬN TIN' : 'SUBSCRIBE'}</span>
@@ -441,7 +441,7 @@ export const Footer: React.FC = () => {
             <div className="lg:col-span-4 space-y-4">
               <div className="flex items-center gap-3.5">
                 <div className="w-12 h-12 rounded-2xl bg-white p-1 flex items-center justify-center border-2 border-rose-400 shadow-lg shrink-0">
-                  <img src="/favicon.png" alt="Dolphy Café" className="w-full h-full object-contain rounded-xl" />
+                  <img src="/favicon.png" alt="Dolphy Café" className="theme-logo-img w-full h-full object-contain rounded-xl" />
                 </div>
                 <div>
                   <span className="font-oswald text-xl font-bold tracking-wider text-white uppercase block leading-none">
@@ -529,7 +529,7 @@ export const Footer: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full py-2 px-4 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald text-xs uppercase tracking-wider transition-all font-bold flex items-center justify-center gap-1.5 shadow-md shadow-rose-500/25 cursor-pointer"
+                  className="w-full py-2 px-4 rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white font-oswald text-xs uppercase tracking-wider transition-all font-bold flex items-center justify-center gap-1.5 shadow-md shadow-rose-500/25 cursor-pointer"
                 >
                   <Send size={13} />
                   <span>{language === 'vi' ? 'ĐĂNG KÝ NHẬN TIN' : 'SUBSCRIBE'}</span>
@@ -572,7 +572,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="flex items-center gap-3.5 group">
               <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center border-2 border-[#FAEA28] shadow-lg shrink-0 group-hover:scale-105 transition-transform">
-                <img src="/favicon.png" alt="Dolphy Café" className="w-full h-full object-contain rounded-lg" />
+                <img src="/favicon.png" alt="Dolphy Café" className="theme-logo-img w-full h-full object-contain rounded-lg" />
               </div>
               <div>
                 <span className="font-oswald text-xl font-bold tracking-wider text-white uppercase block leading-none group-hover:text-[#FAEA28] transition-colors">

@@ -181,7 +181,7 @@ export const Shop: React.FC = () => {
                   setCurrentPage(1);
                 }}
                 className={`w-full pl-9 pr-3.5 py-2.5 text-xs focus:outline-none ${
-                  theme === 'nordic' ? 'rounded-none border border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 text-black dark:text-white font-mono focus:border-amber-600' :
+                  theme === 'nordic' ? 'rounded-none border border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 text-black dark:text-white font-mono focus:border-[#ff3b00]' :
                   theme === 'sunset' ? 'rounded-full border border-rose-200 bg-white text-gray-800 focus:border-rose-400' :
                   theme === 'vintage' ? 'rounded border border-[#e6ded1] bg-[#faf6f0] text-[#221e1a] font-serif focus:border-[#1b4d3e]' :
                   theme === 'roastery' ? 'rounded-lg border border-cyan-500/40 bg-slate-900 text-white font-mono focus:border-cyan-400' :
@@ -280,11 +280,11 @@ export const Shop: React.FC = () => {
             onClick={() => setSelectedCategory('combo')}
             className={`px-3.5 py-1.5 text-xs uppercase tracking-wider shrink-0 transition-all ${
               theme === 'nordic'
-                ? 'rounded-none bg-black dark:bg-white text-white dark:text-black font-mono font-bold hover:bg-amber-600'
+                ? 'rounded-none bg-black dark:bg-white text-white dark:text-black font-mono font-bold hover:bg-[#ff3b00] hover:text-white'
                 : theme === 'vintage'
                 ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-sans font-semibold'
                 : theme === 'sunset'
-                ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white font-oswald font-bold shadow-md shadow-rose-500/20'
+                ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald font-bold shadow-md shadow-rose-500/20'
                 : theme === 'roastery'
                 ? 'rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-mono font-bold shadow'
                 : 'rounded dolphy-btn dolphy-btn-primary font-oswald hover-lift'
@@ -444,7 +444,7 @@ export const Shop: React.FC = () => {
                         addToCart(product, 1, selectedGrind);
                         showToast(language === 'vi' ? `Đã thêm "${pName}" vào giỏ!` : `Added "${pName}" to cart!`);
                       }}
-                      className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-amber-600 dark:hover:bg-amber-500 dark:hover:text-black transition-colors rounded-none cursor-pointer"
+                      className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase tracking-[0.12em] font-bold hover:bg-[#ff3b00] hover:text-white dark:hover:bg-[#ff3b00] dark:hover:text-white transition-colors rounded-none cursor-pointer"
                     >
                       + {t('shop.add_to_cart')}
                     </button>
@@ -1111,10 +1111,10 @@ export const Shop: React.FC = () => {
                       setModalProduct(null);
                     }}
                     className={`flex-1 py-3 text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-2 shadow-md ${
-                      theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-amber-600' :
+                      theme === 'nordic' ? 'rounded-none bg-black text-white dark:bg-white dark:text-black font-mono font-bold hover:bg-[#ff3b00] hover:text-white' :
                       theme === 'vintage' ? 'rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif' :
                       theme === 'roastery' ? 'rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold shadow-[0_0_15px_rgba(6,182,212,0.4)]' :
-                      theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-oswald shadow-md' :
+                      theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white font-oswald shadow-md' :
                       'rounded-xl bg-[#2076bd] hover:bg-[#FAEA28] hover:text-slate-950 text-white font-oswald'
                     }`}
                   >
