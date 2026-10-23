@@ -184,3 +184,28 @@ export interface JobApplication {
   status: 'new' | 'interview_scheduled' | 'hired' | 'archived';
   createdAt: string;
 }
+
+export interface Trainer {
+  id: string;
+  name: string;
+  nameEn?: string;
+  role: string;
+  roleEn?: string;
+  title: string;
+  titleEn?: string;
+  badge: string;
+  badgeEn?: string;
+  experience: string;
+  experienceEn?: string;
+  image: string;
+  philosophy: string;
+  philosophyEn?: string;
+  bio: string;
+  bioEn?: string;
+  specialties: string[];
+  specialtiesEn?: string[];
+  achievements: string[];
+  achievementsEn?: string[];
+  coursesTeaching: string[];
+  coursesTeachingEn?: string[];
+}

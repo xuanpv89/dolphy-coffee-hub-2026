@@ -66,6 +66,7 @@ const AppLayout: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/academy" element={<Academy />} />
+          <Route path="/academy/trainer/:trainerId" element={<Academy />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/knowledge" element={<KnowledgeHub />} />

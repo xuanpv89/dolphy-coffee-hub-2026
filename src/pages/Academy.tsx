@@ -1,12 +1,53 @@
-import React, { useState } from 'react';
-import { GraduationCap, CheckCircle2, Clock, MapPin, Award, Users, Gift, ChevronDown, ChevronUp, QrCode } from 'lucide-react';
-import { coursesData, brandInfo } from '../data/dolphyData';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
+import { GraduationCap, CheckCircle2, Clock, MapPin, Award, Users, Gift, ChevronDown, ChevronUp, QrCode, ArrowRight, Sparkles } from 'lucide-react';
+import { coursesData, brandInfo, trainersData } from '../data/dolphyData';
+import { Trainer, Course } from '../types';
 import { useDolphy } from '../context/DolphyContext';
+import { TrainerProfileModal } from '../components/TrainerProfileModal';
 
 export const Academy: React.FC = () => {
   const { setEnrollingCourse, t, language, theme } = useDolphy();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { trainerId } = useParams<{ trainerId?: string }>();
+  const navigate = useNavigate();
+
   const [activeCourseId, setActiveCourseId] = useState<string>('barista-thuc-chien');
   const [openSyllabusSession, setOpenSyllabusSession] = useState<number | null>(1);
+  const [selectedTrainer, setSelectedTrainer] = useState<Trainer | null>(null);
+
+  // Sync selected trainer with URL params (?trainer=id or /academy/trainer/:trainerId)
+  useEffect(() => {
+    const queryTrainerId = searchParams.get('trainer') || trainerId;
+    if (queryTrainerId) {
+      const found = trainersData.find(t => t.id.toLowerCase() === queryTrainerId.toLowerCase());
+      if (found) {
+        setSelectedTrainer(found);
+      }
+    }
+  }, [searchParams, trainerId]);
+
+  const handleOpenTrainer = (trainer: Trainer) => {
+    setSelectedTrainer(trainer);
+    setSearchParams({ trainer: trainer.id });
+  };
+
+  const handleCloseTrainer = () => {
+    setSelectedTrainer(null);
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete('trainer');
+    if (trainerId) {
+      navigate('/academy', { replace: true });
+    } else {
+      setSearchParams(newParams);
+    }
+  };
+
+  const handleEnrollWithTrainer = (trainer: Trainer, course?: Course) => {
+    setSelectedTrainer(null);
+    const targetCourse = course || coursesData.find(c => trainer.coursesTeaching.includes(c.id)) || currentCourse;
+    setEnrollingCourse(targetCourse);
+  };
 
   const currentCourse = coursesData.find(c => c.id === activeCourseId) || coursesData[0];
 
@@ -15,7 +56,7 @@ export const Academy: React.FC = () => {
     theme === 'sunset' ? 'text-rose-600' :
     theme === 'roastery' ? 'text-cyan-400' :
     theme === 'nordic' ? 'text-black dark:text-white' :
-    theme === 'dark' ? 'text-[#FAEA28]' :
+    theme === 'dark' ? 'text-[#38bdf8]' :
     'text-[#2076bd] dark:text-[#3ba0e6]';
 
   const faqs = [
@@ -275,16 +316,16 @@ export const Academy: React.FC = () => {
 
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-blue-100 dark:text-blue-200 font-medium">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className="text-[#FAEA28]" /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}
+                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className="text-[#FAEA28]" /> {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}
+                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className="text-[#FAEA28]" /> {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}
+                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className="text-[#FAEA28]" /> {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}
+                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}
               </span>
             </div>
 
@@ -311,7 +352,7 @@ export const Academy: React.FC = () => {
               theme === 'sunset' ? 'text-rose-600' :
               theme === 'roastery' ? 'text-cyan-400' :
               theme === 'nordic' ? 'text-black dark:text-white font-mono' :
-              theme === 'dark' ? 'text-[#FAEA28]' :
+              theme === 'dark' ? 'text-[#38bdf8]' :
               'text-[#2076bd] dark:text-[#3ba0e6]'
             }`}>
               <GraduationCap size={16} />
@@ -494,7 +535,7 @@ export const Academy: React.FC = () => {
                         }`}>
                           #{idx + 1} • {c.badge || 'Khoá'}
                         </span>
-                        <span className={`text-xs sm:text-sm font-oswald font-bold ${active ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
+                        <span className={`text-xs sm:text-sm font-oswald font-bold ${active ? (theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]') : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
                           {price}₫
                         </span>
                       </div>
@@ -510,7 +551,7 @@ export const Academy: React.FC = () => {
                       active ? 'border-white/20 text-blue-100' : 'border-gray-100 dark:border-slate-800 text-gray-500 dark:text-gray-400'
                     }`}>
                       <span>{duration}</span>
-                      <span className={`font-bold uppercase tracking-wider text-[10px] sm:text-[11px] ${active ? 'text-[#FAEA28]' : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
+                      <span className={`font-bold uppercase tracking-wider text-[10px] sm:text-[11px] ${active ? (theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]') : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
                         {active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}
                       </span>
                     </div>
@@ -534,6 +575,7 @@ export const Academy: React.FC = () => {
                   theme === 'nordic' ? 'rounded-none bg-black text-white font-mono' :
                   theme === 'sunset' ? 'rounded-full bg-rose-500 text-white font-oswald' :
                   theme === 'vintage' ? 'rounded-md bg-[#1b4d3e] text-white font-serif' :
+                  theme === 'dark' ? 'rounded bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
                   'rounded bg-[#FAEA28] text-slate-950 font-oswald'
                 }`}>
                   {language === 'en' && currentCourse.badgeEn ? currentCourse.badgeEn : currentCourse.badge}
@@ -547,7 +589,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-oswald text-cyan-300' :
                 theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'en' && currentCourse.titleEn ? currentCourse.titleEn : currentCourse.title}
@@ -572,7 +614,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-mono text-cyan-300' :
                 theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {t('academy.benefits_title')}
@@ -585,7 +627,7 @@ export const Academy: React.FC = () => {
                       theme === 'sunset' ? 'text-rose-600' :
                       theme === 'roastery' ? 'text-cyan-400' :
                       theme === 'nordic' ? 'text-black dark:text-white' :
-                      theme === 'dark' ? 'text-[#FAEA28]' :
+                      theme === 'dark' ? 'text-[#38bdf8]' :
                       'text-[#2076bd] dark:text-[#3ba0e6]'
                     }`} />
                     <span>{h}</span>
@@ -745,7 +787,153 @@ export const Academy: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
+      {/* 4. MASTER TRAINERS & GRAND FINAL JUDGES */}
+      <section id="trainers-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center space-y-3 reveal-on-scroll">
+          <div>
+            <span className={`inline-block text-xs uppercase tracking-widest font-bold ${
+              theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+              theme === 'sunset' ? 'font-oswald text-rose-600' :
+              theme === 'roastery' ? 'font-mono text-cyan-400' :
+              theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+              theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
+              'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+            }`}>
+              {t('academy.trainers_tag')}
+            </span>
+          </div>
+          <div>
+            <h2 className="section-title">
+              {t('academy.trainers_title')}
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            {t('academy.trainers_sub')}
+          </p>
+        </div>
+
+        {/* 4 Trainers Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
+          {trainersData.map((trainer) => {
+            const name = language === 'en' && trainer.nameEn ? trainer.nameEn : trainer.name;
+            const role = language === 'en' && trainer.roleEn ? trainer.roleEn : trainer.role;
+            const badge = language === 'en' && trainer.badgeEn ? trainer.badgeEn : trainer.badge;
+            const experience = language === 'en' && trainer.experienceEn ? trainer.experienceEn : trainer.experience;
+            const specialties = (language === 'en' && trainer.specialtiesEn) ? trainer.specialtiesEn : trainer.specialties;
+
+            return (
+              <div
+                key={trainer.id}
+                onClick={() => handleOpenTrainer(trainer)}
+                className={`group cursor-pointer overflow-hidden transition-all duration-300 flex flex-col justify-between hover-lift ${
+                  theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+                  theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+                  theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+                  theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+                  theme === 'dark' ? 'rounded-2xl border border-slate-800 bg-[#0b1329] shadow-lg hover:border-[#38bdf8]/50' :
+                  'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-xl hover:border-blue-400'
+                }`}
+              >
+                <div>
+                  {/* Poster Image Container */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-slate-950">
+                    <img
+                      src={trainer.image}
+                      alt={`${name} - ${role}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    
+                    {/* Dark gradient for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+
+                    {/* Top Tag: Badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-md ${
+                        theme === 'nordic' ? 'bg-black text-white font-mono' :
+                        theme === 'vintage' ? 'bg-[#1b4d3e] text-white font-serif' :
+                        theme === 'roastery' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/60 font-mono' :
+                        theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald' :
+                        theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
+                        'bg-[#2076bd] text-white font-oswald'
+                      }`}>
+                        {badge}
+                      </span>
+                    </div>
+
+                    {/* Bottom Experience Badge & Action hint */}
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95">
+                      <span className="font-semibold bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                        {experience}
+                      </span>
+                      <span className="text-[10px] uppercase tracking-wider text-blue-200 dark:text-cyan-300 font-bold group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                        Profile →
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-4 space-y-2.5">
+                    <div>
+                      <h3 className={`text-lg font-bold uppercase tracking-wide leading-tight ${
+                        theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                        theme === 'sunset' ? 'font-oswald text-rose-600' :
+                        theme === 'roastery' ? 'font-mono text-cyan-300' :
+                        theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                        theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
+                        'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                      }`}>
+                        {name}
+                      </h3>
+                      <p className="text-xs text-gray-600 dark:text-gray-300 font-medium line-clamp-1 mt-0.5">
+                        {role}
+                      </p>
+                    </div>
+
+                    {/* 2 Key Specialties */}
+                    <div className="space-y-1 pt-1.5 border-t border-gray-100 dark:border-slate-800 text-[11px] text-gray-500 dark:text-gray-400">
+                      {specialties.slice(0, 2).map((s, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5 truncate">
+                          <CheckCircle2 size={12} className={`shrink-0 ${
+                            theme === 'dark' ? 'text-[#38bdf8]' :
+                            theme === 'roastery' ? 'text-cyan-400' :
+                            theme === 'sunset' ? 'text-rose-500' :
+                            theme === 'vintage' ? 'text-[#1b4d3e]' :
+                            'text-[#2076bd] dark:text-[#3ba0e6]'
+                          }`} />
+                          <span className="truncate">{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Action Button */}
+                <div className="p-4 pt-0">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenTrainer(trainer);
+                    }}
+                    className={`w-full py-2 px-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all rounded-lg ${
+                      theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
+                      theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100' :
+                      theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white' :
+                      theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500 hover:text-black' :
+                      theme === 'dark' ? 'bg-blue-950/60 text-[#38bdf8] border border-blue-500/30 hover:bg-[#38bdf8] hover:text-slate-950' :
+                      'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] hover:bg-[#2076bd] hover:text-white'
+                    }`}
+                  >
+                    <span>{t('academy.view_profile')}</span>
+                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 5. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-3 reveal-on-scroll">
           <div>
@@ -754,7 +942,7 @@ export const Academy: React.FC = () => {
               theme === 'sunset' ? 'font-oswald text-rose-600' :
               theme === 'roastery' ? 'font-mono text-cyan-400' :
               theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-              theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+              theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
               'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
             }`}>
               {language === 'vi' ? 'HỌC VIỆN & SÂN CHƠI CHUYÊN NGHIỆP' : 'ACADEMY & CHAMPIONSHIP'}
@@ -791,7 +979,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-mono text-cyan-400' :
                 theme === 'nordic' ? 'font-mono text-zinc-500' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'vi' ? 'Sân Chơi Thường Niên' : 'Annual Championship'}
@@ -829,7 +1017,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-mono text-cyan-400' :
                 theme === 'nordic' ? 'font-mono text-zinc-500' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'vi' ? 'Kỹ Năng Đỉnh Cao' : 'Masterful Skills'}
@@ -867,7 +1055,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-mono text-cyan-400' :
                 theme === 'nordic' ? 'font-mono text-zinc-500' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'vi' ? 'Vinh Danh Tài Năng' : 'Trophy Ceremony'}
@@ -905,7 +1093,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-mono text-cyan-400' :
                 theme === 'nordic' ? 'font-mono text-zinc-500' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'vi' ? 'Quy Trình Chuẩn Hóa' : 'Standardized Bracket'}
@@ -943,7 +1131,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-mono text-cyan-400' :
                 theme === 'nordic' ? 'font-mono text-zinc-500' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'vi' ? 'Cảm Quan Hương Vị' : 'Sensory Evaluation'}
@@ -981,7 +1169,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-mono text-cyan-400' :
                 theme === 'nordic' ? 'font-mono text-zinc-500' :
-                theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                 'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
               }`}>
                 {language === 'vi' ? 'Thực Hành Trực Tiếp' : 'Live Station Practice'}
@@ -1033,7 +1221,7 @@ export const Academy: React.FC = () => {
                   theme === 'sunset' ? 'font-oswald text-rose-600' :
                   theme === 'roastery' ? 'font-mono text-cyan-300' :
                   theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                  theme === 'dark' ? 'font-oswald text-[#FAEA28]' :
+                  theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
                   'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
                 }`}>
                   <span>Q{idx + 1}:</span> {faq.q}
@@ -1046,6 +1234,15 @@ export const Academy: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Trainer Profile Dedicated Modal */}
+      <TrainerProfileModal
+        trainer={selectedTrainer}
+        allTrainers={trainersData}
+        onClose={handleCloseTrainer}
+        onSelectTrainer={handleOpenTrainer}
+        onEnrollWithTrainer={handleEnrollWithTrainer}
+      />
 
     </div>
   );

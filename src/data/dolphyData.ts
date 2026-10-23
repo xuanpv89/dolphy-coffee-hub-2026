@@ -1,4 +1,4 @@
-import { Product, Course, Branch, Article, Job, Testimonial } from '../types';
+import { Product, Course, Branch, Article, Job, Testimonial, Trainer } from '../types';
 
 export const brandInfo = {
   name: 'Dolphy Café & Coffee Hub',
@@ -440,6 +440,185 @@ export const coursesData: Course[] = [
       'Dolphy Training Hub - 28 Thảo Điền, P. Thảo Điền, TP. Thủ Đức',
       'Dolphy Training Hub - 1441 Nguyễn Văn Linh, P. Tân Phong, Quận 7'
     ]
+  }
+];
+
+export const trainersData: Trainer[] = [
+  {
+    id: 'duc-nam',
+    name: 'Đức Nam',
+    nameEn: 'Duc Nam',
+    role: 'Quán Quân BDBC 2020 • Giám Khảo Chung Kết',
+    roleEn: 'BDBC 2020 Champion • Grand Final Judge',
+    title: 'Giám Khảo Chung Kết BDBC & Chuyên Gia Chiết Xuất Espresso',
+    titleEn: 'BDBC Grand Final Judge & Espresso Extraction Specialist',
+    badge: 'Quán Quân BDBC 2020',
+    badgeEn: 'BDBC 2020 Champion',
+    experience: '7+ năm kinh nghiệm thực chiến',
+    experienceEn: '7+ years on-bar experience',
+    image: '/images/trainers/duc-nam.jpg',
+    philosophy: 'Pha một tách cà phê ngon không đơn thuần là làm đúng công thức, mà là thấu hiểu từng biến số áp suất, nhiệt độ và mang trọn sự chăm chút vào từng giọt chiết xuất.',
+    philosophyEn: 'Brewing exceptional coffee is not merely following a formula; it is mastering extraction variables, tamping mechanics, and honoring the guest drinking it.',
+    bio: 'Xuất thân từ Barista trực tiếp đứng quầy tại Dolphy Thảo Điền, Đức Nam đã khẳng định kỹ thuật chuyên môn đỉnh cao khi xuất sắc đăng quang Quán Quân Barista Dolphy Barista Championship (BDBC 2020). Với hơn 7 năm gắn bó với quầy bar công nghiệp và các dòng máy pha cao cấp, anh hiện là Giám Khảo Chung Kết thường trực tại các kỳ thi tay nghề thường niên của Dolphy, đồng thời là người dẫn dắt học viên làm chủ kỹ thuật chiết xuất Espresso đỉnh cao và kỹ năng xử lý quầy bar trong giờ cao điểm.',
+    bioEn: 'Starting as a live bar barista at Dolphy Thao Dien, Duc Nam demonstrated master-class technique to claim the BDBC 2020 Championship. With over 7 years mastering commercial espresso stations, he serves as Grand Final Judge in Dolphy’s annual championships and trains students in dial-in precision, grinder calibration, and high-speed peak hour management.',
+    specialties: [
+      'Hiệu chỉnh độ mịn máy xay & Dial-in hạt Specialty',
+      'Chiết xuất Espresso chuẩn xác (Tỷ lệ Brew Ratio & Áp suất 9-bar)',
+      'Kỹ thuật phân bố bột WDT & Nén phẳng tiêu chuẩn thi đấu',
+      'Kỹ năng thi đấu Barista Championship & Xử lý giờ cao điểm'
+    ],
+    specialtiesEn: [
+      'Grinder Calibration & Specialty Dial-in',
+      'Precision Espresso Extraction (Brew Ratio & 9-bar Pressure)',
+      'WDT Distribution & Level Tamping Mechanics',
+      'Championship Barista Coaching & Peak Hour Rush Management'
+    ],
+    achievements: [
+      'Quán Quân Barista Dolphy Barista Championship (BDBC) 2020',
+      'Giám Khảo Chung Kết Dolphy Barista Championship các năm 2022, 2024',
+      'Đã trực tiếp đào tạo & kèm cặp hơn 250+ học viên và Barista chuỗi Dolphy',
+      'Chuyên gia hiệu chỉnh thiết bị pha chế La Marzocco & Nuova Simonelli'
+    ],
+    achievementsEn: [
+      'BDBC 2020 Barista Champion',
+      'Grand Final Judge at Dolphy Barista Championships 2022, 2024',
+      'Directly coached over 250+ graduates and chain baristas',
+      'Commercial Espresso Calibration Specialist (La Marzocco & Simonelli)'
+    ],
+    coursesTeaching: ['barista-thuc-chien', 'workshop-trai-nghiem-barista'],
+    coursesTeachingEn: ['Hands-on Barista Masterclass', 'Barista Career Experience Workshop']
+  },
+  {
+    id: 'kim-lien',
+    name: 'Kim Liên',
+    nameEn: 'Kim Lien',
+    role: 'Quán Quân BDBC 2018 • Giám Khảo Chung Kết',
+    roleEn: 'BDBC 2018 Champion • Grand Final Judge',
+    title: 'Giám Khảo Chung Kết & Trưởng Bộ Môn Sensory Cảm Quan',
+    titleEn: 'Grand Final Judge & Sensory Evaluation Lead',
+    badge: 'Quán Quân BDBC 2018',
+    badgeEn: 'BDBC 2018 Champion',
+    experience: '9+ năm gắn bó cùng Dolphy Café',
+    experienceEn: '9+ years dedicated to Dolphy Café',
+    image: '/images/trainers/kim-lien.jpg',
+    philosophy: 'Vị giác và khứu giác là chiếc cầu nối kỳ diệu giữa nông trại cà phê và tâm hồn người thưởng thức. Học nếm cà phê là học cách lắng nghe và trân trọng hạt ngọc đất trời.',
+    philosophyEn: 'Sensory acuity is the bridge between coffee terroir and the guest’s soul. Cupping coffee is an art of patience, humility, and acute perception.',
+    bio: 'Kim Liên là Quán Quân kỳ cựu của giải Barista Dolphy Barista Championship (BDBC 2018) và là một trong những gương mặt trụ cột tạo nên bản sắc chất lượng cà phê tại Dolphy từ những ngày đầu. Với sự nhạy bén đặc biệt về cảm quan hương vị, Kim Liên trực tiếp phụ trách bộ môn Sensory Cupping, hướng dẫn học viên khám phá vòng tròn hương vị quốc tế (SCA Flavor Wheel), nhận diện nốt hương trái cây mọng của Arabica Cầu Đất và thể chất đậm đà của Fine Robusta Lâm Đồng.',
+    bioEn: 'Kim Lien captured the BDBC 2018 Championship and stands as a foundational flavor pillar at Dolphy since its early years. With deep sensory expertise, she leads the Sensory Cupping module, training students to decode the SCA Flavor Wheel, distinguish bright acidity in Cau Dat Arabica, and balance bold bodies in Lam Dong Fine Robusta.',
+    specialties: [
+      'Thử nếm Cupping & Đánh giá cảm quan hương vị chuẩn SCA',
+      'Phân tích bánh xe hương vị cà phê (Coffee Flavor Wheel)',
+      'Nhận biết lỗi hạt nhân xanh & khiếm khuyết trong ly cà phê (Defects)',
+      'Phối trộn công thức Espresso Blend độc quyền Dolphy'
+    ],
+    specialtiesEn: [
+      'SCA Standard Coffee Cupping & Sensory Analysis',
+      'Coffee Flavor Wheel & Flavor Descriptors Interpretation',
+      'Defect Identification in Green Beans & Roasted Coffee',
+      'Signature Dolphy Espresso Blending Techniques'
+    ],
+    achievements: [
+      'Quán Quân Barista Dolphy Barista Championship (BDBC) 2018',
+      'Trưởng Ban Giám Khảo Cảm Quan (Head Sensory Judge) các mùa giải 2019 - 2024',
+      'Chứng chỉ SCA Sensory Skills & Brewing Foundation quốc tế',
+      'Chủ trì hơn 40 buổi Cupping Workshop kết nối cộng đồng yêu cà phê tại Thảo Điền'
+    ],
+    achievementsEn: [
+      'BDBC 2018 Barista Champion',
+      'Head Sensory Judge at Dolphy Championships 2019 - 2024',
+      'Certified in SCA Sensory Skills & Brewing Foundation',
+      'Hosted over 40 community and trade cupping workshops in Thao Dien'
+    ],
+    coursesTeaching: ['latte-art-sensory', 'barista-thuc-chien'],
+    coursesTeachingEn: ['Advanced Latte Art & Sensory Masterclass', 'Hands-on Barista Masterclass']
+  },
+  {
+    id: 'hoang-my',
+    name: 'Hoàng Mỹ',
+    nameEn: 'Hoang My',
+    role: 'Trưởng Phòng Quản Lý Chất Lượng • Giám Khảo Chung Kết',
+    roleEn: 'Head of Quality Control • Grand Final Judge',
+    title: 'Trưởng Phòng Quản Lý Chất Lượng & Chuyên Gia Latte Art',
+    titleEn: 'Head of Quality Control & Master Latte Art Coach',
+    badge: 'Trưởng Phòng Quản Lý Chất Lượng',
+    badgeEn: 'Head of Quality Control',
+    experience: '8+ năm kiểm soát chất lượng F&B',
+    experienceEn: '8+ years QA/QC in F&B',
+    image: '/images/trainers/hoang-my.jpg',
+    philosophy: 'Chất lượng đồng nhất qua 10 cửa hàng là sinh mệnh của Dolphy. Từng giọt bọt sữa mịn như nhung và từng hình vẽ Latte Art đều phải gửi gắm trọn vẹn sự chỉn chu.',
+    philosophyEn: 'Consistency across all 10 branches is Dolphy’s heartbeat. Every glossy micro-foam jug and delicate rosette must convey genuine devotion.',
+    bio: 'Đảm nhiệm cương vị Trưởng Phòng Quản Lý Chất Lượng (Head of QC) tại Dolphy Café, Hoàng Mỹ chịu trách nhiệm xây dựng và kiểm soát toàn bộ quy chuẩn pha chế SOP cho đội ngũ Barista trên toàn bộ 10 chi nhánh. Ngoài vai trò Giám Khảo Chung Kết BDBC, Hoàng Mỹ còn được biết đến là bàn tay vàng trong làng Latte Art, với khả năng đánh bọt sữa vi mô (Micro-foam) đạt độ bóng mượt tuyệt đối và tạo hình điêu luyện các mẫu hình tự do từ Heart, Tulip, Rosetta đến Swan.',
+    bioEn: 'Serving as Head of Quality Control across all 10 Dolphy locations, Hoang My crafts and enforces standard operating procedures (SOPs). As Grand Final Judge at BDBC, she is also recognized as our master of Latte Art, training students to steam silky micro-foam and pour flawless free-pour motifs from Heart and Tulip to Rosetta and Swan.',
+    specialties: [
+      'Kỹ thuật tạo bọt sữa Micro-foam siêu mịn, chuẩn bóng gương',
+      'Nghệ thuật đổ hình Latte Art tự do (Heart, Rosetta, Winged Tulip, Swan)',
+      'Xây dựng & Giám sát quy chuẩn SOP pha chế chuỗi 10 cửa hàng',
+      'Bảo dưỡng và vệ sinh thiết bị quầy Bar đảm bảo an toàn thực phẩm'
+    ],
+    specialtiesEn: [
+      'Silky Micro-foam Steaming & Mirror Gloss Finishing',
+      'Advanced Free-Pour Latte Art (Heart, Rosetta, Winged Tulip, Swan)',
+      'SOP Standardization across 10 Chain Branches',
+      'Bar Equipment Hygiene & Preventive Maintenance'
+    ],
+    achievements: [
+      'Trưởng Phòng Quản Lý Chất Lượng (Head of QA/QC) chuỗi Dolphy Café',
+      'Giám Khảo Chung Kết phụ trách phần thi Kỹ Thuật & Latte Art tại BDBC',
+      'Đồng tác giả giáo trình đào tạo Barista Thực Chiến chuẩn hóa của Dolphy Academy',
+      'Huấn luyện thành công hơn 300+ Barista đạt chứng nhận pha chế của hệ thống'
+    ],
+    achievementsEn: [
+      'Head of Quality Control (QA/QC) across Dolphy Café Network',
+      'BDBC Grand Final Technical & Latte Art Scoring Judge',
+      'Co-author of Dolphy Academy’s 7-Session Practical Barista Curriculum',
+      'Trained over 300+ certified baristas across store operations'
+    ],
+    coursesTeaching: ['latte-art-sensory', 'barista-thuc-chien'],
+    coursesTeachingEn: ['Advanced Latte Art & Sensory Masterclass', 'Hands-on Barista Masterclass']
+  },
+  {
+    id: 'hong-linh',
+    name: 'Hồng Linh',
+    nameEn: 'Hong Linh',
+    role: 'Trưởng Ban Kiểm Soát • Giám Khảo Chung Kết',
+    roleEn: 'Head of Supervisory Board • Grand Final Judge',
+    title: 'Trưởng Ban Kiểm Soát & Cố Vấn Vận Hành Chuỗi F&B',
+    titleEn: 'Head of Supervisory Board & F&B Operations Coach',
+    badge: 'Trưởng Ban Kiểm Soát',
+    badgeEn: 'Head of Supervisory Board',
+    experience: '10+ năm quản lý & kiểm soát vận hành',
+    experienceEn: '10+ years operational leadership',
+    image: '/images/trainers/hong-linh.jpg',
+    philosophy: 'Một quán cà phê thành công là sự kết tinh giữa chất lượng tách cà phê và quy trình vận hành kỷ luật, minh bạch nhưng luôn ấm áp tinh thần phụng sự.',
+    philosophyEn: 'A successful cafe thrives at the nexus of exquisite taste, rigorous operational discipline, and deeply authentic human hospitality.',
+    bio: 'Hồng Linh là Trưởng Ban Kiểm Soát toàn hệ thống Dolphy Café và là người giữ vai trò bảo chứng cho tính minh bạch, công tâm tuyệt đối tại các kỳ thi Barista Championship. Với hơn 10 năm kinh nghiệm điều hành và kiểm soát hoạt động F&B, Hồng Linh giúp học viên nắm bắt toàn cảnh bức tranh kinh doanh quán cà phê: từ tính toán giá vốn COGS, kiểm kê tồn kho hạt, quy trình chống thất thoát, đến kỹ năng quản trị ca làm việc và giải quyết tình huống phát sinh.',
+    bioEn: 'Hong Linh leads the Supervisory Board for the Dolphy Café network and guarantees transparency throughout all championship seasons. With more than a decade of F&B leadership, she provides trainees with the full business blueprint: COGS optimization, inventory audits, lean workflows, shift rosters, and real-time customer crisis resolution.',
+    specialties: [
+      'Quản trị chi phí nguyên vật liệu COGS & Tối ưu giá thành đồ uống',
+      'Quy trình vận hành quầy Bar tinh gọn & Chống thất thoát nguyên liệu',
+      'Tiêu chuẩn phục vụ khách hàng theo tôn chỉ "Happiness in a cup"',
+      'Giám sát kiểm tra chất lượng (Audit) và kỹ năng quản lý ca trưởng'
+    ],
+    specialtiesEn: [
+      'COGS Cost Management & Drink Margin Optimization',
+      'Lean Bar Workflows & Zero-Waste Inventory Auditing',
+      'Customer Hospitality Excellence: Happiness in a Cup Standard',
+      'Store Quality Audits & Shift Supervisor Leadership'
+    ],
+    achievements: [
+      'Trưởng Ban Kiểm Soát (Head of Supervisory Board) hệ thống Dolphy Café',
+      'Trưởng Ban Giám Sát Kỹ Thuật & Tổng Hợp Điểm thi đấu BDBC',
+      'Xây dựng hệ thống kiểm toán định kỳ 10 chi nhánh tại Q2, Q7 và Bình Thạnh',
+      'Cố vấn khởi nghiệp và setup quầy Bar cho hơn 50+ chủ quán cựu học viên'
+    ],
+    achievementsEn: [
+      'Head of Supervisory Board at Dolphy Café System',
+      'BDBC Head of Technical Auditing & Scoretabulation',
+      'Created the Store Quality Audit protocol across 10 branches in D2, D7 & Binh Thanh',
+      'Consulted cafe startup operations for 50+ Dolphy Academy alumni owners'
+    ],
+    coursesTeaching: ['quan-ly-van-hanh-fnb', 'barista-thuc-chien'],
+    coursesTeachingEn: ['F&B Cafe Operations & Management Course', 'Hands-on Barista Masterclass']
   }
 ];
 
