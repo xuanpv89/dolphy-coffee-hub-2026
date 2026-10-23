@@ -60,6 +60,85 @@ export const Academy: React.FC = () => {
     theme === 'dark' ? 'text-[#38bdf8]' :
     'text-[#2076bd] dark:text-[#3ba0e6]';
 
+  // Authentic Photography Mappings for Academy
+  const courseCoverImages: Record<string, string> = {
+    'barista-thuc-chien': '/images/fanpage/barista-training-workshop.jpg',
+    'latte-art-sensory': '/images/fanpage/academy-latte-art-pouring.jpg',
+    'workshop-trai-nghiem-barista': '/images/fanpage/academy-cupping-session.jpg',
+    'quan-ly-van-hanh-fnb': '/images/fanpage/coffee-counter-overhead.jpg',
+  };
+
+  const courseAtmosphereImages: Record<string, { image: string; tag: string; tagEn: string; caption: string; captionEn: string }> = {
+    'barista-thuc-chien': {
+      image: '/images/fanpage/barista-training-workshop.jpg',
+      tag: 'THỰC HÀNH TẠI QUẦY 100%',
+      tagEn: '100% LIVE BAR TRAINING',
+      caption: 'Học viên trực tiếp đứng máy pha chuyên nghiệp Nuova Simonelli & La Marzocco',
+      captionEn: 'Hands-on practice on commercial Nuova Simonelli & La Marzocco machines'
+    },
+    'latte-art-sensory': {
+      image: '/images/fanpage/academy-latte-art-pouring.jpg',
+      tag: 'KỸ NĂNG TẠO HÌNH & THỬ NẾM',
+      tagEn: 'ARTISTRY & SENSORY CUPPING',
+      caption: 'Luyện tập kỹ thuật Free Pour điêu luyện & Sensory Cupping cùng Quán Quân Barista',
+      captionEn: 'Master complex free-pour patterns & SCA sensory cupping with BDBC Champions'
+    },
+    'workshop-trai-nghiem-barista': {
+      image: '/images/fanpage/academy-cupping-session.jpg',
+      tag: 'TRẢI NGHIỆM CUỐI TUẦN 3.5H',
+      tagEn: '3.5-HOUR WEEKEND IMMERSION',
+      caption: 'Khám phá thế giới cà phê Specialty, văn hóa Phin và tự tay vẽ tách Latte Art đầu tiên',
+      captionEn: 'Discover Specialty Coffee world, Phin culture, and pour your very first Latte Art'
+    },
+    'quan-ly-van-hanh-fnb': {
+      image: '/images/fanpage/coffee-counter-overhead.jpg',
+      tag: 'QUẢN LÝ THỰC CHIẾN CHUỖI',
+      tagEn: 'LIVE CHAIN OPERATIONS',
+      caption: 'Thực hành tối ưu công năng quầy bar, vận hành POS CukCuk & kiểm soát COGS thực tế',
+      captionEn: 'Ergonomic station setup, live CukCuk POS mastery, and F&B COGS optimization'
+    }
+  };
+
+  const getSessionImage = (courseId: string, sessionNum: number): string => {
+    if (courseId === 'barista-thuc-chien') {
+      switch (sessionNum) {
+        case 1: return '/images/fanpage/academy-cupping-session.jpg';
+        case 2: return '/images/fanpage/academy-espresso-machine.jpg';
+        case 3: return '/images/fanpage/academy-milk-frothing.jpg';
+        case 4: return '/images/fanpage/academy-latte-art-pouring.jpg';
+        case 5: return '/images/fanpage/academy-signature-rose-latte.jpg';
+        case 6: return '/images/fanpage/academy-competition-stage.jpg';
+        default: return '/images/fanpage/barista-training-workshop.jpg';
+      }
+    }
+    if (courseId === 'latte-art-sensory') {
+      switch (sessionNum) {
+        case 1: return '/images/fanpage/academy-milk-frothing.jpg';
+        case 2: return '/images/fanpage/academy-latte-art-pouring.jpg';
+        case 3: return '/images/fanpage/drink-salted-cream-tulip.jpg';
+        case 4: return '/images/fanpage/academy-cupping-session.jpg';
+        default: return '/images/fanpage/academy-latte-art-pouring.jpg';
+      }
+    }
+    if (courseId === 'workshop-trai-nghiem-barista') {
+      return '/images/fanpage/barista-training-workshop.jpg';
+    }
+    if (courseId === 'quan-ly-van-hanh-fnb') {
+      switch (sessionNum) {
+        case 1: return '/images/fanpage/coffee-counter-overhead.jpg';
+        case 2: return '/images/fanpage/retail-beans-bakery-display.jpg';
+        case 3: return '/images/fanpage/community-blue-wood-counter.jpg';
+        case 4: return '/images/fanpage/top-12-baristas.jpg';
+        case 5: return '/images/fanpage/career-customer-warm-greeting.jpg';
+        case 6: return '/images/fanpage/branch-08-thao-dien-clean.jpg';
+        case 7: return '/images/fanpage/community-green-stamp-card.jpg';
+        case 8: return '/images/fanpage/academy-bracket-board.jpg';
+        default: return '/images/fanpage/coffee-counter-overhead.jpg';
+      }
+    }
+    return '/images/fanpage/barista-training-workshop.jpg';
+  };
+
   const faqs = [
     {
       q: language === 'vi' ? 'Tôi chưa biết gì về cà phê hay pha chế thì có học được không?' : 'Can I take the course if I have zero prior coffee or barista knowledge?',
@@ -124,39 +203,56 @@ export const Academy: React.FC = () => {
                 {t('academy.hero_desc')}
               </p>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => setEnrollingCourse(currentCourse)}
                   className="px-8 py-3.5 bg-black dark:bg-white text-white dark:text-black hover:bg-[#ff3b00] hover:text-white dark:hover:bg-[#ff3b00] dark:hover:text-white font-mono text-xs uppercase tracking-[0.15em] font-bold rounded-none transition-colors"
                 >
                   + {t('academy.reserve_cta')}
                 </button>
+                <a
+                  href="#courses-section"
+                  className="px-6 py-3.5 border-2 border-zinc-900 dark:border-zinc-200 text-black dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 font-mono text-xs uppercase tracking-wider font-bold transition-colors"
+                >
+                  {language === 'vi' ? 'Xem 4 Khóa Học ↓' : 'View 4 Courses ↓'}
+                </a>
               </div>
             </div>
 
-            <div className="md:col-span-5 relative p-6 bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-900 dark:border-zinc-200 font-mono space-y-3">
-              <span className="absolute top-1.5 left-1.5 text-xs text-[#ff3b00] font-bold">+</span>
-              <span className="absolute top-1.5 right-1.5 text-xs text-[#ff3b00] font-bold">+</span>
-              <span className="absolute bottom-1.5 left-1.5 text-xs text-[#ff3b00] font-bold">+</span>
-              <span className="absolute bottom-1.5 right-1.5 text-xs text-[#ff3b00] font-bold">+</span>
+            <div className="md:col-span-5 space-y-3 font-mono">
+              <div className="relative border-2 border-zinc-900 dark:border-zinc-200 overflow-hidden bg-black group">
+                <img
+                  src="/images/fanpage/barista-training-workshop.jpg"
+                  alt="Training Facility"
+                  className="w-full aspect-[16/10] object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-2 left-2 bg-black text-white text-[10px] font-mono px-2 py-0.5 uppercase tracking-widest font-bold">
+                  // LIVE_FEED • 28 TRẦN LỰU
+                </div>
+                <div className="absolute bottom-2 right-2 bg-black/90 text-[#ff3b00] text-[10px] font-mono px-2 py-0.5 border border-[#ff3b00]">
+                  [ON-BAR 100%]
+                </div>
+              </div>
 
-              <span className="text-[10px] text-zinc-400 uppercase tracking-widest block mb-1">// SYSTEM ADVANTAGES</span>
-              <div className="space-y-2 text-xs text-zinc-800 dark:text-zinc-200">
-                <div className="flex items-center gap-2">
-                  <span className="text-[#ff3b00] font-bold">■</span>
-                  <span>{language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#ff3b00] font-bold">■</span>
-                  <span>{language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#ff3b00] font-bold">■</span>
-                  <span>{language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#ff3b00] font-bold">■</span>
-                  <span>{language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+              <div className="relative p-4 bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-900 dark:border-zinc-200 space-y-2">
+                <span className="text-[10px] text-zinc-400 uppercase tracking-widest block mb-1">// SYSTEM ADVANTAGES</span>
+                <div className="space-y-1.5 text-xs text-zinc-800 dark:text-zinc-200">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#ff3b00] font-bold">■</span>
+                    <span>{language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#ff3b00] font-bold">■</span>
+                    <span>{language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#ff3b00] font-bold">■</span>
+                    <span>{language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#ff3b00] font-bold">■</span>
+                    <span>{language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,42 +261,63 @@ export const Academy: React.FC = () => {
       ) : theme === 'vintage' ? (
         /* VINTAGE: French Salon L'Académie de Café */
         <section className="bg-[#faf6f0] text-[#221e1a] border-b-2 border-[#e6ded1] p-4 sm:p-8 select-none">
-          <div className="max-w-6xl mx-auto bg-[#fffdfa] border-2 border-[#e6ded1] rounded-lg p-6 sm:p-10 shadow-xs text-center font-serif relative">
-            <div className="text-[#c05621] text-xs sm:text-sm tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-3 border-b-2 border-[#e6ded1] pb-3 mb-6">
+          <div className="max-w-6xl mx-auto bg-[#fffdfa] border-2 border-[#e6ded1] rounded-2xl p-6 sm:p-10 shadow-xs font-serif relative">
+            <div className="text-[#c05621] text-xs sm:text-sm tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-3 border-b-2 border-[#e6ded1] pb-3 mb-8">
               <span className="text-sm">❦</span>
               <span>— L'ACADÉMIE DU CAFÉ DOLPHY • MAISON FONDÉE EN 2013 —</span>
               <span className="text-sm">❦</span>
             </div>
 
-            <div className="space-y-4 max-w-3xl mx-auto">
-              <span className="inline-block bg-[#c05621] text-white font-serif italic text-xs sm:text-sm px-4 py-1 rounded shadow-xs border border-amber-950/20">
-                ❦ {t('academy.hero_tag')} ❦
-              </span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-4">
+                <span className="inline-block bg-[#c05621] text-white font-serif italic text-xs sm:text-sm px-4 py-1 rounded shadow-xs border border-amber-950/20">
+                  ❦ {t('academy.hero_tag')} ❦
+                </span>
 
-              <h1 className="font-serif italic font-bold text-3xl sm:text-5xl lg:text-6xl text-[#1b4d3e] leading-tight">
-                {t('academy.hero_title')}
-              </h1>
+                <h1 className="font-serif italic font-bold text-3xl sm:text-5xl lg:text-6xl text-[#1b4d3e] leading-tight">
+                  {t('academy.hero_title')}
+                </h1>
 
-              <div className="w-16 h-0.5 bg-[#c05621]/40 mx-auto my-3" />
+                <div className="w-16 h-0.5 bg-[#c05621]/40 my-3" />
 
-              <p className="text-sm sm:text-base text-[#5a5045] italic leading-relaxed">
-                "{t('academy.hero_desc')}"
-              </p>
+                <p className="text-sm sm:text-base text-[#5a5045] italic leading-relaxed">
+                  "{t('academy.hero_desc')}"
+                </p>
 
-              <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-[#1b4d3e]">
-                <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
-                <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
-                <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
-                <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans text-[#1b4d3e]">
+                  <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
+                  <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
+                  <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
+                  <span className="flex items-center gap-1.5">✓ {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+                </div>
+
+                <div className="pt-4 flex items-center gap-3">
+                  <button
+                    onClick={() => setEnrollingCourse(currentCourse)}
+                    className="px-8 py-3.5 rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif text-xs uppercase tracking-wider font-semibold transition-all shadow-md"
+                  >
+                    ❦ {t('academy.reserve_cta')}
+                  </button>
+                  <a
+                    href="#courses-section"
+                    className="px-6 py-3.5 rounded border border-[#1b4d3e] text-[#1b4d3e] hover:bg-[#f2ebe0] font-serif text-xs uppercase tracking-wider font-semibold transition-all"
+                  >
+                    {language === 'vi' ? 'Xem Chương Trình ↓' : 'View Curriculum ↓'}
+                  </a>
+                </div>
               </div>
 
-              <div className="pt-4">
-                <button
-                  onClick={() => setEnrollingCourse(currentCourse)}
-                  className="px-8 py-3.5 rounded bg-[#1b4d3e] hover:bg-[#c05621] text-white font-serif text-xs uppercase tracking-wider font-semibold transition-all shadow-md"
-                >
-                  ❦ {t('academy.reserve_cta')}
-                </button>
+              <div className="lg:col-span-5 relative">
+                <div className="p-2 bg-[#f2ebe0] border-2 border-[#e6ded1] rounded-xl shadow-md rotate-1 hover:rotate-0 transition-transform duration-300">
+                  <img
+                    src="/images/fanpage/barista-training-workshop.jpg"
+                    alt="Dolphy Atelier Barista"
+                    className="w-full aspect-[4/3] object-cover rounded-lg sepia-[0.25]"
+                  />
+                  <div className="pt-2 text-center text-xs italic text-[#5a5045]">
+                    Atelier de Formation Barista • Thảo Điền
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -231,33 +348,58 @@ export const Academy: React.FC = () => {
                 {t('academy.hero_desc')}
               </p>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => setEnrollingCourse(currentCourse)}
                   className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-pink-600 hover:from-cyan-500 hover:to-pink-500 text-white font-mono text-xs uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all"
                 >
                   {t('academy.reserve_cta')}
                 </button>
+                <a
+                  href="#courses-section"
+                  className="px-6 py-3.5 rounded-xl border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/10 font-mono text-xs uppercase tracking-wider font-bold transition-all"
+                >
+                  // VIEW_CURRICULUM ↓
+                </a>
               </div>
             </div>
 
-            <div className="md:col-span-5 p-6 rounded-xl bg-slate-900/90 border border-cyan-500/40 font-mono text-slate-300 shadow-[0_0_25px_rgba(2,132,199,0.2)] space-y-2.5">
-              <span className="text-[10px] text-pink-400 uppercase tracking-widest block mb-2">// BENCHMARKS</span>
-              <div className="flex items-center gap-2 text-xs">
-                <CheckCircle2 size={15} className="text-cyan-400 shrink-0" />
-                <span>{language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
+            <div className="md:col-span-5 space-y-3 font-mono">
+              <div className="relative rounded-xl overflow-hidden border border-cyan-500/50 shadow-[0_0_25px_rgba(6,182,212,0.3)] group bg-slate-950">
+                <img
+                  src="/images/fanpage/barista-training-workshop.jpg"
+                  alt="Roastery Console"
+                  className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-2 left-2 bg-slate-950/90 border border-cyan-500/40 text-cyan-300 text-[10px] px-2 py-0.5 rounded">
+                  CAM_01: LIVE_BAR_STATION
+                </div>
+                <div className="absolute bottom-2 right-2 text-[10px] text-pink-400 bg-slate-950/80 px-2 py-0.5 border border-pink-500/40">
+                  9-BAR // CALIBRATED
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-xs">
-                <CheckCircle2 size={15} className="text-cyan-400 shrink-0" />
-                <span>{language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs">
-                <CheckCircle2 size={15} className="text-cyan-400 shrink-0" />
-                <span>{language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs">
-                <CheckCircle2 size={15} className="text-cyan-400 shrink-0" />
-                <span>{language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+
+              <div className="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/40 text-slate-300 shadow-[0_0_25px_rgba(2,132,199,0.2)] space-y-2">
+                <span className="text-[10px] text-pink-400 uppercase tracking-widest block mb-1">// BENCHMARKS</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-cyan-400 shrink-0" />
+                    <span>{language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-cyan-400 shrink-0" />
+                    <span>{language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-cyan-400 shrink-0" />
+                    <span>{language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-cyan-400 shrink-0" />
+                    <span>{language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -265,87 +407,155 @@ export const Academy: React.FC = () => {
       ) : theme === 'sunset' ? (
         /* SUNSET: Floating Organic Pebble Academy Header */
         <section className="bg-gradient-to-br from-[#fff1f2] via-[#fff7ed] to-[#fed7aa]/30 border-b border-rose-200 py-10 sm:py-16 px-4 sm:px-8 select-none">
-          <div className="max-w-5xl mx-auto rounded-[36px] sm:rounded-[48px] bg-white/90 backdrop-blur-xl border border-rose-200/90 shadow-xl shadow-rose-500/10 p-8 sm:p-14 text-center space-y-5">
-            <div>
-              <span className="inline-block bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald uppercase tracking-widest text-xs px-4 py-1.5 rounded-full shadow-lg shadow-rose-500/30 font-bold">
-                {t('academy.hero_tag')}
-              </span>
-            </div>
+          <div className="max-w-6xl mx-auto rounded-[36px] sm:rounded-[48px] bg-white/90 backdrop-blur-xl border border-rose-200/90 shadow-xl shadow-rose-500/10 p-6 sm:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-4">
+                <div>
+                  <span className="inline-block bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald uppercase tracking-widest text-xs px-4 py-1.5 rounded-full shadow-lg shadow-rose-500/30 font-bold">
+                    {t('academy.hero_tag')}
+                  </span>
+                </div>
 
-            <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-[#271a17] leading-tight">
-              {t('academy.hero_title')}
-            </h1>
+                <h1 className="font-oswald text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-[#271a17] leading-tight">
+                  {t('academy.hero_title')}
+                </h1>
 
-            <p className="text-[#7d6560] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              {t('academy.hero_desc')}
-            </p>
+                <p className="text-[#7d6560] text-sm sm:text-base leading-relaxed max-w-xl">
+                  {t('academy.hero_desc')}
+                </p>
 
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-oswald text-rose-600">
-              <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
-            </div>
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-oswald text-rose-600">
+                  <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
+                  <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
+                  <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
+                  <span className="flex items-center gap-1.5"><CheckCircle2 size={15} className="text-orange-500" /> {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+                </div>
 
-            <div className="pt-4">
-              <button
-                onClick={() => setEnrollingCourse(currentCourse)}
-                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white font-oswald text-xs uppercase tracking-wider font-bold shadow-xl shadow-rose-500/30 transition-all hover:scale-105"
-              >
-                {t('academy.reserve_cta')}
-              </button>
+                <div className="pt-4 flex items-center gap-3">
+                  <button
+                    onClick={() => setEnrollingCourse(currentCourse)}
+                    className="px-8 py-3.5 rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white font-oswald text-xs uppercase tracking-wider font-bold shadow-xl shadow-rose-500/30 transition-all hover:scale-105"
+                  >
+                    {t('academy.reserve_cta')}
+                  </button>
+                  <a
+                    href="#courses-section"
+                    className="px-6 py-3.5 rounded-full border border-rose-200 text-rose-600 hover:bg-rose-50 font-oswald text-xs uppercase tracking-wider font-bold transition-all"
+                  >
+                    {language === 'vi' ? 'Xem Khóa Học ↓' : 'View Courses ↓'}
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 relative">
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 group">
+                  <img
+                    src="/images/fanpage/barista-training-workshop.jpg"
+                    alt="Dolphy Sunset Training"
+                    className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-rose-950/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 inset-x-3 text-white text-center">
+                    <span className="text-xs font-oswald uppercase tracking-wider font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">
+                      Dolphy Training Bar • Thảo Điền
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       ) : (
-        /* OCEAN & DARK: Classic Cinematic Gradient Banner */
-        <section className="reveal-on-scroll border-b text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800">
-          <div className="max-w-5xl mx-auto space-y-5 relative z-10">
-            
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow rounded bg-[#FAEA28] text-slate-950 font-oswald">
-              <GraduationCap size={15} />
-              <span>{t('academy.hero_tag')}</span>
+        /* OCEAN & DARK: Modern 2-Column Cinematic Banner with Authentic Photo Card */
+        <section className="reveal-on-scroll border-b text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden relative bg-gradient-to-r from-[#165b94] via-[#2076bd] to-[#165b94] dark:from-[#0d2640] dark:via-[#133e68] dark:to-[#0a1e33] border-transparent dark:border-slate-800">
+          {/* Ambient Lighting Accents */}
+          <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#FAEA28]/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+            {/* Left Column: Headlines & Actions */}
+            <div className="lg:col-span-7 space-y-5 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 text-xs uppercase tracking-widest font-extrabold shadow rounded bg-[#FAEA28] text-slate-950 font-oswald">
+                <GraduationCap size={15} />
+                <span>{t('academy.hero_tag')}</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight font-oswald">
+                {t('academy.hero_title')}
+              </h1>
+
+              <p className="text-sm sm:text-base text-blue-100 dark:text-blue-200 leading-relaxed max-w-2xl">
+                {t('academy.hero_desc')}
+              </p>
+
+              {/* 4 Proof Pills */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-xs sm:text-sm text-blue-50 font-medium">
+                <span className="flex items-center gap-2 bg-white/10 dark:bg-slate-800/60 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
+                  <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8] shrink-0' : 'text-[#FAEA28] shrink-0'} />
+                  <span>{language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}</span>
+                </span>
+                <span className="flex items-center gap-2 bg-white/10 dark:bg-slate-800/60 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
+                  <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8] shrink-0' : 'text-[#FAEA28] shrink-0'} />
+                  <span>{language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}</span>
+                </span>
+                <span className="flex items-center gap-2 bg-white/10 dark:bg-slate-800/60 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
+                  <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8] shrink-0' : 'text-[#FAEA28] shrink-0'} />
+                  <span>{language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}</span>
+                </span>
+                <span className="flex items-center gap-2 bg-white/10 dark:bg-slate-800/60 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10">
+                  <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8] shrink-0' : 'text-[#FAEA28] shrink-0'} />
+                  <span>{language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}</span>
+                </span>
+              </div>
+
+              <div className="pt-3 flex flex-wrap items-center gap-3">
+                <button
+                  onClick={() => setEnrollingCourse(currentCourse)}
+                  className="dolphy-btn dolphy-btn-amber px-8 py-3.5 text-sm font-semibold shadow-xl hover-lift rounded"
+                >
+                  <GraduationCap size={18} className="mr-2" />
+                  <span>{t('academy.reserve_cta')}</span>
+                </button>
+                <a
+                  href="#courses-section"
+                  className="px-6 py-3.5 rounded bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 text-xs font-oswald uppercase tracking-wider font-bold transition-all flex items-center gap-1.5"
+                >
+                  <span>{language === 'vi' ? 'Xem Chương Trình & Giáo Trình ↓' : 'Curriculum & Courses ↓'}</span>
+                </a>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-tight font-oswald">
-              {t('academy.hero_title')}
-            </h1>
+            {/* Right Column: Hero Photo Showcase */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-white/20 dark:border-slate-700 shadow-2xl group">
+                <img
+                  src="/images/fanpage/barista-training-workshop.jpg"
+                  alt="Dolphy Barista Academy On-bar Training"
+                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-black/20" />
 
-            <p className="text-sm sm:text-base text-blue-100 dark:text-blue-200 max-w-3xl mx-auto leading-relaxed">
-              {t('academy.hero_desc')}
-            </p>
+                <div className="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-white text-[11px] font-oswald font-bold px-3 py-1.5 rounded-full border border-white/20 shadow-lg flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>{language === 'vi' ? 'THỰC HÀNH TẠI QUẦY 100%' : '100% ON-BAR TRAINING'}</span>
+                </div>
 
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-blue-100 dark:text-blue-200 font-medium">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Thực hành 100% tại quầy bar' : '100% on-bar practice'}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Ưu tiên tuyển dụng 10 quán' : '10-branch hiring priority'}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Không ràng buộc độc quyền' : 'Zero exclusivity bond'}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className={theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]'} /> {language === 'vi' ? 'Lớp nhỏ 4-6 học viên' : 'Intimate 4-6 cohorts'}
-              </span>
+                <div className="absolute bottom-3 inset-x-3 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-3 rounded-xl border border-white/20 dark:border-slate-700 text-slate-900 dark:text-white shadow-xl flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-oswald font-bold uppercase tracking-wide">
+                      {language === 'vi' ? 'Quầy Bar Dolphy Thảo Điền' : 'Dolphy Thao Dien Live Bar'}
+                    </p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400">
+                      {language === 'vi' ? 'Trang bị La Marzocco & Nuova Simonelli' : 'Equipped with La Marzocco & Simonelli'}
+                    </p>
+                  </div>
+                  <span className="text-xs font-oswald font-extrabold text-[#2076bd] dark:text-[#38bdf8] bg-blue-50 dark:bg-slate-800 px-2.5 py-1 rounded">
+                    4-6 {language === 'vi' ? 'Học viên' : 'Students'}
+                  </span>
+                </div>
+              </div>
             </div>
-
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
-              <button
-                onClick={() => setEnrollingCourse(currentCourse)}
-                className="dolphy-btn dolphy-btn-amber px-8 py-3.5 text-sm font-semibold shadow-xl hover-lift rounded"
-              >
-                <GraduationCap size={18} className="mr-2" />
-                <span>{t('academy.reserve_cta')}</span>
-              </button>
-              <a
-                href="#courses-section"
-                className="px-6 py-3.5 rounded bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 text-xs font-oswald uppercase tracking-wider font-bold transition-all flex items-center gap-1.5"
-              >
-                <span>{language === 'vi' ? 'Xem Chương Trình & Giáo Trình ↓' : 'Curriculum & Courses ↓'}</span>
-              </a>
-            </div>
-
           </div>
         </section>
       )}
@@ -373,196 +583,248 @@ export const Academy: React.FC = () => {
           </div>
 
           {theme === 'nordic' ? (
-            /* NORDIC: Architectural Tabular Curriculum Matrix */
-            <div className="border-2 border-zinc-900 dark:border-zinc-200 divide-y sm:divide-y-0 sm:divide-x divide-zinc-900 dark:divide-zinc-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 font-mono reveal-stagger">
-              {coursesData.map((c, idx) => {
-                const active = activeCourseId === c.id;
-                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
-                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
-                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
-
-                return (
-                  <button
-                    key={c.id}
-                    onClick={() => setActiveCourseId(c.id)}
-                    className={`p-5 text-left transition-colors flex flex-col justify-between min-h-[140px] cursor-pointer ${
-                      active
-                        ? 'bg-black text-white dark:bg-white dark:text-black'
-                        : 'bg-white dark:bg-zinc-950 text-black dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900'
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between text-[11px] border-b pb-2 mb-3 border-current/20">
-                        <span>[0{idx + 1} // PROGRAM]</span>
-                        <span className="font-bold">{price}₫</span>
-                      </div>
-                      <h3 className="font-oswald text-base font-bold uppercase tracking-wider leading-snug">
-                        {title}
-                      </h3>
-                    </div>
-                    <div className="pt-3 border-t border-current/20 flex items-center justify-between text-[10px] tracking-wider uppercase mt-4">
-                      <span>{duration}</span>
-                      <span className="font-bold">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          ) : theme === 'vintage' ? (
-            /* VINTAGE: French Culinary Atelier Curriculum Board */
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-serif reveal-stagger">
-              {coursesData.map((c, idx) => {
-                const active = activeCourseId === c.id;
-                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
-                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
-                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
-
-                return (
-                  <button
-                    key={c.id}
-                    onClick={() => setActiveCourseId(c.id)}
-                    className={`p-5 rounded-lg text-left transition-all flex flex-col justify-between min-h-[140px] border-2 cursor-pointer shadow-xs ${
-                      active
-                        ? 'bg-[#1b4d3e] text-white border-[#1b4d3e] shadow-lg scale-[1.02]'
-                        : 'bg-[#faf6f0] text-[#221e1a] border-[#e6ded1] hover:border-[#1b4d3e]'
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between text-xs pb-2 border-b border-current/20 mb-2">
-                        <span className="italic">Lớp số {idx + 1}</span>
-                        <span className="font-bold">{price}₫</span>
-                      </div>
-                      <h3 className="font-serif text-base font-bold leading-snug">
-                        {title}
-                      </h3>
-                    </div>
-                    <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
-                      <span className="italic">{duration}</span>
-                      <span className="font-sans font-bold text-[10px] uppercase tracking-wider">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          ) : theme === 'roastery' ? (
-            /* ROASTERY: Cyber Holo Console Program Pods */
+            /* NORDIC: Architectural Tabular Curriculum Matrix with Authentic Photo Headers */
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono reveal-stagger">
               {coursesData.map((c, idx) => {
                 const active = activeCourseId === c.id;
                 const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
                 const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
                 const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+                const coverImg = courseCoverImages[c.id] || c.image;
 
                 return (
                   <button
                     key={c.id}
                     onClick={() => setActiveCourseId(c.id)}
-                    className={`p-5 rounded-xl text-left transition-all flex flex-col justify-between min-h-[140px] border cursor-pointer ${
+                    className={`text-left transition-colors flex flex-col justify-between overflow-hidden border-2 cursor-pointer ${
+                      active
+                        ? 'border-black dark:border-white bg-black text-white dark:bg-white dark:text-black shadow-lg'
+                        : 'border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 text-black dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900'
+                    }`}
+                  >
+                    <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-900 border-b-2 border-current">
+                      <img
+                        src={coverImg}
+                        alt={title}
+                        className="w-full h-full object-cover grayscale contrast-125"
+                      />
+                      <div className="absolute top-2 left-2 bg-black text-white text-[10px] px-2 py-0.5 font-mono uppercase tracking-widest font-bold">
+                        [0{idx + 1} // PROGRAM]
+                      </div>
+                      <div className="absolute bottom-2 right-2 bg-black/90 text-[#ff3b00] text-xs font-mono font-bold px-2 py-0.5">
+                        {price}₫
+                      </div>
+                    </div>
+                    <div className="p-4 flex flex-col justify-between flex-1 w-full">
+                      <h3 className="font-oswald text-base font-bold uppercase tracking-wider leading-snug line-clamp-2">
+                        {title}
+                      </h3>
+                      <div className="pt-3 border-t border-current/20 flex items-center justify-between text-[10px] tracking-wider uppercase mt-3">
+                        <span>{duration}</span>
+                        <span className="font-bold">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : theme === 'vintage' ? (
+            /* VINTAGE: French Culinary Atelier Curriculum Board with Photo Headers */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-serif reveal-stagger">
+              {coursesData.map((c, idx) => {
+                const active = activeCourseId === c.id;
+                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+                const coverImg = courseCoverImages[c.id] || c.image;
+
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setActiveCourseId(c.id)}
+                    className={`rounded-xl text-left transition-all flex flex-col justify-between overflow-hidden border-2 cursor-pointer shadow-xs ${
+                      active
+                        ? 'bg-[#1b4d3e] text-white border-[#1b4d3e] shadow-lg scale-[1.02]'
+                        : 'bg-[#faf6f0] text-[#221e1a] border-[#e6ded1] hover:border-[#1b4d3e]'
+                    }`}
+                  >
+                    <div className="relative w-full aspect-[16/10] overflow-hidden bg-amber-950/10 border-b border-current/20">
+                      <img
+                        src={coverImg}
+                        alt={title}
+                        className="w-full h-full object-cover sepia-[0.25]"
+                      />
+                      <span className="absolute top-2 left-2 bg-[#c05621] text-white text-[10px] px-2.5 py-0.5 rounded font-serif italic shadow">
+                        Lớp số 0{idx + 1}
+                      </span>
+                      <span className="absolute bottom-2 right-2 bg-amber-950/80 text-amber-200 text-xs font-serif font-bold px-2 py-0.5 rounded">
+                        {price}₫
+                      </span>
+                    </div>
+                    <div className="p-4 flex flex-col justify-between flex-1 w-full">
+                      <h3 className="font-serif text-base font-bold leading-snug line-clamp-2">
+                        {title}
+                      </h3>
+                      <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
+                        <span className="italic">{duration}</span>
+                        <span className="font-sans font-bold text-[10px] uppercase tracking-wider">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : theme === 'roastery' ? (
+            /* ROASTERY: Cyber Holo Console Program Pods with Photo Headers */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono reveal-stagger">
+              {coursesData.map((c, idx) => {
+                const active = activeCourseId === c.id;
+                const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
+                const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
+                const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+                const coverImg = courseCoverImages[c.id] || c.image;
+
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setActiveCourseId(c.id)}
+                    className={`rounded-xl text-left transition-all flex flex-col justify-between overflow-hidden border cursor-pointer ${
                       active
                         ? 'bg-[#0f172a] text-cyan-400 border-cyan-400 shadow-[0_0_25px_rgba(56,189,248,0.35)] scale-[1.02]'
                         : 'bg-[#0b1324] text-slate-300 border-cyan-500/20 hover:border-cyan-500/50'
                     }`}
                   >
-                    <div>
-                      <div className="flex items-center justify-between text-[10px] text-cyan-400 pb-2 border-b border-cyan-500/20 mb-2">
-                        <span>[TRACK_0{idx + 1}]</span>
-                        <span className="font-bold text-pink-400">{price}₫</span>
-                      </div>
-                      <h3 className="font-oswald text-sm font-bold uppercase tracking-wider leading-snug text-white">
+                    <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 border-b border-cyan-500/30">
+                      <img
+                        src={coverImg}
+                        alt={title}
+                        className="w-full h-full object-cover opacity-85"
+                      />
+                      <span className="absolute top-2 left-2 bg-slate-950/90 text-cyan-300 border border-cyan-500/40 text-[10px] px-2 py-0.5 rounded font-mono">
+                        TRACK_0{idx + 1}
+                      </span>
+                      <span className="absolute bottom-2 right-2 bg-slate-950/90 text-pink-400 border border-pink-500/40 text-xs font-mono font-bold px-2 py-0.5 rounded">
+                        {price}₫
+                      </span>
+                    </div>
+                    <div className="p-4 flex flex-col justify-between flex-1 w-full">
+                      <h3 className="font-oswald text-sm font-bold uppercase tracking-wider leading-snug text-white line-clamp-2">
                         {title}
                       </h3>
-                    </div>
-                    <div className="pt-2 border-t border-cyan-500/20 flex items-center justify-between text-[11px] mt-3">
-                      <span>{duration}</span>
-                      <span className="font-bold uppercase tracking-wider text-cyan-400">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
+                      <div className="pt-2 border-t border-cyan-500/20 flex items-center justify-between text-[11px] mt-3">
+                        <span>{duration}</span>
+                        <span className="font-bold uppercase tracking-wider text-cyan-400">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
+                      </div>
                     </div>
                   </button>
                 );
               })}
             </div>
           ) : theme === 'sunset' ? (
-            /* SUNSET: Organic 4-Pebble Program Buttons */
+            /* SUNSET: Organic 4-Pebble Program Buttons with Photo Headers */
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
               {coursesData.map((c, idx) => {
                 const active = activeCourseId === c.id;
                 const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
                 const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
                 const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+                const coverImg = courseCoverImages[c.id] || c.image;
 
                 return (
                   <button
                     key={c.id}
                     onClick={() => setActiveCourseId(c.id)}
-                    className={`p-5 rounded-3xl text-left transition-all flex flex-col justify-between min-h-[140px] border cursor-pointer ${
+                    className={`rounded-3xl text-left transition-all flex flex-col justify-between overflow-hidden border cursor-pointer ${
                       active
                         ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white border-transparent shadow-xl shadow-rose-500/25 scale-[1.02]'
                         : 'bg-white text-[#271a17] border-rose-100 hover:border-rose-300 shadow-md shadow-rose-500/5'
                     }`}
                   >
-                    <div>
-                      <div className="flex items-center justify-between text-xs pb-2 border-b border-current/20 mb-2">
-                        <span className="font-oswald uppercase text-[10px] tracking-wider font-bold">Khóa 0{idx + 1}</span>
-                        <span className="font-oswald font-bold">{price}₫</span>
-                      </div>
-                      <h3 className="font-oswald text-base font-bold uppercase leading-snug">
+                    <div className="relative w-full aspect-[16/10] overflow-hidden bg-rose-50">
+                      <img
+                        src={coverImg}
+                        alt={title}
+                        className="w-full h-full object-cover"
+                      />
+                      <span className="absolute top-2 left-2 bg-white/90 backdrop-blur-md text-rose-600 font-oswald text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full shadow">
+                        Khóa 0{idx + 1}
+                      </span>
+                      <span className="absolute bottom-2 right-2 bg-slate-900/80 text-white font-oswald text-xs font-bold px-2.5 py-0.5 rounded-full backdrop-blur-sm">
+                        {price}₫
+                      </span>
+                    </div>
+                    <div className="p-4 flex flex-col justify-between flex-1 w-full">
+                      <h3 className="font-oswald text-base font-bold uppercase leading-snug line-clamp-2">
                         {title}
                       </h3>
-                    </div>
-                    <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
-                      <span className="text-[11px]">{duration}</span>
-                      <span className="font-oswald font-bold uppercase text-[10px] tracking-wider">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
+                      <div className="pt-2 border-t border-current/20 flex items-center justify-between text-xs mt-3">
+                        <span className="text-[11px]">{duration}</span>
+                        <span className="font-oswald font-bold uppercase text-[10px] tracking-wider">{active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}</span>
+                      </div>
                     </div>
                   </button>
                 );
               })}
             </div>
           ) : (
-            /* OCEAN & CLASSIC DARK: Original Balanced 4-Col Grid */
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 reveal-stagger">
+            /* OCEAN & CLASSIC DARK: Visual Photo Card Grid */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
               {coursesData.map((c, idx) => {
                 const active = activeCourseId === c.id;
                 const title = language === 'en' && c.titleEn ? c.titleEn : c.title;
                 const price = (c.discountPrice || c.price).toLocaleString('vi-VN');
                 const duration = language === 'en' && c.durationEn ? c.durationEn : c.duration;
+                const coverImg = courseCoverImages[c.id] || c.image;
 
                 return (
                   <button
                     key={c.id}
                     onClick={() => setActiveCourseId(c.id)}
-                    className={`p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 flex flex-col justify-between min-h-[110px] sm:min-h-[125px] border-2 relative cursor-pointer group ${
+                    className={`rounded-2xl text-left transition-all duration-300 flex flex-col justify-between overflow-hidden border-2 relative cursor-pointer group ${
                       active
                         ? 'bg-[#2076bd] text-white border-[#2076bd] shadow-xl ring-4 ring-[#2076bd]/25 scale-[1.01]'
                         : 'bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-slate-800 hover:border-[#2076bd]/60 hover:shadow-md'
                     }`}
                   >
-                    <div className="w-full">
-                      <div className="flex items-center justify-between w-full mb-2">
-                        <span className={`text-[10px] font-oswald font-extrabold px-2 py-0.5 rounded uppercase tracking-wider ${
-                          active 
-                            ? 'bg-white/20 text-white' 
-                            : 'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6]'
-                        }`}>
-                          #{idx + 1} • {c.badge || 'Khoá'}
-                        </span>
-                        <span className={`text-xs sm:text-sm font-oswald font-bold ${active ? (theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]') : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
-                          {price}₫
-                        </span>
-                      </div>
+                    {/* Course Photo Header */}
+                    <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800">
+                      <img
+                        src={coverImg}
+                        alt={title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30" />
+                      
+                      <span className={`absolute top-2 left-2 text-[10px] font-oswald font-extrabold px-2.5 py-0.5 rounded uppercase tracking-wider backdrop-blur-md ${
+                        active 
+                          ? 'bg-[#FAEA28] text-slate-950 shadow' 
+                          : 'bg-black/60 text-white border border-white/20'
+                      }`}>
+                        #{idx + 1} • {c.badge || 'Khoá'}
+                      </span>
 
+                      <span className="absolute bottom-2 right-2 text-xs font-oswald font-extrabold text-[#FAEA28] bg-slate-950/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                        {price}₫
+                      </span>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="p-3.5 sm:p-4 flex flex-col justify-between flex-1 w-full">
                       <h3 className={`font-oswald text-xs sm:text-sm font-bold uppercase tracking-wide leading-snug line-clamp-2 ${
                         active ? 'text-white' : 'text-gray-900 dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#3ba0e6]'
                       }`}>
                         {title}
                       </h3>
-                    </div>
 
-                    <div className={`pt-2 sm:pt-2.5 mt-2 border-t flex items-center justify-between text-[11px] font-oswald w-full ${
-                      active ? 'border-white/20 text-blue-100' : 'border-gray-100 dark:border-slate-800 text-gray-500 dark:text-gray-400'
-                    }`}>
-                      <span>{duration}</span>
-                      <span className={`font-bold uppercase tracking-wider text-[10px] sm:text-[11px] ${active ? (theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]') : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
-                        {active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}
-                      </span>
+                      <div className={`pt-2.5 mt-2 border-t flex items-center justify-between text-[11px] font-oswald w-full ${
+                        active ? 'border-white/20 text-blue-100' : 'border-gray-100 dark:border-slate-800 text-gray-500 dark:text-gray-400'
+                      }`}>
+                        <span>{duration}</span>
+                        <span className={`font-bold uppercase tracking-wider text-[10px] sm:text-[11px] ${active ? (theme === 'dark' ? 'text-[#38bdf8]' : 'text-[#FAEA28]') : 'text-[#2076bd] dark:text-[#3ba0e6]'}`}>
+                          {active ? (language === 'vi' ? '● Đang chọn' : '● Selected') : (language === 'vi' ? 'Xem chi tiết →' : 'View →')}
+                        </span>
+                      </div>
                     </div>
                   </button>
                 );
@@ -613,20 +875,66 @@ export const Academy: React.FC = () => {
               </p>
             </div>
 
-            {/* Highlights / Benefits */}
-            <div className={`p-6 space-y-3.5 ${
+            {/* Course Atmosphere Feature Photo Banner */}
+            <div className={`relative rounded-2xl overflow-hidden border shadow-md group ${
+              theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200' :
+              theme === 'vintage' ? 'border-2 border-[#e6ded1] rounded-xl' :
+              theme === 'roastery' ? 'border-cyan-500/40 rounded-xl shadow-[0_0_20px_rgba(6,182,212,0.25)]' :
+              theme === 'sunset' ? 'rounded-3xl border-rose-200' :
+              'border-gray-200 dark:border-slate-700'
+            }`}>
+              <img
+                src={courseAtmosphereImages[currentCourse.id]?.image || courseCoverImages[currentCourse.id] || currentCourse.image}
+                alt={currentCourse.title}
+                className={`w-full aspect-[21/9] sm:aspect-[24/9] object-cover group-hover:scale-102 transition-transform duration-500 ${
+                  theme === 'nordic' ? 'grayscale contrast-125' :
+                  theme === 'vintage' ? 'sepia-[0.2]' : ''
+                }`}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-black/20" />
+              
+              <div className="absolute top-3 left-3">
+                <span className={`px-2.5 py-1 text-[10px] font-oswald font-extrabold uppercase tracking-wider rounded shadow backdrop-blur-md ${
+                  theme === 'nordic' ? 'bg-black text-white font-mono rounded-none' :
+                  theme === 'vintage' ? 'bg-[#c05621] text-white font-serif rounded-md' :
+                  theme === 'roastery' ? 'bg-cyan-500 text-black font-mono rounded-lg' :
+                  theme === 'sunset' ? 'bg-rose-500 text-white font-oswald rounded-full' :
+                  'bg-[#FAEA28] text-slate-950'
+                }`}>
+                  {language === 'en' ? (courseAtmosphereImages[currentCourse.id]?.tagEn || '100% ON-BAR') : (courseAtmosphereImages[currentCourse.id]?.tag || 'THỰC HÀNH TẠI QUẦY')}
+                </span>
+              </div>
+
+              <div className="absolute bottom-3 inset-x-3 text-white flex items-center justify-between gap-3">
+                <p className="text-xs sm:text-sm font-medium text-slate-100 line-clamp-1">
+                  {language === 'en' ? (courseAtmosphereImages[currentCourse.id]?.captionEn || currentCourse.subtitleEn) : (courseAtmosphereImages[currentCourse.id]?.caption || currentCourse.subtitle)}
+                </p>
+                <span className="hidden sm:inline-block text-[10px] uppercase font-oswald font-bold tracking-wider px-2 py-0.5 rounded bg-white/20 backdrop-blur-md text-white shrink-0">
+                  {currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'}
+                </span>
+              </div>
+            </div>
+
+            {/* Highlights / Benefits: Balanced 2x2 Grid */}
+            <div className={`p-5 sm:p-6 space-y-3.5 ${
               theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
               theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-gradient-to-r from-rose-50 to-orange-50' :
               theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#f2ebe0] font-serif' :
               theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] shadow-[0_0_20px_rgba(2,132,199,0.2)] font-mono' :
-              'bg-blue-50/80 dark:bg-slate-800/70 border border-blue-200 dark:border-slate-700 rounded-xl'
+              'bg-blue-50/80 dark:bg-slate-800/70 border border-blue-200 dark:border-slate-700 rounded-2xl'
             }`}>
-              <h3 className={`text-sm sm:text-base font-bold uppercase ${themeAccentText}`}>
-                {t('academy.benefits_title')}
-              </h3>
-              <div className="space-y-2 text-xs text-gray-700 dark:text-gray-200">
+              <div className="flex items-center justify-between border-b pb-2 border-current/15">
+                <h3 className={`text-sm sm:text-base font-bold uppercase ${themeAccentText}`}>
+                  {t('academy.benefits_title')}
+                </h3>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                  {language === 'vi' ? 'Tiêu chuẩn SCA & Dolphy' : 'SCA & Dolphy Standards'}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-700 dark:text-gray-200">
                 {((language === 'en' && currentCourse.uspsEn) ? currentCourse.uspsEn : (currentCourse.usps || currentCourse.outcomes || [])).map((h, i) => (
-                  <div key={i} className="flex items-start gap-2.5">
+                  <div key={i} className="flex items-start gap-2.5 p-2 rounded-lg bg-white/60 dark:bg-slate-900/60 border border-black/5 dark:border-white/5">
                     <CheckCircle2 size={15} className={`shrink-0 mt-0.5 ${themeAccentText}`} />
                     <span className="leading-snug">{h}</span>
                   </div>
@@ -635,7 +943,7 @@ export const Academy: React.FC = () => {
             </div>
 
             {/* Target Audience / Đối Tượng Phù Hợp */}
-            <div className={`p-5 rounded-xl border space-y-3 ${
+            <div className={`p-4 sm:p-5 rounded-2xl border space-y-2.5 ${
               theme === 'nordic' ? 'rounded-none border-zinc-900 bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-700 font-mono' :
               theme === 'vintage' ? 'bg-[#faf6f0] border-[#e6ded1] font-serif' :
               theme === 'roastery' ? 'bg-[#091122] border-cyan-500/30 font-mono' :
@@ -765,8 +1073,8 @@ export const Academy: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            DEDICATED FULL-WIDTH SYLLABUS SECTION: 2-COLUMN BALANCED GRID
-            (Completely eliminates the empty blank space on the right!)
+            DEDICATED FULL-WIDTH SYLLABUS SECTION: 2-COLUMN BALANCED GRID WITH PHOTO COVERS
+            (Completely eliminates blank space & brings authentic visual storytelling!)
             ========================================================================= */}
         <div className="pt-8 border-t border-gray-100 dark:border-slate-800 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
@@ -785,65 +1093,92 @@ export const Academy: React.FC = () => {
             </div>
           </div>
 
-          {/* 2-Column Balanced Syllabus Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {/* 2-Column Balanced Syllabus Grid with Authentic Action Photos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {currentCourse.syllabus.map((session, sIndex) => {
               const sessionEn = (currentCourse.syllabusEn && currentCourse.syllabusEn[sIndex]) ? currentCourse.syllabusEn[sIndex] : null;
               const title = (language === 'en' && sessionEn) ? sessionEn.title : (language === 'en' && session.titleEn ? session.titleEn : session.title);
               const description = (language === 'en' && sessionEn) ? sessionEn.description : (language === 'en' && session.descriptionEn ? session.descriptionEn : session.description);
               const skills = (language === 'en' && sessionEn && sessionEn.practicalSkills) ? sessionEn.practicalSkills : ((language === 'en' && session.practicalSkillsEn) ? session.practicalSkillsEn : (session.practicalSkills || []));
+              const sessionImg = getSessionImage(currentCourse.id, session.session);
 
               return (
                 <div
                   key={session.session}
-                  className={`p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg ${
+                  className={`overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl group ${
                     theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
                     theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-md hover:border-rose-300' :
-                    theme === 'vintage' ? 'rounded-xl border-2 border-[#e6ded1] bg-[#faf6f0] font-serif shadow-xs hover:border-[#1b4d3e]/50' :
-                    theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)] hover:border-cyan-400' :
+                    theme === 'vintage' ? 'rounded-2xl border-2 border-[#e6ded1] bg-[#faf6f0] font-serif shadow-xs hover:border-[#1b4d3e]/50' :
+                    theme === 'roastery' ? 'rounded-2xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)] hover:border-cyan-400' :
                     theme === 'dark' ? 'rounded-2xl border border-slate-800 bg-[#0b1329] shadow-md hover:border-[#38bdf8]/50' :
                     'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:border-blue-400'
                   }`}
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className={`px-2.5 py-0.5 text-xs font-bold font-oswald uppercase tracking-wider rounded ${
-                        theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black font-mono rounded-none' :
-                        theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-full' :
-                        theme === 'vintage' ? 'bg-[#1b4d3e] text-white font-serif rounded-md' :
-                        theme === 'roastery' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/40 rounded-lg' :
-                        theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
-                        'bg-[#2076bd] text-white font-oswald'
-                      }`}>
-                        {language === 'vi' ? `Buổi ${session.session}` : `Session ${session.session}`}
-                      </span>
-                      <span className="text-[11px] text-gray-500 dark:text-gray-400 font-oswald font-medium">
-                        {currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'}
-                      </span>
+                  <div>
+                    {/* Session Photo Cover */}
+                    <div className="relative w-full aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-slate-800">
+                      <img
+                        src={sessionImg}
+                        alt={title}
+                        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+                          theme === 'nordic' ? 'grayscale contrast-125' :
+                          theme === 'vintage' ? 'sepia-[0.2]' : ''
+                        }`}
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-black/30" />
+                      
+                      <div className="absolute top-3 left-3">
+                        <span className={`px-2.5 py-1 text-xs font-bold font-oswald uppercase tracking-wider rounded shadow backdrop-blur-md ${
+                          theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black font-mono rounded-none' :
+                          theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-full' :
+                          theme === 'vintage' ? 'bg-[#1b4d3e] text-white font-serif rounded-md' :
+                          theme === 'roastery' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/40 rounded-lg' :
+                          theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
+                          'bg-[#2076bd] text-white font-oswald'
+                        }`}>
+                          {language === 'vi' ? `Buổi ${session.session}` : `Session ${session.session}`}
+                        </span>
+                      </div>
+
+                      <div className="absolute top-3 right-3">
+                        <span className="text-[11px] font-oswald font-medium px-2.5 py-0.5 rounded-full bg-slate-950/70 backdrop-blur-md text-white border border-white/20">
+                          {currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'}
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-2.5 inset-x-3 text-white">
+                        <p className="text-[11px] uppercase tracking-wider font-oswald font-semibold text-blue-200 dark:text-blue-300 line-clamp-1">
+                          {skills[0] ? `Kỹ năng: ${skills[0]}` : title}
+                        </p>
+                      </div>
                     </div>
 
-                    <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white leading-snug ${
-                      theme === 'vintage' ? 'font-serif' : 'font-oswald'
-                    }`}>
-                      {title}
-                    </h4>
+                    {/* Card Body */}
+                    <div className="p-5 sm:p-6 space-y-3">
+                      <h4 className={`text-base sm:text-lg font-bold uppercase text-[#222222] dark:text-white leading-snug ${
+                        theme === 'vintage' ? 'font-serif' : 'font-oswald'
+                      }`}>
+                        {title}
+                      </h4>
 
-                    <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {description}
-                    </p>
-                  </div>
+                      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                        {description}
+                      </p>
 
-                  <div className="pt-3 mt-4 border-t border-gray-100 dark:border-slate-800/80 space-y-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block">
-                      {language === 'vi' ? 'Kỹ năng thực hành trọng tâm:' : 'Key Practical Focus:'}
-                    </span>
-                    <div className="space-y-1 text-xs text-gray-700 dark:text-gray-300">
-                      {skills.map((skill, si) => (
-                        <div key={si} className="flex items-start gap-2">
-                          <CheckCircle2 size={13} className={`shrink-0 mt-0.5 ${themeAccentText}`} />
-                          <span className="leading-snug">{skill}</span>
+                      <div className="pt-3 border-t border-gray-100 dark:border-slate-800/80 space-y-1.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block">
+                          {language === 'vi' ? 'Kỹ năng thực hành trọng tâm:' : 'Key Practical Focus:'}
+                        </span>
+                        <div className="space-y-1 text-xs text-gray-700 dark:text-gray-300">
+                          {skills.map((skill, si) => (
+                            <div key={si} className="flex items-start gap-2">
+                              <CheckCircle2 size={14} className={`shrink-0 mt-0.5 ${themeAccentText}`} />
+                              <span className="leading-snug">{skill}</span>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      </div>
                     </div>
                   </div>
                 </div>
