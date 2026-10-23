@@ -406,71 +406,46 @@ export const Academy: React.FC = () => {
                   }`}
                 >
                   <div>
-                    {/* Poster Image Container */}
+                    {/* Poster Image Container - Clean Artwork, No Covering Stickers */}
                     <div className="relative aspect-[4/5] overflow-hidden bg-slate-950">
                       <img
                         src={trainer.image}
                         alt={`${name} - ${role}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
                       />
-                      
-                      {/* Dark gradient for text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-
-                      {/* Top Tag: Badge */}
-                      <div className="absolute top-3 left-3">
-                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-md ${
-                          theme === 'nordic' ? 'bg-black text-white font-mono' :
-                          theme === 'vintage' ? 'bg-[#1b4d3e] text-white font-serif' :
-                          theme === 'roastery' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/60 font-mono' :
-                          theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald' :
-                          theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
-                          'bg-[#2076bd] text-white font-oswald'
-                        }`}>
-                          {badge}
-                        </span>
-                      </div>
-
-                      {/* Bottom Experience Badge & Action hint */}
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95">
-                        <span className="font-semibold bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
-                          {experience}
-                        </span>
-                        <span className="text-[10px] uppercase tracking-wider text-blue-200 dark:text-cyan-300 font-bold group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                          Profile →
-                        </span>
-                      </div>
                     </div>
 
                     {/* Body Content */}
-                    <div className="p-4 space-y-2.5">
-                      <div>
-                        <h3 className={`text-lg font-bold uppercase tracking-wide leading-tight ${
-                          theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
-                          theme === 'sunset' ? 'font-oswald text-rose-600' :
-                          theme === 'roastery' ? 'font-mono text-cyan-300' :
-                          theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                          theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
-                          'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                    <div className="p-4 space-y-2">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className={`font-bold uppercase tracking-wider ${
+                          theme === 'dark' ? 'text-[#38bdf8]' :
+                          theme === 'roastery' ? 'text-cyan-400' :
+                          theme === 'vintage' ? 'text-[#1b4d3e]' :
+                          theme === 'sunset' ? 'text-rose-600' :
+                          'text-[#2076bd] dark:text-[#3ba0e6]'
                         }`}>
-                          {name}
-                        </h3>
-                        <p className="text-xs text-gray-600 dark:text-gray-300 font-medium line-clamp-1 mt-0.5">
-                          {role}
-                        </p>
+                          {badge}
+                        </span>
+                        <span className="text-gray-400 text-[11px] font-medium">
+                          {experience}
+                        </span>
                       </div>
 
-                      {/* Key Specialties Pills */}
-                      <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100 dark:border-slate-800">
-                        {specialties.slice(0, 3).map((spec, sidx) => (
-                          <span
-                            key={sidx}
-                            className="inline-block text-[10.5px] px-2 py-0.5 rounded bg-gray-100 dark:bg-slate-800/90 text-gray-700 dark:text-gray-300 font-medium"
-                          >
-                            {spec}
-                          </span>
-                        ))}
-                      </div>
+                      <h3 className={`text-lg font-bold uppercase tracking-wide leading-tight ${
+                        theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                        theme === 'sunset' ? 'font-oswald text-rose-600' :
+                        theme === 'roastery' ? 'font-mono text-cyan-300' :
+                        theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                        theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
+                        'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                      }`}>
+                        {name}
+                      </h3>
+
+                      <p className="text-xs text-gray-600 dark:text-gray-300 font-medium line-clamp-1">
+                        {role}
+                      </p>
                     </div>
                   </div>
 
@@ -481,7 +456,7 @@ export const Academy: React.FC = () => {
                         e.stopPropagation();
                         handleOpenTrainer(trainer);
                       }}
-                      className={`w-full py-2 px-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all rounded-lg ${
+                      className={`w-full py-2 px-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all rounded-lg cursor-pointer ${
                         theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
                         theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100' :
                         theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white' :
@@ -793,55 +768,6 @@ export const Academy: React.FC = () => {
                 ))}
               </div>
             </div>
-
-            {/* Lead Instructors for this specific Course */}
-            {courseTrainers.length > 0 && (
-              <div className={`p-4 rounded-xl border transition-colors ${
-                theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-zinc-50 dark:bg-zinc-950 font-mono' :
-                theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-rose-50/50' :
-                theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#f7f2ea] font-serif' :
-                theme === 'roastery' ? 'rounded-xl border border-cyan-500/30 bg-[#070d1c] font-mono' :
-                'bg-slate-50 dark:bg-slate-800/50 border-gray-200 dark:border-slate-700'
-              }`}>
-                <div className="flex items-center justify-between mb-3 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  <span className="flex items-center gap-1.5">
-                    <Award size={15} className={themeAccentText} />
-                    <span>{language === 'vi' ? 'Giảng viên trực tiếp phụ trách khóa học này:' : 'Lead Faculty for this course:'}</span>
-                  </span>
-                  <span className={`text-[11px] font-semibold ${themeAccentText}`}>
-                    {courseTrainers.length} {language === 'vi' ? 'chuyên gia' : 'trainers'}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {courseTrainers.map((tr) => (
-                    <button
-                      key={tr.id}
-                      onClick={() => handleOpenTrainer(tr)}
-                      className="flex items-center gap-3 p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-cyan-400 transition-all text-left group shadow-xs cursor-pointer"
-                    >
-                      <img
-                        src={tr.image}
-                        alt={tr.name}
-                        className="w-12 h-12 rounded-lg object-cover shrink-0 border border-gray-200 dark:border-slate-700 group-hover:scale-105 transition-transform"
-                      />
-                      <div className="min-w-0 flex-1">
-                        <div className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#38bdf8] truncate flex items-center justify-between">
-                          <span>{language === 'en' && tr.nameEn ? tr.nameEn : tr.name}</span>
-                          <span className="text-[10px] text-gray-400 group-hover:translate-x-0.5 transition-transform">→</span>
-                        </div>
-                        <div className="text-[10px] font-semibold text-[#2076bd] dark:text-[#38bdf8] truncate">
-                          {language === 'en' && tr.badgeEn ? tr.badgeEn : tr.badge}
-                        </div>
-                        <div className="text-[10px] text-gray-500 dark:text-gray-400 truncate">
-                          {language === 'en' && tr.experienceEn ? tr.experienceEn : tr.experience}
-                        </div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* Syllabus breakdown */}
             <div className="space-y-4">
