@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
-import { GraduationCap, CheckCircle2, Clock, MapPin, Award, Users, Gift, ChevronDown, ChevronUp, QrCode, ArrowRight, Sparkles } from 'lucide-react';
+import { GraduationCap, CheckCircle2, Clock, MapPin, Award, Users, Gift, ChevronDown, ChevronUp, QrCode, ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
 import { coursesData, brandInfo, trainersData } from '../data/dolphyData';
 import { Trainer, Course } from '../types';
 import { useDolphy } from '../context/DolphyContext';
@@ -50,6 +50,7 @@ export const Academy: React.FC = () => {
   };
 
   const currentCourse = coursesData.find(c => c.id === activeCourseId) || coursesData[0];
+  const courseTrainers = trainersData.filter(t => t.coursesTeaching.includes(currentCourse.id));
 
   const themeAccentText = 
     theme === 'vintage' ? 'text-[#1b4d3e]' :
@@ -329,7 +330,7 @@ export const Academy: React.FC = () => {
               </span>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
               <button
                 onClick={() => setEnrollingCourse(currentCourse)}
                 className="dolphy-btn dolphy-btn-amber px-8 py-3.5 text-sm font-semibold shadow-xl hover-lift rounded"
@@ -337,14 +338,171 @@ export const Academy: React.FC = () => {
                 <GraduationCap size={18} className="mr-2" />
                 <span>{t('academy.reserve_cta')}</span>
               </button>
+              <a
+                href="#trainers-section"
+                className="px-6 py-3.5 rounded bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 text-xs font-oswald uppercase tracking-wider font-bold transition-all flex items-center gap-1.5"
+              >
+                <span>{language === 'vi' ? 'Gặp Gỡ Giảng Viên & Lộ Trình ↓' : 'Faculty & Courses ↓'}</span>
+              </a>
             </div>
 
           </div>
         </section>
       )}
 
-      {/* 2. COURSE SELECTOR TABS & CARDS - Dynamic Layout Transformation */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 2. MASTER TRAINERS & GRAND FINAL JUDGES - ESTABLISH AUTHORITY & TRUST FIRST */}
+      <section id="trainers-section" className={`py-12 sm:py-16 border-b transition-colors select-none ${
+        theme === 'nordic' ? 'bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800' :
+        theme === 'vintage' ? 'bg-[#f7f2ea] border-[#e6ded1]' :
+        theme === 'roastery' ? 'bg-[#060a14] border-cyan-500/20' :
+        theme === 'sunset' ? 'bg-gradient-to-b from-[#fff1f2]/50 via-white to-transparent border-rose-100' :
+        theme === 'dark' ? 'bg-[#0b1329]/70 border-slate-800' :
+        'bg-slate-50/80 dark:bg-slate-900/50 border-gray-100 dark:border-slate-800'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="text-center space-y-3 reveal-on-scroll">
+            <div>
+              <span className={`inline-block text-xs uppercase tracking-widest font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
+                {t('academy.trainers_tag')}
+              </span>
+            </div>
+            <div>
+              <h2 className="section-title">
+                {t('academy.trainers_title')}
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              {t('academy.trainers_sub')}
+            </p>
+          </div>
+
+          {/* 4 Trainers Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
+            {trainersData.map((trainer) => {
+              const name = language === 'en' && trainer.nameEn ? trainer.nameEn : trainer.name;
+              const role = language === 'en' && trainer.roleEn ? trainer.roleEn : trainer.role;
+              const badge = language === 'en' && trainer.badgeEn ? trainer.badgeEn : trainer.badge;
+              const experience = language === 'en' && trainer.experienceEn ? trainer.experienceEn : trainer.experience;
+              const specialties = (language === 'en' && trainer.specialtiesEn) ? trainer.specialtiesEn : trainer.specialties;
+
+              return (
+                <div
+                  key={trainer.id}
+                  onClick={() => handleOpenTrainer(trainer)}
+                  className={`group cursor-pointer overflow-hidden transition-all duration-300 flex flex-col justify-between hover-lift ${
+                    theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+                    theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+                    theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+                    theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+                    theme === 'dark' ? 'rounded-2xl border border-slate-800 bg-[#0b1329] shadow-lg hover:border-[#38bdf8]/50' :
+                    'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-xl hover:border-blue-400'
+                  }`}
+                >
+                  <div>
+                    {/* Poster Image Container */}
+                    <div className="relative aspect-[4/5] overflow-hidden bg-slate-950">
+                      <img
+                        src={trainer.image}
+                        alt={`${name} - ${role}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      
+                      {/* Dark gradient for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+
+                      {/* Top Tag: Badge */}
+                      <div className="absolute top-3 left-3">
+                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-md ${
+                          theme === 'nordic' ? 'bg-black text-white font-mono' :
+                          theme === 'vintage' ? 'bg-[#1b4d3e] text-white font-serif' :
+                          theme === 'roastery' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/60 font-mono' :
+                          theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald' :
+                          theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
+                          'bg-[#2076bd] text-white font-oswald'
+                        }`}>
+                          {badge}
+                        </span>
+                      </div>
+
+                      {/* Bottom Experience Badge & Action hint */}
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95">
+                        <span className="font-semibold bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                          {experience}
+                        </span>
+                        <span className="text-[10px] uppercase tracking-wider text-blue-200 dark:text-cyan-300 font-bold group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                          Profile →
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Body Content */}
+                    <div className="p-4 space-y-2.5">
+                      <div>
+                        <h3 className={`text-lg font-bold uppercase tracking-wide leading-tight ${
+                          theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                          theme === 'sunset' ? 'font-oswald text-rose-600' :
+                          theme === 'roastery' ? 'font-mono text-cyan-300' :
+                          theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                          theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
+                          'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                        }`}>
+                          {name}
+                        </h3>
+                        <p className="text-xs text-gray-600 dark:text-gray-300 font-medium line-clamp-1 mt-0.5">
+                          {role}
+                        </p>
+                      </div>
+
+                      {/* Key Specialties Pills */}
+                      <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100 dark:border-slate-800">
+                        {specialties.slice(0, 3).map((spec, sidx) => (
+                          <span
+                            key={sidx}
+                            className="inline-block text-[10.5px] px-2 py-0.5 rounded bg-gray-100 dark:bg-slate-800/90 text-gray-700 dark:text-gray-300 font-medium"
+                          >
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Footer Action Button */}
+                  <div className="p-4 pt-0">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleOpenTrainer(trainer);
+                      }}
+                      className={`w-full py-2 px-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all rounded-lg ${
+                        theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
+                        theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100' :
+                        theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white' :
+                        theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500 hover:text-black' :
+                        theme === 'dark' ? 'bg-blue-950/60 text-[#38bdf8] border border-blue-500/30 hover:bg-[#38bdf8] hover:text-slate-950' :
+                        'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] hover:bg-[#2076bd] hover:text-white'
+                      }`}
+                    >
+                      <span>{t('academy.view_profile')}</span>
+                      <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. COURSE SELECTOR TABS & CARDS - Dynamic Layout Transformation */}
+      <section id="courses-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs font-oswald uppercase tracking-wider px-1">
             <span className={`font-bold flex items-center gap-1.5 ${
@@ -636,6 +794,55 @@ export const Academy: React.FC = () => {
               </div>
             </div>
 
+            {/* Lead Instructors for this specific Course */}
+            {courseTrainers.length > 0 && (
+              <div className={`p-4 rounded-xl border transition-colors ${
+                theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-zinc-50 dark:bg-zinc-950 font-mono' :
+                theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-rose-50/50' :
+                theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#f7f2ea] font-serif' :
+                theme === 'roastery' ? 'rounded-xl border border-cyan-500/30 bg-[#070d1c] font-mono' :
+                'bg-slate-50 dark:bg-slate-800/50 border-gray-200 dark:border-slate-700'
+              }`}>
+                <div className="flex items-center justify-between mb-3 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                  <span className="flex items-center gap-1.5">
+                    <Award size={15} className={themeAccentText} />
+                    <span>{language === 'vi' ? 'Giảng viên trực tiếp phụ trách khóa học này:' : 'Lead Faculty for this course:'}</span>
+                  </span>
+                  <span className={`text-[11px] font-semibold ${themeAccentText}`}>
+                    {courseTrainers.length} {language === 'vi' ? 'chuyên gia' : 'trainers'}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {courseTrainers.map((tr) => (
+                    <button
+                      key={tr.id}
+                      onClick={() => handleOpenTrainer(tr)}
+                      className="flex items-center gap-3 p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-cyan-400 transition-all text-left group shadow-xs cursor-pointer"
+                    >
+                      <img
+                        src={tr.image}
+                        alt={tr.name}
+                        className="w-12 h-12 rounded-lg object-cover shrink-0 border border-gray-200 dark:border-slate-700 group-hover:scale-105 transition-transform"
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-[#2076bd] dark:group-hover:text-[#38bdf8] truncate flex items-center justify-between">
+                          <span>{language === 'en' && tr.nameEn ? tr.nameEn : tr.name}</span>
+                          <span className="text-[10px] text-gray-400 group-hover:translate-x-0.5 transition-transform">→</span>
+                        </div>
+                        <div className="text-[10px] font-semibold text-[#2076bd] dark:text-[#38bdf8] truncate">
+                          {language === 'en' && tr.badgeEn ? tr.badgeEn : tr.badge}
+                        </div>
+                        <div className="text-[10px] text-gray-500 dark:text-gray-400 truncate">
+                          {language === 'en' && tr.experienceEn ? tr.experienceEn : tr.experience}
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Syllabus breakdown */}
             <div className="space-y-4">
               <h3 className={`text-xl font-bold uppercase text-[#222222] dark:text-white ${
@@ -764,6 +971,34 @@ export const Academy: React.FC = () => {
                 <p>{language === 'vi' ? 'Tặng kèm 1 áo Barista Dolphy + 1kg hạt Specialty tự luyện tập.' : 'Includes 1 Barista apron + 1kg specialty coffee for home training.'}</p>
               </div>
 
+              {/* Training Guarantees & Quality Commitment */}
+              <div className={`p-3 text-xs space-y-2 border ${
+                theme === 'nordic' ? 'rounded-none bg-zinc-50 dark:bg-zinc-900 border-zinc-900' :
+                theme === 'sunset' ? 'rounded-2xl bg-orange-50/60 border-orange-200' :
+                theme === 'vintage' ? 'rounded bg-[#f7f2ea] border-[#e6ded1]' :
+                theme === 'roastery' ? 'rounded-lg bg-cyan-950/40 border-cyan-500/20 text-slate-300' :
+                'rounded-lg bg-gray-50 dark:bg-slate-800/80 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300'
+              }`}>
+                <p className={`font-bold flex items-center gap-1.5 ${themeAccentText}`}>
+                  <ShieldCheck size={14} className={themeAccentText} />
+                  <span>{language === 'vi' ? 'Cam kết chất lượng đào tạo Dolphy:' : 'Dolphy Training Commitment:'}</span>
+                </p>
+                <div className="space-y-1.5 text-[11px]">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                    <span>{language === 'vi' ? 'Thực hành 100% trên máy pha đa group' : '100% hands-on multi-group machine practice'}</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                    <span>{language === 'vi' ? 'Ưu tiên tuyển dụng ngay vào 10 chi nhánh' : 'Direct hiring priority across 10 chain stores'}</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                    <span>{language === 'vi' ? 'Hỗ trợ học bù & bảo lưu lịch học miễn phí' : 'Free schedule rescheduling & cohort pausing'}</span>
+                  </div>
+                </div>
+              </div>
+
               <button
                 onClick={() => setEnrollingCourse(currentCourse)}
                 className={`w-full py-3.5 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow flex items-center justify-center gap-2 hover-lift ${
@@ -787,153 +1022,7 @@ export const Academy: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. MASTER TRAINERS & GRAND FINAL JUDGES */}
-      <section id="trainers-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center space-y-3 reveal-on-scroll">
-          <div>
-            <span className={`inline-block text-xs uppercase tracking-widest font-bold ${
-              theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
-              theme === 'sunset' ? 'font-oswald text-rose-600' :
-              theme === 'roastery' ? 'font-mono text-cyan-400' :
-              theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-              theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
-              'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
-            }`}>
-              {t('academy.trainers_tag')}
-            </span>
-          </div>
-          <div>
-            <h2 className="section-title">
-              {t('academy.trainers_title')}
-            </h2>
-          </div>
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            {t('academy.trainers_sub')}
-          </p>
-        </div>
-
-        {/* 4 Trainers Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
-          {trainersData.map((trainer) => {
-            const name = language === 'en' && trainer.nameEn ? trainer.nameEn : trainer.name;
-            const role = language === 'en' && trainer.roleEn ? trainer.roleEn : trainer.role;
-            const badge = language === 'en' && trainer.badgeEn ? trainer.badgeEn : trainer.badge;
-            const experience = language === 'en' && trainer.experienceEn ? trainer.experienceEn : trainer.experience;
-            const specialties = (language === 'en' && trainer.specialtiesEn) ? trainer.specialtiesEn : trainer.specialties;
-
-            return (
-              <div
-                key={trainer.id}
-                onClick={() => handleOpenTrainer(trainer)}
-                className={`group cursor-pointer overflow-hidden transition-all duration-300 flex flex-col justify-between hover-lift ${
-                  theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
-                  theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
-                  theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
-                  theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
-                  theme === 'dark' ? 'rounded-2xl border border-slate-800 bg-[#0b1329] shadow-lg hover:border-[#38bdf8]/50' :
-                  'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-xl hover:border-blue-400'
-                }`}
-              >
-                <div>
-                  {/* Poster Image Container */}
-                  <div className="relative aspect-[4/5] overflow-hidden bg-slate-950">
-                    <img
-                      src={trainer.image}
-                      alt={`${name} - ${role}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    
-                    {/* Dark gradient for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-
-                    {/* Top Tag: Badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-md ${
-                        theme === 'nordic' ? 'bg-black text-white font-mono' :
-                        theme === 'vintage' ? 'bg-[#1b4d3e] text-white font-serif' :
-                        theme === 'roastery' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/60 font-mono' :
-                        theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-[#ff7a00] text-white font-oswald' :
-                        theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
-                        'bg-[#2076bd] text-white font-oswald'
-                      }`}>
-                        {badge}
-                      </span>
-                    </div>
-
-                    {/* Bottom Experience Badge & Action hint */}
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95">
-                      <span className="font-semibold bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
-                        {experience}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-wider text-blue-200 dark:text-cyan-300 font-bold group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                        Profile →
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-4 space-y-2.5">
-                    <div>
-                      <h3 className={`text-lg font-bold uppercase tracking-wide leading-tight ${
-                        theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
-                        theme === 'sunset' ? 'font-oswald text-rose-600' :
-                        theme === 'roastery' ? 'font-mono text-cyan-300' :
-                        theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                        theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
-                        'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
-                      }`}>
-                        {name}
-                      </h3>
-                      <p className="text-xs text-gray-600 dark:text-gray-300 font-medium line-clamp-1 mt-0.5">
-                        {role}
-                      </p>
-                    </div>
-
-                    {/* 2 Key Specialties */}
-                    <div className="space-y-1 pt-1.5 border-t border-gray-100 dark:border-slate-800 text-[11px] text-gray-500 dark:text-gray-400">
-                      {specialties.slice(0, 2).map((s, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5 truncate">
-                          <CheckCircle2 size={12} className={`shrink-0 ${
-                            theme === 'dark' ? 'text-[#38bdf8]' :
-                            theme === 'roastery' ? 'text-cyan-400' :
-                            theme === 'sunset' ? 'text-rose-500' :
-                            theme === 'vintage' ? 'text-[#1b4d3e]' :
-                            'text-[#2076bd] dark:text-[#3ba0e6]'
-                          }`} />
-                          <span className="truncate">{s}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer Action Button */}
-                <div className="p-4 pt-0">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleOpenTrainer(trainer);
-                    }}
-                    className={`w-full py-2 px-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all rounded-lg ${
-                      theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
-                      theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100' :
-                      theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white' :
-                      theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500 hover:text-black' :
-                      theme === 'dark' ? 'bg-blue-950/60 text-[#38bdf8] border border-blue-500/30 hover:bg-[#38bdf8] hover:text-slate-950' :
-                      'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] hover:bg-[#2076bd] hover:text-white'
-                    }`}
-                  >
-                    <span>{t('academy.view_profile')}</span>
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 5. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
+      {/* 4. REAL PHOTO SHOWCASE - BLUE DOLPHINS CHAMPIONSHIP & TRAINING */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-3 reveal-on-scroll">
           <div>
