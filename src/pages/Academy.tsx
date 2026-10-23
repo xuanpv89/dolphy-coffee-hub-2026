@@ -339,10 +339,10 @@ export const Academy: React.FC = () => {
                 <span>{t('academy.reserve_cta')}</span>
               </button>
               <a
-                href="#trainers-section"
+                href="#courses-section"
                 className="px-6 py-3.5 rounded bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 text-xs font-oswald uppercase tracking-wider font-bold transition-all flex items-center gap-1.5"
               >
-                <span>{language === 'vi' ? 'Gặp Gỡ Giảng Viên & Lộ Trình ↓' : 'Faculty & Courses ↓'}</span>
+                <span>{language === 'vi' ? 'Xem Chương Trình & Giáo Trình ↓' : 'Curriculum & Courses ↓'}</span>
               </a>
             </div>
 
@@ -350,134 +350,10 @@ export const Academy: React.FC = () => {
         </section>
       )}
 
-      {/* 2. MASTER TRAINERS & GRAND FINAL JUDGES - ESTABLISH AUTHORITY & TRUST FIRST */}
-      <section id="trainers-section" className={`py-12 sm:py-16 border-b transition-colors select-none ${
-        theme === 'nordic' ? 'bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800' :
-        theme === 'vintage' ? 'bg-[#f7f2ea] border-[#e6ded1]' :
-        theme === 'roastery' ? 'bg-[#060a14] border-cyan-500/20' :
-        theme === 'sunset' ? 'bg-gradient-to-b from-[#fff1f2]/50 via-white to-transparent border-rose-100' :
-        theme === 'dark' ? 'bg-[#0b1329]/70 border-slate-800' :
-        'bg-slate-50/80 dark:bg-slate-900/50 border-gray-100 dark:border-slate-800'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="text-center space-y-3 reveal-on-scroll">
-            <div>
-              <span className={`inline-block text-xs uppercase tracking-widest font-bold ${
-                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
-                theme === 'sunset' ? 'font-oswald text-rose-600' :
-                theme === 'roastery' ? 'font-mono text-cyan-400' :
-                theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
-                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
-              }`}>
-                {t('academy.trainers_tag')}
-              </span>
-            </div>
-            <div>
-              <h2 className="section-title">
-                {t('academy.trainers_title')}
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              {t('academy.trainers_sub')}
-            </p>
-          </div>
-
-          {/* 4 Trainers Responsive Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
-            {trainersData.map((trainer) => {
-              const name = language === 'en' && trainer.nameEn ? trainer.nameEn : trainer.name;
-              const role = language === 'en' && trainer.roleEn ? trainer.roleEn : trainer.role;
-              const badge = language === 'en' && trainer.badgeEn ? trainer.badgeEn : trainer.badge;
-              const experience = language === 'en' && trainer.experienceEn ? trainer.experienceEn : trainer.experience;
-              const specialties = (language === 'en' && trainer.specialtiesEn) ? trainer.specialtiesEn : trainer.specialties;
-
-              return (
-                <div
-                  key={trainer.id}
-                  onClick={() => handleOpenTrainer(trainer)}
-                  className={`group cursor-pointer overflow-hidden transition-all duration-300 flex flex-col justify-between hover-lift ${
-                    theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
-                    theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
-                    theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
-                    theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
-                    theme === 'dark' ? 'rounded-2xl border border-slate-800 bg-[#0b1329] shadow-lg hover:border-[#38bdf8]/50' :
-                    'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-xl hover:border-blue-400'
-                  }`}
-                >
-                  <div>
-                    {/* Poster Image Container - Clean Artwork, No Covering Stickers */}
-                    <div className="relative aspect-[4/5] overflow-hidden bg-slate-950">
-                      <img
-                        src={trainer.image}
-                        alt={`${name} - ${role}`}
-                        className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                      />
-                    </div>
-
-                    {/* Body Content */}
-                    <div className="p-4 space-y-2">
-                      <div className="flex items-center justify-between text-[11px]">
-                        <span className={`font-bold uppercase tracking-wider ${
-                          theme === 'dark' ? 'text-[#38bdf8]' :
-                          theme === 'roastery' ? 'text-cyan-400' :
-                          theme === 'vintage' ? 'text-[#1b4d3e]' :
-                          theme === 'sunset' ? 'text-rose-600' :
-                          'text-[#2076bd] dark:text-[#3ba0e6]'
-                        }`}>
-                          {badge}
-                        </span>
-                        <span className="text-gray-400 text-[11px] font-medium">
-                          {experience}
-                        </span>
-                      </div>
-
-                      <h3 className={`text-lg font-bold uppercase tracking-wide leading-tight ${
-                        theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
-                        theme === 'sunset' ? 'font-oswald text-rose-600' :
-                        theme === 'roastery' ? 'font-mono text-cyan-300' :
-                        theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                        theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
-                        'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
-                      }`}>
-                        {name}
-                      </h3>
-
-                      <p className="text-xs text-gray-600 dark:text-gray-300 font-medium line-clamp-1">
-                        {role}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Footer Action Button */}
-                  <div className="p-4 pt-0">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleOpenTrainer(trainer);
-                      }}
-                      className={`w-full py-2 px-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all rounded-lg cursor-pointer ${
-                        theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
-                        theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100' :
-                        theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white' :
-                        theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500 hover:text-black' :
-                        theme === 'dark' ? 'bg-blue-950/60 text-[#38bdf8] border border-blue-500/30 hover:bg-[#38bdf8] hover:text-slate-950' :
-                        'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] hover:bg-[#2076bd] hover:text-white'
-                      }`}
-                    >
-                      <span>{t('academy.view_profile')}</span>
-                      <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. COURSE SELECTOR TABS & CARDS - Dynamic Layout Transformation */}
-      <section id="courses-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* =========================================================================
+          2. COURSE PROGRAMS & FULL CURRICULUM (COURSES FIRST)
+          ========================================================================= */}
+      <section id="courses-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs font-oswald uppercase tracking-wider px-1">
             <span className={`font-bold flex items-center gap-1.5 ${
@@ -696,15 +572,16 @@ export const Academy: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. ACTIVE COURSE DETAILS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      {/* 2B. ACTIVE COURSE EXECUTIVE DETAILS & PRICING */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Top Block: Balanced 2-Column Overview */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Main Info */}
-          <div className="lg:col-span-8 space-y-8 reveal-left">
+          {/* Left Column: Course Intro, Benefits & Target Students (lg:col-span-7) */}
+          <div className="lg:col-span-7 space-y-6 reveal-left">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className={`font-extrabold text-[10px] uppercase tracking-wider px-2 py-0.5 shadow ${
+                <span className={`font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-0.5 shadow-sm ${
                   theme === 'nordic' ? 'rounded-none bg-black text-white font-mono' :
                   theme === 'sunset' ? 'rounded-full bg-rose-500 text-white font-oswald' :
                   theme === 'vintage' ? 'rounded-md bg-[#1b4d3e] text-white font-serif' :
@@ -717,7 +594,8 @@ export const Academy: React.FC = () => {
                   {t('academy.duration')}: {language === 'en' && currentCourse.durationEn ? currentCourse.durationEn : currentCourse.duration}
                 </span>
               </div>
-              <h2 className={`text-2xl sm:text-3xl font-bold uppercase ${
+
+              <h2 className={`text-2xl sm:text-3xl font-bold uppercase tracking-tight ${
                 theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
                 theme === 'sunset' ? 'font-oswald text-rose-600' :
                 theme === 'roastery' ? 'font-oswald text-cyan-300' :
@@ -727,6 +605,7 @@ export const Academy: React.FC = () => {
               }`}>
                 {language === 'en' && currentCourse.titleEn ? currentCourse.titleEn : currentCourse.title}
               </h2>
+
               <p className={`text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed ${
                 theme === 'vintage' ? 'font-serif italic' : ''
               }`}>
@@ -734,124 +613,62 @@ export const Academy: React.FC = () => {
               </p>
             </div>
 
-            {/* Highlights */}
-            <div className={`p-6 space-y-3 ${
+            {/* Highlights / Benefits */}
+            <div className={`p-6 space-y-3.5 ${
               theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
               theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-gradient-to-r from-rose-50 to-orange-50' :
               theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#f2ebe0] font-serif' :
               theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] shadow-[0_0_20px_rgba(2,132,199,0.2)] font-mono' :
-              'bg-blue-50 dark:bg-slate-800/70 border border-blue-200 dark:border-slate-700 rounded-lg'
+              'bg-blue-50/80 dark:bg-slate-800/70 border border-blue-200 dark:border-slate-700 rounded-xl'
             }`}>
-              <h3 className={`text-base font-bold uppercase ${
-                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
-                theme === 'sunset' ? 'font-oswald text-rose-600' :
-                theme === 'roastery' ? 'font-mono text-cyan-300' :
-                theme === 'nordic' ? 'font-mono text-black dark:text-white' :
-                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
-                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
-              }`}>
+              <h3 className={`text-sm sm:text-base font-bold uppercase ${themeAccentText}`}>
                 {t('academy.benefits_title')}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-700 dark:text-gray-200">
+              <div className="space-y-2 text-xs text-gray-700 dark:text-gray-200">
                 {((language === 'en' && currentCourse.uspsEn) ? currentCourse.uspsEn : (currentCourse.usps || currentCourse.outcomes || [])).map((h, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <CheckCircle2 size={15} className={`shrink-0 ${
-                      theme === 'vintage' ? 'text-[#1b4d3e]' :
-                      theme === 'sunset' ? 'text-rose-600' :
-                      theme === 'roastery' ? 'text-cyan-400' :
-                      theme === 'nordic' ? 'text-black dark:text-white' :
-                      theme === 'dark' ? 'text-[#38bdf8]' :
-                      'text-[#2076bd] dark:text-[#3ba0e6]'
-                    }`} />
-                    <span>{h}</span>
+                  <div key={i} className="flex items-start gap-2.5">
+                    <CheckCircle2 size={15} className={`shrink-0 mt-0.5 ${themeAccentText}`} />
+                    <span className="leading-snug">{h}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Syllabus breakdown */}
-            <div className="space-y-4">
-              <h3 className={`text-xl font-bold uppercase text-[#222222] dark:text-white ${
-                theme === 'vintage' ? 'font-serif' : 'font-oswald'
-              }`}>
-                {t('academy.curriculum')}
-              </h3>
-              
-              <div className="space-y-3">
-                {currentCourse.syllabus.map((session, sIndex) => {
-                  const isOpen = openSyllabusSession === session.session;
-                  const sessionEn = (currentCourse.syllabusEn && currentCourse.syllabusEn[sIndex]) ? currentCourse.syllabusEn[sIndex] : null;
-                  const title = (language === 'en' && sessionEn) ? sessionEn.title : (language === 'en' && session.titleEn ? session.titleEn : session.title);
-                  const description = (language === 'en' && sessionEn) ? sessionEn.description : (language === 'en' && session.descriptionEn ? session.descriptionEn : session.description);
-                  const skills = (language === 'en' && sessionEn && sessionEn.practicalSkills) ? sessionEn.practicalSkills : ((language === 'en' && session.practicalSkillsEn) ? session.practicalSkillsEn : (session.practicalSkills || []));
-
-                  return (
-                    <div
-                      key={session.session}
-                      className={`overflow-hidden shadow-sm transition-all ${
-                        theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
-                        theme === 'sunset' ? 'rounded-2xl border border-rose-100 bg-white shadow-md' :
-                        theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
-                        theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono' :
-                        'border border-gray-200 dark:border-slate-800 rounded-lg bg-white dark:bg-[#1e293b]'
-                      }`}
-                    >
-                      <button
-                        onClick={() => setOpenSyllabusSession(isOpen ? null : session.session)}
-                        className="w-full p-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className={`w-8 h-8 text-xs font-bold flex items-center justify-center ${
-                            theme === 'nordic' ? 'rounded-none bg-black text-white font-mono' :
-                            theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-orange-500 text-white' :
-                            theme === 'vintage' ? 'rounded bg-[#1b4d3e] text-white font-serif' :
-                            theme === 'roastery' ? 'rounded-md bg-cyan-950 text-cyan-400 border border-cyan-500/40' :
-                            'rounded bg-[#2076bd] text-white font-oswald'
-                          }`}>
-                            #{session.session}
-                          </span>
-                          <div>
-                            <h4 className={`text-sm font-bold uppercase text-[#222222] dark:text-white ${
-                              theme === 'vintage' ? 'font-serif' : 'font-oswald'
-                            }`}>
-                              {title}
-                            </h4>
-                            <span className="text-[11px] text-gray-400 dark:text-gray-500 font-oswald">{currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'}</span>
-                          </div>
-                        </div>
-                        {isOpen ? <ChevronUp size={18} className="text-gray-400" /> : <ChevronDown size={18} className="text-gray-400" />}
-                      </button>
-
-                      {isOpen && (
-                        <div className="p-4 pt-1 border-t border-gray-100 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-900/40 space-y-2 text-xs text-gray-600 dark:text-gray-300">
-                          <p className="font-medium text-gray-700 dark:text-gray-200">{description}</p>
-                          <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300 pl-2">
-                            {skills.map((skill, si) => (
-                              <li key={si}>{skill}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+            {/* Target Audience / Đối Tượng Phù Hợp */}
+            <div className={`p-5 rounded-xl border space-y-3 ${
+              theme === 'nordic' ? 'rounded-none border-zinc-900 bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-700 font-mono' :
+              theme === 'vintage' ? 'bg-[#faf6f0] border-[#e6ded1] font-serif' :
+              theme === 'roastery' ? 'bg-[#091122] border-cyan-500/30 font-mono' :
+              'bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-800'
+            }`}>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block">
+                {language === 'vi' ? 'Đối tượng học viên phù hợp:' : 'Target Audience:'}
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-600 dark:text-gray-300">
+                {((language === 'en' && currentCourse.targetAudienceEn) ? currentCourse.targetAudienceEn : (currentCourse.targetAudience || [])).map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <span className={`font-bold ${themeAccentText}`}>•</span>
+                    <span className="leading-snug">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
+
           </div>
 
-          {/* Pricing & Deposit Card (Sidebar) */}
-          <div className="lg:col-span-4 reveal-right">
-            <div className={`p-6 shadow-xl sticky top-24 space-y-6 ${
+          {/* Right Column: Pricing & Tuition Card (lg:col-span-5) */}
+          <div className="lg:col-span-5 reveal-right">
+            <div className={`p-6 shadow-xl space-y-6 ${
               theme === 'nordic' ? 'rounded-none border-2 border-black dark:border-white bg-white dark:bg-zinc-950 font-mono' :
               theme === 'sunset' ? 'rounded-3xl border border-rose-200 bg-white shadow-rose-500/10' :
               theme === 'vintage' ? 'rounded-lg border-2 border-[#1b4d3e] bg-[#faf6f0] font-serif' :
               theme === 'roastery' ? 'rounded-xl border border-cyan-500/50 bg-[#0b1324] shadow-[0_0_30px_rgba(2,132,199,0.25)] font-mono' :
-              'bg-white dark:bg-[#1e293b] border-2 border-[#2076bd] dark:border-[#3ba0e6] rounded-xl'
+              'bg-white dark:bg-[#1e293b] border-2 border-[#2076bd] dark:border-[#3ba0e6] rounded-2xl'
             }`}>
               
               <div className="text-center border-b border-gray-100 dark:border-slate-800 pb-4">
                 <span className="text-xs text-gray-400 dark:text-gray-500 uppercase font-oswald">{t('academy.tuition_full')}</span>
-                <div className={`text-3xl font-bold my-1 ${
+                <div className={`text-3xl sm:text-4xl font-bold my-1 ${
                   theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
                   theme === 'sunset' ? 'font-oswald bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent' :
                   theme === 'roastery' ? 'font-oswald text-[#38bdf8] drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]' :
@@ -888,7 +705,7 @@ export const Academy: React.FC = () => {
                 theme === 'sunset' ? 'rounded-2xl bg-rose-50 border border-rose-200' :
                 theme === 'vintage' ? 'rounded bg-[#f2ebe0] border border-[#e6ded1]' :
                 theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 border border-cyan-500/30' :
-                'rounded bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-blue-900 dark:text-blue-200'
+                'rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 text-blue-900 dark:text-blue-200'
               }`}>
                 <p className={`font-bold flex items-center gap-1.5 ${themeAccentText}`}>
                   <Gift size={14} className={themeAccentText} />
@@ -898,12 +715,12 @@ export const Academy: React.FC = () => {
               </div>
 
               {/* Training Guarantees & Quality Commitment */}
-              <div className={`p-3 text-xs space-y-2 border ${
+              <div className={`p-3.5 text-xs space-y-2 border ${
                 theme === 'nordic' ? 'rounded-none bg-zinc-50 dark:bg-zinc-900 border-zinc-900' :
                 theme === 'sunset' ? 'rounded-2xl bg-orange-50/60 border-orange-200' :
-                theme === 'vintage' ? 'rounded bg-[#f7f2ea] border-[#e6ded1]' :
+                theme === 'vintage' ? 'rounded-lg bg-[#f7f2ea] border-[#e6ded1]' :
                 theme === 'roastery' ? 'rounded-lg bg-cyan-950/40 border-cyan-500/20 text-slate-300' :
-                'rounded-lg bg-gray-50 dark:bg-slate-800/80 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300'
+                'rounded-xl bg-gray-50 dark:bg-slate-800/80 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300'
               }`}>
                 <p className={`font-bold flex items-center gap-1.5 ${themeAccentText}`}>
                   <ShieldCheck size={14} className={themeAccentText} />
@@ -927,12 +744,12 @@ export const Academy: React.FC = () => {
 
               <button
                 onClick={() => setEnrollingCourse(currentCourse)}
-                className={`w-full py-3.5 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow flex items-center justify-center gap-2 hover-lift ${
+                className={`w-full py-3.5 font-oswald text-sm uppercase tracking-wider font-extrabold transition-colors shadow-md flex items-center justify-center gap-2 hover-lift cursor-pointer ${
                   theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
                   theme === 'sunset' ? 'rounded-full bg-gradient-to-r from-rose-500 to-[#ff7a00] hover:from-rose-600 hover:to-[#ea580c] text-white shadow-rose-500/25' :
                   theme === 'vintage' ? 'rounded-md bg-[#c05621] text-white hover:bg-[#a04618]' :
                   theme === 'roastery' ? 'rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_20px_rgba(6,182,212,0.5)]' :
-                  'rounded bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950'
+                  'rounded-xl bg-[#FAEA28] hover:bg-[#D4C618] text-slate-950'
                 }`}
               >
                 <QrCode size={16} />
@@ -940,11 +757,226 @@ export const Academy: React.FC = () => {
               </button>
 
               <div className="text-center text-[11px] text-gray-400 dark:text-gray-500">
-                {language === 'vi' ? 'Hỗ trợ tư vấn trực tiếp:' : 'Direct Consultation Hotline:'} <a href="tel:0938084985" className={`font-semibold ${themeAccentText}`}>{brandInfo.hotline}</a>
+                {language === 'vi' ? 'Hỗ trợ tư vấn trực tiếp:' : 'Direct Consultation Hotline:'} <a href={`tel:${brandInfo.hotline.replace(/\s+/g, '')}`} className={`font-semibold ${themeAccentText}`}>{brandInfo.hotline}</a>
               </div>
             </div>
           </div>
 
+        </div>
+
+        {/* =========================================================================
+            DEDICATED FULL-WIDTH SYLLABUS SECTION: 2-COLUMN BALANCED GRID
+            (Completely eliminates the empty blank space on the right!)
+            ========================================================================= */}
+        <div className="pt-8 border-t border-gray-100 dark:border-slate-800 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <div>
+              <span className={`text-[11px] font-bold uppercase tracking-widest ${themeAccentText}`}>
+                {language === 'vi' ? 'LỘ TRÌNH ĐÀO TẠO TẠI QUẦY BAR THỰC TẾ' : 'LIVE ON-BAR TRAINING CURRICULUM'}
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold uppercase font-oswald text-gray-900 dark:text-white mt-1">
+                {language === 'vi' 
+                  ? `GIÁO TRÌNH ${currentCourse.syllabus.length} BUỔI THỰC CHIẾN CHUYÊN SÂU` 
+                  : `${currentCourse.syllabus.length}-SESSION HANDS-ON MASTER CURRICULUM`}
+              </h3>
+            </div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+              <span>{currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'} • {language === 'vi' ? 'Thực hành 100% tại quầy' : '100% On-bar practice'}</span>
+            </div>
+          </div>
+
+          {/* 2-Column Balanced Syllabus Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {currentCourse.syllabus.map((session, sIndex) => {
+              const sessionEn = (currentCourse.syllabusEn && currentCourse.syllabusEn[sIndex]) ? currentCourse.syllabusEn[sIndex] : null;
+              const title = (language === 'en' && sessionEn) ? sessionEn.title : (language === 'en' && session.titleEn ? session.titleEn : session.title);
+              const description = (language === 'en' && sessionEn) ? sessionEn.description : (language === 'en' && session.descriptionEn ? session.descriptionEn : session.description);
+              const skills = (language === 'en' && sessionEn && sessionEn.practicalSkills) ? sessionEn.practicalSkills : ((language === 'en' && session.practicalSkillsEn) ? session.practicalSkillsEn : (session.practicalSkills || []));
+
+              return (
+                <div
+                  key={session.session}
+                  className={`p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg ${
+                    theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+                    theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-md hover:border-rose-300' :
+                    theme === 'vintage' ? 'rounded-xl border-2 border-[#e6ded1] bg-[#faf6f0] font-serif shadow-xs hover:border-[#1b4d3e]/50' :
+                    theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)] hover:border-cyan-400' :
+                    theme === 'dark' ? 'rounded-2xl border border-slate-800 bg-[#0b1329] shadow-md hover:border-[#38bdf8]/50' :
+                    'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:border-blue-400'
+                  }`}
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className={`px-2.5 py-0.5 text-xs font-bold font-oswald uppercase tracking-wider rounded ${
+                        theme === 'nordic' ? 'bg-black text-white dark:bg-white dark:text-black font-mono rounded-none' :
+                        theme === 'sunset' ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-full' :
+                        theme === 'vintage' ? 'bg-[#1b4d3e] text-white font-serif rounded-md' :
+                        theme === 'roastery' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/40 rounded-lg' :
+                        theme === 'dark' ? 'bg-blue-950/80 text-[#38bdf8] border border-blue-500/30 font-oswald' :
+                        'bg-[#2076bd] text-white font-oswald'
+                      }`}>
+                        {language === 'vi' ? `Buổi ${session.session}` : `Session ${session.session}`}
+                      </span>
+                      <span className="text-[11px] text-gray-500 dark:text-gray-400 font-oswald font-medium">
+                        {currentCourse.hoursPerSession}h / {language === 'vi' ? 'buổi' : 'session'}
+                      </span>
+                    </div>
+
+                    <h4 className={`text-base font-bold uppercase text-[#222222] dark:text-white leading-snug ${
+                      theme === 'vintage' ? 'font-serif' : 'font-oswald'
+                    }`}>
+                      {title}
+                    </h4>
+
+                    <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 mt-4 border-t border-gray-100 dark:border-slate-800/80 space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block">
+                      {language === 'vi' ? 'Kỹ năng thực hành trọng tâm:' : 'Key Practical Focus:'}
+                    </span>
+                    <div className="space-y-1 text-xs text-gray-700 dark:text-gray-300">
+                      {skills.map((skill, si) => (
+                        <div key={si} className="flex items-start gap-2">
+                          <CheckCircle2 size={13} className={`shrink-0 mt-0.5 ${themeAccentText}`} />
+                          <span className="leading-snug">{skill}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          3. MASTER TRAINERS & GRAND FINAL JUDGES (PLACED AFTER COURSES & CURRICULUM)
+          ========================================================================= */}
+      <section id="trainers-section" className={`py-12 sm:py-16 border-y transition-colors select-none ${
+        theme === 'nordic' ? 'bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800' :
+        theme === 'vintage' ? 'bg-[#f7f2ea] border-[#e6ded1]' :
+        theme === 'roastery' ? 'bg-[#060a14] border-cyan-500/20' :
+        theme === 'sunset' ? 'bg-gradient-to-b from-[#fff1f2]/50 via-white to-transparent border-rose-100' :
+        theme === 'dark' ? 'bg-[#0b1329]/70 border-slate-800' :
+        'bg-slate-50/80 dark:bg-slate-900/50 border-gray-100 dark:border-slate-800'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="text-center space-y-3 reveal-on-scroll">
+            <div>
+              <span className={`inline-block text-xs uppercase tracking-widest font-bold ${
+                theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                theme === 'sunset' ? 'font-oswald text-rose-600' :
+                theme === 'roastery' ? 'font-mono text-cyan-400' :
+                theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
+                'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+              }`}>
+                {t('academy.trainers_tag')}
+              </span>
+            </div>
+            <div>
+              <h2 className="section-title">
+                {t('academy.trainers_title')}
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              {t('academy.trainers_sub')}
+            </p>
+          </div>
+
+          {/* 4 Trainers Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
+            {trainersData.map((trainer) => {
+              const name = language === 'en' && trainer.nameEn ? trainer.nameEn : trainer.name;
+              const role = language === 'en' && trainer.roleEn ? trainer.roleEn : trainer.role;
+              const badge = language === 'en' && trainer.badgeEn ? trainer.badgeEn : trainer.badge;
+              const experience = language === 'en' && trainer.experienceEn ? trainer.experienceEn : trainer.experience;
+
+              return (
+                <div
+                  key={trainer.id}
+                  onClick={() => handleOpenTrainer(trainer)}
+                  className={`group cursor-pointer overflow-hidden transition-all duration-300 flex flex-col justify-between hover-lift ${
+                    theme === 'nordic' ? 'rounded-none border-2 border-zinc-900 dark:border-zinc-200 bg-white dark:bg-zinc-950 font-mono' :
+                    theme === 'sunset' ? 'rounded-3xl border border-rose-100 bg-white shadow-xl shadow-rose-500/5' :
+                    theme === 'vintage' ? 'rounded-lg border-2 border-[#e6ded1] bg-[#faf6f0] font-serif' :
+                    theme === 'roastery' ? 'rounded-xl border border-cyan-500/40 bg-[#0b1324] font-mono shadow-[0_0_20px_rgba(2,132,199,0.15)]' :
+                    theme === 'dark' ? 'rounded-2xl border border-slate-800 bg-[#0b1329] shadow-lg hover:border-[#38bdf8]/50' :
+                    'rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] shadow-sm hover:shadow-xl hover:border-blue-400'
+                  }`}
+                >
+                  <div>
+                    {/* Poster Image Container */}
+                    <div className="relative aspect-[4/5] overflow-hidden bg-slate-950">
+                      <img
+                        src={trainer.image}
+                        alt={`${name} - ${role}`}
+                        className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                      />
+                    </div>
+
+                    {/* Body Content */}
+                    <div className="p-4 space-y-2">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className={`font-bold uppercase tracking-wider ${
+                          theme === 'dark' ? 'text-[#38bdf8]' :
+                          theme === 'roastery' ? 'text-cyan-400' :
+                          theme === 'vintage' ? 'text-[#1b4d3e]' :
+                          theme === 'sunset' ? 'text-rose-600' :
+                          'text-[#2076bd] dark:text-[#3ba0e6]'
+                        }`}>
+                          {badge}
+                        </span>
+                        <span className="text-gray-400 text-[11px] font-medium">
+                          {experience}
+                        </span>
+                      </div>
+
+                      <h3 className={`text-lg font-bold uppercase tracking-wide leading-tight ${
+                        theme === 'vintage' ? 'font-serif text-[#1b4d3e]' :
+                        theme === 'sunset' ? 'font-oswald text-rose-600' :
+                        theme === 'roastery' ? 'font-mono text-cyan-300' :
+                        theme === 'nordic' ? 'font-mono text-black dark:text-white' :
+                        theme === 'dark' ? 'font-oswald text-[#38bdf8]' :
+                        'font-oswald text-[#2076bd] dark:text-[#3ba0e6]'
+                      }`}>
+                        {name}
+                      </h3>
+
+                      <p className="text-xs text-gray-600 dark:text-gray-300 font-medium line-clamp-1">
+                        {role}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Footer Action Button */}
+                  <div className="p-4 pt-0">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleOpenTrainer(trainer);
+                      }}
+                      className={`w-full py-2 px-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all rounded-lg cursor-pointer ${
+                        theme === 'nordic' ? 'rounded-none bg-black text-white hover:bg-[#ff3b00]' :
+                        theme === 'sunset' ? 'rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100' :
+                        theme === 'vintage' ? 'rounded bg-[#f2ebe0] text-[#1b4d3e] hover:bg-[#1b4d3e] hover:text-white' :
+                        theme === 'roastery' ? 'rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500 hover:text-black' :
+                        theme === 'dark' ? 'bg-blue-950/60 text-[#38bdf8] border border-blue-500/30 hover:bg-[#38bdf8] hover:text-slate-950' :
+                        'bg-blue-50 dark:bg-slate-800 text-[#2076bd] dark:text-[#3ba0e6] hover:bg-[#2076bd] hover:text-white'
+                      }`}
+                    >
+                      <span>{t('academy.view_profile')}</span>
+                      <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

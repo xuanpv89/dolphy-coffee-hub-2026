@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle2, ChevronLeft, ChevronRight, GraduationCap, PhoneCall, Award } from 'lucide-react';
 import { Trainer, Course } from '../types';
 import { coursesData, brandInfo } from '../data/dolphyData';
@@ -21,9 +22,12 @@ export const TrainerProfileModal: React.FC<TrainerProfileModalProps> = ({
 }) => {
   const { language, theme, t } = useDolphy();
 
-  // Close on Escape key & arrow key navigation
+  // Lock body scroll & handle keyboard shortcuts (Escape, Arrows)
   useEffect(() => {
     if (!trainer) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -40,7 +44,10 @@ export const TrainerProfileModal: React.FC<TrainerProfileModalProps> = ({
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [trainer, allTrainers, onClose, onSelectTrainer]);
 
   if (!trainer) return null;
@@ -85,17 +92,19 @@ export const TrainerProfileModal: React.FC<TrainerProfileModalProps> = ({
     theme === 'dark' ? 'bg-[#2076bd] hover:bg-[#165b94] text-white rounded-xl shadow-lg' :
     'bg-[#2076bd] hover:bg-[#165b94] text-white rounded-xl shadow-lg';
 
-  return (
+  // Mount to document.body via Portal to guarantee escape from any parent stacking contexts
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/75 backdrop-blur-sm overflow-y-auto"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto"
       onClick={onClose}
+      style={{ isolation: 'isolate' }}
     >
       <div
-        className={`relative w-full max-w-3xl overflow-hidden transition-all my-auto ${modalBoxClass}`}
+        className={`relative w-full max-w-3xl overflow-hidden transition-all my-auto shadow-2xl ${modalBoxClass}`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Clean, Non-intrusive Top Bar */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 dark:border-slate-800/80 bg-gray-50/50 dark:bg-slate-900/40">
+        {/* Clean, Non-intrusive Top Bar - 100% visible & unclipped */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 dark:border-slate-800/80 bg-gray-50/70 dark:bg-slate-900/60 sticky top-0 z-10">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
             <span>{language === 'vi' ? 'Hồ sơ Giảng viên' : 'Trainer Profile'}</span>
             <span>•</span>
@@ -125,7 +134,7 @@ export const TrainerProfileModal: React.FC<TrainerProfileModalProps> = ({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-800 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+              className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-800 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors ml-1"
               title="Close (Esc)"
             >
               <X size={20} />
@@ -134,7 +143,7 @@ export const TrainerProfileModal: React.FC<TrainerProfileModalProps> = ({
         </div>
 
         {/* Modal Main Body: 2 Clean Columns */}
-        <div className="p-5 sm:p-7">
+        <div className="p-5 sm:p-7 max-h-[82vh] overflow-y-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             
             {/* Left Column: Pure Poster Artwork (NO floating badges covering it!) */}
@@ -238,6 +247,7 @@ export const TrainerProfileModal: React.FC<TrainerProfileModalProps> = ({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
